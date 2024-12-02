@@ -2,3 +2,42 @@
 title: Deploying a Subnet
 description: Learn how to deploy a subnet on the Torus Network.
 ---
+
+import { LinkCard, CardGrid, Aside } from "@astrojs/starlight/components";
+
+#### First follow the guides at:
+
+<CardGrid>
+  <LinkCard title="Building a Subnet" href="/docs/subnets/building-a-subnet" />
+  <LinkCard title="Subnet Template" href="/docs/subnets/subnet-template" />
+</CardGrid>
+
+## Registering a New Subnet
+
+After you have your full subnet code ready, according to all of the predefined requirements.
+Proceed with registering a new subnet storage.
+
+You can register a new subnet by proceeding with the following command:
+
+```bash
+tor subnet register <key-name> <subnet-name>  [--metadata]
+```
+
+<Aside type="caution">
+  You will be asked to pay a subnet burn fee, these tokens will be permanently
+  lost. To determine the cost beforehand, you can query:
+
+```bash
+tor subnet params
+```
+
+and look for the `_subnet_registration_cost_` field.
+
+</Aside>
+
+After you registered your subnet, you are still not eligible for an emission distribution.
+For **emissions** to start your subnet there will need to be enough consensus weight set on it by rootnet validators.
+
+```
+
+```

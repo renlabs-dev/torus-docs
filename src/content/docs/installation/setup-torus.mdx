@@ -5,7 +5,7 @@ description: Learn how to setup the torus-cli.
 
 import { Tabs, TabItem, Aside } from "@astrojs/starlight/components";
 
-### Installation
+## Installation
 
 <Tabs>
 
@@ -36,7 +36,7 @@ import { Tabs, TabItem, Aside } from "@astrojs/starlight/components";
 
 </Tabs>
 
-### Features
+## Features
 
 **`torus-cli`** offers a variety of features for token management and module interaction:
 
@@ -47,7 +47,7 @@ import { Tabs, TabItem, Aside } from "@astrojs/starlight/components";
 - Client-server interactions for module management
 - Participation in governance processes
 
-### CLI Usage
+## CLI Usage
 
 The **`torus-cli`** CLI is structured as follows:
 
@@ -68,22 +68,22 @@ tor [OPTIONS] COMMAND [ARGS]
 tor subcommand [OPTIONS] COMMAND [ARGS]...
 ```
 
-### Examples
+## Examples
 
-##### Retrieving Balance
+### Retrieving Balance
 
 ```sh
 # Show staked, free and total balance.
 tor balance show 5FgfC2DY4yreEWEughz46RZYQ8oBhHVqD9fVq6gV89E6z4Ea
 ```
 
-##### Creating a Key
+### Creating a Key
 
 ```sh
 tor key create key_name
 ```
 
-##### Retrieving Key Info
+### Retrieving Key Info
 
 ```sh
 tor key show key_name
@@ -92,47 +92,47 @@ tor key show key_name
 tor key show key_name --show-private
 ```
 
-##### Listing Keys
+### Listing Keys
 
 ```sh
 # Lists the names and addresses of keys stored on disk.
 tor key list
 ```
 
-##### List Keys With Balances
+### List Keys With Balances
 
 ```sh
 # Lists keys stored on disk with their balance (free, staked and total).
 tor key balances
 ```
 
-##### Retrieving Module Information
+### Retrieving Module Information
 
 ```sh
 # Note that the module has to be registered on the network.
 tor module info vali::calc [--balance]
 ```
 
-##### Retrieving Global Parameters
+### Retrieving Global Parameters
 
 ```sh
 tor network params
 ```
 
-##### Retrieving Subnet Parameters
+### Retrieving Subnet Parameters
 
 ```sh
 tor subnet list
 ```
 
-##### Retrieving Circulating Supply
+### Retrieving Circulating Supply
 
 ```sh
 # Gets all tokens then were ever emitted minus burned tokens.
 tor misc circulating-supply
 ```
 
-### Completions
+## Completions
 
 You can enable completions for your shell by running:
 
@@ -143,7 +143,7 @@ tor --install-completion bash
 tor --install-completion zsh
 ```
 
-### Contributing
+## Contributing
 
 Bug reports and pull requests and other forms of contribution are welcomed and
 encouraged! :)
@@ -161,7 +161,7 @@ poetry install --with dev
 
 it can [require some environment-specific binaries to be installed][ruff-installation]
 
-### Torus compatibility
+## Torus compatibility
 
 Yes, **`torus-cli`** is compatible with the **Torus** library/CLI. However, there are
 important considerations to note. **`torus-cli`** verifies the integrity of your

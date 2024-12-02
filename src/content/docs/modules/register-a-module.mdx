@@ -11,7 +11,7 @@ make sure that you [served](/docs/mining/run-miner) it beforehand or no validato
 ### Registering Through CLI
 
 ```bash
-comx module register <module_name> <module_key> [--ip <integer>] [--port <integer>] [--netuid <integer>] [--stake <float>] [--metadata <text>] [--new-subnet-name]
+tor module register <module_name> <module_key> [--ip <integer>] [--port <integer>] [--netuid <integer>] [--stake <float>] [--metadata <text>] [--new-subnet-name]
 ```
 
 Note that there's a **`burn`** for registration, and this is dynamic. You'll be informed the amount when you try to register
@@ -24,5 +24,5 @@ of the subnet you're being registered. You can use **`--new-subnet-name`** if yo
 If you are not satisfied with any parameter on your module, you can update it:
 
 ```bash
-comx module update <key-name> <netuid> [--name] [--ip] [--port] [--delegation-fee] [--metadata]
+tor module update <key-name> <netuid> [--name] [--ip] [--port] [--delegation-fee] [--metadata]
 ```

@@ -69,6 +69,14 @@ export default defineConfig({
             { label: "Root Subnet", slug: "subnets/root-subnet" },
           ],
         },
+        {
+          label: "Mining",
+          items: [
+            { label: "What is mining", slug: "miner/what-is-mining" },
+            { label: "Create a Miner", slug: "miner/create-a-miner" },
+            { label: "Run a miner", slug: "miner/run-a-miner" },
+          ],
+        },
       ],
       editLink: {
         baseUrl: "https://github.com/renlabs-dev/torus-docs/edit/main/docs/",
