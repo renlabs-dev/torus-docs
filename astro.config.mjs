@@ -70,11 +70,53 @@ export default defineConfig({
           ],
         },
         {
+          label: "Working with Keys",
+          items: [
+            { label: "Key Basics", slug: "keys/key-basics" },
+            {
+              label: "Balance Operations",
+              slug: "keys/balance-operations",
+            },
+          ],
+        },
+        {
           label: "Mining",
           items: [
-            { label: "What is mining", slug: "miner/what-is-mining" },
-            { label: "Create a Miner", slug: "miner/create-a-miner" },
-            { label: "Run a miner", slug: "miner/run-a-miner" },
+            { label: "What is mining", slug: "mining/what-is-mining" },
+            { label: "Create a Miner", slug: "mining/create-a-miner" },
+            { label: "Run a miner", slug: "mining/run-a-miner" },
+          ],
+        },
+        {
+          label: "Validating",
+          items: [
+            {
+              label: "What is validating",
+              slug: "validating/what-is-validating",
+            },
+            {
+              label: "Create a Validator",
+              slug: "validating/create-a-validator",
+            },
+            { label: "Run a Validator", slug: "validating/run-a-validator" },
+          ],
+        },
+        {
+          label: "Subspace",
+          items: [
+            { label: "Torus Blockchain", slug: "subspace/torus-blockchain" },
+            { label: "Global Parameters", slug: "subspace/global-parameters" },
+            { label: "Yuma Consensus", slug: "subspace/yuma-consensus" },
+            { label: "Testnet", slug: "subspace/testnet" },
+            { label: "EVM", slug: "subspace/evm" },
+            {
+              label: "Running a Local Node",
+              slug: "subspace/running-a-local-node",
+            },
+            {
+              label: "Running a Private Chain",
+              slug: "subspace/running-a-private-chain",
+            },
           ],
         },
       ],

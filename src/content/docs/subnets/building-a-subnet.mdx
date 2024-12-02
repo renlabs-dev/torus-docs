@@ -5,16 +5,15 @@ description: Learn how to build a subnet on the Torus Network and earn rewards b
 
 import { LinkCard, Aside, Card } from "@astrojs/starlight/components";
 
-## [What are Subnets?](/docs/subnets/what-is-a-subnet)
+## [What are Subnets?](/subnets/what-is-a-subnet)
 
 Building a subnet on Torus means defining a desired output and building a validation and scoring system around it to align miner incentives towards an efficient competition of producing the desired output.
 
 This document will give a overview of everything you should consider when building a subnet.
 
 <Aside type="tip">
-  First, you should be familiar with [Yuma
-  Consensus](/docs/subspace/yuma-consensus) that runs on all subnets except
-  Subnet 0.
+  First, you should be familiar with [Yuma Consensus](/subspace/yuma-consensus)
+  that runs on all subnets except Subnet 0.
 </Aside>
 
 #### On a technical level, you have to define 4 core things:
@@ -28,7 +27,7 @@ This document will give a overview of everything you should consider when buildi
 
 Validators are the most important and difficult component. Incentives are the fundamental product of your subnet, and they are defined by the validator.
 
-Learn more about what validating means see [here!](/docs/validating/what-is-validating)
+Learn more about what validating means see [here!](/validating/what-is-validating)
 
 When designing incentives through validation, there are several things to consider:
 
@@ -41,10 +40,10 @@ When designing incentives through validation, there are several things to consid
 </Card>
 <Card title="Sensitive scoring" icon="information">
   Validators score the value of miners to produce granular
-  [weights](/docs/concepts/weight-system) of their value. Your scoring should
-  capture the differences in value between different miner outputs as
-  sensitively as possible. The more sensitive, the more incentive for miners to
-  care about quality and its details.
+  [weights](/concepts/weight-system) of their value. Your scoring should capture
+  the differences in value between different miner outputs as sensitively as
+  possible. The more sensitive, the more incentive for miners to care about
+  quality and its details.
 </Card>
 <Card
   title="Cost of validating a output has to be below the miners cost of producing it"
@@ -74,13 +73,13 @@ When designing incentives through validation, there are several things to consid
 
 Miners are usually less complicated than validators, most of their logic is up for the miners to optimize. You have to provide a base template that your miners will modify and improve upon in the quest of maximizing their rewards.
 
-Learn more what mining means see [here!](/docs/mining/what-is-mining)
+Learn more what mining means see [here!](ocs/mining/what-is-mining)
 
 ### Subnet Parameters
 
-Subnet Parameters provide you a set of configurable constraints that you can adapt based on your validation design choices and needs on the fly. However, you have to move within the constraints of [Global Parameters](/docs/subspace/global-parameters).
+Subnet Parameters provide you a set of configurable constraints that you can adapt based on your validation design choices and needs on the fly. However, you have to move within the constraints of [Global Parameters](/subspace/global-parameters).
 
-Learn more about what Subnet Parameters exist [here!](/docs/subnets/subnet-parameters)
+Learn more about what Subnet Parameters exist [here!](/subnets/subnet-parameters)
 
 ### Networking
 
@@ -90,7 +89,7 @@ Validators and miners are both endpoints communicating with one another. Usually
 
 <LinkCard
   title="Subnet Template"
-  href="/docs/subnets/subnet-template"
+  href="/subnets/subnet-template"
   description="See an example of how to structure your subnet code."
 />
 
@@ -100,9 +99,9 @@ This subnet code template serves as a starting point for your development journe
   There are many creative ways of building a subnet and this template is just
   the most basic form. Allow yourself to think freely and out of conventions.
   Fundamentally you just have validators calculating the
-  [weights](/docs/concepts/weight-system) of miners based on [Yuma
-  Consensus](/docs/subspace/yuma-consensus). Everything else is wide open for
-  you to innovate in unexpected ways!
+  [weights](/concepts/weight-system) of miners based on [Yuma
+  Consensus](/subspace/yuma-consensus). Everything else is wide open for you to
+  innovate in unexpected ways!
 </Aside>
 
 ## Strategically consider these things
@@ -129,7 +128,7 @@ If you tackle all these factors competently while having a strong subnet mechani
 
 Initially you should deploy to testnet and ensure all components and their edge-cases are working like expected.
 
-Once you are ready to deploy to Mainnet, follow these directions on [how to deploy a subnet](/docs/subnets/deploying-a-subnet).
+Once you are ready to deploy to Mainnet, follow these directions on [how to deploy a subnet](/subnets/deploying-a-subnet).
 
 For emission production to start, you will have to get above the 5% Subnet Stake Threshold level. Communicating about your subnet with the Community will be key to achieve this.
 

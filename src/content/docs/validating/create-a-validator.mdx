@@ -1,0 +1,22 @@
+---
+title: Create a Validator
+description: Learn how to create a validator on the Torus Network.
+---
+
+## With the torus-cli
+
+You can use the [torus-cli.module.client.ModuleClient](https://docs.torus.network/todo) to request miners.
+You can then score their answers according to the validation mechanism of the subnet
+and use [torus-cli.client.vote](https://docs.torus.network/todo) to cast a vote and set weights into it.
+
+Note that each subnet specifies a set of
+parameters that can change what is considered a valid vote or not. If you need to consult the parameters of the specific
+subnet in which you want to run your validator, you can use the command:
+
+```sh
+comx subnet info <netuid>
+```
+
+## On your own
+
+If you want to implement your own client, the specifications are described on [Module Connect](/modules/connect-to-a-module).

@@ -1,0 +1,69 @@
+---
+title: Running a Local Subspace Chain
+description: Subspace allows you to run a private chain for your organization or project. This guide will walk you through the process of setting up a private chain.
+---
+
+import { Aside, Steps } from "@astrojs/starlight/components";
+
+This guide explains how to set up and run a local Subspace blockchain node, noting that its storage may differ slightly from the mainnet.
+
+<Aside title="Must Have">
+
+    - Git
+    - Rust and Cargo (latest stable version)
+
+</Aside>
+
+## Steps
+
+<Steps>
+
+     1. ### Clone the Repository
+
+        First, clone the Subspace blockchain node repository:
+
+        ```sh
+        git clone https://github.com/renlabs/torus-blockchain
+        cd subspace
+        ```
+
+    2. ### Build the Project
+
+        Compile the project using Cargo:
+
+        ```sh
+        cargo build --release
+        ```
+
+        Optional: If you want to include the testnet faucet, use:
+
+        ```sh
+        cargo build --release --features testnet-faucet
+        ```
+
+    3. ### Run the Node
+
+        Start your local node:
+
+        ```sh
+        cargo xtask run --alice
+        ```
+
+        You can also run a second node with:
+
+        ```sh
+        cargo xtask run --bob
+        ```
+
+    4. ### Connect to Your Node
+
+        Once the node is running, you can connect to it at:
+
+        `ws://localhost:9951`
+
+</Steps>
+
+## Additional Information
+
+- The `--alice` and `--bob` flags are used to run predefined validator nodes.
+- You can customize your node's configuration by modifying the appropriate files in the project.
