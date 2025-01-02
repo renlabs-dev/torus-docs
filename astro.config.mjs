@@ -36,37 +36,19 @@ export default defineConfig({
         {
           label: "Installation",
           items: [
-            { label: "Setup Torus", slug: "installation/setup-torus" },
+            { label: "Setup Torus CLI", slug: "installation/setup-torus-cli" },
             { label: "Setup Wallet", slug: "installation/setup-wallet" },
           ],
         },
         {
-          label: "Modules",
+          label: "Agents",
           items: [
-            { label: "What is a Module", slug: "modules/what-is-a-module" },
-            { label: "Register a Module", slug: "modules/register-a-module" },
+            { label: "What is a Agent", slug: "agents/what-is-a-agent" },
+            { label: "Register a Agent", slug: "agents/register-a-agent" },
             {
-              label: "Connect to a Module",
-              slug: "modules/connect-to-a-module",
+              label: "Connect to a Agent",
+              slug: "agents/connect-to-a-agent",
             },
-          ],
-        },
-        {
-          label: "Subnets",
-          items: [
-            { label: "What is a Subnet", slug: "subnets/what-is-a-subnet" },
-            {
-              label: "Participating on a Subnet",
-              slug: "subnets/participating-on-a-subnet",
-            },
-            { label: "Building a Subnet", slug: "subnets/building-a-subnet" },
-            { label: "Subnet Template", slug: "subnets/subnet-template" },
-            { label: "Deploying a Subnet", slug: "subnets/deploying-a-subnet" },
-            { label: "Subnet Parameters", slug: "subnets/subnet-parameters" },
-            { label: "General Subnet", slug: "subnets/general-subnet" },
-            { label: "General Subnet DAO", slug: "subnets/general-subnet-dao" },
-            { label: "Yuma Subnets", slug: "subnets/yuma-subnets" },
-            { label: "Root Subnet", slug: "subnets/root-subnet" },
           ],
         },
         {
@@ -77,28 +59,6 @@ export default defineConfig({
               label: "Balance Operations",
               slug: "keys/balance-operations",
             },
-          ],
-        },
-        {
-          label: "Mining",
-          items: [
-            { label: "What is mining", slug: "mining/what-is-mining" },
-            { label: "Create a Miner", slug: "mining/create-a-miner" },
-            { label: "Run a miner", slug: "mining/run-a-miner" },
-          ],
-        },
-        {
-          label: "Validating",
-          items: [
-            {
-              label: "What is validating",
-              slug: "validating/what-is-validating",
-            },
-            {
-              label: "Create a Validator",
-              slug: "validating/create-a-validator",
-            },
-            { label: "Run a Validator", slug: "validating/run-a-validator" },
           ],
         },
         {

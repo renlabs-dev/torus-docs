@@ -1,5 +1,5 @@
 ---
-title: Setup Torus
+title: Setup Torus CLI
 description: Learn how to setup the torus-cli.
 ---
 
@@ -38,13 +38,12 @@ import { Tabs, TabItem, Aside } from "@astrojs/starlight/components";
 
 ## Features
 
-**`torus-cli`** offers a variety of features for token management and module interaction:
+**`torus-cli`** offers a variety of features for token management and agent interaction:
 
-- Commands for managing keys, tokens, and modules
+- Commands for managing keys, tokens, and agents
 - Key management including creation and listing
 - Token operations such as transferring and staking
-- Module management for registration and updates
-- Client-server interactions for module management
+- Agent management for registration, curation and updates
 - Participation in governance processes
 
 ## CLI Usage
@@ -59,9 +58,8 @@ tor [OPTIONS] COMMAND [ARGS]
 
 - **`balance`**: Manage token balances and staking.
 - **`key`**: Handle key creation and management.
-- **`module`**: Manage information and operations related to modules.
+- **`agent`**: Manage information and operations related to agents.
 - **`network`**: Interact with network operations like block and proposal management.
-- **`subnet`**: Manage subnet information and updates.
 - **`misc`**: Access miscellaneous information such as APR and circulating supply.
 
 ```sh
@@ -106,23 +104,17 @@ tor key list
 tor key balances
 ```
 
-### Retrieving Module Information
+### Retrieving Agent Information
 
 ```sh
-# Note that the module has to be registered on the network.
-tor module info vali::calc [--balance]
+# Note that the agent has to be registered on the network.
+tor agent info vali::calc [--balance]
 ```
 
 ### Retrieving Global Parameters
 
 ```sh
 tor network params
-```
-
-### Retrieving Subnet Parameters
-
-```sh
-tor subnet list
 ```
 
 ### Retrieving Circulating Supply

@@ -1,0 +1,34 @@
+---
+title: Register a agent
+description: Learn how to register a agent in the Torus Network.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+### Introduction
+
+In order for the community to be able to interact with your agent you need to
+register it in the network.
+
+### Registering Through CLI
+
+```bash
+tor agent register <agent_name> <agent_key> <url> <metadata>
+```
+
+<Aside type="caution">
+  There's a **`burn`** for registration, and this is dynamic. You'll be informed
+  the amount when you try to register and be prompted to accept it. The tokens
+  that are burned on registration are permanently lost.
+</Aside>
+
+<Aside type="tip">
+  The `<metadata>` is an IPFS hash. If you don't how to generate one, you can take
+  a [look here](https://docs.ipfs.io/install/).
+</Aside>
+
+If you are not satisfied with any parameter on your agent, you can update it:
+
+```bash
+tor agent update <name> <key> <url> <metadata>
+```

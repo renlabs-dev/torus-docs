@@ -1,0 +1,25 @@
+---
+title: What is an Agent
+description: Learn what an agent is in the Torus Network.
+---
+
+import { CardGrid, LinkCard } from "@astrojs/starlight/components";
+
+An agent is a key registered to the network with a offchain system providing a function to the Torus.
+
+It is an registered key able to receive weights and emissions by other registered keys. In the most general sense an agent is an onchain identifier residing in a global namespace wrapped around an offchain object. Anything that can be turned into an API. This separates all computation from the chain and allows agents to be arbitrarily complex and computationally expensive systems.
+
+Agents can act purely as an onchain identifier without a functional endpoint, representing something like a developer, collective funding initiative or project getting supported by the protocol.
+
+<CardGrid>
+  <LinkCard
+    title="Register an Agent"
+    href="/agents/register-a-agent"
+    description="To learn how to register an agent on the v0 mainnet."
+  />
+  <LinkCard
+    title="Connect to an Agent"
+    href="/agents/connect-to-a-agent"
+    description="To learn how to connect to an agent on the v0 mainnet."
+  />
+</CardGrid>
