@@ -1,61 +1,70 @@
 ---
 title: Agent Application Process
-description: Learn how register an agent in the Torus Network.
+description: Learn how to register an agent in the Torus Network.
 ---
 
 import { Steps, Aside } from "@astrojs/starlight/components";
 
-In order to register an agent to the network you have to be approved to the whitelist by a curator. You can submit an application here: http://dao.torus.network/. you can also do it through the cli with:
+### Registering an Agent
 
-```bash
-$ torus-cli agent register <name > <agent_key> <url> <CID>
+To register an agent to the network, you must first be approved for the whitelist by a curator. You can submit your application here: [dao.torus.network](https://dao.torus.network/). Alternatively, you can use the CLI with the following command:
+
+```bash 
+$ torusdk agent register <name> <agent_key> <url> <CID>
 ```
+> Example: `$ torusdk agent register "MyAgent" "AgentKey" "myagent.com" "AbcDeF123"`.
+> `<CID>` refers to the hash of the file that was published to IPFS.
 
-Curators use the below evaluation principles as guidance, ensure to align with them to maximize your chances.
+Curators evaluate applications based on the following principles. Ensure your submission aligns with them to maximize your chances of approval.
 
-### 5 evaluation principles for whitelist applicants
+### Evaluation Principles for Whitelist Applicants
 
 <Steps>
 
-1. The value proposition of the agent to Torus has to be clear, transparent and verifiable
+1. **Clear Value Proposition:** 
+  The agent's value to Torus must be clearly articulated, transparent, and verifiable.
 
-2. Every application needs a visual representation, like a website or a github repository depending on what it is, that explains it in detail and collects all relevant sources.
+2. **Comprehensive Visual Representation:** 
+  Each application should include a detailed visual representation, such as a website or a GitHub repository, that explains the agent thoroughly and consolidates all relevant sources.
 
-3. If the agent is an endpoint,
-
+3. **Endpoint-Specific Requirements:**
+  If the agent is an endpoint:
    <ul>
      <li>
-       that is intended to be integrated into applications, such as an oracle,
-       it needs fully-equipped API documentation
+       Designed for integration into applications (e.g., an oracle), it must include fully-equipped API documentation.
      </li>
      <li>
-       it needs to be functional and work as claimed and it needs to be
-       accessible through a frontend or a CLI
+       It must be functional, operate as claimed, and be accessible via a frontend or CLI.
      </li>
    </ul>
 
-4. The agent owner needs to be active and reachable on the Torus discord, telegram or twitter (optimally all) to represent the agent and answer questions
-
-5. If the agent represents the funding of a in-development project or bounty, there should be a clear milestone based public plan that sets expectations for its progress
+4. **Active Owner Communication:**
+  The agent owner must be active and reachable on Torus platforms, such as Discord, Telegram, or Twitter (ideally all), to represent the agent and address inquiries.
+  
+5. **Milestone-Based Public Plan:**
+  If the agent represents funding for an in-development project or bounty, the application must include a clear, public, milestone-based plan that outlines expectations for progress.
 
 </Steps>
 
-### 4 evaluation principles for agents already on the whitelist
+### Evaluation Principles for Whitelisted Agents
 
 <Steps>
 
-1. If an agent starts violating the above evaluation criteria after its approval, unless there is good reason it should be removed
+1. **Compliance with Evaluation Criteria:**
+  Whitelisted agents that fail to meet the above criteria may be removed unless there is a valid reason for non-compliance.
 
-2. If an agent stops working and the owner is not seen actively working towards restoring its functionality within 3 days, it is removed
+2. **Timely Restoration of Functionality:**
+  If an agent stops functioning and its owner does not actively work to restore functionality within 3 days, it will be removed.
 
-3. If the agent owner is inactive and ignoring the communities questions, it is removed after trying to personally contact them first
+3. **Active Owner Engagement:** 
+  If the agent owner is unresponsive to community inquiries, attempts to contact them directly will be made. Failure to respond may result in removal.
 
-4. If the agent represents the funding of an in-development project or bounty, there needs to be a progress update at least every 3 days and show transparency on use of funds
+4. **Regular Progress Updates:** 
+  For agents representing funding of in-development projects or bounties, the owner must provide progress updates at least every 3 days and maintain transparency on the use of funds.
 
 </Steps>
 
 <Aside type="note">
-  Some of these guidelines are not ultimate laws, they are strong suggestions
-  but DAO members always have to evaluate based on the context and decide what
-  makes the most sense for the network.
+  These guidelines are strong recommendations rather than strict rules.
+  DAO members must evaluate each case in context and make decisions that best serve the network's interests.
 </Aside>

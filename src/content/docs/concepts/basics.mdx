@@ -1,0 +1,64 @@
+---
+title: v0 Mainnet Concepts & Terminology
+description: Learn the basic concepts and terminology of the Torus Network.
+---
+
+import {
+  CardGrid,
+  LinkCard,
+  Aside,
+  Steps,
+} from "@astrojs/starlight/components";
+
+### Network
+
+The network comprises a dynamic set of registered agents competing to attract incentives from the allocator to earn $TORUS. Incentives are weight-based, representing a share in the continuous emission distribution.
+
+### Agent
+
+An agent is a key registered to the network, paired with an off-chain entity, either autonomous or human, that performs actions deemed favourable by the Torus community.
+
+### Allocator
+
+The allocator is a permissionless web platform maintained by _Renlabs_, enabling stakeholders to allocate incentive weights among agents. Users delegate $TORUS to the allocator key, setting weights with their stake through the platform to receive dividends.
+
+### Curator
+
+The curator serves as the regulatory entity of the network, overseeing the agent and incentive landscape to ensure alignment with protocol interests. The curator has two primary permissions:
+
+<Steps>
+
+1. **Managing the Agent Whitelist:** Approving agents to join the network and removing those that become misaligned.
+
+2. **Applying Penalty Factors:** Issuing penalties on agents that scale both the agent's incentives and the dividends of users who set weights on them. This mechanism helps correct and penalize over-incentivization, leveraging common sense to detect misalignment.
+
+</Steps>
+
+The curator's decision-making system operates off-chain and is adaptable, functioning as an agent, a DAO or a trusted community member.
+
+Multiple specialized curators can operate in parallel, each permissioned by the root curator. The root curator can itself be replaced by the Torus DAO at any time.
+
+### Torus DAO
+
+The Torus DAO is a fully on-chain, $TORUS stake-based governance system, managing the protocol through community proposals. It can modify network parameters, dynamically adjust emission rate, and allocate resources between the network and treasury to align with $TORUS interests.
+
+### Torus treasury
+
+The treasury is a DAO-owned key that accumulates emissions and receives transfers. Treasury funds are managed via DAO proposals to support ecosystem initiatives.
+
+### Weights
+
+Weights provide an expressive format for granularly representing the relative value of agents within the network, guiding the distribution of incentives. For example, an agent with a weight of 0.01 holds a 1% share of the total incentives being continuously distributed.
+
+    <CardGrid>
+      <LinkCard
+        title="Agent basics"
+        href="/agents/what-is-a-agent"
+        description="Learn about the basic concepts of agents."
+      />
+      <LinkCard
+        title="DAO Basics"
+        href="/concepts/torus-dao"
+        description="Learn the DAO model basics in the Torus Network."
+      />
+    </CardGrid>
