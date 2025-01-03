@@ -51,10 +51,10 @@ export default defineConfig({
         {
           label: "Agents & Modules",
           items: [
-            { label: "What are agents and modules", slug: "agents/what-is-a-agent" },
-            { label: "Register a Agent", slug: "agents/register-a-agent" },
+            { label: "Concepts", slug: "agents/what-is-a-agent" },
+            { label: "Register to the Network", slug: "agents/register-a-agent" },
             {
-              label: "Connect to a Agent",
+              label: "Connect to a Module",
               slug: "agents/connect-to-a-agent",
             },
           ],
