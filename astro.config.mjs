@@ -28,8 +28,13 @@ export default defineConfig({
         {
           label: "Concepts",
           items: [
-            { label: "v0 Basic Concepts", slug: "concepts/v0-basics" },
+            { label: "v0 Basics", slug: "concepts/v0-basics" },
             { label: "Torus DAO", slug: "concepts/torus-dao" },
+            {
+              label: "Agent Application",
+              slug: "concepts/agent-application",
+            },
+            { label: "Takenomics", slug: "concepts/tokenomics" },
           ],
         },
         {

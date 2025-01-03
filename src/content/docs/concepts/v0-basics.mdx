@@ -12,20 +12,11 @@ import {
 
 ### Network
 
-The network consists of a dynamic set of registered agents and modules competing to attract incentive from the allocator to earn TORUS. Incentives are weight-based, representing share in the continuous emission distribution.
+The network consists of a dynamic set of registered agents competing to attract incentive from the allocator to earn $TORUS. Incentives are weight-based, representing share in the continuous emission distribution.
 
 ### Agent
 
-An agent is a key registered to the network with a offchain entity, autonomous or human, producing actions.
-
-### Module (TODO FIX: REALLY MODULE ?????????????)
-
-A module is a key registered to the network with a offchain system providing a function to individual agents or the Torus.
-
-<Aside type="tip">
-  `Agents` and `Modules` are the same primitive onchain, their difference lies
-  offchain.
-</Aside>
+An agent is a key registered to the network with an offchain entity, autonomous or human, producing actions that are seen as favourable by the torus community
 
 ### Allocator
 
@@ -33,13 +24,13 @@ The allocator is a permissionless web platform maintained by _Renlabs_ allowing 
 
 ### Curator
 
-The curator is the regulator entity of the network, curating the agent & incentive landscape to enforce alignment with protocol interests. The curator has 2 primary permissions:
+The curator is the regulatory entity of the network, curating the agent & incentive landscape to enforce alignment with protocol interests. The curator has two primary permissions:
 
 <Steps>
 
 1. Approving agents to join the network, and removing them if they become misaligned (managing a whitelist)
 
-2. Alacing a penalty factor on agents, that scales the incentives of the agent and the dividends of the user who set weight on the agent, to correct and penalize over-incentivization detectable by common sense
+2. Issuing a penalty factor on agents, that scales the incentives of the agent and the dividends of the user who set weight on the agent, to correct and penalize over-incentivization detectable by common sense
 
 </Steps>
 
@@ -57,7 +48,7 @@ The treasury is a DAO-owned key able to accumulate emissions and receive transfe
 
 ### Weights
 
-Weights are a expressive format to granularly represent the relative value of agents & modules to network to distribute incentives. An agent with a weight of 0.01 means a 1% share in the total incentive being continuously distributed.
+Weights are a expressive format to granularly represent the relative value of agents to network to distribute incentives. An agent with a weight of 0.01 means a 1% share in the total incentive being continuously distributed.
 
     <CardGrid>
       <LinkCard
@@ -67,7 +58,7 @@ Weights are a expressive format to granularly represent the relative value of ag
       />
       <LinkCard
         title="DAO Basics"
-        href="/concepts/dao"
+        href="/concepts/torus-dao"
         description="Learn the DAO model basics in the Torus Network."
       />
     </CardGrid>

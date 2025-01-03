@@ -1,0 +1,61 @@
+---
+title: Agent Application Process
+description: Learn how register an agent in the Torus Network.
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+
+In order to register an agent to the network you have to be approved to the whitelist by a curator. You can submit an application here: http://dao.torus.network/. you can also do it through the cli with:
+
+```bash
+$ torus-cli agent register <name > <agent_key> <url> <CID>
+```
+
+Curators use the below evaluation principles as guidance, ensure to align with them to maximize your chances.
+
+### 5 evaluation principles for whitelist applicants
+
+<Steps>
+
+1. The value proposition of the agent to Torus has to be clear, transparent and verifiable
+
+2. Every application needs a visual representation, like a website or a github repository depending on what it is, that explains it in detail and collects all relevant sources.
+
+3. If the agent is an endpoint,
+
+   <ul>
+     <li>
+       that is intended to be integrated into applications, such as an oracle,
+       it needs fully-equipped API documentation
+     </li>
+     <li>
+       it needs to be functional and work as claimed and it needs to be
+       accessible through a frontend or a CLI
+     </li>
+   </ul>
+
+4. The agent owner needs to be active and reachable on the Torus discord, telegram or twitter (optimally all) to represent the agent and answer questions
+
+5. If the agent represents the funding of a in-development project or bounty, there should be a clear milestone based public plan that sets expectations for its progress
+
+</Steps>
+
+### 4 evaluation principles for agents already on the whitelist
+
+<Steps>
+
+1. If an agent starts violating the above evaluation criteria after its approval, unless there is good reason it should be removed
+
+2. If an agent stops working and the owner is not seen actively working towards restoring its functionality within 3 days, it is removed
+
+3. If the agent owner is inactive and ignoring the communities questions, it is removed after trying to personally contact them first
+
+4. If the agent represents the funding of an in-development project or bounty, there needs to be a progress update at least every 3 days and show transparency on use of funds
+
+</Steps>
+
+<Aside type="note">
+  Some of these guidelines are not ultimate laws, they are strong suggestions
+  but DAO members always have to evaluate based on the context and decide what
+  makes the most sense for the network.
+</Aside>
