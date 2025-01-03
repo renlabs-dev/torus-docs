@@ -1,6 +1,6 @@
 ---
 title: Setup Torus CLI
-description: Learn how to setup the torus-cli.
+description: Learn how to setup the torus CLI.
 ---
 
 import { Tabs, TabItem, Aside } from "@astrojs/starlight/components";
@@ -14,20 +14,20 @@ import { Tabs, TabItem, Aside } from "@astrojs/starlight/components";
             **Requirements:** [Python 3.10+](https://www.python.org/), [PIP](https://pip.pypa.io/en/stable/installation/)
         </Aside>
 
-        To install the **`torus-cli`** python package using `pip`, run:
+        To install the **`torus`** python package using `pip`, run:
 
         ```sh
-        pip install torus-cli
+        pip install torusdk
         ```
 
-        Alternatively, to add **`torus-cli`** to your poetry project, use:
+        Alternatively, to add **`torus`** to your poetry project, use:
 
         ```sh
-        poetry add torus-cli
+        poetry add torus
         ```
     </TabItem>
     <TabItem label="Using Nix">
-        To install the **`torus-cli`** CLI with Nix, execute:
+        To install the **`torus`** CLI with Nix, execute:
 
         ```sh
         nix profile install .
@@ -38,7 +38,7 @@ import { Tabs, TabItem, Aside } from "@astrojs/starlight/components";
 
 ## Features
 
-**`torus-cli`** offers a variety of features for token management and agent interaction:
+**`torus`** offers a variety of features for token management and agent interaction:
 
 - Commands for managing keys, tokens, and agents
 - Key management including creation and listing
@@ -48,7 +48,7 @@ import { Tabs, TabItem, Aside } from "@astrojs/starlight/components";
 
 ## CLI Usage
 
-The **`torus-cli`** CLI is structured as follows:
+The **`torus`** CLI is structured as follows:
 
 ```sh
 tor [OPTIONS] COMMAND [ARGS]
@@ -142,7 +142,7 @@ encouraged! :)
 
 To report a bug or request a feature, please [open an issue on GitHub].
 
-If you have any questions, feel free to ask on the [torus-cli Discord channel] or
+If you have any questions, feel free to ask on the [torus cli Discord channel] or
 post on our [GitHub discussions page].
 
 To contribute to the codebase, using Poetry you can install the development dependencies with:
@@ -156,6 +156,6 @@ it can [require some environment-specific binaries to be installed][ruff-install
 ---
 
 [open an issue on GitHub]: https://github.com/renlabs-dev/torus-cli/issues/new/choose
-[torus-cli Discord channel]: https://go.renlabs-dev.org/torus-cli-channel
+[torus cli Discord channel]: https://go.renlabs-dev.org/torus-cli-channel
 [GitHub discussions page]: https://github.com/renlabs-dev/torus-cli/discussions
 [ruff-installation]: https://docs.astral.sh/ruff/installation/

@@ -1,17 +1,17 @@
 ---
 title: Torus DAO
-description: Learn about the Torus DAO.
+description: Learn about the governance and operation of the Torus DAO.
 ---
 
 import { Tabs, TabItem, Aside, LinkCard } from "@astrojs/starlight/components";
 
-Torus is governed by an interplay of decentralized stake-based DAO governance and sudo-key actions by Renlabs, to exercise urgent changes. Renlabs will give up sudo-keys once the protocol has sufficiently matured.
+Torus governance is a balance between decentralized, stake-based DAO and temporary sudo-key actions by Renlabs for urgent protocol changes. Renlabs will relinquish sudo-key control once the protocol reaches sufficient maturity.
 
-The Torus DAO is fully onchain and $TORUS stake-based, governing the protocol through proposals. The DAO can change network parameters, propose custom changes and decide the emission rate and allocation between network and treasury dynamically to align with $TORUS interests.
+The Torus DAO operates fully on-chain and is $TORUS stake-based, managing the protocol through proposals. It can modify The DAO can change network parameters, propose custom changes and decide the emission rate and allocation between network and treasury dynamically to align with $TORUS interests.
 
 ## Proposals
 
-Proposals are the primary mechanism for changing the Torus protocol. They can be submitted by any agent with enough stake in the network. Proposals can be of different types, each with its own set of parameters.
+Proposals are the primary mechanism for implementing changes to the Torus protocol. Any agent with sufficient stake in the network can submit a proposal. Different types of Proposals address specific aspects of governance, each with its own parameters.
 
 ### Proposal types
 
@@ -30,10 +30,10 @@ Proposals are the primary mechanism for changing the Torus protocol. They can be
     </ul>
 
     <Aside type="tip">
-        If you want to propose a change to the network parameters, you can use the following `torus-cli` command:
+        If you want to propose a change to the network parameters, you can use the following CLI command:
 
         ```bash
-        $ torus-cli network propose-globally <key> <CID>
+        $ torus network propose-globally <key> <CID>
             --max-name-length INTEGER [default: None]
             --min-name-length INTEGER [default: None]
             --max-allowed-agents INTEGER [default: None]
@@ -48,21 +48,23 @@ Proposals are the primary mechanism for changing the Torus protocol. They can be
   </TabItem>
 
   <TabItem label="Dao Treasury Transfer">
-     ##### Propose transference of treasury funds.
+     ##### Propose the Transfer of Treasury Funds.
+
+     You can use the following CLI command to submit a treasury transfer proposal:
 
       ```bash
-      $ torus-cli proposal propose-dao-transfer <proposer_key> <amount> <CID> <destination_key>
+      $ torus proposal propose-dao-transfer <proposer_key> <amount> <CID> <destination_key>
       ```
 
   </TabItem>
   <TabItem label="Global Custom">
-    ##### Any change to the protocol that is not captured in other proposal types.
+    ##### Propose Custom Change to the Protocol:
     
     <Aside type="tip">
-        If you want to propose a change to the network parameters, you can use the following `torus-cli` command:
+        For changes not covered by other proposal types, you can use the following CLI command:
 
         ```bash
-        $ torus-cli proposal propose-custom <key> <CID>
+        $ torus proposal propose-custom <key> <CID>
         ```
     </Aside>
 
@@ -71,10 +73,10 @@ Proposals are the primary mechanism for changing the Torus protocol. They can be
 
 ### Agent Applications
 
-Agent applications allows members of the network to apply new [Agents](/agents/what-is-a-agent). The application is reviewed by a curator to ensure the agent is aligned with the network's interests.
+Agent applications enable network members to propose new [Agents](/agents/what-is-a-agent). Each application is reviewed by a curator to ensure the agent aligns with the network's interests.
 
 <LinkCard
   title="Network Application Process"
   href="/concepts/agent-application/"
-  description="Learn how register an agent in the Torus Network."
+  description="Learn how to register an agent in the Torus Network."
 />
