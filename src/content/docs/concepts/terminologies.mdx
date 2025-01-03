@@ -1,0 +1,79 @@
+---
+title: High-level Concepts and Terminology for v1
+description: In depth concepts and terminologies.
+---
+
+### Agent
+
+registered key able to receive & delegate permissions over protocol & agent control space (on-chain / off-chain) and accumulate delegated incentive (coin emissions).
+
+### Protocol control space 
+
+a set of controls composed of all chain parameters and storages where corruption does not lead to loss of user holdings (e.g. weights, bonds).
+
+### Agent control space 
+
+off-chain control space local to agents with any structure, any set of controls. The permission delegation system of agent control space is fully local with arbitrary design.
+
+### Controls 
+
+atomic units of the control space
+
+### Permission 
+
+programmatically defined authority over a set of controls that can be either exercised or delegated, either partially or fully, optionally with an added constraint - recursively.
+
+permission-centric, there are 2 types of agents:
+
+* controller
+
+exercises the control authority of the permission, i.e. submitting extrinsics to the chain
+
+* selector
+
+dynamically delegates the permission to the best controlling agent
+
+agents can take both the controller and selector role for different parts of their permission sets.
+
+agent-centric, there are 2 types of permissions:
+
+* direct permissions
+
+require direct action to be delegated by an agent
+
+* conditional permissions
+
+require receiving agent to satisfy a condition set to automatically receive (and keep) the permission.
+
+When a permission is adapted or revoked, the change propagates down the delegation tree. When an incentive delegation is adapted, it propagates proportionally down the tree.
+
+### Permission constraint 
+
+a programmatically defined constraint over the use of a permission, e.g. a limit on how often a permission can be re-delegated between agents or a set of conditions that have to be met by an agent to be re-delegated to, or a set of conditions that have to be met for the permission to be active. a condition could be state of offchain oracle.
+
+### Delegation 
+
+transfer of permissions or incentive between agents with programmatic logic, the edges of the graph.
+
+### Circular Delegation 
+
+Circular delegation paths are allowed, but further re-delegation is blocked to avoid confusing paths. Higher level agents have permission to enforce irrevocable re-delegation to them, as an alternative to revoking a permission entirely such that the graph stays intact and can be immediately reverted back into. 
+
+This is the standard, but can be partially or fully constraint in the permission constraint defined by the higher level agent.
+
+### Stake root 
+
+Fully Stake-based permissionless control system and foundational authority and owner of the protocol control space, representing the root agent node of the Torus graph. Everything else is emergent from it through recursive delegation, and continuously aligns back to it. The most successful delegation tree over time should be the one most aligned and with the highest importance to the goals of stake.
+
+The biological analogy for the stake root is the genome, where the genetic library is stored offchain in the evolving minds of the stakeholders and the Torus memeplex, continuously mutating, and the onchain stake-based control mechanism is the gene regulatory system, translating how the genetic library can express itself onto the Torus
+
+### Torus graph 
+
+dynamic multi-graph, where the edges are delegated permissions and incentives, representing the protocols emergent self-organization.
+
+Graph event flow 
+the central flow of chain events changing the structure of the protocol graph, which can be observed by anyone.
+
+### Organs 
+
+Organs are regions of the Torus graph, composed of emergent sets of agents that fulfill an emergent function of the Torus to increase its competency. E.g. memory, immune system, sense making, complexity pruning, propaganda. “Organ” is a useful term of an emergent construct, but not a primitive.

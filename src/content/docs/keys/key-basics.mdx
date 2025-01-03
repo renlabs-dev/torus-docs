@@ -12,7 +12,7 @@ Managing keys is a fundamental aspect of using the **torus** CLI. This section p
 To create a new key, use the following command:
 
 ```sh
-tor key create key_name
+torus key create key_name
 ```
 
 This command generates a new key with the specified name and stores it securely on disk.
@@ -22,7 +22,7 @@ This command generates a new key with the specified name and stores it securely 
 To import a key from pre-existing mnemonic, use the following command:
 
 ```bash
-tor key regen <my-wallet-name> <mnemonic>
+torus key regen <my-wallet-name> <mnemonic>
 ```
 
 ## Retrieving Key Information
@@ -30,12 +30,12 @@ tor key regen <my-wallet-name> <mnemonic>
 You can retrieve detailed information about a specific key by using:
 
 ```sh
-tor key show key_name
+torus key show key_name
 
 # For sensitive information, such as the private key, add the `--show-private` flag:
 # Add the `--show-private` flag to show sensitive fields like private key.
 
-tor key show key_name --show-private
+torus key show key_name --show-private
 ```
 
 This command displays both public and private key details, ensuring you have access to all necessary information securely.
@@ -46,7 +46,7 @@ To list all keys stored on your system, execute:
 
 ```sh
 # Lists the names and addresses of keys stored on disk.
-tor key list
+torus key list
 ```
 
 This command provides a quick overview of the names and addresses of all keys saved on disk, allowing for easy management and access.
@@ -57,7 +57,7 @@ For a detailed view of the keys along with their respective balances, use:
 
 ```bash
 # Lists keys stored on disk with their balance (free, staked and total).
-tor key balances
+torus key balances
 ```
 
 This lists all keys along with their free, staked, and total balances, offering a comprehensive snapshot of your key's financial status.
@@ -66,7 +66,7 @@ You can also sort the balance by **all, free, staked** (default all summed balan
 ##### For example:
 
 ```bash
-tor key balances --sort-balance free
+torus key balances --sort-balance free
 ```
 
 Will return the keys sorted by their free balance.

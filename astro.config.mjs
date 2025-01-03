@@ -29,6 +29,7 @@ export default defineConfig({
           label: "Concepts",
           items: [
             { label: "v0 Basics", slug: "concepts/basics" },
+            { label: "Terminologies", slug: "concepts/terminologies" },
             { label: "Torus DAO", slug: "concepts/torus-dao" },
             {
               label: "Agent Application",
@@ -68,17 +69,10 @@ export default defineConfig({
         {
           label: "Subspace",
           items: [
-            { label: "Torus Blockchain", slug: "subspace/torus-blockchain" },
             { label: "Global Parameters", slug: "subspace/global-parameters" },
-            { label: "Testnet", slug: "subspace/testnet" },
-            { label: "EVM", slug: "subspace/evm" },
             {
               label: "Running a Local Node",
-              slug: "subspace/running-a-local-node",
-            },
-            {
-              label: "Running a Private Chain",
-              slug: "subspace/running-a-private-chain",
+              slug: "subspace/running-the-chain",
             },
           ],
         },

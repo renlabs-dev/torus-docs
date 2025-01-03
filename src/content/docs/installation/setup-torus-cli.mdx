@@ -30,6 +30,8 @@ import { Tabs, TabItem, Aside } from "@astrojs/starlight/components";
         To install the **`torus`** CLI with Nix, execute:
 
         ```sh
+        git clone https://github.com/renlabs-dev/torus-cli
+        cd torus-cli
         nix profile install .
         ```
     </TabItem>
@@ -51,7 +53,7 @@ import { Tabs, TabItem, Aside } from "@astrojs/starlight/components";
 The **`torus`** CLI is structured as follows:
 
 ```sh
-tor [OPTIONS] COMMAND [ARGS]
+torus [OPTIONS] COMMAND [ARGS]
 ```
 
 #### Top-Level Subcommands
@@ -63,7 +65,7 @@ tor [OPTIONS] COMMAND [ARGS]
 - **`misc`**: Access miscellaneous information such as APR and circulating supply.
 
 ```sh
-tor subcommand [OPTIONS] COMMAND [ARGS]...
+torus subcommand [OPTIONS] COMMAND [ARGS]...
 ```
 
 ## Examples
@@ -72,56 +74,56 @@ tor subcommand [OPTIONS] COMMAND [ARGS]...
 
 ```sh
 # Show staked, free and total balance.
-tor balance show 5FgfC2DY4yreEWEughz46RZYQ8oBhHVqD9fVq6gV89E6z4Ea
+torus balance show 5FgfC2DY4yreEWEughz46RZYQ8oBhHVqD9fVq6gV89E6z4Ea
 ```
 
 ### Creating a Key
 
 ```sh
-tor key create key_name
+torus key create key_name
 ```
 
 ### Retrieving Key Info
 
 ```sh
-tor key show key_name
+torus key show key_name
 
 # Add the `--show-private` flag to show sensitive fields like private key.
-tor key show key_name --show-private
+torus key show key_name --show-private
 ```
 
 ### Listing Keys
 
 ```sh
 # Lists the names and addresses of keys stored on disk.
-tor key list
+torus key list
 ```
 
 ### List Keys With Balances
 
 ```sh
 # Lists keys stored on disk with their balance (free, staked and total).
-tor key balances
+torus key balances
 ```
 
 ### Retrieving Agent Information
 
 ```sh
 # Note that the agent has to be registered on the network.
-tor agent info vali::calc [--balance]
+torus agent info vali::calc [--balance]
 ```
 
 ### Retrieving Global Parameters
 
 ```sh
-tor network params
+torus network params
 ```
 
 ### Retrieving Circulating Supply
 
 ```sh
 # Gets all tokens then were ever emitted minus burned tokens.
-tor misc circulating-supply
+torus misc circulating-supply
 ```
 
 ## Completions
@@ -130,9 +132,9 @@ You can enable completions for your shell by running:
 
 ```sh
 # On bash
-tor --install-completion bash
+torus --install-completion bash
 # On zsh
-tor --install-completion zsh
+torus --install-completion zsh
 ```
 
 ## Contributing

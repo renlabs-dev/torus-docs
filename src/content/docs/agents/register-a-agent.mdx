@@ -13,7 +13,7 @@ register it in the network.
 ### Registering Through CLI
 
 ```bash
-tor agent register <agent_name> <agent_key> <url> <metadata>
+torus agent register <agent_name> <agent_key> <url> <CID>
 ```
 
 <Aside type="caution">
@@ -23,12 +23,16 @@ tor agent register <agent_name> <agent_key> <url> <metadata>
 </Aside>
 
 <Aside type="tip">
-  The `<metadata>` is an IPFS hash. If you don't how to generate one, you can take
+  The `<CID>` is an IPFS hash. If you don't how to generate one, you can take
   a [look here](https://docs.ipfs.io/install/).
 </Aside>
 
 If you are not satisfied with any parameter on your agent, you can update it:
 
 ```bash
-tor agent update <name> <key> <url> <metadata>
+torus agent update <name> <key> <url> <CID>
 ```
+
+<Aside type="note">
+  Registering an agent is currently not available in the v0, please wait until we release the <a href="concepts/terminologies.mdx">v1</a>.
+</Aside>

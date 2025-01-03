@@ -8,13 +8,13 @@ description: Learn how to perform balance operations in the Torus Network.
 You can transfer balance from one key to another:
 
 ```bash
-tor balance transfer <key-name> <amount> <receiver-ss58address>
+torus balance transfer <key-name> <amount> <receiver-ss58address>
 ```
 
 Or, if the receivers key is located on your disk:
 
 ```bash
-tor balance transfer <key-name> <amount> <key-name>
+torus balance transfer <key-name> <amount> <key-name>
 ```
 
 ## Staking Balance
@@ -24,13 +24,13 @@ When staking a balance, you first have to pick a subnet id (netuid) and destinat
 The staking command is defined as follows:
 
 ```bash
-tor balance stake <key-name> <amount> <validator-ss58address>
+torus balance stake <key-name> <amount> <validator-ss58address>
 ```
 
 Similar to transferring if the validator key is already located on your disk you can use:
 
 ```bash
-tor balance stake <key-name> <amount> <validator-name>
+torus balance stake <key-name> <amount> <validator-name>
 ```
 
 ## Unstaking Balance
@@ -40,7 +40,7 @@ When unstaking a balance, you need to specify the subnet id (netuid) and the amo
 The unstaking command is defined as follows:
 
 ```bash
-tor balance unstake <key-name> <amount> <validator-ss58address>
+torus balance unstake <key-name> <amount> <validator-ss58address>
 ```
 
 You can also specify the name of the key, if it's located on your disk. Same as in transferring or staking.
