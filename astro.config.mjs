@@ -28,9 +28,8 @@ export default defineConfig({
         {
           label: "Concepts",
           items: [
-            { label: "Basics", slug: "concepts/basics" },
-            { label: "Weight System", slug: "concepts/weight-system" },
-            { label: "Governance", slug: "concepts/governance" },
+            { label: "v0 Basic Concepts", slug: "concepts/v0-basics" },
+            { label: "Torus DAO", slug: "concepts/torus-dao" },
           ],
         },
         {
