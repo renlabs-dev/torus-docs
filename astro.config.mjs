@@ -22,14 +22,17 @@ export default defineConfig({
       },
       sidebar: [
         {
-          label: "Getting Started",
-          items: [{ label: "Introduction", slug: "index" }],
+          label: "The Vision",
+          items: [
+            { label: "Introduction", slug: "index" },
+            { label: "v1 Concepts and Terminologies", slug: "concepts/terminologies" },
+
+          ],
         },
         {
-          label: "Concepts",
+          label: "v0",
           items: [
-            { label: "v0 Basics", slug: "concepts/basics" },
-            { label: "Terminologies", slug: "concepts/terminologies" },
+            { label: "Basics", slug: "concepts/basics" },
             { label: "Torus DAO", slug: "concepts/torus-dao" },
             {
               label: "Agent Application",
