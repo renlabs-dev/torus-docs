@@ -38,7 +38,7 @@ export default defineConfig({
               label: "Agent Application",
               slug: "concepts/agent-application",
             },
-            { label: "Takenomics", slug: "concepts/tokenomics" },
+            { label: "Tokenomics", slug: "concepts/tokenomics" },
           ],
         },
         {
@@ -49,9 +49,9 @@ export default defineConfig({
           ],
         },
         {
-          label: "Agents",
+          label: "Agents & Modules",
           items: [
-            { label: "What is a Agent", slug: "agents/what-is-a-agent" },
+            { label: "What are agents and modules", slug: "agents/what-is-a-agent" },
             { label: "Register a Agent", slug: "agents/register-a-agent" },
             {
               label: "Connect to a Agent",

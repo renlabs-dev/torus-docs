@@ -2,93 +2,12 @@
 title: Tokenomics
 description: Learn the tokenomics of Torus.
 ---
-
+import { Image } from 'astro:assets';
+import graph from '/src/assets/graph.svg';
 import { Card, CardGrid } from "@astrojs/starlight/components";
 
 TORUS was launched with a fair distribution model and no pre-mine. 100% of emissions are openly competed for by participants.
 
 The initial TORUS supply consists entirely of bridged COMAI tokens, which were also launched with a fair distribution model and no pre-mine.
 
-<CardGrid>
-  <Card title="Initial">
-    <p>
-      <b>Initial Supply: </b>65,786,961 $TORUS
-    </p>
-    <p>
-      <b>Max Supply: </b>144,000,000 $TORUS
-    </p>
-    <p>
-      <b>Daily Emissions: </b>64,000 $TORUS
-    </p>
-  </Card>
-  <Card title="Year 1">
-    <p>
-      <b>Emission Rate: </b>16.29%
-    </p>
-    <p>
-      <b>Tokens Emitted: </b>23,463,911
-    </p>
-    <p>
-      <b>Cumulative Supply: </b>89,250,872
-    </p>
-    <p>
-      <b>Remaining to Emit: </b>54,749,127
-    </p>
-  </Card>
-  <Card title="Year 2">
-    <p>
-      <b>Emission Rate: </b>13.58%
-    </p>
-    <p>
-      <b>Tokens Emitted: </b>19,553,259
-    </p>
-    <p>
-      <b>Cumulative Supply: </b>108,804,132
-    </p>
-    <p>
-      <b>Remaining to Emit: </b>35,195,867
-    </p>
-  </Card>
-  <Card title="Year 3">
-    <p>
-      <b>Emission Rate: </b>10.86%
-    </p>
-    <p>
-      <b>Tokens Emitted: </b>15,642,607
-    </p>
-    <p>
-      <b>Cumulative Supply: </b>124,446,740
-    </p>
-    <p>
-      <b>Remaining to Emit: </b>19,553,259
-    </p>
-  </Card>
-  <Card title="Year 4">
-    <p>
-      <b>Emission Rate: </b>8.15%
-    </p>
-    <p>
-      <b>Tokens Emitted: </b>11,731,955
-    </p>
-    <p>
-      <b>Cumulative Supply: </b>136,178,696
-    </p>
-    <p>
-      <b>Remaining to Emit: </b>7,821,303
-    </p>
-  </Card>
-  <Card title="Year 5">
-    <p>
-      <b>Emission Rate: </b>5.43%
-    </p>
-    <p>
-      <b>Tokens Emitted: </b>7,821,303
-    </p>
-    <p>
-      <b>Cumulative Supply: </b>144,000,000
-    </p>
-    <p>
-      <b>Remaining to Emit: </b>0
-    </p>
-  </Card>
-</CardGrid>
+<Image src={graph} alt="Tekenomics Graph" width="1080" />

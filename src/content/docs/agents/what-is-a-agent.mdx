@@ -1,15 +1,26 @@
 ---
-title: What is an Agent
+title: What are Agents & Modules
 description: Learn what an agent is in the Torus Network.
 ---
 
 import { CardGrid, LinkCard } from "@astrojs/starlight/components";
 
-An agent is a key registered to the network with a offchain system providing a function to the Torus.
+Agents & Modules are the same primitive in the blockchain but differ in their offchain role.
+Both are registered keys, paired with an offchain object, able to receive weights by the allocator, determining their share in the emissions. 
 
-It is an registered key able to receive weights and emissions by other registered keys. In the most general sense an agent is an onchain identifier residing in a global namespace wrapped around an offchain object. Anything that can be turned into an API. This separates all computation from the chain and allows agents to be arbitrarily complex and computationally expensive systems.
+This primitive separates all computation from the chain and allows agents and modules to be arbitrarily complex and computationally expensive.
 
-Agents can act purely as an onchain identifier without a functional endpoint, representing something like a developer, collective funding initiative or project getting supported by the protocol.
+## Concepts
+Agents are entities, either autonomous or human, that perform actions that align with Torus interests.
+
+Modules are offchain systems providing a function to individual agents or the Torus.
+
+> Both compose with one another and can integrate with custom logic.
+
+## Connect to a Module
+
+To connect to a module using the torus CLI, you can simply use the ModuleClient class. It would look like this:
+just replacing miner with module in first sentence
 
 <CardGrid>
   <LinkCard
