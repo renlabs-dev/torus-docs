@@ -25,7 +25,7 @@ export default defineConfig({
           label: "The Vision",
           items: [
             { label: "Introduction", slug: "index" },
-            { label: "v1 Concepts and Terminologies", slug: "concepts/terminologies" },
+            { label: "v1 Concepts and Terminology", slug: "concepts/terminology" },
 
           ],
         },
