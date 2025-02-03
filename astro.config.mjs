@@ -79,6 +79,13 @@ export default defineConfig({
             },
           ],
         },
+        {
+          label: "Allocator",
+          items: [
+            {label: "Querying allocated stake", slug: "allocator/querying-stake-weight"},
+          ]
+        }
+      
       ],
       editLink: {
         baseUrl: "https://github.com/renlabs-dev/torus-docs/edit/main/docs/",
