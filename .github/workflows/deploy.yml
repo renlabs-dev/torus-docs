@@ -2,7 +2,9 @@ name: Build and deploy to Fly.io
 
 on:
   push:
-    branches: [ dev ]
+    branches:
+      - dev
+      - main
   workflow_dispatch:
 
 jobs:
