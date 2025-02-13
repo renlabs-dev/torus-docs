@@ -1,0 +1,73 @@
+---
+title: Develop
+description: Learn how to develop in the Torus ecosystem
+---
+
+import { FileTree } from "@astrojs/starlight/components";
+
+This area is designed to provide you with in-depth information on how to code / contribute to the repository, and understand the technologies we're using.
+
+## Frameworks & Libraries
+
+We use a variety of frameworks and libraries to build our web apps. Here are some of the key ones:
+
+- **React**: JavaScript library for building user interfaces
+- **Next.js**: React framework for building static and server-rendered applications
+- **TypeScript**: Typed superset of JavaScript that compiles to plain JavaScript
+- **Tailwind**: Utility-first CSS framework for rapidly building custom designs
+- **Drizzle**: Typesafe ORM for TypeScript
+- **tRPC**: TypeScript-first RPC framework for Node.js
+- **TanStack Query**: data-fetching library for React
+- **Polkadot JS API**: JavaScript API for interacting with Polkadot-based chains
+
+This stack comes from [create-t3-app](https://github.com/t3-oss/create-t3-app).
+
+## Project Structure
+
+<FileTree>
+
+- .github
+
+  - workflows pnpm cache setup & ci/cd
+  - ISSUE_TEMPLATE Template for open source contributors
+  - DISCUSSION_TEMPLATE Template for open source contributors
+
+- .vscode
+
+  - ... Extensions and settings for VSCode users
+
+- apps
+
+  - torus-dao DAO & Governance Portal
+  - torus-page Landing Page
+  - torus-wallet Transactions & Staking
+  - torus-bridge Bridge between Torus and Subspace
+  - torus-allocator Set weights to Agents
+
+- services
+
+  - torus-cache Blockchain data caching service
+  - torus-worker Background services
+
+- packages
+
+  - ui UI components library
+  - db Typesafe DB calls using Drizzle
+  - api tRPC v11 router definition
+  - utils Common code
+  - **subspace** Typesafe substrate client library
+  - env-validation Environment variables validation
+  - torus-provider Polkadot JS API provider
+  - query-provider React Query provider
+
+- tooling
+
+  - eslint Shared, fine-grained, eslint presets
+  - prettier Shared prettier configuration
+  - tailwind Shared tailwind configuration
+  - typescript Shared tsconfig you can extend from
+
+- just
+  - justfile All the commands you need to run the project
+
+</FileTree>

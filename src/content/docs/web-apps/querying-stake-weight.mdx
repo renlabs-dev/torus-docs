@@ -2,12 +2,14 @@
 title: How to Query Stake Weight
 description: Learn how to query the stake weight between keys
 ---
+
 import { CardGrid, LinkCard, Aside } from "@astrojs/starlight/components";
 
-Our API allows you to retrieve information about the stake allocation between keys and agents. 
+Our API allows you to retrieve information about the stake allocation between keys and agents.
 You can query this data by making a GET request to: `https://allocator.torus.network/api/allocated-weight`.
 
-# API Response Format
+## API Response Format
+
 The API response has the following structure:
 
 ```json
@@ -18,19 +20,20 @@ The API response has the following structure:
 } // allocatingKey and agentKey are both SS58Address strings.
 
 ```
+
 ## Filtering Options
-    
+
     You can filter the API response based on specific allocating keys or agents using query parameters.
 
     - Filter by Allocating Key
 
         To filter the response for a specific allocating key, append the userKey query parameter to the API endpoint:
-        
+
         ```allocator.torus.network/api/allocated-weight?userKey=<SS58Address>```
     - Filter by Agent Key
 
         To filter the response for specific agents, append the agentKey query parameter to the API endpoint:
-        
+
         ```allocator.torus.network/api/allocated-weight?agentKey=<SS58Address>```
 
 

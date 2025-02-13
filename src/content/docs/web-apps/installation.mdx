@@ -1,0 +1,132 @@
+---
+title: Installation
+description: Learn how to install and run the torus-ts
+---
+
+import {
+  Badge,
+  Steps,
+  Tabs,
+  TabItem,
+  Aside,
+} from "@astrojs/starlight/components";
+
+This guide will walk you through the process of installing and running the `torus-ts` monorepo.
+
+## Prerequisites
+
+- **Node.js** - `20.16.0` or higher.
+- **pnpm** - `9.7.1` or higher.
+- **just** - `20.10.7` or higher, [installation guide](https://github.com/baryshev/just).
+- **Text editor** - We recommend using [VSCode](https://code.visualstudio.com/).
+
+## Installation
+
+This section will cover all the steps including optional steps that can be skipped depending on the app you want to run, read the <Badge text="Notes" variant="note" /> on each step to understand if it's required for your use case.
+
+<br />
+
+<Steps>
+
+1.  ##### Clone the repository
+
+    <Tabs>
+      <TabItem label="SSH">
+        ```bash
+        git clone git@github.com:renlabs-dev/torus-ts.git
+        ```
+        Clone using the web URL.
+      </TabItem>
+      <TabItem label="HTTPS">
+        ```bash
+        https://github.com/renlabs-dev/torus-ts.git
+        ```
+        Use a password-protected SSH key.
+      </TabItem>
+      <TabItem label="GitHub CLI">
+        ```bash
+        gh repo clone renlabs-dev/torus-ts
+        ```
+        Use the [GitHub CLI](https://cli.github.com/).
+      </TabItem>
+    </Tabs>
+
+    <br />
+
+2.  ##### Install the dependencies
+
+    ```bash
+    pnpm install
+    # or
+    just install
+    ```
+
+    <br />
+
+3.  ##### Configure environment variables
+
+    There is an `.env.example` in the root directory you can use for reference
+
+    ```bash
+    cp .env.example .env
+    ```
+
+    <br />
+
+4.  ##### Setup database
+
+    <Aside>
+      This step is only required for the **`torus-allocator`** & **`torus-dao`**
+      apps.
+    </Aside>
+
+    Create a postgres container with docker:
+
+    ```bash
+    docker run --name torus-db-container -e POSTGRES_PASSWORD=password -e POSTGRES_DB=torus-ts-db -d -p 1337:1337 docker.io/postgres
+    ```
+
+    Push the Drizzle schema to the database:
+
+    ```bash
+    just db-push
+    ```
+
+    You can also use the `just db-studio` command to open a GUI provided by [Drizzle](https://orm.drizzle.team/drizzle-studio/overview).
+
+    <br />
+
+5.  ##### Build the project
+
+        ```bash
+        just build
+        ```
+
+        <Aside type="caution">
+        This step is required before running any app since **`@torus-ts/subspace`** needs to be builded and imported indirectly, otherwise dependant packages may typecheck it's sources and cause conflict in the generated/augmented types.
+        </Aside>
+
+    <br />
+
+6.  ##### Run the project
+
+    From the root directory, run the following command:
+
+    ```bash
+    just run <app-name>
+    ```
+
+    From the app directory, run the following command:
+
+    ```bash
+    pnpm run dev
+    ```
+
+    <Aside>
+      To run apps from their directories, you need to set up the environment
+      variables inside the app directory aswell.
+    </Aside>
+
+    <br />
+
+</Steps>

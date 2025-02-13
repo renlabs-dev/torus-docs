@@ -1,0 +1,77 @@
+---
+title: Web Apps Introduction
+description: Learn how to build into Torus typescript ecosystem
+---
+
+import { LinkCard, Steps, Aside } from "@astrojs/starlight/components";
+
+These docs will guide you through the process of building / integrating with Torus web apps. We provide a set of tools and libraries to help you build and contribute to the Torus ecosystem.
+
+The ecosystem is built using a [monorepo](https://turbo.build/repo/docs) structure, which allows us to share code and tools across different projects. This structure also helps us maintain a consistent codebase and development environment.
+
+## Web Apps
+
+Currently we have the following web apps:
+
+<LinkCard
+  title="Torus Page"
+  href="https://torus.network/"
+  description="LP with general information about Torus"
+/>
+<LinkCard
+  title="Torus DAO"
+  href="https://dao.torus.network/"
+  description="Allows users to voting on proposals, whitelist applications and view DAO activity"
+/>
+<LinkCard
+  title="Torus Wallet"
+  href="https://wallet.torus.network/"
+  description="Interface for general network transactions, staking, and other wallet-related activities"
+/>
+<LinkCard
+  title="Torus Bridge"
+  href="https://bridge.torus.network/"
+  description="Bridge assets between Torus and other networks"
+/>
+<LinkCard
+  title="Torus Allocator"
+  href="https://allocator.torus.network/"
+  description="Set weights to registered agents on the network"
+/>
+
+<Aside type="tip">
+  To access enviroments pointing to the testnet node, add the `.testnet`
+  subdomain to the URL, eg. `https://allocator.testnet.torus.network/`
+</Aside>
+
+## Services & Packages
+
+We have a set of services and packages that are shared across the different web apps:
+
+<Steps>
+
+1. #### Services
+
+   **`torus-cache`**: Blockchain data caching service
+
+   **`torus-worker`**: Background services for the web apps
+
+2. #### Packages
+
+   **`ui`**: UI components library
+
+   **`db`**: Typesafe DB calls using Drizzle
+
+   **`api`**: tRPC v11 router definition
+
+   **`utils`**: Common code
+
+   **`subspace`**: Typesafe substrate client library
+
+   **`env-validation`**: Environment variables validation
+
+   **`torus-provider`**: Polkadot JS API provider
+
+   **`query-provider`**: React Query provider
+
+</Steps>
