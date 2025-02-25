@@ -16,8 +16,16 @@ This guide will walk you through the process of installing and running the `toru
 ## Prerequisites
 
 - **Node.js** - `20.16.0` or higher.
-- **pnpm** - `9.7.1` or higher.
-- **just** - [installation guide](https://github.com/casey/just).
+- **PNPM** - `9.7.1` or higher.
+- **Docker** - [installation guide](https://docs.docker.com/get-docker/).
+- **Just** - [installation guide](https://github.com/casey/just).
+
+##### Docker Tip
+
+If you have difficulties or want alternatives to simplify using Docker, consider:
+
+- [Colima](https://github.com/abiosoft/colima): A lightweight solution for running containers on macOS.
+- [Orbstack](https://orbstack.dev/): A fast and efficient alternative for managing containers.
 
 ## Monorepo setup
 
@@ -80,7 +88,13 @@ This guide will walk you through the process of installing and running the `toru
     Create a postgres container with docker:
 
     ```bash
-    docker run --name torus-db-container -e POSTGRES_PASSWORD=password -e POSTGRES_DB=torus-ts-db -d -p 1337:1337 docker.io/postgres
+    docker run --name torus-db-container \
+      -e POSTGRES_PASSWORD=password \
+      -e POSTGRES_DB=torus-ts-db \
+      -e POSTGRES_USER=postgres \
+      -p 1337:1337 \
+      -d postgres:16-alpine \
+      postgres -p 1337
     ```
 
     Push the Drizzle schema to the database:
@@ -110,8 +124,14 @@ This guide will walk you through the process of installing and running the `toru
     From the root directory, run the following command:
 
     ```bash
-    just run <app-name>
+    just dev <app-name>
     ```
+
+    <Aside>
+      The `app-name` is the name of the app you want to run. You can find the
+      list of apps in the `packages` directory. For example, to run the
+      `torus-allocator` app, you would run `just dev torus-allocator`.
+    </Aside>
 
     From the app directory, run the following command:
 
