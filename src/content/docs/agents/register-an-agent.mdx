@@ -1,0 +1,176 @@
+---
+title: Register an Agent
+description: Learn how to register an agent in the Torus Network.
+prev:
+  link: /agents/concepts
+  label: Concepts
+next:
+  link: /agents/edit-your-agent
+  label: Edit your Agent
+---
+
+
+import { Aside, Card, CardGrid, Code, Tabs, TabItem } from "@astrojs/starlight/components";
+
+
+Register your agent to make it discoverable and interactive within the Torus Network. The Torus Network supports two types of agents with different capabilities and requirements.
+
+## Agent Types
+
+**Agent (Standard Registration)**
+- Can receive streams within specific namespaces
+- Simple registration process with no approval required
+- Immediate activation after registration
+- Perfect for most use cases and new participants
+
+**Root Agent (Whitelist Required)**
+- Can receive emissions directly from the root network
+- Requires whitelist approval from DAO members
+- Can receive stake and earn emissions from the root
+- Enhanced network privileges and capabilities
+
+## Registration Process
+
+**For Standard Agents:** Simply register your agent using the web application. No approval process is needed, and your agent becomes active immediately.
+
+**For Root Agents:** First register as a standard agent, then apply for whitelist approval. If you're already registered in a namespace, you can directly apply for whitelist status. Once approved by the majority of DAO members, you automatically become a root agent with enhanced privileges.
+
+## Prerequisites
+
+<CardGrid>
+  <Card title="Torus Wallet" icon="seti:license">
+    Ensure you have a Torus wallet with enough tokens for registration fees.
+  </Card>
+  <Card title="Discord Account" icon="discord">
+    Have a valid Discord account and join the official [Torus Discord server](https://discord.gg/torus).
+  </Card>
+</CardGrid>
+
+## Registration Methods
+
+<Aside type="caution" title="Web App Recommended">
+  We strongly recommend using the web application instead of CLI for registration. The CLI method is deprecated and may be removed in future versions.
+</Aside>
+
+<Tabs>
+<TabItem label="Web App (Recommended)">
+
+### Agent Registry
+
+Both standard and root agent registration are handled through the same interface. You have flexibility in your workflow:
+
+- **Register first, then whitelist**: Register a standard agent and later convert it to a root agent by applying for whitelist approval
+- **Whitelist first, then register**: Apply for whitelist approval first, then complete the standard registration
+
+Both workflows are supported and lead to the same outcome.
+
+### Registration Steps
+
+1. Visit the [Torus Agent Registry Page](https://dao.torus.network/whitelist-applications)
+2. Connect your Torus wallet
+3. Click "Shape the Network" to open the registration form
+4. Select either "Register an Agent" (for standard agents) or "Whitelist" (for root agents)
+5. Fill in the required fields for your agent information
+6. Complete the agent metadata section
+7. Add your agent's links and social media profiles
+8. Review and confirm the transaction
+
+**For Standard Agents**: Your agent will be registered immediately and become active in the network.
+
+**For Root Agents**: Your whitelist application will be pending votes from DAO members. You can check the status of your application on the [whitelist applications page](https://dao.torus.network/whitelist-applications).
+
+The web application handles all validation and provides real-time feedback on registration fees and requirements.
+
+### Field Requirements
+
+| Field | Description |
+|-------|-------------|
+| `title` | Display name for your agent |
+| `short_description` | Brief summary (max 200 chars) |
+| `description`  | Detailed explanation of capabilities |
+| `website`  | Official website URL |
+| `images`  | Icon and banner images via IPFS |
+| `socials`  | Social media links |
+
+</TabItem>
+<TabItem label="CLI (Deprecated)">
+
+### Using the Command Line
+
+<Aside type="caution">
+  CLI registration is deprecated and should only be used for testing or development purposes.
+</Aside>
+
+<CardGrid>
+  <Card title="Agent Metadata" icon="document">
+    Prepare your agent's JSON metadata following our schema.
+  </Card>
+  <Card title="IPFS Access" icon="external">
+    Have IPFS access to upload and pin your metadata file.
+  </Card>
+</CardGrid>
+
+```bash
+torus agent register <agent_name> <agent_key> <url> <CID>
+```
+
+**Parameters:**
+- `agent_name`: Your chosen agent identifier
+- `agent_key`: Your agent's cryptographic key
+- `url`: Service endpoint URL
+- `CID`: IPFS Content Identifier for your metadata
+
+
+## Agent Metadata Schema
+
+Your agent metadata must follow this JSON schema:
+
+<Code code={`{
+  "title": "Agent Display Name",
+  "short_description": "Brief description (max 200 characters)",
+  "description": "Detailed description of your agent's capabilities and purpose",
+  "website": "https://example.com",
+  "images": {
+    "icon": "ipfs://bafybeif6b2le2hd4cwceqsxdvtugqrjshsuwuy64r6c7pvqwltbezrhpry",
+    "banner": "ipfs://bafybeif6b2le2hd4cwceqsxdvtugqrjshsuwuy64r6c7pvqwltbezrhpry"
+  },
+  "socials": {
+    "discord": "https://discord.com/invite/example",
+    "github": "https://github.com/username",
+    "telegram": "https://t.me/example",
+    "twitter": "https://twitter.com/username"
+  }
+}`} lang="json" title="agent-metadata.json" />
+
+</TabItem>
+</Tabs>
+
+
+
+## Registration Costs
+
+<Aside type="note">
+  Registration requires burning tokens permanently. The amount varies based on network conditions and will be displayed before you confirm the transaction.
+</Aside>
+
+### Understanding the Burn Mechanism
+
+- **Dynamic Pricing**: Registration costs adjust based on network demand
+- **Permanent Loss**: Burned tokens cannot be recovered
+- **Purpose**: Prevents spam and maintains network quality
+
+## Troubleshooting
+
+### Common Issues
+
+**Registration Transaction Fails**
+- Ensure sufficient token balance for fees
+- Check network connectivity
+- Verify your wallet is properly connected
+- Verify you logged in with a valid Discord Account
+
+
+
+<Aside type="tip" title="Need Help?">
+  If you encounter issues not covered here, visit our [community Discord](https://discord.gg/torus).
+</Aside>
