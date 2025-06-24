@@ -4,11 +4,9 @@ deployment:
 
   additionalLabels:
     app: torus-docs
-    version: "{{ .Values.docsVersion }}"
 
   podLabels:
     app: torus-docs
-    version: "{{ .Values.docsVersion }}"
 
 
   reloadOnChange: true
