@@ -53,7 +53,7 @@ jobs:
 
       - name: Prepare build
         run: |
-          echo "SANITIZED_REF=$(echo "${GITHUB_REF##*/}" | tr '/' '-')" >> $GITHUB_ENV
+          echo "SANITIZED_REF=$(echo "${GITHUB_REF##*/}" | tr '/' '-' | tr '.' '-')" >> $GITHUB_ENV
 
       - id: commit
         uses: prompt/actions-commit-hash@v3
@@ -115,7 +115,7 @@ jobs:
 
       - name: Set environment variables
         run: |
-          echo "SANITIZED_REF=$(echo "${GITHUB_REF##*/}" | tr '/' '-')" >> $GITHUB_ENV
+          echo "SANITIZED_REF=$(echo "${GITHUB_REF##*/}" | tr '/' '-' | tr '.' '-')" >> $GITHUB_ENV
       
       - name: Deploy application (Branch)
         if: github.ref_type == 'branch'
