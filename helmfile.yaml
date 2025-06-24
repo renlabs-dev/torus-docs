@@ -1,0 +1,25 @@
+environments:
+  default:
+    values:
+      - helm/values.yaml
+---
+helmDefaults:
+  wait: true
+  createNamespace: false
+
+repositories:
+  - name: renlabs
+    url: https://charts.renlabs.dev/
+
+releases:
+  - name: "{{ .Values.releaseName }}"
+    namespace: torus-docs
+    chart: renlabs/application
+    values:
+      - helm/values.yaml.gotmpl
+      - ingress:
+          hosts:
+            - host: "{{ .Values.ingressHost }}"
+              paths:
+                - path: /
+                  pathType: Prefix

@@ -1,0 +1,75 @@
+deployment:
+  image:
+    repository: ghcr.io/renlabs-dev/torus-docs
+
+  additionalLabels:
+    app: torus-docs
+    version: "{{ .Values.docsVersion }}"
+
+  podLabels:
+    app: torus-docs
+    version: "{{ .Values.docsVersion }}"
+
+
+  reloadOnChange: true
+
+  startupProbe:
+    enabled: true
+    failureThreshold: 30
+    periodSeconds: 10
+    httpGet:
+      path: /
+      port: 80
+
+  readinessProbe:
+    enabled: true
+    failureThreshold: 3
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 1
+    initialDelaySeconds: 10
+    httpGet:
+      path: /
+      port: 80
+
+  livenessProbe:
+    enabled: true
+    failureThreshold: 3
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 1
+    initialDelaySeconds: 10
+    httpGet:
+      path: /
+      port: 80
+
+  # resources:
+  #   limits:
+  #     memory: 256Mi
+  #     cpu: 0.5
+  #   requests:
+  #     memory: 128Mi
+  #     cpu: 0.1
+
+  containerSecurityContext:
+    runAsNonRoot: false
+
+  # command: []
+
+  # args: []
+
+  ports:
+    - containerPort: 80
+      name: http
+      protocol: TCP
+
+service:
+  ports:
+    - port: 80
+      name: http
+      protocol: TCP
+      targetPort: 80
+
+ingress:
+  enabled: true
+  ingressClassName: nginx
