@@ -122,4 +122,5 @@ jobs:
           helmfile sync \
           --state-values-set releaseName=${{ env.SANITIZED_REF }}-torus-docs \
           --state-values-set ingressHost=${{ env.INGRESS }} \
+          --state-values-set docsVersion=${{ env.SANITIZED_REF }} \
           --set deployment.image.tag=${{ steps.commit.outputs.short }}
