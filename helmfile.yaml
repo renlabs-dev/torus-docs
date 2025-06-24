@@ -2,6 +2,16 @@ environments:
   default:
     values:
       - helm/values.yaml
+  dev:
+    values:
+      - helm/values.yaml
+      - releaseName: dev-torus-docs
+      - ingressHost: dev.docs.torus.network
+  prod:
+    values:
+      - helm/values.yaml
+      - releaseName: torus-docs
+      - ingressHost: docs.torus.network
 ---
 helmDefaults:
   wait: true
