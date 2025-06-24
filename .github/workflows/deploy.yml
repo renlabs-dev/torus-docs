@@ -1,4 +1,4 @@
-name: Build and deploy to Fly.io
+name: Build and deploy
 
 on:
   push:
@@ -7,10 +7,16 @@ on:
       - main
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  build-n-deploy:
-    runs-on: ubicloud-standard-2
-    environment: ${{ github.ref_name }}
+  build:
+    if: |
+      !contains(github.event.head_commit.message, 'skip build')
+    permissions: write-all
+    runs-on: ubicloud-standard-16
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
@@ -33,8 +39,87 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only
-        env:
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}  
-          FLY_APP: ${{ vars.APP_NAME }}
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Docker Login
+        uses: docker/login-action@v3.0.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Prepare build
+        run: |
+          echo "SANITIZED_REF=$(echo "${GITHUB_REF##*/}" | tr '/' '-')" >> $GITHUB_ENV
+
+      - id: commit
+        uses: prompt/actions-commit-hash@v3
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          file: Dockerfile
+          tags: |
+            ghcr.io/renlabs-dev/torus-docs:${{ steps.commit.outputs.short }}
+            ghcr.io/renlabs-dev/torus-docs:${{ env.SANITIZED_REF }}
+
+  clean-stale:
+    runs-on: ubicloud-standard-2
+    container:
+      image: ghcr.io/renlabs-dev/devops-ci:latest
+
+    env:
+      VAULT_ADDR: ${{ secrets.VAULT_ADDR }}
+      VAULT_ROLE_ID: ${{ secrets.VAULT_ROLE_ID }}
+      VAULT_SECRET_ID: ${{ secrets.VAULT_SECRET_ID }}
+
+    steps:
+      - name: Setup Kubernetes authentication
+        run: /apps/k8s_auth_w_approle_sa.sh
+
+      - name: Clean stale releases
+        run: |
+          /apps/clean_stale_releases.sh torus-docs
+
+  # deploy:
+  #   needs: [build, clean-stale]
+  #   runs-on: ubicloud-standard-2
+  #   environment: ${{ github.ref_name }}
+  #   container:
+  #     image: ghcr.io/renlabs-dev/devops-ci:latest
+
+  #   env:
+  #     VAULT_ADDR: ${{ secrets.VAULT_ADDR }}
+  #     VAULT_ROLE_ID: ${{ secrets.VAULT_ROLE_ID }}
+  #     VAULT_SECRET_ID: ${{ secrets.VAULT_SECRET_ID }}
+
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v4
+
+  #     - name: Setup Kubernetes authentication
+  #       run: /apps/k8s_auth_w_approle_sa.sh
+
+  #     - name: Add and update Helm repositories
+  #       run: |
+  #         helm repo add renlabs https://charts.renlabs.dev/
+  #         helm repo update
+
+  #     - id: commit
+  #       uses: prompt/actions-commit-hash@v3
+
+  #     - name: Set environment variables
+  #       run: |
+  #         SANITIZED_REF=$(echo "${GITHUB_REF##*/}" | tr '/' '-')
+  #         echo "SANITIZED_REF=$SANITIZED_REF" >> $GITHUB_ENV
+  #         echo "INGRESS=$([ "$SANITIZED_REF" == "main" ] && echo "docs.torus.network" || echo "$SANITIZED_REF.docs.torus.network")" >> $GITHUB_ENV
+
+  #     - name: Deploy application
+  #       run: |
+  #         helmfile sync \
+  #         --state-values-set releaseName=${{ env.SANITIZED_REF }}-torus-docs \
+  #         --state-values-set ingressHost=${{ env.INGRESS }} \
+  #         --set deployment.image.tag=${{ steps.commit.outputs.short }}
