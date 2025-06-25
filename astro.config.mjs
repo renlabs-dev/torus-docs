@@ -80,12 +80,12 @@ export default defineConfig({
           ],
         },
         {
-          label: "Subspace",
+          label: "The Chain",
           items: [
-            { label: "Global Parameters", slug: "subspace/global-parameters" },
+            { label: "Global Parameters", slug: "chain/global-parameters" },
             {
               label: "Running a Local Node",
-              slug: "subspace/running-the-chain",
+              slug: "chain/running-the-chain",
             },
           ],
         },
