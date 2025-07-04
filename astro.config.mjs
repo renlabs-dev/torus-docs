@@ -75,6 +75,10 @@ export default defineConfig({
               label: "Agent Client",
               slug: "agents/agent-client",
             },
+            {
+              label: "Namespace Permissions",
+              slug: "agents/namespace-permissions",
+            },
           ],
         },
         {
