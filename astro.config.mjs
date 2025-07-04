@@ -67,6 +67,14 @@ export default defineConfig({
               label: "Connect to a Module",
               slug: "agents/connect-to-an-agent",
             },
+            {
+              label: "Agent Server",
+              slug: "agents/agent-server",
+            },
+            {
+              label: "Agent Client",
+              slug: "agents/agent-client",
+            },
           ],
         },
         {
