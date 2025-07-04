@@ -481,6 +481,13 @@ The AgentClient automatically handles JWT authentication:
   "payload": {
     "sub": "5FgfC2DY4yreEWEughz46RZYQ8oBhHVqD9fVq6gV89E6z4Ea", // Your address
     "publicKey": "0x...", // Your public key
+    "keyType": "sr25519", // Key type
+    "addressInfo": {
+      "addressType": "ss58", // Address encoding type
+      "metadata": {
+        "prefix": 42 // SS58 prefix for Substrate generic
+      }
+    },
     "iat": 1640995200, // Issued at timestamp
     "exp": 1640998800, // Expires at timestamp
     "nonce": "unique-uuid", // Prevents replay attacks
@@ -536,6 +543,13 @@ class AgentClient:
         payload = {
             "sub": self.address,
             "publicKey": f"0x{self.public_key}",
+            "keyType": "sr25519",
+            "addressInfo": {
+                "addressType": "ss58",
+                "metadata": {
+                    "prefix": 42
+                }
+            },
             "iat": now,
             "exp": now + 3600,  # 1 hour expiration
             "nonce": str(uuid.uuid4()),

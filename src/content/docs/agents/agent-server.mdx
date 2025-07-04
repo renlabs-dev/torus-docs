@@ -679,6 +679,13 @@ If you're building an Agent Server in a language other than TypeScript, you'll n
 {
   "sub": "5FgfC2DY4yreEWEughz46RZYQ8oBhHVqD9fVq6gV89E6z4Ea",
   "publicKey": "0x1234567890abcdef...",
+  "keyType": "sr25519",
+  "addressInfo": {
+    "addressType": "ss58",
+    "metadata": {
+      "prefix": 42
+    }
+  },
   "iat": 1640995200,
   "exp": 1640998800,
   "nonce": "550e8400-e29b-41d4-a716-446655440000",
@@ -689,8 +696,12 @@ If you're building an Agent Server in a language other than TypeScript, you'll n
 ```
 
 **Field Descriptions:**
-- `sub`: User's SS58 address (42-character format)
+- `sub`: The actual address/identifier
 - `publicKey`: Hex-encoded public key (64 characters + 0x prefix)
+- `keyType`: Cryptographic key type (`sr25519`)
+- `addressInfo`: Address format information
+  - `addressType`: Address encoding type (`ss58`)
+  - `metadata`: Additional address parameters (e.g., `prefix: 42`)
 - `iat`: Issued at timestamp (Unix seconds)
 - `exp`: Expiration timestamp (Unix seconds)
 - `nonce`: Unique UUID to prevent replay attacks
