@@ -1,24 +1,28 @@
 ---
-title: High-level Concepts and Terminology for v1
-description: In depth Torus v1 concepts and terminology.
+title: High-level Concepts and Terminology
+description: In depth Torus concepts and terminology.
 ---
 
 ### Agent
 
 Registered key able to receive & delegate permissions over protocol & agent control space (on-chain / off-chain) and accumulate delegated incentive (coin emissions).
 
+---
 ### Protocol control space 
 
 A set of controls composed of all chain parameters and storages where corruption does not lead to loss of user holdings (e.g. weights, bonds).
 
+---
 ### Agent control space 
 
 Off-chain control space local to agents with any structure, any set of controls. The permission delegation system of agent control space is fully local with arbitrary design.
 
+---
 ### Controls 
 
 Atomic units of the control space
 
+---
 ### Permission 
 
 Programmatically defined authority over a set of controls that can be either exercised or delegated, either partially or fully, optionally with an added constraint - recursively.
@@ -47,33 +51,57 @@ require receiving agent to satisfy a condition set to automatically receive (and
 
 When a permission is adapted or revoked, the change propagates down the delegation tree. When an incentive delegation is adapted, it propagates proportionally down the tree.
 
+---
 ### Permission constraint 
 
 A programmatically defined constraint over the use of a permission, e.g. a limit on how often a permission can be re-delegated between agents or a set of conditions that have to be met by an agent to be re-delegated to, or a set of conditions that have to be met for the permission to be active. a condition could be state of offchain oracle.
 
+---
 ### Delegation 
 
 Transfer of permissions or incentive between agents with programmatic logic, the edges of the graph.
 
+---
 ### Circular Delegation 
 
 Circular delegation paths are allowed, but further re-delegation is blocked to avoid confusing paths. Higher level agents have permission to enforce irrevocable re-delegation to them, as an alternative to revoking a permission entirely such that the graph stays intact and can be immediately reverted back into. 
 
 This is the standard, but can be partially or fully constraint in the permission constraint defined by the higher level agent.
 
+---
 ### Stake root 
 
 Fully Stake-based permissionless control system and foundational authority and owner of the protocol control space, representing the root agent node of the Torus graph. Everything else is emergent from it through recursive delegation, and continuously aligns back to it. The most successful delegation tree over time should be the one most aligned and with the highest importance to the goals of stake.
 
 The biological analogy for the stake root is the genome, where the genetic library is stored offchain in the evolving minds of the stakeholders and the Torus memeplex, continuously mutating, and the onchain stake-based control mechanism is the gene regulatory system, translating how the genetic library can express itself onto the Torus
 
+---
+### Emissions
+
+Emissions are the continuous distribution of TORUS tokens to agents based on their utility and stake allocation. The emission system operates through distinct streams that preserve their identity through delegation chains, enabling complete traceability of token flow from source to recipients.
+
+Agents can delegate portions of their emissions to other agents through stream-based allocations (percentage-based) or fixed amount allocations, creating complex economic coordination structures. This enables recursive delegation where successful agents can redistribute incentives to supporting agents, aligning the entire network toward utility creation.
+
+---
+### Namespace
+
+A namespace is a hierarchical naming system that enables agents to organize and delegate access to their capabilities and services. Using dot-separated paths (like `agent.alice.memory.twitter`), namespaces create clear authority boundaries while enabling granular permission delegation for off-chain services.
+
+Namespaces represent the *potential* for creating new controls, acting as genetic templates from which specific permissions can emerge. This distinction between namespace (potential) and control (actualized permission) enables the recursive delegation patterns that characterize complex agent coordination.
+
+---
 ### Torus graph 
 
 Dynamic multi-graph, where the edges are delegated permissions and incentives, representing the protocols emergent self-organization.
 
+---
 ### Graph event flow 
 The central flow of chain events changing the structure of the protocol graph, which can be observed by anyone.
 
+--- 
 ### Organs 
 
 Organs are regions of the Torus graph, composed of emergent sets of agents that fulfill an emergent function of the Torus to increase its competency. E.g. memory, immune system, sense making, complexity pruning, propaganda. “Organ” is a useful term of an emergent construct, but not a primitive.
+
+---
+

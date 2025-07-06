@@ -26,6 +26,7 @@ export default defineConfig({
           label: "Getting Started",
           items: [
             { label: "Introduction", slug: "index" },
+            { label: "Concepts & Terminology", slug: "getting-started/concepts" },
             { label: "Setup CLI", slug: "getting-started/setup-cli" },
             { label: "Setup Wallet", slug: "getting-started/setup-wallet" },
           ],
@@ -72,10 +73,6 @@ export default defineConfig({
               slug: "development/web-apps-overview",
             },
             {
-              label: "Installation",
-              slug: "development/installation",
-            },
-            {
               label: "Development Guide",
               slug: "development/guide",
             },
@@ -92,15 +89,6 @@ export default defineConfig({
             {
               label: "Running a Node",
               slug: "network/running-node",
-            },
-          ],
-        },
-        {
-          label: "Future Vision (v1)",
-          items: [
-            {
-              label: "v1 Concepts",
-              slug: "future/v1-concepts",
             },
           ],
         },
