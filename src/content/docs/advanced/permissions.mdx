@@ -1,0 +1,193 @@
+---
+title: Permission System Architecture
+description: Comprehensive guide to Torus's recursive delegation system, emission permissions, and control distribution mechanisms.
+---
+
+import { CardGrid, LinkCard, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
+
+The Torus Network implements a sophisticated **recursive delegation system** called Permission0 that enables fine-grained control over emission distribution, namespace access, and governance functions. This system bridges on-chain verification with off-chain services through complex permission hierarchies that adapt to coordination requirements.
+
+## Permission Architecture Overview
+
+The permission system operates through **Permission Contracts** that define delegation relationships between grantors and grantees. Each contract encapsulates the authority, scope, duration, and enforcement mechanisms for specific capability delegations.
+
+### Permission Contract Structure
+
+```rust
+pub struct PermissionContract {
+    pub grantor: AccountId,           // Authority delegator
+    pub grantee: AccountId,           // Authority recipient
+    pub scope: PermissionScope,       // Delegation boundaries
+    pub duration: PermissionDuration, // Temporal constraints
+    pub revocation: RevocationTerms,  // Termination conditions
+    pub enforcement: EnforcementAuthority, // Third-party governance
+    pub parent: Option<PermissionId>, // Recursive delegation chain
+}
+```
+
+### Permission Scope Categories
+
+The system supports three fundamental permission types that enable comprehensive coordination:
+
+```rust
+pub enum PermissionScope {
+    Emission(EmissionScope),    // Token delegation permissions
+    Curator(CuratorScope),      // Governance function delegation
+    Namespace(NamespaceScope),  // Off-chain service access control
+}
+```
+
+## Emission Permission System
+
+Emission permissions constitute the core economic coordination mechanism, enabling agents to delegate portions of their token flows to other agents through sophisticated stream-based allocations.
+
+### Stream-Based Emission Model
+
+The emission system preserves **stream identity** through delegation chains via unique `StreamId` identifiers. Each stream represents a distinct emission source (staking returns, delegation fees), enabling complete traceability of token flow from source to final recipients.
+
+### Allocation Mechanisms
+
+Emission permissions support two distinct allocation paradigms:
+
+#### Stream Allocations (Percentage-Based)
+
+Stream allocations enable agents to delegate specific percentages of incoming emissions from particular streams.
+
+**Stream Allocation Characteristics:**
+- **Granular Control**: Different streams can have different delegation percentages (0-100%)
+- **Safety Constraints**: Total allocated percentage per stream cannot exceed 100%
+- **Dynamic Processing**: Emissions are intercepted and redirected during distribution
+- **Recursive Support**: Delegated streams maintain their identity through recursive delegation chains
+
+
+#### Fixed Amount Allocations
+
+Fixed amount allocations reserve specific token quantities from the grantor's account at permission creation:
+
+```rust
+FixedAmount(1000) // Reserve 1000 TORUS
+```
+
+**Fixed Amount Characteristics:**
+- **Upfront Reservation**: Tokens are reserved using the Currency trait's reserve mechanism
+- **One-time Distribution**: Can only be executed once (manually or at a specific block)
+- **Distribution Constraints**: Limited to `Manual` or `AtBlock` distribution controls
+- **Safety Guarantee**: Uses the reserve/unreserve pattern to prevent double-spending
+
+### Distribution Control Mechanisms
+
+The system provides four distribution control patterns that determine when and how delegated tokens are transferred:
+
+```rust
+pub enum DistributionControl {
+    Manual,                    // Grantee triggers distribution
+    Automatic(Balance),        // Auto-trigger at threshold
+    AtBlock(BlockNumber),      // Execute at specific block
+    Interval(BlockNumber),     // Execute every N blocks
+}
+```
+
+<Tabs>
+<TabItem label="Manual Distribution">
+**Manual Distribution** requires explicit execution by the grantee:
+
+```rust
+DistributionControl::Manual
+```
+
+- **Grantee Control**: Recipient determines when to claim accumulated tokens
+- **Flexibility**: Allows strategic timing of token distribution
+- **Gas Efficiency**: Batches multiple accumulations into single distribution
+</TabItem>
+
+<TabItem label="Automatic Distribution">
+**Automatic Distribution** triggers when accumulated amounts reach a threshold:
+
+```rust
+DistributionControl::Automatic(5000) // Auto-distribute at 5000 TORUS
+```
+
+- **Threshold-Based**: Automatically executes when accumulated amount exceeds threshold
+- **Predictable**: Ensures regular distribution without manual intervention
+- **Efficient**: Reduces the need for manual monitoring
+</TabItem>
+
+<TabItem label="Block-Based Distribution">
+**AtBlock Distribution** executes once at a specific block:
+
+```rust
+DistributionControl::AtBlock(1_000_000) // Execute at block 1,000,000
+```
+
+- **Scheduled**: Executes at predetermined block height
+- **One-time**: Single execution at specified block
+- **Predictable**: Known execution timing
+</TabItem>
+
+<TabItem label="Interval Distribution">
+**Interval Distribution** executes periodically at fixed intervals:
+
+```rust
+DistributionControl::Interval(10_800) // Execute every 10,800 blocks (~24 hours)
+```
+
+- **Periodic**: Regular execution at specified block intervals
+- **Automated**: No manual intervention required
+- **Consistent**: Predictable distribution schedule
+</TabItem>
+</Tabs>
+
+---
+### Emission Accumulation Process
+
+The accumulation mechanism efficiently processes emissions through a multi-stage pipeline:
+
+1. **Interception**: When agents receive emissions, the system checks for active permissions
+2. **Stream Matching**: Permissions are filtered by stream ID and allocation type
+3. **Percentage Extraction**: For stream allocations, the specified percentage is extracted
+4. **Storage**: Accumulated amounts are stored with agent-stream-permission indexing
+5. **Distribution Triggers**: Various conditions trigger automatic distribution
+
+
+## Recursive Delegation Architecture
+
+The permission system enables **re-delegations** through hierarchical permission trees, creating natural incentive alignment across agent networks.
+
+### Hierarchical Permission Trees
+
+**Recursive Delegation Properties:**
+- **Unlimited Depth**: Delegation trees can extend to arbitrary depth
+- **Permission Inheritance**: Child permissions derive authority from parent permissions
+- **Validation Chains**: Each level validates the delegator has rights from the level above
+- **Economic Incentives**: Rational agents delegate when it increases their own emissions
+
+### Delegation Validation
+
+Each delegation level undergoes strict validation to ensure proper authorization:
+
+1. **Parent Validation**: Child permissions must reference valid parent permissions
+2. **Authority Checking**: Each delegation level validates proper authorization chain
+3. **Scope Consistency**: Child permissions cannot exceed parent permission scope
+4. **Temporal Constraints**: Child permissions cannot exceed parent permission duration
+
+## Enforcement Authority System
+
+The enforcement system creates a sophisticated bridge between on-chain permissions and off-chain verification, allowing builders to create custom enforcement mechanisms.
+
+<CardGrid>
+  <LinkCard
+    title="Namespaces"
+    href="/advanced/namespaces"
+    description="Understand how namespaces enable permission instantiation."
+  />
+  <LinkCard
+    title="Namespace Permissions"
+    href="/advanced/namespace-permissions"
+    description="Learn how agents use namespace permissions for access controls."
+  />
+  <LinkCard
+    title="Concepts"
+    href="/future/v1-concepts"
+    description="Explore the concepts of the Torus Network."
+  />
+</CardGrid>

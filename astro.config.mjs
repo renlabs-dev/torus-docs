@@ -23,102 +23,84 @@ export default defineConfig({
       },
       sidebar: [
         {
-          label: "The Vision",
+          label: "Getting Started",
           items: [
             { label: "Introduction", slug: "index" },
-            {
-              label: "v1 Concepts and Terminology",
-              slug: "concepts/terminology",
-            },
+            { label: "Setup CLI", slug: "getting-started/setup-cli" },
+            { label: "Setup Wallet", slug: "getting-started/setup-wallet" },
           ],
         },
         {
-          label: "v0",
+          label: "Core Concepts",
           items: [
-            { label: "Basics", slug: "concepts/basics" },
-            { label: "Torus DAO", slug: "concepts/torus-dao" },
-            {
-              label: "Agent Application",
-              slug: "concepts/agent-application",
-            },
+            { label: "Network Overview", slug: "concepts/network-overview" },
+            { label: "Stake & Weights", slug: "concepts/stake-weights" },
+            { label: "Governance & DAO", slug: "concepts/governance-dao" },
             { label: "Tokenomics", slug: "concepts/tokenomics" },
           ],
         },
         {
-          label: "Installation",
+          label: "Working with Agents",
           items: [
-            { label: "Setup Torus CLI", slug: "installation/setup-torus-cli" },
-            { label: "Setup Wallet", slug: "installation/setup-wallet" },
+            { label: "Agent Application", slug: "agents/application" },
+            { label: "Register an Agent", slug: "agents/register" },
+            { label: "Agent Server Setup", slug: "agents/server-setup" },
+            { label: "Agent Client", slug: "agents/client" },
+            { label: "Managing Your Agent", slug: "agents/management" },
           ],
         },
         {
-          label: "Agents & Modules",
+          label: "Advanced Features",
           items: [
-            { label: "Concepts", slug: "agents/what-is-an-agent" },
-            {
-              label: "Register to the Network",
-              slug: "agents/register-an-agent",
-            },
-            {
-              label: "Edit your Agent",
-              slug: "agents/edit-your-agent",
-            },
-            {
-              label: "Connect to a Module",
-              slug: "agents/connect-to-an-agent",
-            },
-            {
-              label: "Agent Server",
-              slug: "agents/agent-server",
-            },
-            {
-              label: "Agent Client",
-              slug: "agents/agent-client",
-            },
-            {
-              label: "Namespace Permissions",
-              slug: "agents/namespace-permissions",
-            },
+            { label: "Namespaces", slug: "advanced/namespaces" },
+            { label: "Permissions System", slug: "advanced/permissions" },
+            { label: "Namespace Permissions", slug: "advanced/namespace-permissions" },
           ],
         },
         {
-          label: "Working with Keys",
+          label: "CLI & Tools",
           items: [
-            { label: "Key Basics", slug: "keys/key-basics" },
-            {
-              label: "Balance Operations",
-              slug: "keys/balance-operations",
-            },
+            { label: "Key Management", slug: "cli/key-management" },
+            { label: "Balance Operations", slug: "cli/balance-operations" },
           ],
         },
         {
-          label: "The Chain",
-          items: [
-            { label: "Global Parameters", slug: "chain/global-parameters" },
-            {
-              label: "Running a Local Node",
-              slug: "chain/running-the-chain",
-            },
-          ],
-        },
-        {
-          label: "Web apps",
+          label: "Development",
           items: [
             {
-              label: "Introduction",
-              slug: "web-apps/intro",
+              label: "Web Apps Overview",
+              slug: "development/web-apps-overview",
             },
             {
               label: "Installation",
-              slug: "web-apps/installation",
+              slug: "development/installation",
             },
             {
-              label: "Develop",
-              slug: "web-apps/develop",
+              label: "Development Guide",
+              slug: "development/guide",
             },
             {
-              label: "Querying allocated stake",
-              slug: "web-apps/querying-stake-weight",
+              label: "Querying Data",
+              slug: "development/querying-data",
+            },
+          ],
+        },
+        {
+          label: "Network Operations",
+          items: [
+            { label: "Global Parameters", slug: "network/global-parameters" },
+            {
+              label: "Running a Node",
+              slug: "network/running-node",
+            },
+          ],
+        },
+        {
+          label: "Future Vision (v1)",
+          items: [
+            {
+              label: "v1 Concepts",
+              slug: "future/v1-concepts",
             },
           ],
         },
