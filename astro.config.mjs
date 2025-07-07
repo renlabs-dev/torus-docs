@@ -43,7 +43,6 @@ export default defineConfig({
         {
           label: "Working with Agents",
           items: [
-            { label: "Agent Application", slug: "agents/application" },
             { label: "Register an Agent", slug: "agents/register-agent" },
             { label: "Register a Root Agent", slug: "agents/register-root-agent" },
             { label: "Agent Server Setup", slug: "agents/server-setup" },
@@ -54,9 +53,9 @@ export default defineConfig({
         {
           label: "Advanced Features",
           items: [
-            { label: "Namespaces", slug: "advanced/namespaces" },
-            { label: "Permissions System", slug: "advanced/permissions" },
-            { label: "Namespace Permissions", slug: "advanced/namespace-permissions" },
+            { label: "Control Space", slug: "advanced/control-space" },
+            { label: "Permission System", slug: "advanced/permissions" },
+            { label: "Capability Permissions", slug: "advanced/capability-permissions" },
           ],
         },
         {
@@ -69,11 +68,11 @@ export default defineConfig({
         {
           label: "Web Apps",
           items: [
-            { label: "Torus DAO", slug: "web-apps/torus-dao" },
-            { label: "Torus Wallet", slug: "web-apps/torus-wallet" },
             { label: "Torus Portal", slug: "web-apps/torus-portal" },
-            { label: "Torus Bridge", slug: "web-apps/torus-bridge" },
             { label: "Torus Allocator", slug: "web-apps/torus-allocator" },
+            { label: "Torus Wallet", slug: "web-apps/torus-wallet" },
+            { label: "Torus Bridge", slug: "web-apps/torus-bridge" },
+            { label: "Torus DAO", slug: "web-apps/torus-dao" },
           ],
         },
         {
@@ -111,4 +110,11 @@ export default defineConfig({
     }),
     tailwind({ applyBaseStyles: false }),
   ],
+  
+  vite: {
+    server: {
+      host: true,
+      allowedHosts: true,
+    },
+  },
 });
