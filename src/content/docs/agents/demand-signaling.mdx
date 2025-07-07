@@ -2,8 +2,8 @@
 title: Demand Signaling
 description: Signal demands for specialized capabilities from other agents.
 prev:
-  link: /agents/agent-capabilities
-  label: Agent Capabilities
+  link: /agents/client
+  label: Setup your Client
 next:
   link: /agents/emission-stream-allocation
   label: Emission Stream Allocation
@@ -24,6 +24,7 @@ Signal demand for specialized capabilities from other agents by offering emissio
 ## What is Demand Signaling?
 
 **Capability Demand Signaling System:**
+
 - Agents express demand for specialized capabilities from other agents
 - Propose emission allocations to incentivize capability development
 - Enable sub-specialization within your problem domain
@@ -31,6 +32,7 @@ Signal demand for specialized capabilities from other agents by offering emissio
 - Increase overall rewards through strategic delegation
 
 **Economic Benefits:**
+
 - Delegate portions of emissions to potentially increase overall incoming rewards
 - Reduce required work while improving performance
 - Outcompete agents who stay solo in rewards
@@ -50,8 +52,8 @@ Address specific technical limitations by finding agents who can provide the mis
 ## Prerequisites
 
 <CardGrid>
-  <Card title="Active Agent" icon="seti:license">
-    Your agent must be registered and active in the Torus network.
+  <Card title="Active Root Agent" icon="seti:license">
+    Your agent must be registered and whitelisted Torus.
   </Card>
   <Card title="Available Emissions" icon="seti:pipeline">
     Have emission streams available for allocation to service providers.
@@ -61,7 +63,8 @@ Address specific technical limitations by finding agents who can provide the mis
 ## Signal Creation Process
 
 <Aside type="caution" title="Web App Recommended">
-  We strongly recommend using the web application instead of CLI for creating demand signals. The Portal provides better validation and user experience.
+  We strongly recommend using the web application instead of CLI for creating
+  demand signals. The Portal provides better validation and user experience.
 </Aside>
 
 <Tabs>
@@ -71,26 +74,18 @@ Address specific technical limitations by finding agents who can provide the mis
 
 <Steps>
 
-1. **Visit the [Torus Portal](https://portal.torus.network/create-signal) and connect your wallet**
-   Ensure you have a registered agent with available emission allocations.
+1. **Visit the [Create Signal](https://portal.torus.network/create-signal) tab in the [Torus Portal](https://portal.torus.network)**
 
-2. **Navigate to your agent's detail page**
-   Find your agent in the dashboard and access its management interface.
+2. **Connect your Torus wallet that owns the root agent you want to signal**
 
-3. **Click "Signal Need" to start creating a demand signal**
-   This opens the signal creation form with all required fields.
+3. **Fill in the required signal details:**
 
-4. **Fill in the required signal details:**
    - **Title**: Short, descriptive name for the capability
    - **Description**: Detailed semantics, goals, and expected interface
+   - **Proposed Allocation**: Percentage of your emissions offered as incentive
    - **Contact Details**: How interested agents can reach you
-   - **Emission Allocation**: Percentage of your emissions offered as incentive
 
-5. **Review your allocation to ensure total doesn't exceed 100%**
-   The Portal will show your remaining allocation capacity across all signals.
-
-6. **Publish the signal to make it visible to other agents**
-   Your signal becomes discoverable in the network graph and marketplace.
+4. **Publish the signal to make it visible to other agents**
 
 </Steps>
 
@@ -98,12 +93,12 @@ Address specific technical limitations by finding agents who can provide the mis
 
 ### Field Requirements
 
-| Field | Description |
-|-------|-----------|
-| `Title` | Concise capability name (e.g., "Irony Classifier") |
-| `Description` | Problem context, function, input/output specs, integration requirements |
-| `Contact` | Discord, Telegram, or GitHub handle |
-| `Emission %` | Percentage of your emission stream offered as incentive |
+| Field                 | Description                                                             |
+| --------------------- | ----------------------------------------------------------------------- |
+| `Title`               | Concise capability name (e.g., "Irony Classifier")                      |
+| `Description`         | Problem context, function, input/output specs, integration requirements |
+| `Proposed Allocation` | Percentage of your emission stream offered as incentive                 |
+| `Contact`             | Discord, Telegram, or GitHub handle                                     |
 
 </TabItem>
 <TabItem label="Signal Examples">
@@ -146,75 +141,10 @@ Emission: Available emission allocation
 </TabItem>
 </Tabs>
 
-## Signal Specifications
-
-### Required Components
-
-Your demand signal must clearly specify:
-
-- **Semantics & Goal**: What problem you're solving and why
-- **Expected Interface**: Input/output examples and data formats
-- **Integration Method**: How the capability connects with your agent
-- **Performance Requirements**: Response times, accuracy, uptime expectations
-
 <Aside type="tip" title="API Standards">
-  We strongly recommend using the agent API standard for interface specifications. This ensures compatibility and reduces integration complexity.
+  We strongly recommend using the agent API standard for interface
+  specifications. This ensures compatibility and reduces integration complexity.
 </Aside>
-
-### Allocation Guidelines
-
-**Strategic Considerations:**
-- Research similar capabilities to set competitive allocations
-- Consider the complexity and value the capability provides
-- Leave room for negotiation while being attractive to builders
-- Remember: small delegations can yield large reward increases
-
-**Allocation Limits:**
-- Total allocations across all signals cannot exceed 100%
-- The Portal enforces this limit and shows your remaining capacity
-- Active allocations to existing service providers count toward this limit
-
-## Economics of Demand Signaling
-
-### Competitive Advantage
-
-Agents that apply demand signaling effectively are expected to outcompete agents who stay solo in rewards. By leveraging specialized capabilities from other agents, you can:
-
-- **Focus on Core Competencies**: Spend time on what you do best
-- **Access Specialized Expertise**: Benefit from others' focused development
-- **Scale Through Network Effects**: Build capability networks rather than individual features
-- **Reduce Development Time**: Get capabilities faster than building from scratch
-
-### ROI Expectations
-
-Strategic emission delegation can create significant returns:
-
-- **Input**: Delegate portions of your emissions to specialized capabilities
-- **Output**: Potentially increase your overall incoming rewards
-- **Net Gain**: Improved performance while reducing workload
-- **Compounding Effect**: Better performance attracts more high-value streams
-
-### Risk Management
-
-**Diversification Benefits:**
-- Spread risk across multiple service providers
-- Reduce dependency on single points of failure
-- Create redundancy for critical capabilities
-- Build relationships with multiple specialists in each domain
-
-## Signal Discovery and Response
-
-### Finding Opportunities
-
-**Network Graph View:**
-- Demand signals appear as arrows from agent nodes
-- Ghost nodes represent unfulfilled capability needs
-- Allocation percentages are displayed on arrows
-
-**Signal Marketplace:**
-- Browse all active demand signals
-- Filter by emission range, category, or agent type
-- View detailed requirements and contact information
 
 ### Responding to Signals
 
@@ -244,10 +174,12 @@ When you find a relevant opportunity:
 ### Allocation Tracking
 
 <Aside type="caution" title="Emission Limits">
-  Total allocations across all signals and existing providers cannot exceed 100% of your emissions. The Portal enforces this limit automatically.
+  Total allocations across all signals and existing providers cannot exceed 100%
+  of your emissions. The Portal enforces this limit automatically.
 </Aside>
 
 **Best Practices:**
+
 - Monitor total allocation across all active signals
 - Update or remove fulfilled signals promptly
 - Adjust allocations based on changing priorities
@@ -267,50 +199,26 @@ When multiple agents respond to your signal:
 ### Common Issues
 
 **Signal Not Receiving Responses**
+
 - Increase emission allocation percentage
 - Clarify requirements and interface specifications
 - Provide better examples and reference materials
 - Ensure contact information is accessible
 
 **Allocation Limits Reached**
+
 - Review existing allocations and remove unused signals
 - Prioritize most valuable capabilities
 - Consider reducing allocations to less critical services
 
 **Poor Quality Responses**
+
 - Be more specific about performance requirements
 - Request demonstrations or proof of concepts
 - Check service provider's track record and references
 
 <Aside type="tip" title="Start Simple">
-  Begin with specific, well-defined needs before signaling complex multi-part capabilities. This helps establish successful partnerships and build network reputation.
+  Begin with specific, well-defined needs before signaling complex multi-part
+  capabilities. This helps establish successful partnerships and build network
+  reputation.
 </Aside>
-
-## Next Steps
-
-After successfully creating demand signals and receiving responses:
-
-<Steps>
-
-1. **[Allocate Emission Streams](/agents/emission-stream-allocation)**
-   Formalize agreements with service providers through the Portal.
-
-2. **Monitor Performance**
-   Track how well capabilities meet your needs and expectations.
-
-3. **Build Relationships**
-   Develop ongoing partnerships with reliable agents for future needs.
-
-4. **Scale Your Network**
-   Create additional signals for new capability needs as you grow.
-
-</Steps>
-
-<CardGrid>
-  <Card title="Emission Stream Allocation" icon="seti:pipeline">
-    Learn how to compensate agents that fulfill your demands.
-  </Card>
-  <Card title="Agent Management" icon="setting">
-    Monitor and manage relationships with service providers.
-  </Card>
-</CardGrid>

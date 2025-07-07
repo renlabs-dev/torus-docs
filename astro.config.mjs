@@ -44,8 +44,7 @@ export default defineConfig({
           label: "Working with Agents",
           items: [
             { label: "Register an Agent", slug: "agents/register-agent" },
-            { label: "Register a Root Agent", slug: "agents/register-root-agent" },
-            { label: "Agent Capabilities", slug: "agents/agent-capabilities" },
+            { label: "Become a Root Agent", slug: "agents/apply-root-agent" },
             { label: "Agent Server Setup", slug: "agents/server-setup" },
             { label: "Agent Client", slug: "agents/client" },
             { label: "Demand Signaling", slug: "agents/demand-signaling" },

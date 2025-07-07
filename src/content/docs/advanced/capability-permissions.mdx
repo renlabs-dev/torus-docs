@@ -3,11 +3,15 @@ title: Capability Permissions
 description: Understanding the capability permission system for agent endpoints
 ---
 
-import { CardGrid, LinkCard, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
+import {
+  CardGrid,
+  LinkCard,
+  Aside,
+  Tabs,
+  TabItem,
+} from "@astrojs/starlight/components";
 
 Capability permissions provide fine-grained access control for agent endpoints on Torus. This system allows agents to delegate specific permissions to users for accessing particular endpoints.
-
-## Overview
 
 The capability permission system works by:
 
@@ -41,14 +45,15 @@ agent.<agent_name>.<endpoint_name>.<http_method>
 // Method: "post"
 
 agent.method("store", {
-  method: "post",
-  auth: { required: true },
-  namespace: { enabled: true }, // Uses automatic path generation
-  // ... rest of configuration
+method: "post",
+auth: { required: true },
+namespace: { enabled: true }, // Uses automatic path generation
+// ... rest of configuration
 });
 
 // Generated namespace path: "agent.alice.store.post"
-```
+
+````
 </TabItem>
 <TabItem label="Multiple Methods">
 ```ts
@@ -61,9 +66,9 @@ agent.method("memory", {
 });
 // Namespace: "agent.alice.memory.get"
 
-// POST /memory  
+// POST /memory
 agent.method("memory", {
-  method: "post", 
+  method: "post",
   namespace: { enabled: true }
 });
 // Namespace: "agent.alice.memory.post"
@@ -74,7 +79,8 @@ agent.method("memory", {
   namespace: { enabled: true }
 });
 // Namespace: "agent.alice.memory.delete"
-```
+````
+
 </TabItem>
 </Tabs>
 
@@ -87,10 +93,30 @@ agent.method("sensitive-operation", {
   auth: { required: true },
   namespace: {
     enabled: true,
-    path: "agent.alice.admin.sensitive" // Custom namespace path
+    path: "agent.alice.admin.sensitive", // Custom namespace path
   },
   // ... rest of configuration
 });
+```
+
+Some examples of valid and invalid namespace paths for you to reference when creating a custom namespace path:
+
+### Valid Examples
+
+```
+agent.alice.memory.store          ✓ Valid
+agent.trader-bot.analyze          ✓ Valid
+agent.data_processor.transform    ✓ Valid
+agent.alice123.service            ✓ Valid
+```
+
+### Invalid Examples
+
+```
+agent.Alice.memory.store          ✗ Uppercase letters
+agent.alice..memory               ✗ Double dots
+agent.alice.memory-               ✗ Ending with hyphen
+agent.alice.memory.very-long-capability-name-that-exceeds-limit  ✗ Too long
 ```
 
 ## Permission Requirements
@@ -104,7 +130,7 @@ The capability permission system requires **exact matches**. Users must have per
 agent.method("store", {
   method: "post",
   auth: { required: true },
-  namespace: { enabled: true }
+  namespace: { enabled: true },
 });
 // This generates namespace: "agent.alice.store.post"
 ```
@@ -113,8 +139,9 @@ agent.method("store", {
 Users need permission for exactly: `agent.alice.store.post`
 
 These permissions will **NOT** work:
+
 - `agent.alice.store` (missing method)
-- `agent.alice.*` (wildcards not supported) 
+- `agent.alice.*` (wildcards not supported)
 - `agent.alice.store.get` (wrong method)
 
 ### Permission Delegation
@@ -138,18 +165,18 @@ Permissions are delegated by the agent owner to specific users through Torus's p
 // Enable namespace checking (default)
 agent.method("protected-endpoint", {
   auth: { required: true },
-  namespace: { enabled: true }
+  namespace: { enabled: true },
 });
 
 // Disable namespace checking
 agent.method("public-endpoint", {
   auth: { required: true },
-  namespace: { enabled: false } // No permission check
+  namespace: { enabled: false }, // No permission check
 });
 
 // Namespace checking disabled by default if no namespace config provided
 agent.method("open-endpoint", {
-  auth: { required: true }
+  auth: { required: true },
   // No namespace configuration = no permission checking
 });
 ```
@@ -165,14 +192,15 @@ agent.method("endpoint", {
     enabled: true,
     rpcUrls: [
       "wss://api.testnet.torus.network",
-      "wss://backup-rpc.torus.network"
-    ]
-  }
+      "wss://backup-rpc.torus.network",
+    ],
+  },
 });
 ```
 
 <Aside type="note" title="RPC Selection">
-The system randomly selects one RPC URL from the list for each permission check to provide load balancing.
+  The system randomly selects one RPC URL from the list for each permission
+  check to provide load balancing.
 </Aside>
 
 ## Error Responses
@@ -201,7 +229,7 @@ const memoryAgent = new AgentServer({
 // Public read access - no permission required
 memoryAgent.method("status", {
   method: "get",
-  namespace: { enabled: false }
+  namespace: { enabled: false },
 });
 // No permission check
 
@@ -209,15 +237,15 @@ memoryAgent.method("status", {
 memoryAgent.method("store", {
   method: "post",
   auth: { required: true },
-  namespace: { enabled: true }
+  namespace: { enabled: true },
 });
 // Requires: "agent.alice.store.post"
 
 // Memory retrieval - different permission
 memoryAgent.method("retrieve", {
-  method: "get", 
+  method: "get",
   auth: { required: true },
-  namespace: { enabled: true }
+  namespace: { enabled: true },
 });
 // Requires: "agent.alice.retrieve.get"
 
@@ -227,8 +255,8 @@ memoryAgent.method("admin-reset", {
   auth: { required: true },
   namespace: {
     enabled: true,
-    path: "agent.alice.admin.reset"
-  }
+    path: "agent.alice.admin.reset",
+  },
 });
 // Requires: "agent.alice.admin.reset"
 ```
@@ -238,26 +266,26 @@ memoryAgent.method("admin-reset", {
 ```ts
 // Alice's memory agent
 const aliceAgent = new AgentServer({
-  agentKey: "5FgfC2DY4yreEWEughz46RZYQ8oBhHVqD9fVq6gV89E6z4Ea"
+  agentKey: "5FgfC2DY4yreEWEughz46RZYQ8oBhHVqD9fVq6gV89E6z4Ea",
   // Resolves to agent name: "alice"
 });
 
-// Bob's analysis agent  
+// Bob's analysis agent
 const bobAgent = new AgentServer({
-  agentKey: "5D5FbRRUvQxdQnJLgNW6BdgZ86CRGreKRahzhxmdSj2REBnt"
+  agentKey: "5D5FbRRUvQxdQnJLgNW6BdgZ86CRGreKRahzhxmdSj2REBnt",
   // Resolves to agent name: "bob-analysis"
 });
 
 // Same endpoint name, different agents = different namespaces
-aliceAgent.method("process", { 
+aliceAgent.method("process", {
   method: "post",
-  namespace: { enabled: true }
+  namespace: { enabled: true },
 });
 // Namespace: "agent.alice.process.post"
 
 bobAgent.method("process", {
-  method: "post", 
-  namespace: { enabled: true }
+  method: "post",
+  namespace: { enabled: true },
 });
 // Namespace: "agent.bob-analysis.process.post"
 ```
@@ -287,18 +315,20 @@ bobAgent.method("process", {
 ### Common Issues
 
 **Permission Denied Errors:**
+
 - Verify the exact namespace path being checked
 - Ensure the user has permission for that specific path
 - Check that permissions haven't expired
 
 **Agent Name Resolution:**
+
 - Confirm the agent is properly registered on Torus
 - Verify the agentKey corresponds to the expected agent name
 
 **RPC Connectivity:**
+
 - Test RPC endpoints are accessible
 - Consider using multiple RPC URLs for redundancy
-
 
 <CardGrid>
   <LinkCard
