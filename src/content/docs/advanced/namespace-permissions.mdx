@@ -1,19 +1,19 @@
 ---
-title: Namespace Permissions
-description: Understanding the namespace permission system for agent endpoints
+title: Capability Permissions
+description: Understanding the capability permission system for agent endpoints
 ---
 
 import { CardGrid, LinkCard, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
 
-Namespace permissions provide fine-grained access control for agent endpoints on the Torus Network. This system allows agents to delegate specific permissions to users for accessing particular endpoints.
+Capability permissions provide fine-grained access control for agent endpoints on Torus. This system allows agents to delegate specific permissions to users for accessing particular endpoints.
 
 ## Overview
 
-The namespace permission system works by:
+The capability permission system works by:
 
 1. **Automatic Path Generation**: Each endpoint automatically generates a namespace path
 2. **Permission Checking**: Verifying that users have explicit permission for that namespace
-3. **Blockchain Integration**: Permissions are stored and verified on the Torus Network
+3. **Blockchain Integration**: Permissions are stored and verified on Torus
 4. **Granular Control**: Different endpoints can have different permission requirements
 
 ## Automatic Namespace Path Generation
@@ -97,7 +97,7 @@ agent.method("sensitive-operation", {
 
 ### Exact Match Required
 
-The namespace permission system requires **exact matches**. Users must have permission for the specific namespace path generated for each endpoint.
+The capability permission system requires **exact matches**. Users must have permission for the specific namespace path generated for each endpoint.
 
 ```ts
 // Agent "alice" defines this endpoint:
@@ -119,16 +119,16 @@ These permissions will **NOT** work:
 
 ### Permission Delegation
 
-Permissions are delegated by the agent owner to specific users through the Torus Network's permission system:
+Permissions are delegated by the agent owner to specific users through Torus's permission system:
 
 1. **Agent Owner**: Has full access to all endpoints
 2. **Delegated Users**: Have access only to specifically granted namespace paths
-3. **Permission Contracts**: Define grantor, grantee, duration, and revocation terms
+3. **Permission Contracts**: Define delegator, recipient, duration, and revocation terms
 
 **Creating Permissions via Web Portal:**
 
 - **Create Namespace Paths**: Use [https://portal.testnet.torus.network/create-namespace](https://portal.testnet.torus.network/create-namespace) to register namespace paths on the blockchain
-- **Grant Permissions**: Use [https://portal.testnet.torus.network/create-permission](https://portal.testnet.torus.network/create-permission) to delegate namespace permissions to specific users
+- **Delegate Permissions**: Use [https://portal.testnet.torus.network/create-permission](https://portal.testnet.torus.network/create-permission) to delegate capability permissions to specific users
 
 ## Configuration Options
 
@@ -177,7 +177,7 @@ The system randomly selects one RPC URL from the list for each permission check 
 
 ## Error Responses
 
-When users lack the required namespace permission, the server returns:
+When users lack the required capability permission, the server returns:
 
 ```json
 {
@@ -272,7 +272,7 @@ bobAgent.method("process", {
 
 ### Permission Management
 
-- **Principle of least privilege**: Only grant necessary permissions
+- **Principle of least privilege**: Only delegate necessary permissions
 - **Regular audits**: Review and revoke unused permissions
 - **Clear documentation**: Document which permissions each endpoint requires
 
@@ -292,7 +292,7 @@ bobAgent.method("process", {
 - Check that permissions haven't expired
 
 **Agent Name Resolution:**
-- Confirm the agent is properly registered on the Torus Network
+- Confirm the agent is properly registered on Torus
 - Verify the agentKey corresponds to the expected agent name
 
 **RPC Connectivity:**
@@ -304,7 +304,7 @@ bobAgent.method("process", {
   <LinkCard
     title="Agent Server Setup"
     href="/agents/server-setup"
-    description="Learn how to build Agent APIs with namespace permissions"
+    description="Learn how to build Agent APIs with capability permissions"
   />
   <LinkCard
     title="Agent Client"
@@ -314,6 +314,6 @@ bobAgent.method("process", {
   <LinkCard
     title="Register an Agent"
     href="/agents/register"
-    description="Register your agent on the Torus Network"
+    description="Register your agent on Torus"
   />
 </CardGrid>

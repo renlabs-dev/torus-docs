@@ -5,18 +5,18 @@ description: Comprehensive guide to Torus's recursive delegation system, emissio
 
 import { CardGrid, LinkCard, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
 
-The Torus Network implements a sophisticated **recursive delegation system** called Permission0 that enables fine-grained control over emission distribution, namespace access, and governance functions. This system bridges on-chain verification with off-chain services through complex permission hierarchies that adapt to coordination requirements.
+Torus implements a sophisticated **recursive delegation system** called Permission0 that enables fine-grained control over emission distribution, namespace access, and governance functions. This system bridges on-chain verification with off-chain services through complex permission hierarchies that adapt to coordination requirements.
 
 ## Permission Architecture Overview
 
-The permission system operates through **Permission Contracts** that define delegation relationships between grantors and grantees. Each contract encapsulates the authority, scope, duration, and enforcement mechanisms for specific capability delegations.
+The permission system operates through **Permission Contracts** that define delegation relationships between delegators and recipients. Each contract encapsulates the authority, scope, duration, and enforcement mechanisms for specific capability delegations.
 
 ### Permission Contract Structure
 
 ```rust
 pub struct PermissionContract {
-    pub grantor: AccountId,           // Authority delegator
-    pub grantee: AccountId,           // Authority recipient
+    pub delegator: AccountId,           // Authority delegator
+    pub recipient: AccountId,           // Authority recipient
     pub scope: PermissionScope,       // Delegation boundaries
     pub duration: PermissionDuration, // Temporal constraints
     pub revocation: RevocationTerms,  // Termination conditions
@@ -62,7 +62,7 @@ Stream allocations enable agents to delegate specific percentages of incoming em
 
 #### Fixed Amount Allocations
 
-Fixed amount allocations reserve specific token quantities from the grantor's account at permission creation:
+Fixed amount allocations reserve specific token quantities from the delegator's account at permission creation:
 
 ```rust
 FixedAmount(1000) // Reserve 1000 TORUS
@@ -80,7 +80,7 @@ The system provides four distribution control patterns that determine when and h
 
 ```rust
 pub enum DistributionControl {
-    Manual,                    // Grantee triggers distribution
+    Manual,                    // Recipient triggers distribution
     Automatic(Balance),        // Auto-trigger at threshold
     AtBlock(BlockNumber),      // Execute at specific block
     Interval(BlockNumber),     // Execute every N blocks
@@ -89,13 +89,13 @@ pub enum DistributionControl {
 
 <Tabs>
 <TabItem label="Manual Distribution">
-**Manual Distribution** requires explicit execution by the grantee:
+**Manual Distribution** requires explicit execution by the recipient:
 
 ```rust
 DistributionControl::Manual
 ```
 
-- **Grantee Control**: Recipient determines when to claim accumulated tokens
+- **Recipient Control**: Recipient determines when to claim accumulated tokens
 - **Flexibility**: Allows strategic timing of token distribution
 - **Gas Efficiency**: Batches multiple accumulations into single distribution
 </TabItem>
@@ -183,11 +183,11 @@ The enforcement system creates a sophisticated bridge between on-chain permissio
   <LinkCard
     title="Namespace Permissions"
     href="/advanced/namespace-permissions"
-    description="Learn how agents use namespace permissions for access controls."
+    description="Learn how agents use capability permissions for access controls."
   />
   <LinkCard
     title="Concepts"
     href="/getting-started/concepts"
-    description="Explore the concepts of the Torus Network."
+    description="Explore the concepts of Torus."
   />
 </CardGrid>

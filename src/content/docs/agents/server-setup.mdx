@@ -5,7 +5,7 @@ description: Learn how to build APIs with the AgentServer class from torus-ts-sd
 
 import { CardGrid, LinkCard, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
 
-The `AgentServer` class is a powerful framework for building authenticated APIs with automatic OpenAPI documentation. It provides blockchain-based authentication, namespace permissions, and seamless integration with the Torus Network.
+The `AgentServer` class is a powerful framework for building authenticated APIs with automatic OpenAPI documentation. It provides blockchain-based authentication, capability permissions, and seamless integration with Torus.
 
 ## Overview
 
@@ -104,7 +104,7 @@ interface AgentOptions {
 ```
 
 <Aside type="tip" title="Agent Key">
-The `agentKey` should be the SS58 address of your registered agent on the Torus Network. This is used for namespace permission checking.
+The `agentKey` should be the SS58 address of your registered agent on Torus. This is used for capability permission checking.
 </Aside>
 
 ## Authentication
@@ -165,7 +165,7 @@ const agent = new AgentServer({
 
 ## Namespace Permissions
 
-The AgentServer integrates with Torus Network's namespace permission system for fine-grained access control.
+The AgentServer integrates with Torus Network's capability permission system for fine-grained access control.
 
 ### Basic Namespace Protection
 
@@ -216,7 +216,7 @@ agent.method("store-data", {
 
 ```ts
 interface NamespaceOptions {
-  /** Whether to enable namespace permission checking */
+  /** Whether to enable capability permission checking */
   enabled?: boolean; // Default: true
   /** Custom namespace path */
   path?: string;
@@ -226,7 +226,7 @@ interface NamespaceOptions {
 ```
 
 <Aside type="caution" title="Permission Requirements">
-Users must have explicit namespace permissions granted by the agent owner to access protected endpoints. Permissions are managed through the Torus Network's permission system.
+Users must have explicit capability permissions granted by the agent owner to access protected endpoints. Permissions are managed through Torus's permission system.
 </Aside>
 
 ## Method Definition
@@ -439,7 +439,7 @@ The AgentServer provides standardized error handling with appropriate HTTP statu
 
 - **400**: Client errors (invalid input, business logic errors)
 - **401**: Authentication errors (missing or invalid JWT)
-- **403**: Authorization errors (insufficient namespace permissions)
+- **403**: Authorization errors (insufficient capability permissions)
 
 ```ts
 agent.method("risky-operation", {
@@ -770,7 +770,7 @@ Authorization: Bearer <JWT_TOKEN>
 
 ### Namespace Permission Checking
 
-After JWT verification, check namespace permissions:
+After JWT verification, check capability permissions:
 
 1. **Generate Namespace Path**: `agent.<agent_name>.<endpoint_name>.<http_method>`
 2. **Query Blockchain**: Check if user has permission for the namespace path
@@ -789,7 +789,7 @@ After JWT verification, check namespace permissions:
 **Error Responses:**
 - **400 Bad Request**: Invalid input or business logic error
 - **401 Unauthorized**: Missing or invalid JWT token
-- **403 Forbidden**: Insufficient namespace permissions
+- **403 Forbidden**: Insufficient capability permissions
 
 ```json
 {
@@ -823,7 +823,7 @@ security:
 ### Security
 
 - Always validate input using Zod schemas
-- Use namespace permissions for sensitive operations
+- Use capability permissions for sensitive operations
 - Set appropriate JWT expiration times
 - Implement rate limiting for resource-intensive operations
 
@@ -839,7 +839,7 @@ security:
 - Provide clear descriptions for all endpoints
 - Use descriptive error codes and messages
 - Include examples in your API documentation
-- Document namespace permission requirements
+- Document capability permission requirements
 
 <CardGrid>
   <LinkCard
@@ -850,7 +850,7 @@ security:
   <LinkCard
     title="Register an Agent"
     href="/agents/register"
-    description="Register your agent on the Torus Network"
+    description="Register your agent on Torus"
   />
   <LinkCard
     title="Namespace Permissions"

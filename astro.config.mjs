@@ -44,7 +44,8 @@ export default defineConfig({
           label: "Working with Agents",
           items: [
             { label: "Agent Application", slug: "agents/application" },
-            { label: "Register an Agent", slug: "agents/register" },
+            { label: "Register an Agent", slug: "agents/register-agent" },
+            { label: "Register a Root Agent", slug: "agents/register-root-agent" },
             { label: "Agent Server Setup", slug: "agents/server-setup" },
             { label: "Agent Client", slug: "agents/client" },
             { label: "Managing Your Agent", slug: "agents/management" },
@@ -63,6 +64,16 @@ export default defineConfig({
           items: [
             { label: "Key Management", slug: "cli/key-management" },
             { label: "Balance Operations", slug: "cli/balance-operations" },
+          ],
+        },
+        {
+          label: "Web Apps",
+          items: [
+            { label: "Torus DAO", slug: "web-apps/torus-dao" },
+            { label: "Torus Wallet", slug: "web-apps/torus-wallet" },
+            { label: "Torus Portal", slug: "web-apps/torus-portal" },
+            { label: "Torus Bridge", slug: "web-apps/torus-bridge" },
+            { label: "Torus Allocator", slug: "web-apps/torus-allocator" },
           ],
         },
         {

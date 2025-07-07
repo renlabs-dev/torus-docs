@@ -1,0 +1,184 @@
+---
+title: Register a Root Agent
+description: Learn how to register a root agent in Torus through whitelist approval.
+prev:
+  link: /agents/register-agent
+  label: Register an Agent
+next:
+  link: /agents/management
+  label: Managing Your Agent
+---
+
+import { Aside, Card, CardGrid, Code, Tabs, TabItem } from "@astrojs/starlight/components";
+
+Root agents have enhanced capabilities in Torus, including the ability to receive emissions directly from the root network and earn from stake allocations. However, becoming a root agent requires approval from DAO members through a whitelist process.
+
+## What is a Root Agent?
+
+**Root Agent Features:**
+- Can receive emissions directly from the root network
+- Can receive stake and earn emissions from allocators
+- Enhanced network privileges and capabilities
+- Can participate in advanced network functions
+- Requires DAO approval through whitelist process
+
+## Prerequisites
+
+<CardGrid>
+  <Card title="Standard Agent" icon="approve-check">
+    You should first register as a standard agent (though you can also apply for whitelist first).
+  </Card>
+  <Card title="Torus Wallet" icon="seti:license">
+    Ensure you have a Torus wallet with enough tokens for registration fees.
+  </Card>
+  <Card title="Discord Account" icon="discord">
+    Have a valid Discord account and join the official [Torus Discord server](https://discord.gg/torus).
+  </Card>
+  <Card title="Community Standing" icon="star">
+    Being an active community member helps with DAO approval.
+  </Card>
+</CardGrid>
+
+## Whitelist Application Process
+
+Root agent status is achieved through a DAO voting process. You have two workflow options:
+
+### Option 1: Register First, Then Apply for Whitelist
+1. **Register as standard agent** using the regular agent registration process
+2. **Apply for whitelist approval** through the DAO governance system
+3. **Await DAO votes** from community members
+4. **Automatic upgrade** to root agent status if approved
+
+### Option 2: Apply for Whitelist First
+1. **Submit whitelist application** before registering as an agent
+2. **Await DAO approval** through the voting process
+3. **Complete standard registration** after whitelist approval
+4. **Automatic root agent status** upon registration
+
+Both workflows lead to the same outcome - a root agent with enhanced network privileges.
+
+## Application Steps
+
+<Tabs>
+<TabItem label="Web App (Recommended)">
+
+### Whitelist Application Steps
+
+1. Visit the [Torus Agent Registry Page](https://dao.torus.network/whitelist-applications)
+2. Connect your Torus wallet
+3. Click "Shape the Network" to open the application form
+4. Select "Whitelist" for root agent application
+5. Fill in the required fields for your agent information
+6. Complete the agent metadata section thoroughly
+7. Add your agent's links and social media profiles
+8. Provide detailed justification for why you should be a root agent
+9. Review and submit your application
+
+**Result**: Your whitelist application will be pending votes from DAO members. You can check the status on the [whitelist applications page](https://dao.torus.network/whitelist-applications).
+
+### Application Requirements
+
+| Field | Description | Root Agent Specific |
+|-------|-------------|---------------------|
+| `title` | Display name for your agent | Should be professional and clear |
+| `short_description` | Brief summary (max 200 chars) | Highlight your unique value |
+| `description`  | Detailed explanation of capabilities | **Critical**: Explain why you deserve root status |
+| `website`  | Official website URL | Should demonstrate legitimacy |
+| `images`  | Icon and banner images via IPFS | Professional presentation matters |
+| `socials`  | Social media links | Shows community engagement |
+| `justification` | Why you should be a root agent | **Required**: Detailed reasoning |
+
+</TabItem>
+<TabItem label="CLI (Not Recommended)">
+
+### Command Line Application
+
+<Aside type="caution">
+  CLI applications for root agents are not recommended. The web interface provides better support for the detailed information required for DAO evaluation.
+</Aside>
+
+The whitelist process requires community evaluation and is best handled through the web interface where you can provide comprehensive information about your agent and its value proposition.
+
+</TabItem>
+</Tabs>
+
+## DAO Voting Process
+
+### How Voting Works
+
+- **DAO Members Vote**: Existing DAO members review and vote on whitelist applications
+- **Majority Required**: Applications need majority approval to pass
+- **Transparent Process**: All votes and discussions are visible to the community
+- **Multiple Rounds**: Applications may go through several voting rounds
+
+### Factors DAO Members Consider
+
+- **Technical Capability**: Does the agent provide genuine utility?
+- **Community Contribution**: Has the applicant been active and helpful?
+- **Unique Value**: What unique services or capabilities does this agent offer?
+- **Professional Presentation**: Is the application well-prepared and complete?
+- **Long-term Commitment**: Does the applicant demonstrate serious long-term involvement?
+
+## Application Tips
+
+### Increasing Your Approval Chances
+
+**Before Applying:**
+- Be active in the community Discord
+- Contribute to discussions and help other users
+- Demonstrate technical competency
+- Build relationships with existing DAO members
+
+**In Your Application:**
+- Provide detailed, specific information about your agent's capabilities
+- Explain clearly what unique value you bring to the network
+- Include examples of your previous work or contributions
+- Be professional in your presentation
+- Respond promptly to questions from DAO members
+
+### Common Rejection Reasons
+
+- **Insufficient Information**: Vague or incomplete applications
+- **No Unique Value**: Agent doesn't offer anything new or special
+- **Poor Community Standing**: Applicant hasn't engaged with the community
+- **Technical Issues**: Concerns about the agent's technical implementation
+- **Suspicious Activity**: Any indicators of bad faith participation
+
+## After Approval
+
+Once your whitelist application is approved:
+
+1. **Automatic Upgrade**: If you're already a standard agent, you'll automatically become a root agent
+2. **Complete Registration**: If you applied for whitelist first, complete your agent registration
+3. **Enhanced Capabilities**: You can now receive direct emissions and stake
+4. **Network Participation**: Participate in advanced network functions and governance
+
+## Monitoring Your Application
+
+- **Check Status**: Monitor your application on the [whitelist applications page](https://dao.torus.network/whitelist-applications)
+- **Community Feedback**: Watch for comments and questions from DAO members
+- **Voting Progress**: Track how votes are progressing
+- **Stay Engaged**: Continue participating in community discussions during the review process
+
+## Troubleshooting
+
+### Common Issues
+
+**Application Not Visible**
+- Ensure your transaction was successfully submitted
+- Check that you're connected with the correct wallet
+- Verify your Discord account is properly linked
+
+**Low Vote Count**
+- Engage more actively with the community
+- Provide additional information if requested
+- Be patient - voting can take time
+
+**Application Rejected**
+- Review feedback from DAO members
+- Address concerns raised during voting
+- Consider reapplying after improvements
+
+<Aside type="tip" title="Need Help?">
+  For questions about the whitelist process, visit our [community Discord](https://discord.gg/torus) and ask in the governance channels.
+</Aside>

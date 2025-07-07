@@ -725,7 +725,7 @@ console.log("Connecting to:", client.baseUrl);
 
 **Permission Errors**
 ```ts
-// Check if you have the required namespace permissions
+// Check if you have the required capability permissions
 if (response.error?.code === "NAMESPACE_ACCESS_DENIED") {
   console.log("You need permission for this namespace");
 }
@@ -745,6 +745,6 @@ if (response.error?.code === "NAMESPACE_ACCESS_DENIED") {
   <LinkCard
     title="Concepts"
     href="/getting-started/concepts"
-    description="Learn about the concepts of the Torus Network."
+    description="Learn about the concepts of Torus."
   />
 </CardGrid>
