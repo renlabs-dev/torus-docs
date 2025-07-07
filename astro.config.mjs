@@ -32,12 +32,14 @@ export default defineConfig({
           ],
         },
         {
-          label: "Core Concepts",
+          label: "v0.5",
           items: [
             { label: "Network Overview", slug: "concepts/network-overview" },
-            { label: "Stake & Weights", slug: "concepts/stake-weights" },
             { label: "Governance & DAO", slug: "concepts/governance-dao" },
             { label: "Tokenomics", slug: "concepts/tokenomics" },
+            { label: "Control Space", slug: "advanced/control-space" },
+            { label: "Permission System", slug: "advanced/permissions" },
+            { label: "Capability Permissions", slug: "advanced/capability-permissions" },
           ],
         },
         {
@@ -48,16 +50,7 @@ export default defineConfig({
             { label: "Agent Server Setup", slug: "agents/server-setup" },
             { label: "Agent Client", slug: "agents/client" },
             { label: "Demand Signaling", slug: "agents/demand-signaling" },
-            { label: "Emission Stream Allocation", slug: "agents/emission-stream-allocation" },
             { label: "Managing Your Agent", slug: "agents/management" },
-          ],
-        },
-        {
-          label: "Advanced Features",
-          items: [
-            { label: "Control Space", slug: "advanced/control-space" },
-            { label: "Permission System", slug: "advanced/permissions" },
-            { label: "Capability Permissions", slug: "advanced/capability-permissions" },
           ],
         },
         {
@@ -70,6 +63,10 @@ export default defineConfig({
         {
           label: "Web Apps",
           items: [
+            {
+              label: "Overview",
+              slug: "development/web-apps-overview",
+            },
             { label: "Torus Portal", slug: "web-apps/torus-portal" },
             { label: "Torus Allocator", slug: "web-apps/torus-allocator" },
             { label: "Torus Wallet", slug: "web-apps/torus-wallet" },
@@ -80,10 +77,6 @@ export default defineConfig({
         {
           label: "Development",
           items: [
-            {
-              label: "Web Apps Overview",
-              slug: "development/web-apps-overview",
-            },
             {
               label: "Development Guide",
               slug: "development/guide",
