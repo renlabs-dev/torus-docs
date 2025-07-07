@@ -3,7 +3,13 @@ title: Agent Client
 description: Learn how to interact with Agent APIs using the AgentClient class from torus-ts-sdk
 ---
 
-import { CardGrid, LinkCard, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
+import {
+  CardGrid,
+  LinkCard,
+  Aside,
+  Tabs,
+  TabItem,
+} from "@astrojs/starlight/components";
 
 The `AgentClient` class provides a simple way to interact with Agent APIs built with the AgentServer. It handles JWT authentication automatically and provides a clean interface for making API calls.
 
@@ -28,18 +34,20 @@ npm install @torus-network/torus-ts-sdk
 import { AgentClient, Keypair } from "@torus-network/torus-ts-sdk";
 
 // Create a keypair from your mnemonic
-const keypair = new Keypair("your twelve word mnemonic phrase goes here exactly like this");
+const keypair = new Keypair(
+  "your twelve word mnemonic phrase goes here exactly like this"
+);
 
 // Create the client
 const client = new AgentClient({
   keypair,
-  baseUrl: "http://localhost:3000"
+  baseUrl: "http://localhost:3000",
 });
 
 // Make a call to the agent
 const response = await client.call({
   endpoint: "hello",
-  data: { name: "Alice" }
+  data: { name: "Alice" },
 });
 
 if (response.success) {
@@ -70,7 +78,9 @@ The `Keypair` class handles SR25519 key generation and JWT token creation:
 import { Keypair } from "@torus-network/torus-ts-sdk";
 
 // Create from mnemonic
-const keypair = new Keypair("abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about");
+const keypair = new Keypair(
+  "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about"
+);
 
 // Get key information
 const keyInfo = await keypair.getKeyInfo();
@@ -79,7 +89,8 @@ console.log("Public Key:", keyInfo.publicKey);
 ```
 
 <Aside type="tip" title="Mnemonic Security">
-Never hardcode mnemonics in your source code. Use environment variables or secure key management systems in production.
+  Never hardcode mnemonics in your source code. Use environment variables or
+  secure key management systems in production.
 </Aside>
 
 ## Making API Calls
@@ -129,9 +140,10 @@ const response = await client.call({
 });
 
 if (response.success) {
-  console.log("Memory stored with ID:", response.data.id);
+console.log("Memory stored with ID:", response.data.id);
 }
-```
+
+````
 </TabItem>
 <TabItem label="GET">
 ```ts
@@ -145,7 +157,8 @@ const response = await client.call({
 if (response.success) {
   console.log("Memory content:", response.data.content);
 }
-```
+````
+
 </TabItem>
 <TabItem label="PUT">
 ```ts
@@ -190,9 +203,10 @@ const response = await client.call({
 });
 
 if (response.success) {
-  console.log("Memory deleted successfully");
+console.log("Memory deleted successfully");
 }
-```
+
+````
 </TabItem>
 </Tabs>
 
@@ -226,23 +240,20 @@ if (!response.success) {
       console.error("Unexpected error:", response.error.message);
   }
 }
-```
+````
 
 ### Structured Error Responses
 
 ```ts
 const response = await client.call({
   endpoint: "risky-operation",
-  data: { action: "dangerous" }
+  data: { action: "dangerous" },
 });
 
 if (!response.success && response.error?.code) {
   switch (response.error.code) {
     case "FORBIDDEN_ACTION":
       console.error("This action is not allowed");
-      break;
-    case "RATE_LIMIT":
-      console.error("Rate limit exceeded");
       break;
     case "NAMESPACE_ACCESS_DENIED":
       console.error("Insufficient permissions");
@@ -274,7 +285,7 @@ interface ErrorResponse {
 const response = await client.call<MemoryResponse>({
   endpoint: "get-memory",
   method: "GET",
-  data: { id: "memory-123" }
+  data: { id: "memory-123" },
 });
 
 if (response.success) {
@@ -300,22 +311,26 @@ class MemoryAgentClient {
     this.client = new AgentClient({ keypair, baseUrl });
   }
 
-  async storeMemory(content: string, tags?: string[], metadata?: Record<string, any>) {
+  async storeMemory(
+    content: string,
+    tags?: string[],
+    metadata?: Record<string, any>
+  ) {
     const response = await this.client.call({
       endpoint: "store",
-      data: { content, tags, metadata }
+      data: { content, tags, metadata },
     });
 
     if (response.success) {
       return {
         success: true,
         id: response.data.id,
-        timestamp: response.data.timestamp
+        timestamp: response.data.timestamp,
       };
     } else {
       return {
         success: false,
-        error: response.error?.message || "Failed to store memory"
+        error: response.error?.message || "Failed to store memory",
       };
     }
   }
@@ -324,18 +339,18 @@ class MemoryAgentClient {
     const response = await this.client.call({
       endpoint: "retrieve",
       method: "GET",
-      data: { id }
+      data: { id },
     });
 
     if (response.success) {
       return {
         success: true,
-        memory: response.data
+        memory: response.data,
       };
     } else {
       return {
         success: false,
-        error: response.error?.message || "Failed to retrieve memory"
+        error: response.error?.message || "Failed to retrieve memory",
       };
     }
   }
@@ -343,19 +358,19 @@ class MemoryAgentClient {
   async searchMemories(query: string, tags?: string[], limit = 10) {
     const response = await this.client.call({
       endpoint: "search",
-      data: { query, tags, limit }
+      data: { query, tags, limit },
     });
 
     if (response.success) {
       return {
         success: true,
         results: response.data.results,
-        total: response.data.total
+        total: response.data.total,
       };
     } else {
       return {
         success: false,
-        error: response.error?.message || "Search failed"
+        error: response.error?.message || "Search failed",
       };
     }
   }
@@ -376,7 +391,7 @@ const storeResult = await memoryClient.storeMemory(
 
 if (storeResult.success) {
   console.log("Memory stored:", storeResult.id);
-  
+
   // Retrieve the memory
   const retrieveResult = await memoryClient.retrieveMemory(storeResult.id);
   if (retrieveResult.success) {
@@ -385,10 +400,12 @@ if (storeResult.success) {
 }
 
 // Search for memories
-const searchResult = await memoryClient.searchMemories("meeting", ["important"]);
+const searchResult = await memoryClient.searchMemories("meeting", [
+  "important",
+]);
 if (searchResult.success) {
   console.log(`Found ${searchResult.total} memories`);
-  searchResult.results.forEach(result => {
+  searchResult.results.forEach((result) => {
     console.log(`- ${result.content} (score: ${result.score})`);
   });
 }
@@ -402,7 +419,7 @@ import { AgentClient, Keypair } from "@torus-network/torus-ts-sdk";
 // Environment configuration
 const config = {
   mnemonic: process.env.AGENT_MNEMONIC || "",
-  baseUrl: process.env.AGENT_BASE_URL || "http://localhost:3000"
+  baseUrl: process.env.AGENT_BASE_URL || "http://localhost:3000",
 };
 
 if (!config.mnemonic) {
@@ -412,7 +429,7 @@ if (!config.mnemonic) {
 const keypair = new Keypair(config.mnemonic);
 const client = new AgentClient({
   keypair,
-  baseUrl: config.baseUrl
+  baseUrl: config.baseUrl,
 });
 
 // Helper function for making calls with retry logic
@@ -421,43 +438,47 @@ async function callWithRetry<T>(
   maxRetries = 3
 ): Promise<CallResponse<T>> {
   let lastError: any;
-  
+
   for (let i = 0; i < maxRetries; i++) {
     try {
       const response = await client.call<T>(options);
-      
+
       if (response.success) {
         return response;
       }
-      
+
       // Don't retry on client errors (4xx)
-      if (response.error?.status && response.error.status >= 400 && response.error.status < 500) {
+      if (
+        response.error?.status &&
+        response.error.status >= 400 &&
+        response.error.status < 500
+      ) {
         return response;
       }
-      
+
       lastError = response.error;
-      
+
       // Wait before retry
-      await new Promise(resolve => setTimeout(resolve, 1000 * (i + 1)));
+      await new Promise((resolve) => setTimeout(resolve, 1000 * (i + 1)));
     } catch (error) {
       lastError = error;
-      await new Promise(resolve => setTimeout(resolve, 1000 * (i + 1)));
+      await new Promise((resolve) => setTimeout(resolve, 1000 * (i + 1)));
     }
   }
-  
+
   return {
     success: false,
     error: {
       message: lastError?.message || "Max retries exceeded",
-      status: lastError?.status || 0
-    }
+      status: lastError?.status || 0,
+    },
   };
 }
 
 // Usage with retry
 const response = await callWithRetry({
   endpoint: "important-operation",
-  data: { critical: "data" }
+  data: { critical: "data" },
 });
 ```
 
@@ -524,21 +545,21 @@ import uuid
 from sr25519 import sign, keypair_from_mnemonic  # Use appropriate SR25519 library
 
 class AgentClient:
-    def __init__(self, mnemonic: str, base_url: str):
-        self.keypair = keypair_from_mnemonic(mnemonic)
-        self.base_url = base_url.rstrip('/')
-        self.public_key = self.keypair.public_key.hex()
-        self.address = self.keypair.ss58_address
-    
+def **init**(self, mnemonic: str, base_url: str):
+self.keypair = keypair_from_mnemonic(mnemonic)
+self.base_url = base_url.rstrip('/')
+self.public_key = self.keypair.public_key.hex()
+self.address = self.keypair.ss58_address
+
     def create_jwt(self) -> str:
         now = int(time.time())
-        
+
         # JWT Header
         header = {
             "alg": "SR25519",
             "typ": "JWT"
         }
-        
+
         # JWT Payload
         payload = {
             "sub": self.address,
@@ -557,36 +578,36 @@ class AgentClient:
                 "version": "1.0.0"
             }
         }
-        
+
         # Encode header and payload
         header_encoded = base64.urlsafe_b64encode(
             json.dumps(header).encode()
         ).decode().rstrip('=')
-        
+
         payload_encoded = base64.urlsafe_b64encode(
             json.dumps(payload).encode()
         ).decode().rstrip('=')
-        
+
         # Create signing input
         signing_input = f"{header_encoded}.{payload_encoded}"
-        
+
         # Sign with SR25519
         signature = sign(signing_input.encode(), self.keypair.secret_key)
         signature_encoded = base64.urlsafe_b64encode(signature).decode().rstrip('=')
-        
+
         return f"{header_encoded}.{payload_encoded}.{signature_encoded}"
-    
+
     def call(self, endpoint: str, method: str = "POST", data: dict = None) -> dict:
         import requests
-        
+
         jwt_token = self.create_jwt()
         url = f"{self.base_url}/{endpoint.lstrip('/')}"
-        
+
         headers = {
             "Authorization": f"Bearer {jwt_token}",
             "Content-Type": "application/json"
         }
-        
+
         try:
             if method.upper() == "GET":
                 response = requests.get(url, headers=headers, params=data)
@@ -594,7 +615,7 @@ class AgentClient:
                 response = requests.request(
                     method.upper(), url, headers=headers, json=data
                 )
-            
+
             if response.status_code == 200:
                 return {"success": True, "data": response.json()}
             else:
@@ -617,8 +638,10 @@ class AgentClient:
             }
 
 # Usage example
+
 client = AgentClient("your mnemonic phrase here", "http://localhost:3000")
 result = client.call("hello", data={"name": "Alice"})
+
 ```
 </TabItem>
 </Tabs>
@@ -627,9 +650,11 @@ result = client.call("hello", data={"name": "Alice"})
 
 **Headers:**
 ```
+
 Authorization: Bearer <JWT_TOKEN>
 Content-Type: application/json
-```
+
+````
 
 **Request Body (POST/PUT/PATCH):**
 ```json
@@ -637,12 +662,12 @@ Content-Type: application/json
   "field1": "value1",
   "field2": "value2"
 }
-```
-
+````
 
 ### Response Handling
 
 **Success Response (200):**
+
 ```json
 {
   "result": "success",
@@ -651,6 +676,7 @@ Content-Type: application/json
 ```
 
 **Error Responses:**
+
 ```json
 {
   "message": "Error description",
@@ -676,7 +702,6 @@ Common error codes you should handle:
 - `JWT_EXPIRED`: JWT token has expired
 - `INVALID_SIGNATURE`: SR25519 signature verification failed
 - `NAMESPACE_ACCESS_DENIED`: Insufficient permissions for endpoint
-- `RATE_LIMIT_EXCEEDED`: Too many requests
 - `INVALID_INPUT`: Request data validation failed
 
 ## Best Practices
@@ -703,7 +728,8 @@ Common error codes you should handle:
 - Provide meaningful error messages to users
 
 <Aside type="caution" title="Token Expiration">
-JWT tokens expire after 1 hour by default. The AgentClient creates a new token for each request, so you don't need to worry about token management.
+  JWT tokens expire after 1 hour by default. The AgentClient creates a new token
+  for each request, so you don't need to worry about token management.
 </Aside>
 
 ## Troubleshooting
@@ -711,6 +737,7 @@ JWT tokens expire after 1 hour by default. The AgentClient creates a new token f
 ### Common Issues
 
 **Authentication Failures**
+
 ```ts
 // Check if your mnemonic is correct
 const keyInfo = await keypair.getKeyInfo();
@@ -718,12 +745,14 @@ console.log("Using address:", keyInfo.address);
 ```
 
 **Network Errors**
+
 ```ts
 // Verify the base URL is correct
 console.log("Connecting to:", client.baseUrl);
 ```
 
 **Permission Errors**
+
 ```ts
 // Check if you have the required capability permissions
 if (response.error?.code === "NAMESPACE_ACCESS_DENIED") {
