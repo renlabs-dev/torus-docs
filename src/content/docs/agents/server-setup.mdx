@@ -3,7 +3,13 @@ title: Agent Server
 description: Learn how to build APIs with the AgentServer class from torus-ts-sdk
 ---
 
-import { CardGrid, LinkCard, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
+import {
+  CardGrid,
+  LinkCard,
+  Aside,
+  Tabs,
+  TabItem,
+} from "@astrojs/starlight/components";
 
 The `AgentServer` class is a powerful framework for building authenticated APIs with automatic OpenAPI documentation. It provides blockchain-based authentication, capability permissions, and seamless integration with Torus.
 
@@ -37,39 +43,43 @@ const agent = new AgentServer({
   docs: {
     info: {
       title: "Alice Memory Agent",
-      version: "1.0.0"
-    }
-  }
+      version: "1.0.0",
+    },
+  },
 });
 
 // Define a simple endpoint
-agent.method("hello", {
-  input: z.object({
-    name: z.string().min(1).max(50)
-  }),
-  output: {
-    ok: {
-      description: "Greeting response",
-      schema: z.object({
-        message: z.string(),
-        timestamp: z.number()
-      })
+agent.method(
+  "hello",
+  {
+    input: z.object({
+      name: z.string().min(1).max(50),
+    }),
+    output: {
+      ok: {
+        description: "Greeting response",
+        schema: z.object({
+          message: z.string(),
+          timestamp: z.number(),
+        }),
+      },
+      err: {
+        description: "Error response",
+        schema: z.object({
+          error: z.string(),
+        }),
+      },
     },
-    err: {
-      description: "Error response",
-      schema: z.object({
-        error: z.string()
-      })
-    }
+  },
+  async (input, context) => {
+    return {
+      ok: {
+        message: `Hello ${input.name}!`,
+        timestamp: Date.now(),
+      },
+    };
   }
-}, async (input, context) => {
-  return {
-    ok: {
-      message: `Hello ${input.name}!`,
-      timestamp: Date.now()
-    }
-  };
-});
+);
 
 // Start the server
 agent.run();
@@ -104,7 +114,8 @@ interface AgentOptions {
 ```
 
 <Aside type="tip" title="Agent Key">
-The `agentKey` should be the SS58 address of your registered agent on Torus. This is used for capability permission checking.
+  The `agentKey` should be the SS58 address of your registered agent on Torus.
+  This is used for capability permission checking.
 </Aside>
 
 ## Authentication
@@ -115,31 +126,35 @@ The AgentServer uses JWT tokens with SR25519 signatures for authentication. Clie
 
 ```ts
 // Method requiring authentication
-agent.method("protected-endpoint", {
-  auth: { required: true },
-  input: z.object({
-    data: z.string()
-  }),
-  output: {
-    ok: {
-      description: "Success response",
-      schema: z.object({ result: z.string() })
+agent.method(
+  "protected-endpoint",
+  {
+    auth: { required: true },
+    input: z.object({
+      data: z.string(),
+    }),
+    output: {
+      ok: {
+        description: "Success response",
+        schema: z.object({ result: z.string() }),
+      },
+      err: {
+        description: "Error response",
+        schema: z.object({ error: z.string() }),
+      },
     },
-    err: {
-      description: "Error response",
-      schema: z.object({ error: z.string() })
-    }
+  },
+  async (input, context) => {
+    // context.user is available when auth is required
+    const userAddress = context.user!.walletAddress;
+
+    return {
+      ok: {
+        result: `Processing data for ${userAddress}`,
+      },
+    };
   }
-}, async (input, context) => {
-  // context.user is available when auth is required
-  const userAddress = context.user!.walletAddress;
-  
-  return {
-    ok: {
-      result: `Processing data for ${userAddress}`
-    }
-  };
-});
+);
 ```
 
 ### Custom Authentication Handler
@@ -152,14 +167,14 @@ const agent = new AgentServer({
     onAfterAuth: async (user) => {
       console.log(`User ${user.walletAddress} authenticated`);
       // Perform additional authentication logic
-    }
+    },
   },
   docs: {
     info: {
       title: "My Agent API",
-      version: "1.0.0"
-    }
-  }
+      version: "1.0.0",
+    },
+  },
 });
 ```
 
@@ -170,33 +185,37 @@ The AgentServer integrates with Torus Network's capability permission system for
 ### Basic Namespace Protection
 
 ```ts
-agent.method("memory-write", {
-  auth: { required: true },
-  namespace: {
-    enabled: true, // Enable namespace checking
-    path: "agent.alice.memory.twitter" // Custom namespace path
-  },
-  input: z.object({
-    content: z.string()
-  }),
-  output: {
-    ok: {
-      description: "Memory stored successfully",
-      schema: z.object({ id: z.string() })
+agent.method(
+  "memory-write",
+  {
+    auth: { required: true },
+    namespace: {
+      enabled: true, // Enable namespace checking
+      path: "agent.alice.memory.twitter", // Custom namespace path
     },
-    err: {
-      description: "Error storing memory",
-      schema: z.object({ error: z.string() })
-    }
+    input: z.object({
+      content: z.string(),
+    }),
+    output: {
+      ok: {
+        description: "Memory stored successfully",
+        schema: z.object({ id: z.string() }),
+      },
+      err: {
+        description: "Error storing memory",
+        schema: z.object({ error: z.string() }),
+      },
+    },
+  },
+  async (input, context) => {
+    // Only users with permission for agent.alice.memory.twitter can access
+    return {
+      ok: {
+        id: "memory-123",
+      },
+    };
   }
-}, async (input, context) => {
-  // Only users with permission for agent.alice.memory.twitter can access
-  return {
-    ok: {
-      id: "memory-123"
-    }
-  };
-});
+);
 ```
 
 ### Automatic Path Generation
@@ -226,7 +245,9 @@ interface NamespaceOptions {
 ```
 
 <Aside type="caution" title="Permission Requirements">
-Users must have explicit capability permissions granted by the agent owner to access protected endpoints. Permissions are managed through Torus's permission system.
+  Users must have explicit capability permissions granted by the agent owner to
+  access protected endpoints. Permissions are managed through Torus's permission
+  system.
 </Aside>
 
 ## Method Definition
@@ -312,10 +333,12 @@ agent.method("process-data", {
   input: z.object({
     text: z.string().min(1).max(1000),
     type: z.enum(["analysis", "summary", "translation"]),
-    options: z.object({
-      language: z.string().optional(),
-      format: z.enum(["json", "text"]).default("json")
-    }).optional()
+    options: z
+      .object({
+        language: z.string().optional(),
+        format: z.enum(["json", "text"]).default("json"),
+      })
+      .optional(),
   }),
   // ... rest of configuration
 });
@@ -329,9 +352,9 @@ agent.method("upload-file", {
     schema: z.object({
       file: z.string(), // File content
       filename: z.string(),
-      contentType: z.string()
+      contentType: z.string(),
     }),
-    multipartFormData: true
+    multipartFormData: true,
   },
   // ... rest of configuration
 });
@@ -342,54 +365,56 @@ agent.method("upload-file", {
 Define both success and error response schemas:
 
 ```ts
-agent.method("analyze-text", {
-  input: z.object({
-    text: z.string()
-  }),
-  output: {
-    ok: {
-      description: "Analysis completed successfully",
-      schema: z.object({
-        sentiment: z.enum(["positive", "negative", "neutral"]),
-        confidence: z.number().min(0).max(1),
-        keywords: z.array(z.string()),
-        wordCount: z.number()
-      })
+agent.method(
+  "analyze-text",
+  {
+    input: z.object({
+      text: z.string(),
+    }),
+    output: {
+      ok: {
+        description: "Analysis completed successfully",
+        schema: z.object({
+          sentiment: z.enum(["positive", "negative", "neutral"]),
+          confidence: z.number().min(0).max(1),
+          keywords: z.array(z.string()),
+          wordCount: z.number(),
+        }),
+      },
+      err: {
+        description: "Analysis failed",
+        schema: z.object({
+          error: z.string(),
+          code: z.enum(["INVALID_INPUT", "PROCESSING_ERROR"]),
+          retryAfter: z.number().optional(),
+        }),
+      },
     },
-    err: {
-      description: "Analysis failed",
-      schema: z.object({
-        error: z.string(),
-        code: z.enum(["INVALID_INPUT", "PROCESSING_ERROR", "RATE_LIMIT"]),
-        retryAfter: z.number().optional()
-      })
+  },
+  async (input, context) => {
+    try {
+      // Process the text
+      const result = await analyzeText(input.text);
+
+      return {
+        ok: {
+          sentiment: result.sentiment,
+          confidence: result.confidence,
+          keywords: result.keywords,
+          wordCount: input.text.split(" ").length,
+        },
+      };
+    } catch (error) {
+      return {
+        err: {
+          error: "Failed to analyze text",
+          code: "PROCESSING_ERROR",
+        },
+      };
     }
   }
-}, async (input, context) => {
-  try {
-    // Process the text
-    const result = await analyzeText(input.text);
-    
-    return {
-      ok: {
-        sentiment: result.sentiment,
-        confidence: result.confidence,
-        keywords: result.keywords,
-        wordCount: input.text.split(' ').length
-      }
-    };
-  } catch (error) {
-    return {
-      err: {
-        error: "Failed to analyze text",
-        code: "PROCESSING_ERROR"
-      }
-    };
-  }
-});
+);
 ```
-
-
 
 ## OpenAPI Documentation
 
@@ -403,9 +428,9 @@ const agent = new AgentServer({
     path: "/api-docs", // Custom documentation path
     info: {
       title: "My Agent API",
-      version: "2.1.0"
-    }
-  }
+      version: "2.1.0",
+    },
+  },
 });
 ```
 
@@ -427,148 +452,162 @@ const memoryAgent = new AgentServer({
   docs: {
     info: {
       title: "Alice Memory Agent",
-      version: "1.0.0"
-    }
-  }
+      version: "1.0.0",
+    },
+  },
 });
 
 // Store memory
-memoryAgent.method("store", {
-  auth: { required: true },
-  namespace: { 
-    enabled: true,
-    path: "agent.alice.memory.store"
-  },
-  input: z.object({
-    content: z.string().min(1).max(10000),
-    tags: z.array(z.string()).optional(),
-    metadata: z.record(z.any()).optional()
-  }),
-  output: {
-    ok: {
-      description: "Memory stored successfully",
-      schema: z.object({
-        id: z.string(),
-        timestamp: z.number(),
-        size: z.number()
-      })
+memoryAgent.method(
+  "store",
+  {
+    auth: { required: true },
+    namespace: {
+      enabled: true,
+      path: "agent.alice.memory.store",
     },
-    err: {
-      description: "Failed to store memory",
-      schema: z.object({
-        error: z.string(),
-        code: z.string()
-      })
-    }
-  }
-}, async (input, context) => {
-  const memoryId = generateUUID();
-  
-  // Store memory logic here
-  await storeMemory(memoryId, input.content, input.tags, input.metadata);
-  
-  return {
-    ok: {
-      id: memoryId,
-      timestamp: Date.now(),
-      size: input.content.length
-    }
-  };
-});
-
-// Retrieve memory
-memoryAgent.method("retrieve", {
-  method: "get",
-  auth: { required: true },
-  namespace: { 
-    enabled: true,
-    path: "agent.alice.memory.retrieve"
-  },
-  input: z.object({
-    id: z.string().uuid()
-  }),
-  output: {
-    ok: {
-      description: "Memory retrieved successfully",
-      schema: z.object({
-        id: z.string(),
-        content: z.string(),
-        tags: z.array(z.string()),
-        metadata: z.record(z.any()),
-        timestamp: z.number()
-      })
-    },
-    err: {
-      description: "Failed to retrieve memory",
-      schema: z.object({
-        error: z.string(),
-        code: z.string()
-      })
-    }
-  }
-}, async (input, context) => {
-  const memory = await getMemory(input.id);
-  
-  if (!memory) {
-    return {
+    input: z.object({
+      content: z.string().min(1).max(10000),
+      tags: z.array(z.string()).optional(),
+      metadata: z.record(z.any()).optional(),
+    }),
+    output: {
+      ok: {
+        description: "Memory stored successfully",
+        schema: z.object({
+          id: z.string(),
+          timestamp: z.number(),
+          size: z.number(),
+        }),
+      },
       err: {
-        error: "Memory not found",
-        code: "NOT_FOUND"
-      }
+        description: "Failed to store memory",
+        schema: z.object({
+          error: z.string(),
+          code: z.string(),
+        }),
+      },
+    },
+  },
+  async (input, context) => {
+    const memoryId = generateUUID();
+
+    // Store memory logic here
+    await storeMemory(memoryId, input.content, input.tags, input.metadata);
+
+    return {
+      ok: {
+        id: memoryId,
+        timestamp: Date.now(),
+        size: input.content.length,
+      },
     };
   }
-  
-  return {
-    ok: memory
-  };
-});
+);
 
-// Search memories
-memoryAgent.method("search", {
-  method: "post",
-  auth: { required: true },
-  namespace: { 
-    enabled: true,
-    path: "agent.alice.memory.search"
-  },
-  input: z.object({
-    query: z.string().min(1).max(500),
-    tags: z.array(z.string()).optional(),
-    limit: z.number().min(1).max(100).default(10)
-  }),
-  output: {
-    ok: {
-      description: "Search results",
-      schema: z.object({
-        results: z.array(z.object({
+// Retrieve memory
+memoryAgent.method(
+  "retrieve",
+  {
+    method: "get",
+    auth: { required: true },
+    namespace: {
+      enabled: true,
+      path: "agent.alice.memory.retrieve",
+    },
+    input: z.object({
+      id: z.string().uuid(),
+    }),
+    output: {
+      ok: {
+        description: "Memory retrieved successfully",
+        schema: z.object({
           id: z.string(),
           content: z.string(),
-          score: z.number(),
-          timestamp: z.number()
-        })),
-        total: z.number(),
-        query: z.string()
-      })
+          tags: z.array(z.string()),
+          metadata: z.record(z.any()),
+          timestamp: z.number(),
+        }),
+      },
+      err: {
+        description: "Failed to retrieve memory",
+        schema: z.object({
+          error: z.string(),
+          code: z.string(),
+        }),
+      },
     },
-    err: {
-      description: "Search failed",
-      schema: z.object({
-        error: z.string(),
-        code: z.string()
-      })
+  },
+  async (input, context) => {
+    const memory = await getMemory(input.id);
+
+    if (!memory) {
+      return {
+        err: {
+          error: "Memory not found",
+          code: "NOT_FOUND",
+        },
+      };
     }
+
+    return {
+      ok: memory,
+    };
   }
-}, async (input, context) => {
-  const results = await searchMemories(input.query, input.tags, input.limit);
-  
-  return {
-    ok: {
-      results: results.memories,
-      total: results.total,
-      query: input.query
-    }
-  };
-});
+);
+
+// Search memories
+memoryAgent.method(
+  "search",
+  {
+    method: "post",
+    auth: { required: true },
+    namespace: {
+      enabled: true,
+      path: "agent.alice.memory.search",
+    },
+    input: z.object({
+      query: z.string().min(1).max(500),
+      tags: z.array(z.string()).optional(),
+      limit: z.number().min(1).max(100).default(10),
+    }),
+    output: {
+      ok: {
+        description: "Search results",
+        schema: z.object({
+          results: z.array(
+            z.object({
+              id: z.string(),
+              content: z.string(),
+              score: z.number(),
+              timestamp: z.number(),
+            })
+          ),
+          total: z.number(),
+          query: z.string(),
+        }),
+      },
+      err: {
+        description: "Search failed",
+        schema: z.object({
+          error: z.string(),
+          code: z.string(),
+        }),
+      },
+    },
+  },
+  async (input, context) => {
+    const results = await searchMemories(input.query, input.tags, input.limit);
+
+    return {
+      ok: {
+        results: results.memories,
+        total: results.total,
+        query: input.query,
+      },
+    };
+  }
+);
 
 memoryAgent.run();
 ```
@@ -580,6 +619,7 @@ If you're building an Agent Server in a language other than TypeScript, you'll n
 ### JWT Authentication Protocol
 
 #### JWT Header Structure
+
 ```json
 {
   "alg": "SR25519",
@@ -590,6 +630,7 @@ If you're building an Agent Server in a language other than TypeScript, you'll n
 #### JWT Payload Structure
 
 Every protected endpoint expects a payload.
+
 ```json
 {
   "sub": "5FgfC2DY4yreEWEughz46RZYQ8oBhHVqD9fVq6gV89E6z4Ea",
@@ -611,6 +652,7 @@ Every protected endpoint expects a payload.
 ```
 
 **Field Descriptions:**
+
 - `sub`: The actual address/identifier
 - `publicKey`: Hex-encoded public key (64 characters + 0x prefix)
 - `keyType`: Cryptographic key type (`sr25519`)
@@ -622,15 +664,19 @@ Every protected endpoint expects a payload.
 - `nonce`: Unique UUID to prevent replay attacks
 
 **UUID Format:**
+
 ```
 xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx
 ```
-Where: 
+
+Where:
+
 - `x` is a hexadecimal digit (0-9, a-f)
 - `M` indicates the UUID version
 - `N` indicates the variant
 
 Follows RFC 4122 standard for UUID generation and validation.
+
 - `_protocol_metadata.version`: Protocol version for compatibility
 
 #### JWT Verification Process
@@ -650,38 +696,38 @@ from datetime import datetime
 from sr25519 import verify  # Use appropriate SR25519 library
 
 def verify_jwt(token: str) -> dict:
-    try:
-        # Split JWT into parts
-        parts = token.split('.')
-        if len(parts) != 3:
-            raise ValueError("Invalid JWT format")
-        
+try: # Split JWT into parts
+parts = token.split('.')
+if len(parts) != 3:
+raise ValueError("Invalid JWT format")
+
         header, payload, signature = parts
-        
+
         # Decode header and payload
         header_data = json.loads(base64.urlsafe_b64decode(header + '=='))
         payload_data = json.loads(base64.urlsafe_b64decode(payload + '=='))
-        
+
         # Verify header
         if header_data.get('alg') != 'SR25519' or header_data.get('typ') != 'JWT':
             raise ValueError("Invalid JWT header")
-        
+
         # Verify expiration
         if payload_data.get('exp', 0) < datetime.now().timestamp():
             raise ValueError("JWT expired")
-        
+
         # Verify signature
         signing_input = f"{header}.{payload}"
         public_key = bytes.fromhex(payload_data['publicKey'][2:])  # Remove 0x prefix
         signature_bytes = base64.urlsafe_b64decode(signature + '==')
-        
+
         if not verify(signing_input.encode(), signature_bytes, public_key):
             raise ValueError("Invalid signature")
-        
+
         return payload_data
-        
+
     except Exception as e:
         raise ValueError(f"JWT verification failed: {str(e)}")
+
 ```
 </TabItem>
 
@@ -691,8 +737,10 @@ def verify_jwt(token: str) -> dict:
 
 **Authorization Header Format:**
 ```
+
 Authorization: Bearer <JWT_TOKEN>
-```
+
+````
 
 ### Namespace Permission Checking
 
@@ -710,9 +758,10 @@ After JWT verification, check capability permissions:
   "field1": "value1",
   "field2": "value2"
 }
-```
+````
 
 **Error Responses:**
+
 - **400 Bad Request**: Invalid input or business logic error
 - **401 Unauthorized**: Missing or invalid JWT token
 - **403 Forbidden**: Insufficient capability permissions
@@ -729,6 +778,7 @@ After JWT verification, check capability permissions:
 Your server should generate OpenAPI specs with:
 
 **Security Scheme:**
+
 ```yaml
 components:
   securitySchemes:
@@ -739,6 +789,7 @@ components:
 ```
 
 **Authentication Required Endpoints:**
+
 ```yaml
 security:
   - Bearer: []
@@ -751,7 +802,6 @@ security:
 - Always validate input using Zod schemas
 - Use capability permissions for sensitive operations
 - Set appropriate JWT expiration times
-- Implement rate limiting for resource-intensive operations
 
 ### Performance
 
