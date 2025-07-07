@@ -201,7 +201,7 @@ agent.method("memory-write", {
 
 ### Automatic Path Generation
 
-If no custom path is specified, the system generates paths using the format:
+If no custom path is specified, the system checks paths using the format:
 `agent.<agent_name>.<endpoint_name>.<http_method>`
 
 ```ts
@@ -389,96 +389,7 @@ agent.method("analyze-text", {
 });
 ```
 
-## Helper Functions
 
-The callback context provides helper functions for blockchain interactions:
-
-```ts
-agent.method("verify-transaction", {
-  auth: { required: true },
-  input: z.object({
-    blockHash: z.string(),
-    transactionHash: z.string()
-  }),
-  output: {
-    ok: {
-      description: "Transaction verification result",
-      schema: z.object({
-        isValid: z.boolean(),
-        blockHash: z.string(),
-        transactionHash: z.string()
-      })
-    },
-    err: {
-      description: "Verification failed",
-      schema: z.object({
-        error: z.string()
-      })
-    }
-  }
-}, async (input, context) => {
-  // Use the checkTransaction helper
-  const result = await context.checkTransaction({
-    blockHash: input.blockHash,
-    transactionHash: input.transactionHash
-  });
-  
-  return {
-    ok: {
-      isValid: result.isValid,
-      blockHash: input.blockHash,
-      transactionHash: input.transactionHash
-    }
-  };
-});
-```
-
-## Error Handling
-
-The AgentServer provides standardized error handling with appropriate HTTP status codes:
-
-- **400**: Client errors (invalid input, business logic errors)
-- **401**: Authentication errors (missing or invalid JWT)
-- **403**: Authorization errors (insufficient capability permissions)
-
-```ts
-agent.method("risky-operation", {
-  auth: { required: true },
-  input: z.object({
-    action: z.string()
-  }),
-  output: {
-    ok: {
-      description: "Operation successful",
-      schema: z.object({ result: z.string() })
-    },
-    err: {
-      description: "Operation failed",
-      schema: z.object({
-        error: z.string(),
-        code: z.string(),
-        details: z.any().optional()
-      })
-    }
-  }
-}, async (input, context) => {
-  if (input.action === "dangerous") {
-    return {
-      err: {
-        error: "This action is not allowed",
-        code: "FORBIDDEN_ACTION",
-        details: { requestedAction: input.action }
-      }
-    };
-  }
-  
-  return {
-    ok: {
-      result: "Operation completed successfully"
-    }
-  };
-});
-```
 
 ## OpenAPI Documentation
 
@@ -503,6 +414,8 @@ Visit `http://localhost:3000/docs` to view the interactive API documentation.
 ## Advanced Examples
 
 ### Multi-Method Agent
+
+Multi method agent is an agent that defines more than 1 method.
 
 ```ts
 import { AgentServer } from "@torus-network/torus-ts-sdk";
@@ -675,6 +588,8 @@ If you're building an Agent Server in a language other than TypeScript, you'll n
 ```
 
 #### JWT Payload Structure
+
+Every protected endpoint expects a payload.
 ```json
 {
   "sub": "5FgfC2DY4yreEWEughz46RZYQ8oBhHVqD9fVq6gV89E6z4Ea",
@@ -705,6 +620,17 @@ If you're building an Agent Server in a language other than TypeScript, you'll n
 - `iat`: Issued at timestamp (Unix seconds)
 - `exp`: Expiration timestamp (Unix seconds)
 - `nonce`: Unique UUID to prevent replay attacks
+
+**UUID Format:**
+```
+xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx
+```
+Where: 
+- `x` is a hexadecimal digit (0-9, a-f)
+- `M` indicates the UUID version
+- `N` indicates the variant
+
+Follows RFC 4122 standard for UUID generation and validation.
 - `_protocol_metadata.version`: Protocol version for compatibility
 
 #### JWT Verification Process
@@ -772,7 +698,7 @@ Authorization: Bearer <JWT_TOKEN>
 
 After JWT verification, check capability permissions:
 
-1. **Generate Namespace Path**: `agent.<agent_name>.<endpoint_name>.<http_method>`
+1. **Verificate Namespace Path**: `agent.<agent_name>.<endpoint_name>.<http_method>`
 2. **Query Blockchain**: Check if user has permission for the namespace path
 3. **Validate Permission**: Ensure permission is active and not expired
 
