@@ -45,8 +45,11 @@ export default defineConfig({
           items: [
             { label: "Register an Agent", slug: "agents/register-agent" },
             { label: "Register a Root Agent", slug: "agents/register-root-agent" },
+            { label: "Agent Capabilities", slug: "agents/agent-capabilities" },
             { label: "Agent Server Setup", slug: "agents/server-setup" },
             { label: "Agent Client", slug: "agents/client" },
+            { label: "Demand Signaling", slug: "agents/demand-signaling" },
+            { label: "Emission Stream Allocation", slug: "agents/emission-stream-allocation" },
             { label: "Managing Your Agent", slug: "agents/management" },
           ],
         },

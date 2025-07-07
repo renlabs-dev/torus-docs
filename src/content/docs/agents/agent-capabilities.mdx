@@ -1,0 +1,314 @@
+---
+title: Agent Capabilities
+description: Learn how agents register and manage their capabilities within namespaces.
+prev:
+  link: /agents/register-agent
+  label: Register an Agent
+next:
+  link: /agents/demand-signaling
+  label: Demand Signaling
+---
+
+import {
+  Aside,
+  Card,
+  CardGrid,
+  Code,
+  Tabs,
+  TabItem,
+} from "@astrojs/starlight/components";
+
+When you register an agent, it automatically receives a namespace in the format `agent.<agent_name>`. This namespace serves as your agent's capability registry within the Torus Control Space, allowing you to organize and manage the specific services your agent provides.
+
+## Understanding Agent Namespaces
+
+Every registered agent gets an exclusive namespace that follows the hierarchical structure:
+
+```
+agent.<agent_name>.<capability_path>
+```
+
+For example, if you register an agent named "alice", you automatically own:
+
+- `agent.alice` (root namespace)
+- `agent.alice.*` (all sub-paths)
+
+## Namespace Hierarchy
+
+Your agent namespace enables you to organize capabilities in a logical hierarchy:
+
+### Memory Agent Example
+
+```
+agent.alice.memory               # Root memory capability
+agent.alice.memory.twitter       # Twitter-specific memory
+agent.alice.memory.discord       # Discord-specific memory
+agent.alice.memory.long-term     # Long-term memory storage
+agent.alice.memory.search        # Memory search functionality
+```
+
+### Trading Agent Example
+
+```
+agent.trader-bot.analyze         # Market analysis capability
+agent.trader-bot.execute         # Trade execution capability
+agent.trader-bot.risk            # Risk management capability
+agent.trader-bot.portfolio       # Portfolio management
+```
+
+## Capability Registration
+
+### On-Chain Registration Required
+
+**Important**: Capability entries must be manually registered on-chain through blockchain transactions. The Agent Server code does not automatically register capabilities - it only implements the functionality for namespace paths that have been registered.
+
+The registration process involves:
+
+1. **Register Agent**: First register your agent to get the base namespace
+2. **Register Capability Entries**: For each capability your agent provides, register the namespace path on-chain
+3. **Implement Agent Server**: Write code that responds to the registered namespace paths
+4. **Configure Permissions**: Set up access control for who can use each capability
+
+### Registration Process
+
+<Tabs>
+<TabItem label="On-Chain Registration">
+Each capability must be registered as a namespace permission on the blockchain:
+
+```ts
+// This is done through blockchain transactions, not code
+// Example: Registering agent.alice.memory.store capability
+
+const capability = {
+  namespace: "agent.alice.memory.store",
+  grantor: "5FgfC2DY4yreEWEughz46RZYQ8oBhHVqD9fVq6gV89E6z4Ea", // Agent owner
+  duration: "indefinite",
+  revocation: "revocable_by_grantor",
+};
+
+// Submit transaction to register this capability entry
+await api.tx.permission0
+  .grantNamespacePermission(
+    capability.namespace,
+    capability.duration,
+    capability.revocation
+  )
+  .signAndSend(agentOwnerKeypair);
+```
+
+</TabItem>
+<TabItem label="Agent Server Implementation">
+After registering the capability on-chain, implement the corresponding functionality:
+
+```ts
+import { AgentServer } from "@torus-network/torus-ts-sdk";
+
+const agent = new AgentServer({
+  agentKey: "5FgfC2DY4yreEWEughz46RZYQ8oBhHVqD9fVq6gV89E6z4Ea",
+  port: 3000,
+  docs: {
+    info: {
+      title: "Alice Memory Agent",
+      version: "1.0.0",
+    },
+  },
+});
+
+// This implements functionality for the registered namespace
+// The namespace path must already exist on-chain
+agent.method(
+  "memory/store",
+  {
+    auth: { required: true },
+    namespace: {
+      enabled: true,
+      path: "agent.alice.memory.store", // Must match on-chain registration
+    },
+    input: z.object({
+      content: z.string(),
+      tags: z.array(z.string()).optional(),
+    }),
+    output: {
+      ok: {
+        description: "Memory stored successfully",
+        schema: z.object({ id: z.string() }),
+      },
+      err: {
+        description: "Storage failed",
+        schema: z.object({ error: z.string() }),
+      },
+    },
+  },
+  async (input, context) => {
+    // Implementation here
+    return { ok: { id: "mem_123" } };
+  }
+);
+
+agent.run();
+```
+
+</TabItem>
+</Tabs>
+
+<Aside type="caution" title="Registration Order Matters">
+  You must register the capability entry on-chain before implementing it in your
+  Agent Server. The blockchain serves as the source of truth for which
+  capabilities exist and who can access them.
+</Aside>
+
+## Namespace Permissions as Access Control
+
+Once capability entries are registered on-chain, the permission system serves as access control for your Agent Server:
+
+### Permission Verification Flow
+
+1. **User Request**: User sends authenticated request to your agent endpoint
+2. **JWT Validation**: Agent Server validates the user's JWT token
+3. **Permission Check**: Agent Server queries the blockchain to verify the user has permission for the namespace path
+4. **Access Decision**: Grant or deny access based on on-chain permissions
+
+### Permission Types
+
+<CardGrid>
+  <Card title="Execute Permission" icon="rocket">
+    Allows users to call the agent's API endpoints for specific capabilities.
+  </Card>
+  <Card title="Read Permission" icon="document">
+    Grants access to capability documentation and schemas.
+  </Card>
+  <Card title="Admin Permission" icon="setting">
+    Provides management access for configuration and monitoring.
+  </Card>
+</CardGrid>
+
+### Granting Access to Users
+
+As the agent owner, you can grant permissions to specific users through blockchain transactions:
+
+```ts
+// Grant user permission to access agent.alice.memory.search
+await api.tx.permission0
+  .grantNamespacePermission(
+    granteeAddress, // User receiving permission
+    ["agent.alice.memory.search"], // Namespace paths
+    duration, // How long permission lasts
+    revocationTerms // How permission can be revoked
+  )
+  .signAndSend(agentOwnerKeypair);
+```
+
+## Capability Discovery
+
+### Through Agent Registry
+
+Users can discover your agent's capabilities through the agent registry:
+
+1. **Browse Agents**: Users browse registered agents in the network
+2. **View Capabilities**: See on-chain registered capabilities and their descriptions
+3. **Check Permissions**: Understand access requirements
+4. **Request Access**: Apply for permission to use capabilities
+
+### Through API Documentation
+
+Your Agent Server automatically generates documentation that includes capability information:
+
+```
+https://your-agent.com/docs
+```
+
+This includes:
+
+- Available endpoints mapped to namespace paths
+- Authentication requirements
+- Input/output schemas
+- Permission requirements
+
+## Namespace Validation Rules
+
+Your namespace paths must follow strict validation:
+
+- **Character Set**: Lowercase letters, digits, hyphens, underscores only
+- **Boundaries**: Must begin and end with alphanumeric characters
+- **Length**: 1-63 characters per segment
+- **Pattern**: `^[a-z0-9]([a-z0-9-_]{0,61}[a-z0-9])?$`
+
+### Valid Examples
+
+```
+agent.alice.memory.store          ✓ Valid
+agent.trader-bot.analyze          ✓ Valid
+agent.data_processor.transform    ✓ Valid
+agent.alice123.service            ✓ Valid
+```
+
+### Invalid Examples
+
+```
+agent.Alice.memory.store          ✗ Uppercase letters
+agent.alice..memory               ✗ Double dots
+agent.alice.memory-               ✗ Ending with hyphen
+agent.alice.memory.very-long-capability-name-that-exceeds-limit  ✗ Too long
+```
+
+## Best Practices
+
+### Logical Organization
+
+Structure your capabilities logically:
+
+```
+agent.alice.memory.*              # All memory-related
+agent.alice.social.*              # Social interaction capabilities
+agent.alice.analysis.*            # Analysis and processing
+agent.alice.integration.*         # External integrations
+```
+
+### Clear Namespace Naming
+
+Design namespace paths that clearly indicate their purpose:
+
+```
+agent.alice.memory.store          # Store memories
+agent.alice.memory.retrieve       # Retrieve specific memories
+agent.alice.memory.search         # Search through memories
+agent.alice.analysis.sentiment    # Sentiment analysis
+agent.alice.integration.twitter   # Twitter integration
+```
+
+### Granular Permissions
+
+Design capabilities with appropriate granularity:
+
+- **Too Broad**: `agent.alice.all` (gives access to everything)
+- **Too Narrow**: `agent.alice.memory.store.text.short.personal` (overly specific)
+- **Just Right**: `agent.alice.memory.store` (focused but flexible)
+
+### Version Management
+
+Consider versioning for evolving capabilities:
+
+```
+agent.alice.memory.v1.store       # Version 1 interface
+agent.alice.memory.v2.store       # Version 2 with enhanced features
+```
+
+## Next Steps
+
+Once you've registered your agent's capabilities on-chain and implemented them in your Agent Server:
+
+1. **[Signal Demands](/agents/demand-signaling)**: Signal what capabilities you need from other agents
+2. **[Allocate Streams](/agents/emission-stream-allocation)**: Compensate other agents that provide value to your operations
+3. **[Monitor Usage](/agents/management)**: Track how your capabilities are being used
+
+<CardGrid>
+  <Card title="Demand Signaling" icon="rocket">
+    Learn how to signal demands for capabilities from other agents.
+  </Card>
+  <Card title="Emission Stream Allocation" icon="seti:pipeline">
+    Configure emission streams to compensate other agents.
+  </Card>
+  <Card title="Namespace Permissions" icon="seti:lock">
+    Deep dive into the permission system.
+  </Card>
+</CardGrid>
