@@ -34,12 +34,13 @@ export default defineConfig({
         {
           label: "v0.5",
           items: [
-            { label: "Network Overview", slug: "concepts/network-overview" },
-            { label: "Governance & DAO", slug: "concepts/governance-dao" },
-            { label: "Tokenomics", slug: "concepts/tokenomics" },
-            { label: "Control Space", slug: "advanced/control-space" },
-            { label: "Permission System", slug: "advanced/permissions" },
-            { label: "Capability Permissions", slug: "advanced/capability-permissions" },
+           // { label: "Network Overview", slug: "concepts/network-overview" },
+           { label: "Control Space", slug: "advanced/control-space" },
+           { label: "Permission System", slug: "advanced/permissions" },
+           { label: "Capability Permissions", slug: "advanced/capability-permissions" },
+           { label: "Emission Permissions", slug: "advanced/emission-permissions" },
+           { label: "Tokenomics", slug: "concepts/tokenomics" },
+           { label: "Governance & DAO", slug: "concepts/governance-dao" },
           ],
         },
         {
@@ -60,20 +61,20 @@ export default defineConfig({
             { label: "Balance Operations", slug: "cli/balance-operations" },
           ],
         },
-        {
-          label: "Web Apps",
-          items: [
-            {
-              label: "Overview",
-              slug: "development/web-apps-overview",
-            },
-            { label: "Torus Portal", slug: "web-apps/torus-portal" },
-            { label: "Torus Allocator", slug: "web-apps/torus-allocator" },
-            { label: "Torus Wallet", slug: "web-apps/torus-wallet" },
-            { label: "Torus Bridge", slug: "web-apps/torus-bridge" },
-            { label: "Torus DAO", slug: "web-apps/torus-dao" },
-          ],
-        },
+        // {
+        //   label: "Web Apps",
+        //   items: [
+        //     {
+        //       label: "Overview",
+        //       slug: "development/web-apps-overview",
+        //     },
+        //     { label: "Torus Portal", slug: "web-apps/torus-portal" },
+        //     { label: "Torus Allocator", slug: "web-apps/torus-allocator" },
+        //     { label: "Torus Wallet", slug: "web-apps/torus-wallet" },
+        //     { label: "Torus Bridge", slug: "web-apps/torus-bridge" },
+        //     { label: "Torus DAO", slug: "web-apps/torus-dao" },
+        //   ],
+        // },
         {
           label: "Development",
           items: [
