@@ -1,0 +1,349 @@
+---
+title: Capability Permissions
+description: Understanding the capability permission system for agent endpoints
+---
+
+import {
+  CardGrid,
+  LinkCard,
+  Aside,
+  Tabs,
+  TabItem,
+} from "@astrojs/starlight/components";
+
+Capability permissions provide fine-grained access control for agent endpoints on Torus. This system allows agents to delegate specific permissions to users for accessing particular endpoints.
+
+The capability permission system works by:
+
+1. **Automatic Path Generation**: Each endpoint automatically generates a namespace path
+2. **Permission Checking**: Verifying that users have explicit permission for that namespace
+3. **Blockchain Integration**: Permissions are stored and verified on Torus
+4. **Granular Control**: Different endpoints can have different permission requirements
+
+## Automatic Namespace Path Generation
+
+By default, each agent endpoint checks a namespace path using the following format:
+
+```
+agent.<agent_name>.<endpoint_name>.<http_method>
+```
+
+### Path Components
+
+- **`agent`**: Fixed prefix indicating this is an agent namespace
+- **`<agent_name>`**: The resolved name of the agent from the blockchain (not the agentKey)
+- **`<endpoint_name>`**: The endpoint name as defined in `agent.method()`
+- **`<http_method>`**: The HTTP method in lowercase (`get`, `post`, `put`, `patch`, `delete`)
+
+### Examples
+
+<Tabs>
+<TabItem label="Basic Example">
+```ts
+// Agent name: "alice" (resolved from blockchain)
+// Endpoint: "store"
+// Method: "post"
+
+agent.method("store", {
+method: "post",
+auth: { required: true },
+namespace: { enabled: true }, // Uses automatic path generation
+// ... rest of configuration
+});
+
+// Generated namespace path: "agent.alice.store.post"
+
+````
+</TabItem>
+<TabItem label="Multiple Methods">
+```ts
+// Same endpoint with different HTTP methods generates different namespaces
+
+// GET /memory
+agent.method("memory", {
+  method: "get",
+  namespace: { enabled: true }
+});
+// Namespace: "agent.alice.memory.get"
+
+// POST /memory
+agent.method("memory", {
+  method: "post",
+  namespace: { enabled: true }
+});
+// Namespace: "agent.alice.memory.post"
+
+// DELETE /memory
+agent.method("memory", {
+  method: "delete",
+  namespace: { enabled: true }
+});
+// Namespace: "agent.alice.memory.delete"
+````
+
+</TabItem>
+</Tabs>
+
+## Custom Namespace Paths
+
+You can override the automatic path generation by specifying a custom namespace path:
+
+```ts
+agent.method("sensitive-operation", {
+  auth: { required: true },
+  namespace: {
+    enabled: true,
+    path: "agent.alice.admin.sensitive", // Custom namespace path
+  },
+  // ... rest of configuration
+});
+```
+
+Some examples of valid and invalid namespace paths for you to reference when creating a custom namespace path:
+
+### Valid Examples
+
+```
+agent.alice.memory.store          ✓ Valid
+agent.trader-bot.analyze          ✓ Valid
+agent.data_processor.transform    ✓ Valid
+agent.alice123.service            ✓ Valid
+```
+
+### Invalid Examples
+
+```
+agent.Alice.memory.store          ✗ Uppercase letters
+agent.alice..memory               ✗ Double dots
+agent.alice.memory-               ✗ Ending with hyphen
+agent.alice.memory.very-long-capability-name-that-exceeds-limit  ✗ Too long
+```
+
+## Permission Requirements
+
+### Exact Match Required
+
+The capability permission system requires **exact matches**. Users must have permission for the specific namespace path generated for each endpoint.
+
+```ts
+// Agent "alice" defines this endpoint:
+agent.method("store", {
+  method: "post",
+  auth: { required: true },
+  namespace: { enabled: true },
+});
+// This generates namespace: "agent.alice.store.post"
+```
+
+**Permission Requirements:**
+Users need permission for exactly: `agent.alice.store.post`
+
+These permissions will **NOT** work:
+
+- `agent.alice.store` (missing method)
+- `agent.alice.*` (wildcards not supported)
+- `agent.alice.store.get` (wrong method)
+
+### Permission Delegation
+
+Permissions are delegated by the agent owner to specific users through Torus's permission system:
+
+1. **Agent Owner**: Has full access to all endpoints
+2. **Delegated Users**: Have access only to specifically granted namespace paths
+3. **Permission Contracts**: Define delegator, recipient, duration, and revocation terms
+
+**Creating Permissions via Web Portal:**
+
+- **Create Namespace Paths**: Use [https://portal.testnet.torus.network/create-namespace](https://portal.testnet.torus.network/create-namespace) to register namespace paths on the blockchain
+- **Delegate Permissions**: Use [https://portal.testnet.torus.network/create-permission](https://portal.testnet.torus.network/create-permission) to delegate capability permissions to specific users
+
+## Configuration Options
+
+### Enabling/Disabling Namespace Checking
+
+```ts
+// Enable namespace checking (default)
+agent.method("protected-endpoint", {
+  auth: { required: true },
+  namespace: { enabled: true },
+});
+
+// Disable namespace checking
+agent.method("public-endpoint", {
+  auth: { required: true },
+  namespace: { enabled: false }, // No permission check
+});
+
+// Namespace checking disabled by default if no namespace config provided
+agent.method("open-endpoint", {
+  auth: { required: true },
+  // No namespace configuration = no permission checking
+});
+```
+
+### RPC Configuration
+
+You can specify which RPC endpoints to use for permission verification:
+
+```ts
+agent.method("endpoint", {
+  auth: { required: true },
+  namespace: {
+    enabled: true,
+    rpcUrls: [
+      "wss://api.testnet.torus.network",
+      "wss://backup-rpc.torus.network",
+    ],
+  },
+});
+```
+
+<Aside type="note" title="RPC Selection">
+  The system randomly selects one RPC URL from the list for each permission
+  check to provide load balancing.
+</Aside>
+
+## Error Responses
+
+When users lack the required capability permission, the server returns:
+
+```json
+{
+  "message": "Access denied: insufficient permissions for namespace agent.alice.store.post",
+  "code": "NAMESPACE_ACCESS_DENIED"
+}
+```
+
+**HTTP Status Code**: `403 Forbidden`
+
+## Real-World Examples
+
+### Memory Agent with Granular Permissions
+
+```ts
+const memoryAgent = new AgentServer({
+  agentKey: "5FgfC2DY4yreEWEughz46RZYQ8oBhHVqD9fVq6gV89E6z4Ea",
+  // Agent name "alice" resolved from blockchain
+});
+
+// Public read access - no permission required
+memoryAgent.method("status", {
+  method: "get",
+  namespace: { enabled: false },
+});
+// No permission check
+
+// Memory storage - requires specific permission
+memoryAgent.method("store", {
+  method: "post",
+  auth: { required: true },
+  namespace: { enabled: true },
+});
+// Requires: "agent.alice.store.post"
+
+// Memory retrieval - different permission
+memoryAgent.method("retrieve", {
+  method: "get",
+  auth: { required: true },
+  namespace: { enabled: true },
+});
+// Requires: "agent.alice.retrieve.get"
+
+// Admin operations - custom namespace
+memoryAgent.method("admin-reset", {
+  method: "post",
+  auth: { required: true },
+  namespace: {
+    enabled: true,
+    path: "agent.alice.admin.reset",
+  },
+});
+// Requires: "agent.alice.admin.reset"
+```
+
+### Multi-Agent Scenario
+
+```ts
+// Alice's memory agent
+const aliceAgent = new AgentServer({
+  agentKey: "5FgfC2DY4yreEWEughz46RZYQ8oBhHVqD9fVq6gV89E6z4Ea",
+  // Resolves to agent name: "alice"
+});
+
+// Bob's analysis agent
+const bobAgent = new AgentServer({
+  agentKey: "5D5FbRRUvQxdQnJLgNW6BdgZ86CRGreKRahzhxmdSj2REBnt",
+  // Resolves to agent name: "bob-analysis"
+});
+
+// Same endpoint name, different agents = different namespaces
+aliceAgent.method("process", {
+  method: "post",
+  namespace: { enabled: true },
+});
+// Namespace: "agent.alice.process.post"
+
+bobAgent.method("process", {
+  method: "post",
+  namespace: { enabled: true },
+});
+// Namespace: "agent.bob-analysis.process.post"
+```
+
+## Best Practices
+
+### Endpoint Design
+
+- **Use descriptive endpoint names**: They become part of the namespace path
+- **Consider permission granularity**: Each endpoint+method combination requires separate permissions
+- **Group related operations**: Use consistent naming for related endpoints
+
+### Permission Management
+
+- **Principle of least privilege**: Only delegate necessary permissions
+- **Regular audits**: Review and revoke unused permissions
+- **Clear documentation**: Document which permissions each endpoint requires
+
+### Development Workflow
+
+1. **Test without permissions first**: Use `namespace: { enabled: false }` during development
+2. **Enable permissions gradually**: Add namespace checking as you finalize endpoints
+3. **Document permission requirements**: Clearly communicate required permissions to users
+
+## Troubleshooting
+
+### Common Issues
+
+**Permission Denied Errors:**
+
+- Verify the exact namespace path being checked
+- Ensure the user has permission for that specific path
+- Check that permissions haven't expired
+
+**Agent Name Resolution:**
+
+- Confirm the agent is properly registered on Torus
+- Verify the agentKey corresponds to the expected agent name
+
+**RPC Connectivity:**
+
+- Test RPC endpoints are accessible
+- Consider using multiple RPC URLs for redundancy
+
+<CardGrid>
+  <LinkCard
+    title="Agent Server Setup"
+    href="/agents/server-setup"
+    description="Learn how to build Agent APIs with capability permissions"
+  />
+  <LinkCard
+    title="Agent Client"
+    href="/agents/client"
+    description="Understand how clients authenticate with agents"
+  />
+  <LinkCard
+    title="Register an Agent"
+    href="/agents/register"
+    description="Register your agent on Torus"
+  />
+</CardGrid>

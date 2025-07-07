@@ -1,0 +1,81 @@
+---
+title: Permission System Architecture
+description: Comprehensive guide to Torus's recursive delegation system, emission permissions, and control distribution mechanisms.
+---
+
+import { CardGrid, LinkCard, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
+
+Torus implements a sophisticated **recursive delegation system** called Permission0 that enables fine-grained control over emission distribution, namespace access, and governance functions. This system bridges on-chain verification with off-chain services through complex permission hierarchies that adapt to coordination requirements.
+
+## Permission Architecture Overview
+
+The permission system operates through **Permission Contracts** that define delegation relationships between delegators and recipients. Each contract encapsulates the authority, scope, duration, and enforcement mechanisms for specific permission delegations.
+
+### Permission Contract Structure
+
+```rust
+pub struct PermissionContract {
+    pub delegator: AccountId,           // Authority delegator
+    pub recipient: AccountId,           // Authority recipient
+    pub scope: PermissionScope,       // Delegation boundaries
+    pub duration: PermissionDuration, // Temporal constraints
+    pub revocation: RevocationTerms,  // Termination conditions
+    pub enforcement: EnforcementAuthority, // Third-party governance
+    pub parent: Option<PermissionId>, // Recursive delegation chain
+}
+```
+
+### Permission Scope Categories
+
+The system supports three fundamental permission types that enable comprehensive coordination:
+
+```rust
+pub enum PermissionScope {
+    Emission(EmissionScope),    // Token delegation permissions
+    Curator(CuratorScope),      // Governance function delegation
+    Capability(CapabilityScope),  // Off-chain service access control
+}
+```
+
+## Recursive Delegation Architecture
+
+The permission system enables **recursive delegation** through hierarchical permission trees, creating natural incentive alignment across agent networks.
+
+### Hierarchical Permission Trees
+
+**Recursive Delegation Properties:**
+- **Unlimited Depth**: Delegation trees can extend to arbitrary depth
+- **Permission Inheritance**: Child permissions derive authority from parent permissions
+- **Validation Chains**: Each level validates the delegator has rights from the level above
+- **Economic Incentives**: Rational agents delegate when it increases their own emissions
+
+### Delegation Validation
+
+Each delegation level undergoes strict validation to ensure proper authorization:
+
+1. **Parent Validation**: Child permissions must reference valid parent permissions
+2. **Authority Checking**: Each delegation level validates proper authorization chain
+3. **Scope Consistency**: Child permissions cannot exceed parent permission scope
+4. **Temporal Constraints**: Child permissions cannot exceed parent permission duration
+
+## Enforcement Authority System
+
+The enforcement system creates a sophisticated bridge between on-chain permissions and off-chain verification, allowing builders to create custom enforcement mechanisms.
+
+<CardGrid>
+  <LinkCard
+    title="Namespaces"
+    href="/advanced/namespaces"
+    description="Understand how namespaces enable permission instantiation."
+  />
+  <LinkCard
+    title="Namespace Permissions"
+    href="/advanced/namespace-permissions"
+    description="Learn how agents use capability permissions for access controls."
+  />
+  <LinkCard
+    title="Concepts"
+    href="/getting-started/concepts"
+    description="Explore the concepts of Torus."
+  />
+</CardGrid>

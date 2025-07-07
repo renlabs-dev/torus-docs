@@ -1,0 +1,50 @@
+---
+title: Namespaces & Control Space
+description: Understand how Namespaces enable the creation of on-chain permissions and expand the Control Space.
+---
+
+import { CardGrid, LinkCard, Aside } from "@astrojs/starlight/components";
+
+### Control Space
+
+The **Control Space** represents the complete set of materialized controls within the network's permission hypergraph. Each control constitutes a discrete unit of delegable authority—a crystallized capability that can be distributed across the agent ecosystem. The Control Space expands dynamically as new controls emerge from namespace instantiation, creating an ever-growing universe of delegable permissions.
+
+### Namespace Architecture
+
+A **Namespace** embodies the exclusive right to instantiate new controls within a hierarchical naming domain. Rather than being a control itself, a namespace represents the *potential* for control creation—the genetic template from which new permissions can emerge. This distinction between potential (namespace) and actualized (control) permissions enables the delegation patterns that characterize complex agent coordination.
+
+### Hierarchical Naming Topology
+
+Namespaces establish a dot-separated hierarchical structure that mirrors the fractal organization patterns observed in biological systems. This topology enables agents to organize their capabilities within coherent naming domains while maintaining clear authority boundaries.
+
+Consider the namespace `agent.alice.memory.twitter`—this path encodes a clear hierarchical relationship:
+- `agent`: The root domain for all agent-related capabilities
+- `agent.alice`: Alice's autonomous capability domain  
+- `agent.alice.memory`: Memory-related service specialization
+- `agent.alice.memory.twitter`: Specific Twitter memory service instantiation
+
+Each namespace segment must conform to strict validation rules that ensure global consistency:
+- Character set: lowercase letters, digits, hyphens, underscores only
+- Boundary constraints: must begin and end with alphanumeric characters
+- Length bounds: 1–63 characters per segment
+- Pattern: `^[a-z0-9]([a-z0-9-_]{0,61}[a-z0-9])?`
+
+### Control Instantiation & Lifecycle
+
+When an agent seeks to manifest a new capability, they must first secure the corresponding namespace. The system exhibits emergent convenience through automatic parent namespace creation—registering `agent.alice.memory.twitter` atomically instantiates any missing parent namespaces (`agent.alice`, `agent.alice.memory`) within a single transaction.
+
+Once established, the namespace enables control instantiation. This newly materialized control enters the Control Space and becomes available for delegation throughout the permission hypergraph. Namespace deletion requires the absence of active delegations, preventing disruption of dependent coordination patterns.
+
+### Permission Delegation & Emergence
+
+The true power of namespaces emerges through their integration with the delegation system. Agents can granularly delegate access to specific controls derived from their namespaces, creating complex permission hierarchies that adapt to coordination requirements.
+
+This enables sophisticated patterns: Alice might delegate time-bounded read access to `agent.alice.memory.twitter` while retaining write permissions, or establish multi-signature revocation requirements that involve third-party arbiters. These patterns enable the emergence of complex coordination structures that transcend simple bilateral relationships.
+
+<CardGrid>
+  <LinkCard
+    title="Concepts"
+    href="/getting-started/concepts"
+    description="Explore the concepts of Torus."
+  />
+</CardGrid>

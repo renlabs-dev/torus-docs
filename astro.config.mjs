@@ -23,90 +23,78 @@ export default defineConfig({
       },
       sidebar: [
         {
-          label: "The Vision",
+          label: "Getting Started",
           items: [
             { label: "Introduction", slug: "index" },
+            { label: "Concepts & Terminology", slug: "getting-started/concepts" },
+            { label: "Setup CLI", slug: "getting-started/setup-cli" },
+            { label: "Setup Wallet", slug: "getting-started/setup-wallet" },
+          ],
+        },
+        {
+          label: "v0.5",
+          items: [
+           // { label: "Network Overview", slug: "concepts/network-overview" },
+           { label: "Control Space", slug: "advanced/control-space" },
+           { label: "Permission System", slug: "advanced/permissions" },
+           { label: "Capability Permissions", slug: "advanced/capability-permissions" },
+           { label: "Emission Permissions", slug: "advanced/emission-permissions" },
+           { label: "Tokenomics", slug: "concepts/tokenomics" },
+           { label: "Governance & DAO", slug: "concepts/governance-dao" },
+          ],
+        },
+        {
+          label: "Working with Agents",
+          items: [
+            { label: "Register an Agent", slug: "agents/register-agent" },
+            { label: "Become a Root Agent", slug: "agents/apply-root-agent" },
+            { label: "Agent Server Setup", slug: "agents/server-setup" },
+            { label: "Agent Client", slug: "agents/client" },
+            { label: "Demand Signaling", slug: "agents/demand-signaling" },
+            { label: "Managing Your Agent", slug: "agents/management" },
+          ],
+        },
+        {
+          label: "CLI & Tools",
+          items: [
+            { label: "Key Management", slug: "cli/key-management" },
+            { label: "Balance Operations", slug: "cli/balance-operations" },
+          ],
+        },
+        // {
+        //   label: "Web Apps",
+        //   items: [
+        //     {
+        //       label: "Overview",
+        //       slug: "development/web-apps-overview",
+        //     },
+        //     { label: "Torus Portal", slug: "web-apps/torus-portal" },
+        //     { label: "Torus Allocator", slug: "web-apps/torus-allocator" },
+        //     { label: "Torus Wallet", slug: "web-apps/torus-wallet" },
+        //     { label: "Torus Bridge", slug: "web-apps/torus-bridge" },
+        //     { label: "Torus DAO", slug: "web-apps/torus-dao" },
+        //   ],
+        // },
+        {
+          label: "Development",
+          items: [
             {
-              label: "v1 Concepts and Terminology",
-              slug: "concepts/terminology",
+              label: "Development Guide",
+              slug: "development/guide",
+            },
+            {
+              label: "Querying Data",
+              slug: "development/querying-data",
             },
           ],
         },
         {
-          label: "v0",
+          label: "Network Operations",
           items: [
-            { label: "Basics", slug: "concepts/basics" },
-            { label: "Torus DAO", slug: "concepts/torus-dao" },
+            { label: "Global Parameters", slug: "network/global-parameters" },
             {
-              label: "Agent Application",
-              slug: "concepts/agent-application",
-            },
-            { label: "Tokenomics", slug: "concepts/tokenomics" },
-          ],
-        },
-        {
-          label: "Installation",
-          items: [
-            { label: "Setup Torus CLI", slug: "installation/setup-torus-cli" },
-            { label: "Setup Wallet", slug: "installation/setup-wallet" },
-          ],
-        },
-        {
-          label: "Agents & Modules",
-          items: [
-            { label: "Concepts", slug: "agents/what-is-an-agent" },
-            {
-              label: "Register to the Network",
-              slug: "agents/register-an-agent",
-            },
-            {
-              label: "Edit your Agent",
-              slug: "agents/edit-your-agent",
-            },
-            {
-              label: "Connect to a Module",
-              slug: "agents/connect-to-an-agent",
-            },
-          ],
-        },
-        {
-          label: "Working with Keys",
-          items: [
-            { label: "Key Basics", slug: "keys/key-basics" },
-            {
-              label: "Balance Operations",
-              slug: "keys/balance-operations",
-            },
-          ],
-        },
-        {
-          label: "The Chain",
-          items: [
-            { label: "Global Parameters", slug: "chain/global-parameters" },
-            {
-              label: "Running a Local Node",
-              slug: "chain/running-the-chain",
-            },
-          ],
-        },
-        {
-          label: "Web apps",
-          items: [
-            {
-              label: "Introduction",
-              slug: "web-apps/intro",
-            },
-            {
-              label: "Installation",
-              slug: "web-apps/installation",
-            },
-            {
-              label: "Develop",
-              slug: "web-apps/develop",
-            },
-            {
-              label: "Querying allocated stake",
-              slug: "web-apps/querying-stake-weight",
+              label: "Running a Node",
+              slug: "network/running-node",
             },
           ],
         },
@@ -118,4 +106,11 @@ export default defineConfig({
     }),
     tailwind({ applyBaseStyles: false }),
   ],
+  
+  vite: {
+    server: {
+      host: true,
+      allowedHosts: true,
+    },
+  },
 });

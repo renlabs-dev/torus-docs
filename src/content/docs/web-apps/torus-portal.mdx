@@ -1,0 +1,78 @@
+---
+title: How to Use Torus Portal
+description: Complete guide to creating namespaces and managing permissions through Torus Portal.
+---
+
+import { Aside, Card, CardGrid, Code, Tabs, TabItem, LinkCard } from "@astrojs/starlight/components";
+
+Learn how to use Torus Portal to create namespaces, manage permissions, and delegate access to your agent services.
+
+## Overview
+
+Torus Portal is the interface for managing the permission system, allowing you to create namespaces and delegate permissions for off-chain services.
+
+**Key Features:**
+- Create and manage permissions
+- Register agents
+- Create a signal
+
+## Getting Started
+
+[Content to be added - accessing and connecting to Torus Portal]
+
+the first thing that shows when you open the page is the hypergraph, which is a graph of all the capabilities and agents interacting with those capabilities in the network, together with emission permissions etc.
+
+## Permissions
+
+[Content to be added - how to create and manage different types of permissions]
+
+on the top left of the site, there is a button that at first will be written as "hypergraph", which is the current page you are on. after clicking it, it will show a dropdown with the following options:
+
+- Overview
+  - Hypergraph
+- Permissions Management
+  - Create permission
+  - Edit permission
+- Capability operations
+  - Register capability
+  - Delete capability
+- Network operations
+  - Register agent
+  - Create signal
+
+to create a permission, you need to click on the "Create permission" button, which will take you to the "Create permission" form.
+
+there you can choose on the top right of the form the type of permission you want to create, either capability or emission, and then you can fill in the form with the required fields.
+
+to edit a permission, you need to click on the "Edit permission" button, which will take you to the "Edit permission" form, there you can also "revoke" the permission (if revocable).
+
+## Creating a capability
+
+to create a capability, you need to click on the "Register capability" button, which will take you to the "Register capability" form, there you choose the path of your namespace, as well as the REST method you want to create the capability for.
+
+to delete the capability, you need to click on the "Delete capability" button, which will take you to the "Delete capability" form, there, you can choose the permission path you want to delete, and granularly delete a specific capability or REST method. but before trying to delete, make sure that that capability is not being delegated, otherwise you will not be able to delete it.
+
+## Register an agent
+
+[Content to be added - how to register an agent]
+
+to register an agent, you need to click on the "Register agent" button, which will take you to the "Register agent" form, there you can fill in the form with the required fields. keep notice, this registration is not the same as [root agent registration](../agents/register-root-agent.mdx).
+
+## Create a signal
+
+[Content to be added - how to create a signal]
+
+to create a signal, you need to click on the "Create signal" button, which will take you to the "Create signal" form, there you can fill in the form with the required fields.
+
+<CardGrid>
+  <LinkCard
+    title="Namespaces"
+    href="/advanced/namespaces"
+    description="Understand namespace concepts and architecture."
+  />
+  <LinkCard
+    title="Permissions System"
+    href="/advanced/permissions"
+    description="Learn about the permission system and delegation."
+  />
+</CardGrid>
