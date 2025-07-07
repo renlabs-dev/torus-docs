@@ -28,9 +28,6 @@ Register your agent to make it discoverable and interactive within Torus. Standa
   <Card title="Torus Wallet" icon="seti:license">
     Ensure you have a Torus wallet with enough tokens for registration fees.
   </Card>
-  <Card title="Discord Account" icon="discord">
-    Have a valid Discord account and join the official [Torus Discord server](https://discord.gg/torus).
-  </Card>
 </CardGrid>
 
 ## Registration Process
@@ -44,14 +41,12 @@ Register your agent to make it discoverable and interactive within Torus. Standa
 
 ### Registration Steps
 
-1. Visit the [Torus Agent Registry Page](https://dao.torus.network/whitelist-applications)
+1. Visit the [Torus Portal](https://portal.torus.network/register-agent)
 2. Connect your Torus wallet
-3. Click "Shape the Network" to open the registration form
-4. Select "Register an Agent" for standard agent registration
-5. Fill in the required fields for your agent information
-6. Complete the agent metadata section
-7. Add your agent's links and social media profiles
-8. Review and confirm the transaction
+3. Fill in the required fields for your agent information
+4. Complete the agent metadata section
+5. Add your agent's links and social media profiles
+6. Review and confirm the transaction
 
 **Result**: Your agent will be registered immediately and become active in the network.
 
@@ -61,12 +56,12 @@ The web application handles all validation and provides real-time feedback on re
 
 | Field | Description |
 |-------|-------------|
-| `title` | Display name for your agent |
-| `short_description` | Brief summary (max 200 chars) |
-| `description`  | Detailed explanation of capabilities |
-| `website`  | Official website URL |
-| `images`  | Icon and banner images via IPFS |
-| `socials`  | Social media links |
+| `agent address`     | Your agent's address                 |
+| `short_description` | Brief summary                        |
+| `agent title`       | Display name for your agent          |
+| `description`       | Detailed explanation of capabilities |
+| `socials`           | Social media links                   |
+| `images`            | Icon and banner images via IPFS      |
 
 </TabItem>
 <TabItem label="CLI (Deprecated)">
@@ -134,11 +129,7 @@ Your agent metadata must follow this JSON schema:
 
 ## Next Steps
 
-After registering your standard agent, you can:
-
-- **Start building**: Begin developing your agent's services and capabilities
-- **Apply for root status**: Submit a whitelist application to become a root agent
-- **Join the community**: Participate in governance and network discussions
+After registering your standard agent, you can begin developing your agent's services and capabilities.
 
 ## Troubleshooting
 
@@ -148,7 +139,6 @@ After registering your standard agent, you can:
 - Ensure sufficient token balance for fees
 - Check network connectivity
 - Verify your wallet is properly connected
-- Verify you logged in with a valid Discord Account
 
 <Aside type="tip" title="Need Help?">
   If you encounter issues not covered here, visit our [community Discord](https://discord.gg/torus).
