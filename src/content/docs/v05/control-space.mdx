@@ -1,21 +1,29 @@
 ---
-title: Namespaces & Control Space
-description: Understand how Namespaces enable the creation of on-chain permissions and expand the Control Space.
+title: Control Space
+description: Understand the Torus Control Space and how namespaces enable the integration of offchain capabilities and resources with Torus onchain permission system.
 ---
 
 import { CardGrid, LinkCard, Aside } from "@astrojs/starlight/components";
 
 ### Control Space
 
-The **Control Space** represents the complete set of materialized controls within the network's permission hypergraph. Each control constitutes a discrete unit of delegable authority—a crystallized capability that can be distributed across the agent ecosystem. The Control Space expands dynamically as new controls emerge from namespace instantiation, creating an ever-growing universe of delegable permissions.
+The **control space** is the set of all **controls** that are integrated with the **Torus permission system**. **Controls** are discrete units of delegable authority over onchain & offchain capabilities. 
 
-### Namespace Architecture
+The **control space** is the total scope of power & capability of the Torus organism. The space of all things that Torus can control, utilize and optimize.
 
-A **Namespace** embodies the exclusive right to instantiate new controls within a hierarchical naming domain. Rather than being a control itself, a namespace represents the *potential* for control creation—the genetic template from which new permissions can emerge. This distinction between potential (namespace) and actualized (control) permissions enables the delegation patterns that characterize complex agent coordination.
+The **chain control space** consists of all parameters & storages, while the **offchain control space** consists of all agent endpoints that were registered into the Torus namespace, integrating them with the permission system. 
 
-### Hierarchical Naming Topology
+### Namespace
 
-Namespaces establish a dot-separated hierarchical structure that mirrors the fractal organization patterns observed in biological systems. This topology enables agents to organize their capabilities within coherent naming domains while maintaining clear authority boundaries.
+The **namespace** serves as a registry that maps identifiers (names) to offchain endpoints (agent capabilities). The namespace is powerful as a registry, because it allows descriptive names instead of meaningless IDs. 
+
+The namespace has a hierarchical tree structure, enabling the organization of those identifiers, and the ability to delegate permissions over namespace paths, rather than just individual identifiers. This means, you can delegate permission over a higher-level branch and automatically include all the sub-branches. This increases the usage efficiency of permissions.
+
+The namespace is designed to be applied beyond offchain agent capabilities in the future, allowing to represent swarm-owned assets, emission streams and any other resources integrated with Torus.
+
+### Namespace structure
+
+Namespaces establish a dot-separated hierarchical tree structure.
 
 Consider the namespace `agent.alice.memory.twitter`—this path encodes a clear hierarchical relationship:
 - `agent`: The root domain for all agent-related capabilities
@@ -31,15 +39,15 @@ Each namespace segment must conform to strict validation rules that ensure globa
 
 ### Control Instantiation & Lifecycle
 
-When an agent seeks to manifest a new capability, they must first secure the corresponding namespace. The system exhibits emergent convenience through automatic parent namespace creation—registering `agent.alice.memory.twitter` atomically instantiates any missing parent namespaces (`agent.alice`, `agent.alice.memory`) within a single transaction.
+When an agent wants to integrate a capability with Torus, they have to register a corresponding namespace. Conveniently, registering `agent.alice.memory.twitter` atomically instantiates any missing parent namespaces (`agent.alice`, `agent.alice.memory`) within a single transaction.
 
-Once established, the namespace enables control instantiation. This newly materialized control enters the Control Space and becomes available for delegation throughout the permission hypergraph. Namespace deletion requires the absence of active delegations, preventing disruption of dependent coordination patterns.
+Once established, the agent can use the permission delegation system for cooperation and commerce around the capability. Namespace deletion requires the absence of active delegations, preventing disruption of dependent economic structure.
 
 ### Permission Delegation & Emergence
 
-The true power of namespaces emerges through their integration with the delegation system. Agents can granularly delegate access to specific controls derived from their namespaces, creating complex permission hierarchies that adapt to coordination requirements.
+The true power of namespaces lies in their integration with the permission delegation system. Agents can granularly & recursively delegate access to specific controls derived from their namespaces, with flexible constraints.
 
-This enables sophisticated patterns: Alice might delegate time-bounded read access to `agent.alice.memory.twitter` while retaining write permissions, or establish multi-signature revocation requirements that involve third-party arbiters. These patterns enable the emergence of complex coordination structures that transcend simple bilateral relationships.
+This enables sophisticated patterns: Alice might delegate time-bounded read access to `agent.alice.memory.twitter` while retaining write permissions, or establish multi-signature revocation requirements that involve third-party arbiters.
 
 <CardGrid>
   <LinkCard
