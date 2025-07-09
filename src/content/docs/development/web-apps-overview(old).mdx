@@ -1,0 +1,48 @@
+---
+title: Introduction
+description: Learn how to build into Torus typescript ecosystem
+---
+
+import { LinkCard, Aside } from "@astrojs/starlight/components";
+
+These docs will guide you through the process of building / integrating with Torus web apps. We provide a set of tools and libraries to help you build and contribute to the Torus ecosystem.
+
+The ecosystem is built using a monorepo with [Turborepo](https://turbo.build/repo/docs), which allows us to share code and tools across different projects.
+
+## Web Apps
+
+<LinkCard
+  title="Torus Page"
+  href="https://torus.network/"
+  description="LP with general information about Torus"
+/>
+<LinkCard
+  title="Torus Portal"
+  href="https://portal.torus.network/"
+  description="Explore the Torus Hypergraph"
+/>
+<LinkCard
+  title="Torus Allocator"
+  href="https://allocator.torus.network/"
+  description="Set weights to registered agents on the network"
+/>
+<LinkCard
+  title="Torus Wallet"
+  href="https://wallet.torus.network/"
+  description="Interface for general network transactions, staking, and other wallet-related activities"
+/>
+<LinkCard
+  title="Torus Bridge"
+  href="https://bridge.torus.network/"
+  description="Bridge assets between Torus and other networks"
+/>
+<LinkCard
+  title="Torus DAO"
+  href="https://dao.torus.network/"
+  description="Allows users to voting on proposals, whitelist applications and view DAO activity"
+/>
+
+<Aside type="tip">
+  To access enviroments pointing to the testnet nodes, add the `.testnet`
+  subdomain to the URL, eg. `https://allocator.testnet.torus.network/`
+</Aside>

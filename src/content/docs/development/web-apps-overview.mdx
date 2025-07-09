@@ -1,15 +1,15 @@
 ---
-title: Introduction
-description: Learn how to build into Torus typescript ecosystem
+title: Web Apps Overview
+description: Learn how to navigate in the Torus ecosystem
 ---
 
-import { LinkCard, Aside } from "@astrojs/starlight/components";
+import { LinkCard, FileTree, Aside } from "@astrojs/starlight/components";
 
-These docs will guide you through the process of building / integrating with Torus web apps. We provide a set of tools and libraries to help you build and contribute to the Torus ecosystem.
+These docs guide you through building and integrating with Torus web apps—from understanding our structure and stack to installing and developing.
 
 The ecosystem is built using a monorepo with [Turborepo](https://turbo.build/repo/docs), which allows us to share code and tools across different projects.
 
-## Web Apps
+## Pages
 
 <LinkCard
   title="Torus Page"
@@ -22,9 +22,9 @@ The ecosystem is built using a monorepo with [Turborepo](https://turbo.build/rep
   description="Explore the Torus Hypergraph"
 />
 <LinkCard
-  title="Torus Allocator"
-  href="https://allocator.torus.network/"
-  description="Set weights to registered agents on the network"
+  title="Torus DAO"
+  href="https://dao.torus.network/"
+  description="Allows users to voting on proposals, whitelist applications and view DAO activity"
 />
 <LinkCard
   title="Torus Wallet"
@@ -37,12 +37,80 @@ The ecosystem is built using a monorepo with [Turborepo](https://turbo.build/rep
   description="Bridge assets between Torus and other networks"
 />
 <LinkCard
-  title="Torus DAO"
-  href="https://dao.torus.network/"
-  description="Allows users to voting on proposals, whitelist applications and view DAO activity"
+  title="Torus Allocator"
+  href="https://allocator.torus.network/"
+  description="Set weights to registered agents on the network"
 />
 
 <Aside type="tip">
   To access enviroments pointing to the testnet nodes, add the `.testnet`
   subdomain to the URL, eg. `https://allocator.testnet.torus.network/`
 </Aside>
+
+## Frameworks & Libraries
+
+We use a variety of frameworks and libraries to build our web apps. Here are some of the key ones:
+
+- **React**: JavaScript library for building user interfaces
+- **Next.js**: React framework for building static and server-rendered applications
+- **TypeScript**: Typed superset of JavaScript that compiles to plain JavaScript
+- **Tailwind**: Utility-first CSS framework for rapidly building custom designs
+- **Drizzle**: Typesafe ORM for TypeScript
+- **tRPC**: TypeScript-first RPC framework for Node.js
+- **TanStack Query**: data-fetching library for React
+- **Polkadot JS API**: JavaScript API for interacting with Polkadot-based chains
+- **Agent API**: Enables decentralized collaboration among autonomous AI agents
+
+## Project Structure
+
+<FileTree>
+
+- .github
+
+  - workflows pnpm cache setup & ci/cd
+  - ISSUE_TEMPLATE Template for open source contributors
+  - DISCUSSION_TEMPLATE Template for open source contributors
+
+- .vscode
+
+- ... Extensions and settings for VSCode users
+
+- apps
+
+  - torus-page Landing Page
+  - torus-portal Torus Hypergraph
+  - torus-dao DAO & Governance Portal
+  - torus-wallet Transactions & Staking
+  - torus-bridge Bridge between Torus and Subspace
+  - torus-allocator Set weights to Agents
+
+- services
+
+  - torus-cache Blockchain data caching service
+  - torus-worker Background services
+
+- packages
+
+  - ui UI components library
+  - db Typesafe DB calls using Drizzle
+  - dsl Constraint definitions for Torus
+  - api tRPC v11 router definition
+  - utils Common code
+  - **torus-ts-sdk** Typesafe substrate client library
+  - env-validation Environment variables validation
+  - torus-provider Polkadot JS API provider
+  - query-provider React Query provider
+
+- tooling
+
+  - eslint Shared, fine-grained, eslint presets
+  - prettier Shared prettier configuration
+  - tailwind Shared tailwind configuration
+  - typescript Shared tsconfig you can extend from
+
+- just
+  - justfile All the commands you need to run the project
+
+</FileTree>
+
+This stack comes from [create-t3-app](https://github.com/t3-oss/create-t3-app).
