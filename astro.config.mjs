@@ -82,12 +82,8 @@ export default defineConfig({
           label: "Development",
           items: [
             {
-              label: "Web Apps Overview",
-              slug: "development/web-apps-overview",
-            },
-            {
-              label: "Web Apps Install and Run",
-              slug: "development/web-apps-install-and-run",
+              label: "Web Apps Overview and Setup",
+              slug: "development/web-apps-overview-and-setup",
             },
             {
               label: "Querying Data",
