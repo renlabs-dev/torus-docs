@@ -37,7 +37,7 @@ export default defineConfig({
         {
           label: "v0.5",
           items: [
-           // { label: "Network Overview", slug: "concepts/network-overview" },
+           { label: "Network Overview", slug: "concepts/network-overview" },
            { label: "Control Space", slug: "v05/control-space" },
            { label: "Permission System", slug: "v05/permissions" },
            { label: "Capability Permissions", slug: "v05/capability-permissions" },
@@ -51,7 +51,7 @@ export default defineConfig({
           items: [
             { label: "Register an Agent", slug: "agents/register-agent" },
             { label: "Become a Root Agent", slug: "agents/apply-root-agent" },
-            { label: "Agent Server Setup", slug: "agents/server-setup" },
+            { label: "Agent Server", slug: "agents/server-setup" },
             { label: "Agent Client", slug: "agents/client" },
             { label: "Demand Signaling", slug: "agents/demand-signaling" },
             { label: "Managing Your Agent", slug: "agents/management" },
@@ -64,20 +64,16 @@ export default defineConfig({
             { label: "Balance Operations", slug: "cli/balance-operations" },
           ],
         },
-        // {
-        //   label: "Web Apps",
-        //   items: [
-        //     {
-        //       label: "Overview",
-        //       slug: "development/web-apps-overview",
-        //     },
-        //     { label: "Torus Portal", slug: "web-apps/torus-portal" },
-        //     { label: "Torus Allocator", slug: "web-apps/torus-allocator" },
-        //     { label: "Torus Wallet", slug: "web-apps/torus-wallet" },
-        //     { label: "Torus Bridge", slug: "web-apps/torus-bridge" },
-        //     { label: "Torus DAO", slug: "web-apps/torus-dao" },
-        //   ],
-        // },
+        {
+          label: "Web Apps",
+          items: [
+            { label: "Torus Portal", slug: "web-apps/torus-portal" },
+            { label: "Torus Allocator", slug: "web-apps/torus-allocator" },
+            { label: "Torus Wallet", slug: "web-apps/torus-wallet" },
+            { label: "Torus Bridge", slug: "web-apps/torus-bridge" },
+            { label: "Torus DAO", slug: "web-apps/torus-dao" },
+          ],
+        },
         {
           label: "Development",
           items: [
@@ -102,18 +98,8 @@ export default defineConfig({
           ],
         },
       ],
-      editLink: {
-        baseUrl: "https://github.com/renlabs-dev/torus-docs/edit/main/docs/",
-      },
       customCss: ["./src/tailwind.css"],
     }),
     tailwind({ applyBaseStyles: false }),
   ],
-
-  vite: {
-    server: {
-      host: true,
-      allowedHosts: true,
-    },
-  },
 });
