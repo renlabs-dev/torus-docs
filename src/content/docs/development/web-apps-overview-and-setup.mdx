@@ -1,0 +1,255 @@
+---
+title: Web Apps Overview and Setup
+description: Learn how to navigate in the Torus ecosystem
+---
+
+import {
+  Steps,
+  TabItem,
+  Tabs,
+  LinkCard,
+  FileTree,
+  Aside,
+} from "@astrojs/starlight/components";
+
+These docs guide you through building and integrating with Torus web apps—from understanding our structure and stack to installing and developing.
+
+The ecosystem is built using a monorepo with [Turborepo](https://turbo.build/repo/docs), which allows us to share code and tools across different projects.
+
+<Aside type="tip">
+  To access environments pointing to the testnet nodes, add the `.testnet`
+  subdomain to the URL, eg. `https://allocator.testnet.torus.network/`
+</Aside>
+
+## Prerequisites
+
+- **Node.js** - `20.16.0` or higher.
+- **PNPM** - `9.7.1` or higher.
+- **Docker** - [installation guide](https://docs.docker.com/get-docker/).
+- **Just** - [installation guide](https://github.com/casey/just).
+
+##### Docker Tip
+
+If you have difficulties or want alternatives to simplify using Docker, consider:
+
+- [Colima](https://github.com/abiosoft/colima): A lightweight solution for running containers on macOS.
+- [Orbstack](https://orbstack.dev/): A fast and efficient alternative for managing containers.
+
+## Quick Start
+
+```bash
+# Clone and setup
+git clone git@github.com:renlabs-dev/torus-ts.git
+cd torus-ts
+pnpm install
+cp .env.example .env
+
+# Build and run
+just build
+just dev torus-wallet  # or any other app
+```
+
+For detailed setup instructions, see the setup guide below.
+
+<Aside type="note">
+  Some environment variables required by the `torus-ts` monorepo are sensitive
+  and cannot be shared publicly. You’ll need to configure them manually using
+  the provided `.env.example` file as a reference.
+</Aside>
+
+## Frameworks & Libraries
+
+We use a variety of frameworks and libraries to build our web apps. Here are some of the key ones:
+
+- **React**: JavaScript library for building user interfaces
+- **Next.js**: React framework for building static and server-rendered applications
+- **TypeScript**: Typed superset of JavaScript that compiles to plain JavaScript
+- **Tailwind**: Utility-first CSS framework for rapidly building custom designs
+- **Drizzle**: Typesafe ORM for TypeScript
+- **tRPC**: TypeScript-first RPC framework for Node.js
+- **TanStack Query**: data-fetching library for React
+- **Polkadot JS API**: JavaScript API for interacting with Polkadot-based chains
+- **Agent API**: Enables decentralized collaboration among autonomous AI agents
+
+## Project Structure
+
+<FileTree>
+
+- .github
+
+  - workflows pnpm cache setup & ci/cd
+  - ISSUE_TEMPLATE Template for open source contributors
+  - DISCUSSION_TEMPLATE Template for open source contributors
+
+- .vscode
+
+- ... Extensions and settings for VSCode users
+
+- apps
+
+  - torus-page Landing Page
+  - torus-portal Torus Hypergraph
+  - torus-governance DAO & Governance Portal
+  - torus-wallet Transactions & Staking
+  - torus-bridge Bridge between Torus and Subspace
+  - torus-allocator Set weights to Agents
+
+- services
+
+  - torus-cache Blockchain data caching service
+  - torus-worker Background services
+
+- packages
+
+  - ui UI components library
+  - db Typesafe DB calls using Drizzle
+  - dsl Constraint definitions for Torus
+  - api tRPC v11 router definition
+  - utils Common code
+  - **torus-ts-sdk** Typesafe substrate client library
+  - env-validation Environment variables validation
+  - torus-provider Polkadot JS API provider
+  - query-provider React Query provider
+
+- tooling
+
+  - eslint Shared, fine-grained, eslint presets
+  - prettier Shared prettier configuration
+  - tailwind Shared tailwind configuration
+  - typescript Shared tsconfig you can extend from
+
+- just
+  - justfile All the commands you need to run the project
+
+</FileTree>
+
+This stack comes from [create-t3-app](https://github.com/t3-oss/create-t3-app).
+
+This guide will walk you through the process of installing and running the `torus-ts` monorepo.
+
+## Monorepo setup
+
+<br />
+
+<Steps>
+
+1.  ##### Clone the repository
+
+    <Tabs>
+      <TabItem label="SSH">
+        ```bash
+        # Recommended for contributors with SSH keys configured.
+          git clone git@github.com:renlabs-dev/torus-ts.git
+        ```
+      </TabItem>
+      <TabItem label="HTTPS">
+        ```bash 
+        # Works without SSH key setup.
+        git clone https://github.com/renlabs-dev/torus-ts.git 
+        ``` 
+      </TabItem>
+      <TabItem label="GitHub CLI">
+        ```bash
+         gh repo clone renlabs-dev/torus-ts 
+         ``` 
+         Use the [GitHub CLI](https://cli.github.com/).
+      </TabItem>
+    </Tabs>
+
+    <br />
+
+2.  ##### Install the dependencies
+
+    ```bash
+    pnpm install
+    # or
+    just install
+    ```
+
+    <br />
+
+3.  ##### Configure environment variables
+
+    There is an `.env.example` in the root directory you can use for reference
+
+    ```bash
+    cp .env.example .env
+    ```
+
+    <br />
+
+4.  ##### Setup database
+
+    <Aside>
+      This step is only required for the **`torus-allocator`** &
+      **`torus-governance`** apps.
+    </Aside>
+
+    Create a postgres container with docker:
+
+    ```bash
+    docker run --name torus-db-container \
+      -e POSTGRES_PASSWORD=password \
+      -e POSTGRES_DB=torus-ts-db \
+      -e POSTGRES_USER=postgres \
+      -p 1337:1337 \
+      -d postgres:16-alpine \
+      postgres -p 1337
+    ```
+
+    Push the Drizzle schema to the database:
+
+    ```bash
+    just db-push
+    ```
+
+    You can also use the `just db-studio` command to open a GUI provided by [Drizzle](https://orm.drizzle.team/drizzle-studio/overview).
+
+    <br />
+
+5.  ##### Build the project
+
+        ```bash
+        just build
+        ```
+
+        <Aside type="caution">
+        This step is required before running any app since **`@torus-ts/subspace`** needs to be built and imported indirectly, otherwise dependant packages may typecheck its sources and cause conflict in the generated/augmented types.
+        </Aside>
+
+    <br />
+
+6.  ##### Run the project
+
+    From the root directory, run the following command:
+
+    ```bash
+    just dev <app-name>  # Run any app
+    ```
+
+    <Aside>
+      The `app-name` is the name of the app you want to run. You can find the
+      list of apps in the `apps` directory. For example, to run the
+      `torus-allocator` app, you would run `just dev torus-allocator`.
+    </Aside>
+
+    Or from the app directory, run the following command:
+
+    ```bash
+    pnpm run dev
+    ```
+
+    <Aside>
+      To run apps from their directories, you need to set up the environment
+      variables inside the app directory as well.
+    </Aside>
+
+    <br />
+
+
+</Steps>
+
+    <Aside type="caution">
+      If you desire to contribute, please follow the `DISCUSSION_TEMPLATE` and
+      `ISSUE_TEMPLATE` in the `.github` folder.
+    </Aside>

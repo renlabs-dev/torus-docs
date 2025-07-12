@@ -26,7 +26,10 @@ export default defineConfig({
           label: "Getting Started",
           items: [
             { label: "Introduction", slug: "index" },
-            { label: "Concepts & Terminology", slug: "getting-started/concepts" },
+            {
+              label: "Concepts & Terminology",
+              slug: "getting-started/concepts",
+            },
             { label: "Setup CLI", slug: "getting-started/setup-cli" },
             { label: "Setup Wallet", slug: "getting-started/setup-wallet" },
           ],
@@ -79,8 +82,8 @@ export default defineConfig({
           label: "Development",
           items: [
             {
-              label: "Development Guide",
-              slug: "development/guide",
+              label: "Web Apps Overview and Setup",
+              slug: "development/web-apps-overview-and-setup",
             },
             {
               label: "Querying Data",
@@ -106,7 +109,7 @@ export default defineConfig({
     }),
     tailwind({ applyBaseStyles: false }),
   ],
-  
+
   vite: {
     server: {
       host: true,

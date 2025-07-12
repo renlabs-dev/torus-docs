@@ -1,78 +1,80 @@
 ---
 title: How to Use Torus Portal
-description: Complete guide to creating namespaces and managing permissions through Torus Portal.
+description: Quick guide to navigating and using the Torus Portal interface for permission management.
 ---
 
-import { Aside, Card, CardGrid, Code, Tabs, TabItem, LinkCard } from "@astrojs/starlight/components";
+import { Aside, CardGrid, LinkCard } from "@astrojs/starlight/components";
 
-Learn how to use Torus Portal to create namespaces, manage permissions, and delegate access to your agent services.
+Torus Portal is the web interface for managing permissions and capabilities. Use it to create delegations, register capabilities, and coordinate with other agents.
 
-## Overview
+## Interface Overview
 
-Torus Portal is the interface for managing the permission system, allowing you to create namespaces and delegate permissions for off-chain services.
+**Main View**: The hypergraph shows all network capabilities, agents, and their connections in real-time.
 
-**Key Features:**
-- Create and manage permissions
-- Register agents
-- Create a signal
+**Navigation Menu** (top-left dropdown):
+- **Overview** → Hypergraph (current view)
+- **Permissions Management** → Create/Edit permissions
+- **Capability Operations** → Register/Delete capabilities  
+- **Network Operations** → Register agents, Create signals
 
-## Getting Started
+## Creating Permissions
 
-[Content to be added - accessing and connecting to Torus Portal]
+**Permissions Management → Create Permission**
 
-the first thing that shows when you open the page is the hypergraph, which is a graph of all the capabilities and agents interacting with those capabilities in the network, together with emission permissions etc.
+1. **Choose Type**: Emission or Capability permission (top-right selector)
+2. **Fill Form**: Configure delegator, recipient, scope, duration
+3. **Submit**: Create the permission
 
-## Permissions
+For permission details, see [Permissions System](../v05/permissions.mdx).
 
-[Content to be added - how to create and manage different types of permissions]
+## Managing Capabilities
 
-on the top left of the site, there is a button that at first will be written as "hypergraph", which is the current page you are on. after clicking it, it will show a dropdown with the following options:
+**Capability Operations → Register Capability**
 
-- Overview
-  - Hypergraph
-- Permissions Management
-  - Create permission
-  - Edit permission
-- Capability operations
-  - Register capability
-  - Delete capability
-- Network operations
-  - Register agent
-  - Create signal
+1. **Namespace Path**: Enter your capability path (e.g., `agent.alice.memory.store`)
+2. **REST Method**: Select HTTP method (`GET`, `POST`, etc.)
+3. **Submit**: Register the capability
 
-to create a permission, you need to click on the "Create permission" button, which will take you to the "Create permission" form.
+**Capability Operations → Delete Capability**
 
-there you can choose on the top right of the form the type of permission you want to create, either capability or emission, and then you can fill in the form with the required fields.
+1. **Select Path**: Choose capability to delete
+2. **Choose Granularity**: Delete specific method or entire capability
+3. **Confirm**: Delete (only works if no active delegations exist)
 
-to edit a permission, you need to click on the "Edit permission" button, which will take you to the "Edit permission" form, there you can also "revoke" the permission (if revocable).
+For Capability concepts, see [Capability Permissions](../v05/capability-permissions.mdx).
 
-## Creating a capability
+## Network Operations
 
-to create a capability, you need to click on the "Register capability" button, which will take you to the "Register capability" form, there you choose the path of your namespace, as well as the REST method you want to create the capability for.
+**Register Agent**: Basic agent registration (different from [root agent registration](../agents/apply-root-agent.mdx))
 
-to delete the capability, you need to click on the "Delete capability" button, which will take you to the "Delete capability" form, there, you can choose the permission path you want to delete, and granularly delete a specific capability or REST method. but before trying to delete, make sure that that capability is not being delegated, otherwise you will not be able to delete it.
+**Create Signal**: Broadcast coordination messages to other agents in the network
 
-## Register an agent
+## Editing Permissions
 
-[Content to be added - how to register an agent]
+**Permissions Management → Edit Permission**
 
-to register an agent, you need to click on the "Register agent" button, which will take you to the "Register agent" form, there you can fill in the form with the required fields. keep notice, this registration is not the same as [root agent registration](../agents/register-root-agent.mdx).
+- Modify existing permissions within original contract terms
+- Revoke permissions (if revocable)
+- Some changes may require recipient consent
 
-## Create a signal
-
-[Content to be added - how to create a signal]
-
-to create a signal, you need to click on the "Create signal" button, which will take you to the "Create signal" form, there you can fill in the form with the required fields.
+<Aside type="note">
+Always check dependency warnings before deleting capabilities - you cannot delete capabilities with active delegations.
+</Aside>
 
 <CardGrid>
   <LinkCard
-    title="Namespaces"
-    href="/advanced/namespaces"
-    description="Understand namespace concepts and architecture."
+    title="Emission Permissions"
+    href="/advanced/emission-permissions"
+    description="Learn about token delegation mechanics"
   />
   <LinkCard
-    title="Permissions System"
-    href="/advanced/permissions"
-    description="Learn about the permission system and delegation."
+    title="Capability Permissions"
+    href="/advanced/namespace-permissions"
+    description="Understand service access control"
+  />
+  <LinkCard
+    title="Namespaces"
+    href="/advanced/namespaces"
+    description="Namespace structure and concepts"
   />
 </CardGrid>

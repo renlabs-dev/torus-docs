@@ -154,8 +154,8 @@ Permissions are delegated by the agent owner to specific users through Torus's p
 
 **Creating Permissions via Web Portal:**
 
-- **Create Namespace Paths**: Use [https://portal.testnet.torus.network/create-namespace](https://portal.testnet.torus.network/create-namespace) to register namespace paths on the blockchain
-- **Delegate Permissions**: Use [https://portal.testnet.torus.network/create-permission](https://portal.testnet.torus.network/create-permission) to delegate capability permissions to specific users
+- **Create Namespace Paths**: Use [https://portal.torus.network/register-capability](https://portal.torus.network/register-capability) to register namespace paths on the blockchain
+- **Delegate Permissions**: Use [https://portal.torus.network/create-permission](https://portal.torus.network/create-permission) to delegate capability permissions to specific users
 
 ## Configuration Options
 
@@ -191,7 +191,7 @@ agent.method("endpoint", {
   namespace: {
     enabled: true,
     rpcUrls: [
-      "wss://api.testnet.torus.network",
+      "wss://api.torus.network",
       "wss://backup-rpc.torus.network",
     ],
   },
@@ -343,7 +343,7 @@ bobAgent.method("process", {
   />
   <LinkCard
     title="Register an Agent"
-    href="/agents/register"
+    href="/agents/register-agent"
     description="Register your agent on Torus"
   />
 </CardGrid>
