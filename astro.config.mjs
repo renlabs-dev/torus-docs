@@ -37,7 +37,7 @@ export default defineConfig({
         {
           label: "v0.5",
           items: [
-           { label: "Network Overview", slug: "concepts/network-overview" },
+          //  { label: "Network Overview", slug: "concepts/network-overview" },
            { label: "Control Space", slug: "v05/control-space" },
            { label: "Permission System", slug: "v05/permissions" },
            { label: "Capability Permissions", slug: "v05/capability-permissions" },
