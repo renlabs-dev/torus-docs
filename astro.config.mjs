@@ -70,7 +70,6 @@ export default defineConfig({
             { label: "Torus Portal", slug: "web-apps/torus-portal" },
             { label: "Torus Allocator", slug: "web-apps/torus-allocator" },
             { label: "Torus Wallet", slug: "web-apps/torus-wallet" },
-            { label: "Torus Bridge", slug: "web-apps/torus-bridge" },
             { label: "Torus DAO", slug: "web-apps/torus-dao" },
           ],
         },
