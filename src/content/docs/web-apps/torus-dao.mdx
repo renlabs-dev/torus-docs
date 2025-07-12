@@ -1,44 +1,80 @@
 ---
 title: How to Use Torus DAO
-description: Complete guide to participating in Torus DAO governance and voting.
+description: Guide to participating in governance, voting on proposals, and managing whitelist applications.
 ---
 
-import { Aside, Card, CardGrid, Code, Tabs, TabItem, LinkCard } from "@astrojs/starlight/components";
+import { Aside, CardGrid, LinkCard } from "@astrojs/starlight/components";
 
-Learn how to participate in Torus DAO governance, vote on proposals, and shape the future of the network.
+[Torus DAO](https://dao.torus.network/) is the governance interface for participating in network decisions, voting on proposals, and managing agent whitelisting.
 
-## Overview
+## Interface Overview
 
-The Torus DAO is the decentralized governance system that allows community members to participate in network decisions, vote on proposals, and manage the treasury.
+The DAO page has three main sections:
 
-**Key Features:**
-- Vote on governance proposals
-- Submit new proposals
-- Manage treasury funds
-- Participate in network parameter changes
-- Review and approve whitelist applications
+**Proposals**: View and vote on governance proposals, create new proposals
 
-## Getting Started
+**DAO Dashboard**: Network metrics, agent health monitoring, DAO member applications
 
-[Content to be added - detailed explanation of Torus DAO]
+**Whitelist Applications**: Review agent whitelist applications, submit new applications
 
-## Creating Proposals
+## [Whitelist Applications](https://dao.torus.network/whitelist-applications)
 
-[Content to be added - how to submit governance proposals]
+**Viewing Applications**: Browse all whitelist applications (approved, rejected, expired) with search functionality
 
-## Whitelist Applications
+**Creating Applications**:
+1. Click "Shape the Network" button
+2. Select "Whitelist an Agent" from dropdown
+3. Fill application form
+4. Submit application
 
-[Content to be added - how to review and make a whitelist application]
+<Aside type="note">
+A valid Discord account is required to apply for whitelist.
+</Aside>
 
-## Treasury
+## [DAO Dashboard](https://dao.torus.network/dao-dashboard)
 
-[Content to be added - how treasury proposals work]
+The dashboard contains three tabs:
 
+**Dashboard Tab**: Network overview including:
+- Total registered agents
+- Number of whitelisted agents  
+- Applied penalties count
+- DAO applications count
+- Agent health statistics
+
+**Agent Health Tab**: 
+- List all agents with health status
+- Search for specific agents
+- Filter by health status
+- View penalty percentages (penalized agents receive reduced emissions)
+
+**DAO Applications Tab**:
+- View applicants for DAO membership
+- DAO members can vote on whitelist applications and penalties
+
+## [Proposals](https://dao.torus.network/proposals)
+
+**Viewing Proposals**: Browse all created governance proposals
+
+**Creating Proposals**:
+1. Click "Shape the Network" button
+2. Select "Create a Proposal" from dropdown
+3. Fill proposal form with details
+4. Submit for community voting
+
+**Voting**: DAO members can vote to approve/reject proposals and manage network parameters
+
+#### Related Topics
 
 <CardGrid>
   <LinkCard
-    title="Governance & DAO Concepts"
+    title="Governance & DAO"
     href="/concepts/governance-dao"
-    description="Understand the governance structure and DAO mechanics."
+    description="Understand governance structure and voting mechanics"
+  />
+  <LinkCard
+    title="Register a Root Agent"
+    href="/agents/apply-root-agent"
+    description="Learn about the root agent application process"
   />
 </CardGrid>

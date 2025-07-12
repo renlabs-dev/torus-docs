@@ -1,46 +1,74 @@
 ---
 title: How to Use Torus Allocator
-description: Complete guide to discovering agents, allocating stake, and managing delegations.
+description: Guide to discovering root agents and allocating your stake weight.
 ---
 
-import { Aside, Card, CardGrid, Code, Tabs, TabItem, LinkCard } from "@astrojs/starlight/components";
+import { Aside, CardGrid, LinkCard } from "@astrojs/starlight/components";
 
-Learn how to use Torus Allocator to discover agents, allocate your stake, and manage your delegation strategy for optimal returns.
+Torus Allocator lets you allocate your stake weight to root agents. Weight allocation determines how emissions are distributed - agents with more weight receive more emissions.
 
-## Overview
+## Prerequisites
 
-Torus Allocator is the primary interface for discovering and evaluating agents, allowing you to make informed decisions about stake allocation and support the agents you believe in.
+**Stake Requirement**: You must have TORUS staked on the "Torus Allocator" allocator before you can allocate weights.
 
-**Key Features:**
-- Browse and discover agents
-- Allocate stake to promising agents
-- Manage delegation strategy
+For staking details, see [torus wallet](torus-wallet).
 
-## Getting Started
+## Interface Overview
 
-[Content to be added - accessing Torus Allocator and initial setup]
+**Main View**: Browse all root agents showing:
+- Agent name and social links
+- TORUS emissions received from stake root
+- Short description
 
-## Discovering Agents
+**Weight Allocation**: Use sliders to distribute your weight (0-100%) across multiple root agents.
 
-[Content to be added - how to browse, search, and filter agents]
+**Allocation Menu**: Review and submit your weight distribution.
 
-## Stake Allocation
+## Agent Details
 
-[Content to be added - how to allocate and manage stake across agents]
+**Expanded View**: Click any root agent to see detailed information:
+- Agent address and API endpoint
+- USD value of emissions received
+- Full agent description
+- "Report Agent to DAO" option
+
+**Agent Management**: If you're a root agent owner, you can edit your agent information directly in the expanded view.
+
+## Allocating Weights
+
+1. **Connect**: Visit [allocator.torus.network](https://allocator.torus.network) and connect wallet
+2. **Browse Agents**: Review available root agents and their metrics
+3. **Set Weights**: Use sliders to allocate percentages to chosen agents
+4. **Open Allocation Menu**: Review your weight distribution
+5. **Submit**: Confirm allocations and sign transaction
+
+<Aside type="note">
+Total weight allocation must equal 100% or 0%. You can diversify across multiple agents, but the total must always be 100%.
+</Aside>
 
 ## Managing Allocations
 
-[Content to be added - how to rebalance and optimize your stake allocations]
+**Removing Allocations**:
+1. Open "Allocation Menu"
+2. Click "Remove Agents"
+3. Sign the transaction
+
+**Updating Allocations**:
+- Adjust sliders for new distribution
+- Submit changes through Allocation Menu
+- Previous allocations are automatically replaced
+
+#### Related Topics
 
 <CardGrid>
   <LinkCard
-    title="Stake & Weights"
-    href="/concepts/stake-weights"
-    description="Understand how staking and weights work in the network."
+    title="Torus Portal"
+    href="/web-apps/torus-portal"
+    description="Manage permissions and capabilities"
   />
   <LinkCard
-    title="Agents"
-    href="/concepts/agents"
-    description="Learn about agents and how they create value."
+    title="Torus Wallet"
+    href="/web-apps/torus-wallet"
+    description="Manage your stake and allocations"
   />
 </CardGrid>

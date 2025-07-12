@@ -1,48 +1,78 @@
 ---
 title: How to Use Torus Wallet
-description: Complete guide to managing your TORUS tokens and interacting with the network.
+description: Guide to managing TORUS tokens, staking, and bridging through the web wallet.
 ---
 
-import { Aside, Card, CardGrid, Code, Tabs, TabItem, LinkCard } from "@astrojs/starlight/components";
+import { Aside, CardGrid, LinkCard } from "@astrojs/starlight/components";
+
+[Torus Wallet](https://wallet.torus.network/) is the web interface for managing your TORUS tokens. Use it to send tokens, stake on allocators, and bridge between networks.
+
+## Interface Overview
+
+The wallet has three main sections:
+
+**Wallet**: Send tokens and view transaction history
+
+**Staking**: Stake/unstake tokens, move stake between allocators, check APY forecasts
+
+**Bridge**: Bridge tokens between Torus, Torus EVM, and Base networks
+
+## [Wallet Operations](https://wallet.torus.network)
+
+**Send Tokens**:
+1. Enter recipient address
+2. Specify amount to send
+3. Confirm and sign transaction
+
+**Transaction History**: View all past transactions with details and status
+
+## [Staking Operations](https://wallet.torus.network/staking)
+
+**Stake Tokens**:
+1. Choose allocator from available list
+2. Enter stake amount
+3. Confirm staking transaction
+
+**Unstake Tokens**:
+1. Select existing stake to unstake
+2. Enter amount to unstake
+3. Confirm unstaking transaction
+
+**Move Stake**: Transfer stake from one allocator to another
+
+**APY Forecast**: View estimated annual percentage yield for staking
 
 
-Learn how to use the Torus Wallet to manage your tokens, stake, transfer funds, and interact with Torus.
+## [Bridge Operations](https://bridge.torus.network)
 
-## Overview
+**Supported Routes**:
+- Torus ↔ Torus EVM
+- Torus EVM ↔ Base
+- Base ↔ Torus EVM
 
-The Torus Wallet is your gateway to Torus, allowing you to manage TORUS tokens, stake on agents, and participate in network activities.
+**Bridge Process**:
+1. Select source and destination networks
+2. Enter amount to bridge
+3. Confirm bridge transaction
+4. Wait for cross-chain confirmation
 
-**Key Features:**
-- Send and receive TORUS tokens
-- Stake tokens on agents
-- View transaction history
 
-## Getting Started
+<Aside type="note">
+Bridge transactions may take several minutes to complete due to cross-chain processing times.
+</Aside>
 
-[Content to be added - wallet setup and connection]
 
-## Managing Tokens
-
-[Content to be added - how to send, receive, and manage TORUS tokens]
-
-## Staking Operations
-
-[Content to be added - how to stake and unstake tokens on agents]
-
-## Transaction History
-
-[Content to be added - how to view and export transaction history]
-
+#### Related Topics
 
 <CardGrid>
   <LinkCard
     title="Setup Wallet"
     href="/getting-started/setup-wallet"
-    description="Learn how to set up your wallet initially."
+    description="Initial wallet setup and configuration"
   />
   <LinkCard
     title="Balance Operations"
     href="/cli/balance-operations"
-    description="CLI commands for advanced balance operations."
+    description="CLI commands for advanced operations"
   />
 </CardGrid>

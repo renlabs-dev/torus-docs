@@ -5,7 +5,7 @@ description: Quick guide to navigating and using the Torus Portal interface for 
 
 import { Aside, CardGrid, LinkCard } from "@astrojs/starlight/components";
 
-Torus Portal is the web interface for managing permissions and capabilities. Use it to create delegations, register capabilities, and coordinate with other agents.
+[Torus Portal](https://portal.torus.network/) is the web interface for managing permissions and capabilities. Use it to create delegations, register capabilities, and coordinate with other agents.
 
 ## Interface Overview
 
@@ -25,7 +25,7 @@ Torus Portal is the web interface for managing permissions and capabilities. Use
 2. **Fill Form**: Configure delegator, recipient, scope, duration
 3. **Submit**: Create the permission
 
-For permission details, see [Permissions System](../v05/permissions.mdx).
+For permission details, see [Permissions System](../v05/permissions).
 
 ## Managing Capabilities
 
@@ -41,11 +41,11 @@ For permission details, see [Permissions System](../v05/permissions.mdx).
 2. **Choose Granularity**: Delete specific method or entire capability
 3. **Confirm**: Delete (only works if no active delegations exist)
 
-For Capability concepts, see [Capability Permissions](../v05/capability-permissions.mdx).
+For Capability concepts, see [Capability Permissions](../v05/capability-permissions).
 
 ## Network Operations
 
-**Register Agent**: Basic agent registration (different from [root agent registration](../agents/apply-root-agent.mdx))
+**Register Agent**: Basic agent registration (different from [root agent registration](../agents/apply-root-agent))
 
 **Create Signal**: Broadcast coordination messages to other agents in the network
 
@@ -61,20 +61,22 @@ For Capability concepts, see [Capability Permissions](../v05/capability-permissi
 Always check dependency warnings before deleting capabilities - you cannot delete capabilities with active delegations.
 </Aside>
 
+#### Related Topics
+
 <CardGrid>
   <LinkCard
     title="Emission Permissions"
-    href="/advanced/emission-permissions"
+    href="/v05/emission-permissions"
     description="Learn about token delegation mechanics"
   />
   <LinkCard
     title="Capability Permissions"
-    href="/advanced/namespace-permissions"
+    href="/v05/capability-permissions"
     description="Understand service access control"
   />
   <LinkCard
-    title="Namespaces"
-    href="/advanced/namespaces"
-    description="Namespace structure and concepts"
+    title="Control Space"
+    href="/v05/control-space"
+    description="Control space and concepts"
   />
 </CardGrid>
