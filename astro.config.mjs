@@ -37,13 +37,16 @@ export default defineConfig({
         {
           label: "v0.5",
           items: [
-          //  { label: "Network Overview", slug: "concepts/network-overview" },
-           { label: "Control Space", slug: "v05/control-space" },
-           { label: "Permission System", slug: "v05/permissions" },
-           { label: "Capability Permissions", slug: "v05/capability-permissions" },
-           { label: "Emission Permissions", slug: "v05/emission-permissions" },
-           { label: "Tokenomics", slug: "concepts/tokenomics" },
-           { label: "Governance & DAO", slug: "concepts/governance-dao" },
+            //  { label: "Network Overview", slug: "concepts/network-overview" },
+            { label: "Control Space", slug: "v05/control-space" },
+            { label: "Permission System", slug: "v05/permissions" },
+            {
+              label: "Capability Permissions",
+              slug: "v05/capability-permissions",
+            },
+            { label: "Emission Permissions", slug: "v05/emission-permissions" },
+            { label: "Tokenomics", slug: "concepts/tokenomics" },
+            { label: "Governance & DAO", slug: "concepts/governance-dao" },
           ],
         },
         {
@@ -94,6 +97,16 @@ export default defineConfig({
               label: "Running a Node",
               slug: "network/running-node",
             },
+          ],
+        },
+        {
+          label: "How-to Guides",
+          items: [
+            { label: "Setup a wallet", slug: "how-to-guides/setup-a-wallet" },
+            // {
+            //   label: "Setup a wallet",
+            //   slug: "how-to-guides/setup-a-wallet",
+            // },
           ],
         },
       ],
