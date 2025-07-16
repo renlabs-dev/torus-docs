@@ -28,13 +28,13 @@ The AgentServer uses **Hono** for HTTP routing and **Zod** for input validation,
 ## Installation
 
 ```sh
-npm install @torus-network/torus-ts-sdk
+npm install @@torus-network/sdk
 ```
 
 ## Basic Usage
 
 ```ts
-import { AgentServer } from "@torus-network/torus-ts-sdk";
+import { AgentServer } from "@@torus-network/sdk";
 import { z } from "zod";
 
 const agent = new AgentServer({
@@ -443,7 +443,7 @@ Visit `http://localhost:3000/docs` to view the interactive API documentation.
 Multi method agent is an agent that defines more than 1 method.
 
 ```ts
-import { AgentServer } from "@torus-network/torus-ts-sdk";
+import { AgentServer } from "@@torus-network/sdk";
 import { z } from "zod";
 
 const memoryAgent = new AgentServer({

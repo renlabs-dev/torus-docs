@@ -1,0 +1,150 @@
+---
+title: Setup a Wallet
+description: Learn how to set up a wallet to manage your assets on Torus.
+---
+
+import {
+  Steps,
+  Aside,
+  CardGrid,
+  LinkCard,
+} from "@astrojs/starlight/components";
+
+In this guide, we’ll walk through setting up a wallet with the **SubWallet** browser extension, a popular non-custodial wallet for managing assets across multiple blockchains.  
+If you prefer a different extension, scroll to the bottom for a list of other wallets that work with Torus.  
+For simplicity’s sake, though, we’ll focus on SubWallet.
+
+#### What we will accomplish
+
+- Install the SubWallet extension
+- Create a new wallet (master password + seed phrase)
+- Connect SubWallet to Torus
+
+## Steps to connect your SubWallet to Torus.
+
+### 1. Installing the SubWallet Extension
+
+<Steps>
+
+1.  **Download the Extension**  
+    Visit the [SubWallet download page](https://www.subwallet.app/download.html) and download the appropriate version of the extension for your browser (Chrome, Brave, Firefox, or Microsoft Edge).
+
+3.  **Activate/Pin the Extension**  
+     In some cases, you may need to activate the extension manually. Refer to the [SubWallet documentation](https://docs.subwallet.app/main) for instructions.
+
+    If everything is correct, the SubWallet icon should appear in the top-right corner of your browser. You are ready to move to the next step and create a new wallet.
+
+          <span style={{ fontSize: "0.9rem", fontStyle: "italic" }}>
+
+    Below is a reference image of the SubWallet extension activated/pinned in
+    the Brave browser:
+
+    </span>
+
+    ![SubWallet extension activated in Brave browser](/images/how-to-guide/setup-wallet/subwallet-extension-activated.png)
+
+</Steps>
+
+### 2. Creating a New Account
+
+<Steps>
+
+1.  **Open the SubWallet extension in you browser**:   
+     Click on the SubWallet icon in your browser’s extension area to open the wallet.
+
+2.  **Click Create a New Account**:  
+     You will be prompted between three options:
+
+    - Create new account
+    - Import account
+    - Connect existing account   
+        
+    Select **Create new account** option.
+
+
+3.  **Create a Master Password**:  
+    You will be prompted to create a master password. This password is crucial as it encrypts your wallet data on your device for security.
+
+4.  **Backup Your Seed Phrase**:  
+     After setting your password and accepting all the seed phrase terms, you will receive a seed phrase. **Write this down and store it in a secure location. This seed phrase is essential for recovering your wallet if you forget your password or lose access to your device.**
+    [Here's a video for you to watch later about methods to keep your seed phrase safe](https://www.youtube.com/watch?v=fdtx0MG0Xgo).
+
+          <Aside type="danger">
+
+    Never share your seed phrase with anyone, as it gives full access to all
+    your funds on the wallet. Keep it secure and private.
+
+    </Aside>
+
+5.  **Create an account name**:   
+    Choose an account name, this does not impact on anything, so feel free to choose any name you like. If you want to change it later, you can do so from the account settings.
+
+              <span style={{ fontSize: "0.9rem", fontStyle: "italic" }}>
+
+        Below is a reference image of a successfull account created in the
+        SubWallet extension:
+
+        </span>
+
+    ![SubWallet account succesfully created](/images/how-to-guide/setup-wallet/subwallet-created-successfully.png)
+
+</Steps>
+
+### 3. Adding Torus to the Subwallet
+
+<Steps>
+1. **Open the Subwallet Setup**:  
+  Click in the three bars(**☰**) on the top left corner of the subwallet extension.
+  ![SubWallet setup button](/images/how-to-guide/setup-wallet/subwallet-open-setup.png)
+
+2. **Select Manage Networks**:  
+   Under the **Assets & Addresses** tab, click on **Manage Networks**.
+   ![SubWallet manage networks button](/images/how-to-guide/setup-wallet/subwallet-select-config-to-add-network.png)
+
+3. **Search for Torus and activate it**:  
+    Click on the search bar, type Torus, and select it from the list. Make sure to enable it so it appears in your list of active tokens.
+   ![SubWallet search for Torus button](/images/how-to-guide/setup-wallet/subwallet-search-torus-network.png)
+
+4. **Confirm Torus is active**:  
+    Once enabled, **Torus** will appear in your list of active networks.  
+    You mihgt have to scroll down to find Torus in the list.
+   You're now ready to interact with the Torus ecosystem using your SubWallet.
+   ![SubWallet network list with torus](/images/how-to-guide/setup-wallet/subwallet-done-torus-setup.png)
+
+     <Aside>
+    If you don't see **Torus** in the list, you might need to add it manually.  
+    Follow the steps in this [video tutorial by Omni Labs](https://www.youtube.com/watch?v=3JDQFYg0u_A&t=172s).
+
+   **RPC URL:** `wss://api.torus.network`
+
+     </Aside>
+
+</Steps>
+
+## Support and Resources
+
+For further assistance, you can access detailed tutorials and user guides on the [SubWallet Documentation page](https://docs.subwallet.app/main). Additionally, community support is available through channels like Telegram, Discord, and YouTube.
+
+By following these steps, you can effectively set up and start using your SubWallet to manage, receive, and send assets across multiple blockchain networks, ensuring a secure and efficient digital asset management experience.
+
+<Aside>
+  **Security Features**: SubWallet is non-custodial, meaning you control your
+  keys. It also supports hardware wallets like Ledger and Keystone for enhanced
+  security.
+</Aside>
+
+## Other Supported Wallets
+
+While this guide uses SubWallet, other wallets are also compatible with the Torus Network.
+The list below includes some of the most known and tested options, but it may not cover every possible wallet.
+
+These wallets are not officially endorsed, and while they are known to work with Substrate networks, we recommend using them only if you're already familiar or willing to explore.
+
+- [Polkadot.js Extension](https://polkadot.js.org/extension/).
+  The official extension for Substrate-based networks. Well-supported and reliable for Torus.
+- [Talisman](https://talisman.xyz/).
+  A modern wallet for the Polkadot ecosystem with a user-friendly interface and Torus compatibility.
+- [Nova Wallet](https://novawallet.io/).
+  Mobile-only (iOS/Android), good for monitoring and mobile usage. Not recommended for browser dApps.
+- [Ledger (via Polkadot.js)](https://wiki.polkadot.network/docs/learn-ledger).
+  For advanced users, hardware wallet support via Polkadot.js ensures enhanced security.

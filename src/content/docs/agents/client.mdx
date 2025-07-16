@@ -25,13 +25,13 @@ The AgentClient simplifies communication with Agent APIs by:
 ## Installation
 
 ```sh
-npm install @torus-network/torus-ts-sdk
+npm install @@torus-network/sdk
 ```
 
 ## Basic Usage
 
 ```ts
-import { AgentClient, Keypair } from "@torus-network/torus-ts-sdk";
+import { AgentClient, Keypair } from "@@torus-network/sdk";
 
 // Create a keypair from your mnemonic
 const keypair = new Keypair(
@@ -75,7 +75,7 @@ interface AgentClientOptions {
 The `Keypair` class handles SR25519 key generation and JWT token creation:
 
 ```ts
-import { Keypair } from "@torus-network/torus-ts-sdk";
+import { Keypair } from "@@torus-network/sdk";
 
 // Create from mnemonic
 const keypair = new Keypair(
@@ -301,7 +301,7 @@ if (response.success) {
 ### Memory Agent Client
 
 ```ts
-import { AgentClient, Keypair } from "@torus-network/torus-ts-sdk";
+import { AgentClient, Keypair } from "@@torus-network/sdk";
 
 class MemoryAgentClient {
   private client: AgentClient;
@@ -414,7 +414,7 @@ if (searchResult.success) {
 ### Environment-based Configuration
 
 ```ts
-import { AgentClient, Keypair } from "@torus-network/torus-ts-sdk";
+import { AgentClient, Keypair } from "@@torus-network/sdk";
 
 // Environment configuration
 const config = {
