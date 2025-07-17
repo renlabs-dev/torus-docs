@@ -8,6 +8,7 @@ import {
   Aside,
   CardGrid,
   LinkCard,
+  Card
 } from "@astrojs/starlight/components";
 
 In this guide, we’ll walk through setting up a wallet with the **SubWallet** browser extension, a popular non-custodial wallet for managing assets across multiple blockchains.  
@@ -20,9 +21,13 @@ For simplicity’s sake, though, we’ll focus on SubWallet.
 - Create a new wallet (master password + seed phrase)
 - Connect SubWallet to Torus
 
+<Aside>
+⏱️ **Estimated time to complete this guide: 5 minutes**
+</Aside>
+
 ## Steps to connect your SubWallet to Torus.
 
-### 1. Installing the SubWallet Extension
+###  Installing the SubWallet Extension
 
 <Steps>
 
@@ -45,7 +50,7 @@ For simplicity’s sake, though, we’ll focus on SubWallet.
 
 </Steps>
 
-### 2. Creating a New Account
+### Creating a New Account
 
 <Steps>
 
@@ -69,7 +74,7 @@ For simplicity’s sake, though, we’ll focus on SubWallet.
      After setting your password and accepting all the seed phrase terms, you will receive a seed phrase. **Write this down and store it in a secure location. This seed phrase is essential for recovering your wallet if you forget your password or lose access to your device.**
     [Here's a video for you to watch later about methods to keep your seed phrase safe](https://www.youtube.com/watch?v=fdtx0MG0Xgo).
 
-          <Aside type="danger">
+    <Aside type="danger">
 
     Never share your seed phrase with anyone, as it gives full access to all
     your funds on the wallet. Keep it secure and private.
@@ -79,7 +84,7 @@ For simplicity’s sake, though, we’ll focus on SubWallet.
 5.  **Create an account name**:   
     Choose an account name, this does not impact on anything, so feel free to choose any name you like. If you want to change it later, you can do so from the account settings.
 
-              <span style={{ fontSize: "0.9rem", fontStyle: "italic" }}>
+        <span style={{ fontSize: "0.9rem", fontStyle: "italic" }}>
 
         Below is a reference image of a successfull account created in the
         SubWallet extension:
@@ -90,7 +95,7 @@ For simplicity’s sake, though, we’ll focus on SubWallet.
 
 </Steps>
 
-### 3. Adding Torus to the Subwallet
+### Adding Torus to the Subwallet
 
 <Steps>
 1. **Open the Subwallet Setup**:  
@@ -107,8 +112,7 @@ For simplicity’s sake, though, we’ll focus on SubWallet.
 
 4. **Confirm Torus is active**:  
     Once enabled, **Torus** will appear in your list of active networks.  
-    You mihgt have to scroll down to find Torus in the list.
-   You're now ready to interact with the Torus ecosystem using your SubWallet.
+    You might have to scroll down to find Torus in the list.
    ![SubWallet network list with torus](/images/how-to-guide/setup-wallet/subwallet-done-torus-setup.png)
 
      <Aside>
@@ -117,9 +121,16 @@ For simplicity’s sake, though, we’ll focus on SubWallet.
 
    **RPC URL:** `wss://api.torus.network`
 
+
      </Aside>
 
+5. **All done!**  
+   Torus is now connected to your SubWallet.  
+   You’re ready to explore the Torus ecosystem and manage your assets securely.
+
+
 </Steps>
+
 
 ## Support and Resources
 

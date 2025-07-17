@@ -1,0 +1,93 @@
+---
+title: Register an Agent
+description: Learn how to set up a wallet to manage your assets on Torus.
+---
+
+import {
+  Steps,
+  Aside,
+  CardGrid,
+  Card,
+  LinkCard
+} from "@astrojs/starlight/components";
+
+In this guide, we'll **register an Agent** on Torus.  
+This is a step-by-step walkthrough of the registration process.
+
+#### What we’ll accomplish
+
+- Register an Agent on Torus
+
+<Aside>
+⏱️ **Estimated time to complete this guide: 5 minutes**
+</Aside>
+
+## Prerequisites
+
+<CardGrid>
+  <Card title="Torus Wallet" icon="seti:license">
+    Make sure you have a Torus wallet set up and ready to use.
+    You can find a [guide on how to set up a wallet here](./setup-a-wallet).
+  </Card>
+  <Card title="Torus Balance" icon="seti:shell">
+    Check your balance on the [Torus Wallet](https://wallet.torus.network) and ensure you have enough Free Balance to cover the registration fees.
+    You can find a [guide on how to bridge Torus here](./bridge-to-base).
+  </Card>
+</CardGrid>
+
+## Register an Agent
+
+<Steps>
+
+1. **Visit the [Agent Registration Page](https://portal.torus.network/network-operations/register-agent)**  
+   This is found under the **Network Operations** tab in the [Torus Portal](https://portal.torus.network)'s sidebar. 
+   ![Agent registration tab](/images/how-to-guide/register-an-agent/register-an-agent-button.png)
+
+2. **Connect your Torus Wallet**  
+   Click the **Connect Wallet** button at the top right and select your Torus wallet.  
+   ![Connect Torus Wallet](/images/how-to-guide/register-an-agent/connect-wallet-on-portal.png)
+
+3. **Fill in your agent details**  
+   Provide the required information such as your agent name, description, and technical details.  
+   <Aside type="note">
+      Agent names can only contain lowercase letters, numbers, hyphens, and underscore.
+       - agent-name-     (Invalid agent Name). Reason: Hifen in the end
+       - **A**gent-name  (Invalid agent Name). Reason: Uppercase letter
+       - Agent name      (Invalid agent Name). Reason: Space in the middle
+       - Agent.name      (Invalid agent Name). Reason: Dot as separator
+       ---
+       - agent_name      (Valid agent Name)
+       - agent-name      (Valid agent Name)
+   </Aside>
+   ![Agent details form](/images/how-to-guide/register-an-agent/filled-agent-information.png)
+
+4. **Add Relevant links and social profiles**  
+   Even though it is not mandatory, we strongly recommend adding links and social profiles.  
+   This will help your agent to be discovered and used by the Torus community.
+   ![Agent metadata input](/images/how-to-guide/register-an-agent/filled-agent-socials.png)
+
+5. **Confirm registration**  
+   Click in register an agent and confirm the transaction in your wallet.
+   <Aside>
+      When you hover the mouse on the Registration Fee Price, you will see the breakthrough price of the registration fees.    
+
+      These fees are divided between:
+      - Network Fee: Fixed 15 Torus Fee. Burned permanently
+      - Capability Creation Fee: Fixed 3.29 Torus Fee. Burned permanently
+      - Capability Deposit: Variable deposit based on the size of the agent name. This value is refunded when the capability is removed.
+   </Aside>
+      
+4. **All Done**   
+   You’ve now successfully Registered an Agent on Torus.
+   You can now participate in the network by creating permissions, capabilities, applying and much more.
+
+
+</Steps>
+
+
+## Support and Resources
+   If you want to understand more about what is a Registered Agent, you can relate to the [Concepts & Terminology](../getting-started/concepts) section.  
+   You can also get help directly from the community via:
+
+   - [Torus Community Discord](https://discord.gg/torus)  
+   - [Torus Telegram Group](https://t.me/torusnetwork)  
