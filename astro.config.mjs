@@ -104,7 +104,9 @@ export default defineConfig({
           items: [
             { label: "Setup a Wallet", slug: "how-to-guides/setup-a-wallet" },
             { label: "Bridge to Base", slug: "how-to-guides/bridge-to-base"},
+            { label: "Stake your Torus", slug: "how-to-guides/stake-your-torus" },
             { label: "Register an Agent", slug: "how-to-guides/register-an-agent" },
+            { label: "Become a Root Agent", slug: "how-to-guides/become-a-root-agent" },
             // {
             //   label: "Setup a wallet",
             //   slug: "how-to-guides/setup-a-wallet",

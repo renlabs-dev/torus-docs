@@ -1,6 +1,6 @@
 ---
 title: Bridge Torus from Base to Torus
-description: Learn how to bridge Torus between the Torus Network and Base.
+description: Bridging from Torus Base all the way to Native Torus on the Torus Network.
 ---
 
 import {
@@ -25,9 +25,8 @@ For the sake of simplicity, we are going to refer to the **Native Torus** as **T
 
 #### What we’ll accomplish
 
-- Get Torus on Base
-- Bridge to Torus EVM
-- Finalize as Native Torus on the Torus Network
+- Bridge Torus on Base to Torus EVM
+- Bridge from Torus EVM to Torus
 
 <Aside>
 ⏱️ **Estimated time to complete this guide: 20 minutes**
@@ -40,12 +39,13 @@ For the sake of simplicity, we are going to refer to the **Native Torus** as **T
 <CardGrid>
   <Card title="Torus Wallet" icon="seti:license">
     A Torus wallet connected.  
-    If you don't have one, you can follow the [setup guide here](/how-to-guides/setup-a-wallet).
+    If you don't have one, you can follow the [setup guide here](../how-to-guides/setup-a-wallet).
   </Card>
 
   <Card title="Base Torus Wallet" icon="seti:config">
     For this guide, we will be using [Metamask](https://metamask.io/) as our wallet of choice.  
-    If you don't have Base Torus, you can follow the steps in this video tutorial by Omni Labs.
+    You must have enough funds to cover the bridge fees.  
+    If you don't have Base Torus or funds to cover the fees, you can follow the steps in this video tutorial by Omni Labs.
   </Card>
 </CardGrid>
 
@@ -55,7 +55,9 @@ For the sake of simplicity, we are going to refer to the **Native Torus** as **T
   Avoid using SubWallet to have BASE Torus on it, as it will cause issues with the bridge that could result in loss of funds.
 </Aside> 
 
-## Bridge BASE Torus to Torus EVM
+## Steps for the Bridge Process
+
+### Bridge BASE Torus to Torus EVM
 
 <Steps>
 
@@ -93,7 +95,7 @@ For the sake of simplicity, we are going to refer to the **Native Torus** as **T
 
 ---
 
-## Bridge Torus EVM to Torus
+### Bridge Torus EVM to Torus
 
 <Steps>
 1. **Connect both the Torus and Metamask wallets in the [Base Bridge Web App](https://bridge.torus.network/?tab=base&from=base&to=torus)**.   
