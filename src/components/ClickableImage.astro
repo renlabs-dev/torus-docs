@@ -8,13 +8,17 @@ interface Props {
 }
 
 const { src, alt, class: className = "" } = Astro.props;
+
+// Image size constants
+const THUMBNAIL_WIDTH = 800;
+const MODAL_WIDTH = 2000; // 40% bigger than thumbnail (1080 * 1.4)
 ---
 
 <div class={`clickable-image-container ${className}`}>
   <Image 
     src={src} 
     alt={alt} 
-    width={800}
+    width={THUMBNAIL_WIDTH}
     class="clickable-image cursor-pointer hover:opacity-80 transition-opacity h-auto"
   />
 </div>
@@ -26,7 +30,6 @@ const { src, alt, class: className = "" } = Astro.props;
         src={src.src} 
         alt={alt} 
         class="object-contain rounded-lg shadow-2xl modal-image"
-        style="width: 1120px; max-width: 90vw; max-height: 70vh;"
       />
       
       <!-- Close button below the image -->
@@ -127,7 +130,7 @@ const { src, alt, class: className = "" } = Astro.props;
   document.addEventListener('astro:page-load', initClickableImages);
 </script>
 
-<style>
+<style define:vars={{ modalWidth: MODAL_WIDTH + 'px' }}>
   .clickable-image-container {
     display: inline-block;
     position: relative;
@@ -155,7 +158,10 @@ const { src, alt, class: className = "" } = Astro.props;
     display: none !important;
   }
   
-  .image-modal img {
+  .image-modal .modal-image {
+    width: var(--modalWidth) !important;
+    max-width: 90vw !important;
+    max-height: 70vh !important;
     border-radius: 8px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   }
