@@ -1,0 +1,170 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  src: any;
+  alt: string;
+  class?: string;
+}
+
+const { src, alt, class: className = "" } = Astro.props;
+---
+
+<div class={`clickable-image-container ${className}`}>
+  <Image 
+    src={src} 
+    alt={alt} 
+    width={800}
+    class="clickable-image cursor-pointer hover:opacity-80 transition-opacity h-auto"
+  />
+</div>
+
+<div class="image-modal fixed inset-0 bg-black bg-opacity-95 items-center justify-center p-8 modal-hidden" style="z-index: 99999999;">
+  <div class="relative w-full h-full flex items-center justify-center">
+    <div class="flex flex-col items-center justify-center">
+      <img 
+        src={src.src} 
+        alt={alt} 
+        class="object-contain rounded-lg shadow-2xl modal-image"
+        style="width: 1120px; max-width: 90vw; max-height: 70vh;"
+      />
+      
+      <!-- Close button below the image -->
+      <button class="close-modal-btn h-12 bg-transparent border-2 border-gray-300 hover:border-gray-100 flex items-center justify-center text-gray-300 hover:text-gray-100 text-xl font-bold transition-all duration-200 cursor-pointer mt-2" style="z-index: 999999999;">
+        ✕ Close
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initClickableImages() {
+    const images = document.querySelectorAll('.clickable-image');
+    const modals = document.querySelectorAll('.image-modal');
+    
+    images.forEach((image, index) => {
+      const modal = modals[index];
+      const closeBtn = modal?.querySelector('.close-modal-btn');
+      
+      if (!modal) return;
+      
+      // Open modal when image is clicked
+      image.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        modal.classList.remove('modal-hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+        
+        // Hide Starlight sidebar and navigation
+        const rightSidebar = document.querySelector('.right-sidebar, [data-pagefind-ignore], .sl-sidebar-content') as HTMLElement;
+        const leftSidebar = document.querySelector('.sidebar, .sl-nav') as HTMLElement;
+        const header = document.querySelector('header, .sl-nav-header') as HTMLElement;
+        
+        if (rightSidebar) rightSidebar.style.display = 'none';
+        if (leftSidebar) leftSidebar.style.display = 'none';
+        if (header) header.style.display = 'none';
+      });
+      
+      // Close modal when clicking on background (click-off functionality)
+      modal.addEventListener('click', (e) => {
+        // Check if click is on the modal background (not on the image or close button)
+        if (e.target === modal || e.target === modal.firstElementChild) {
+          console.log('Background clicked - closing modal'); // Debug log
+          closeModal();
+        }
+      });
+      
+      // Function to close modal and restore UI
+      function closeModal() {
+        modal.classList.add('modal-hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = 'auto';
+        
+        // Restore Starlight sidebar and navigation
+        const rightSidebar = document.querySelector('.right-sidebar, [data-pagefind-ignore], .sl-sidebar-content') as HTMLElement;
+        const leftSidebar = document.querySelector('.sidebar, .sl-nav') as HTMLElement;
+        const header = document.querySelector('header, .sl-nav-header') as HTMLElement;
+        
+        if (rightSidebar) rightSidebar.style.display = '';
+        if (leftSidebar) leftSidebar.style.display = '';
+        if (header) header.style.display = '';
+      }
+      
+      // Close modal when clicking close button
+      closeBtn?.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Close button clicked!'); // Debug log
+        closeModal();
+      });
+      
+      // Also add mousedown event as backup
+      closeBtn?.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Close button mousedown!'); // Debug log
+        closeModal();
+      });
+      
+      // Close modal on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('modal-hidden')) {
+          closeModal();
+        }
+      });
+    });
+  }
+  
+  // Initialize on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initClickableImages);
+  } else {
+    initClickableImages();
+  }
+  
+  // Re-initialize on navigation (for SPA-like behavior)
+  document.addEventListener('astro:page-load', initClickableImages);
+</script>
+
+<style>
+  .clickable-image-container {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .clickable-image {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .clickable-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .image-modal {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  
+  .modal-hidden {
+    display: none !important;
+  }
+  
+  .image-modal img {
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  }
+  
+  .close-modal-btn {
+    border: 2px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .close-modal-btn:hover {
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+</style>

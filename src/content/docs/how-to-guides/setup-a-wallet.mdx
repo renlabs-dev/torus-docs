@@ -11,7 +11,7 @@ import {
   Card
 } from "@astrojs/starlight/components";
 
-import { Image } from 'astro:assets';
+import ClickableImage from '/src/components/ClickableImage.astro';
 import subwalletExtensionActivated from '/public/images/how-to-guide/setup-wallet/subwallet-extension-activated.png';
 import subwalletCreatedSuccessfully from '/public/images/how-to-guide/setup-wallet/subwallet-created-successfully.png';
 import subwalletOpenSetup from '/public/images/how-to-guide/setup-wallet/subwallet-open-setup.png';
@@ -54,7 +54,7 @@ For simplicity’s sake, though, we’ll focus on SubWallet.
 
     </span>
 
-    <Image src={subwalletExtensionActivated} alt="SubWallet extension activated in Brave browser" width="1920" />
+    <ClickableImage src={subwalletExtensionActivated} alt="SubWallet extension activated in Brave browser" />
 
 </Steps>
 
@@ -100,7 +100,7 @@ For simplicity’s sake, though, we’ll focus on SubWallet.
 
         </span>
 
-    <Image src={subwalletCreatedSuccessfully} alt="SubWallet account successfully created" width="1920" />
+    <ClickableImage src={subwalletCreatedSuccessfully} alt="SubWallet account successfully created" />
 
 </Steps>
 
@@ -110,21 +110,21 @@ For simplicity’s sake, though, we’ll focus on SubWallet.
 
   1. **Open the Subwallet Setup**  
     Click in the three bars(**☰**) on the top left corner of the subwallet extension.    
-     <Image src={subwalletOpenSetup} alt="SubWallet setup button" width="1920" />
+     <ClickableImage src={subwalletOpenSetup} alt="SubWallet setup button" />
 
   2. **Select Manage Networks**   
   Under the **Assets & Addresses** tab, click on **Manage Networks**.   
-     <Image src={subwalletSelectConfigToAddNetwork} alt="SubWallet manage networks button" width="1920" />
+     <ClickableImage src={subwalletSelectConfigToAddNetwork} alt="SubWallet manage networks button" />
 
 
  3. **Search for Torus and activate it**    
     Click on the search bar, type Torus, and select it from the list. Make sure to enable it so it appears in your list of active tokens.
-    <Image src={subwalletSearchTorusNetwork} alt="SubWallet search for Torus button" width="1920" /> 
+    <ClickableImage src={subwalletSearchTorusNetwork} alt="SubWallet search for Torus button" /> 
 
 4. **Confirm Torus is active**   
     Once enabled, **Torus** will appear in your list of active networks.    
     You might have to scroll down to find Torus in the list.  
-    <Image src={subwalletDoneTorusSetup} alt="SubWallet network list with torus" width="1920" /> 
+    <ClickableImage src={subwalletDoneTorusSetup} alt="SubWallet network list with torus" /> 
 
 
      <Aside>

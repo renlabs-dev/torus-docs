@@ -10,7 +10,7 @@ import {
   Card,
   LinkCard
 } from "@astrojs/starlight/components";
-import { Image } from 'astro:assets';
+import ClickableImage from '/src/components/ClickableImage.astro';
 import registerAnAgentButton from '/public/images/how-to-guide/register-an-agent/register-an-agent-button.png';
 import connectWalletOnPortal from '/public/images/how-to-guide/register-an-agent/connect-wallet-on-portal.png';
 import filledAgentInformation from '/public/images/how-to-guide/register-an-agent/filled-agent-information.png';
@@ -59,11 +59,11 @@ Registered agents can actively participate in the network by creating permission
 
 1. **Visit the [Agent Registration Page](https://portal.torus.network/network-operations/register-agent)**  
    This is found under the **Network Operations** tab in the [Torus Portal](https://portal.torus.network)'s sidebar. 
-   <Image src={registerAnAgentButton} alt="Agent registration tab" width="1920" />
+   <ClickableImage src={registerAnAgentButton} alt="Agent registration tab" />
 
 2. **Connect your Torus Wallet**  
    Click the **Connect Wallet** button at the top right and select your Torus wallet.  
-   <Image src={connectWalletOnPortal} alt="Connect Torus Wallet" width="1920" />
+   <ClickableImage src={connectWalletOnPortal} alt="Connect Torus Wallet" />
 
 3. **Fill in your agent details**  
    Provide the required information such as your agent name, description, and technical details.  
@@ -77,12 +77,12 @@ Registered agents can actively participate in the network by creating permission
        - agent_name      (Valid agent Name)
        - agent-name      (Valid agent Name)
    </Aside>
-   <Image src={filledAgentInformation} alt="Agent details form" width="1920" />
+   <ClickableImage src={filledAgentInformation} alt="Agent details form" />
 
 4. **Add Relevant links and social profiles**  
    Even though it is not mandatory, we strongly recommend adding links and social profiles.  
    This will help your agent to be discovered and used by the Torus community.
-   <Image src={filledAgentSocials} alt="Agent metadata input" width="1920" />
+   <ClickableImage src={filledAgentSocials} alt="Agent metadata input" />
 
 5. **Confirm registration**  
    Click in register an agent and confirm the transaction in your wallet.
