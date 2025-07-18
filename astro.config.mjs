@@ -107,10 +107,7 @@ export default defineConfig({
             { label: "Stake your Torus", slug: "how-to-guides/stake-your-torus" },
             { label: "Register an Agent", slug: "how-to-guides/register-an-agent" },
             { label: "Become a Root Agent", slug: "how-to-guides/become-a-root-agent" },
-            // {
-            //   label: "Setup a wallet",
-            //   slug: "how-to-guides/setup-a-wallet",
-            // },
+            { label: "Edit your Agent", slug: "how-to-guides/edit-your-agent" },
           ],
         },
       ],
