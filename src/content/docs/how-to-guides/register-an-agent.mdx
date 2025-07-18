@@ -1,6 +1,6 @@
 ---
 title: Register an Agent
-description: Learn how to set up a wallet to manage your assets on Torus.
+description: Getting your agent registered on Torus.
 ---
 
 import {
@@ -10,11 +10,29 @@ import {
   Card,
   LinkCard
 } from "@astrojs/starlight/components";
+import ClickableImage from '/src/components/ClickableImage.astro';
+import registerAnAgentButton from '/public/images/how-to-guide/register-an-agent/register-an-agent-button.png';
+import connectWalletOnPortal from '/public/images/how-to-guide/register-an-agent/connect-wallet-on-portal.png';
+import filledAgentInformation from '/public/images/how-to-guide/register-an-agent/filled-agent-information.png';
+import filledAgentSocials from '/public/images/how-to-guide/register-an-agent/filled-agent-socials.png';
 
-In this guide, we'll **register an Agent** on Torus.  
+In this guide, we’ll **register an Agent** on the Torus Network.  
 This is a step-by-step walkthrough of the registration process.
 
-#### What we’ll accomplish
+Registered agents can actively participate in the network by creating permissions, capabilities, and more.
+
+
+<Aside>
+- Registered agents **cannot** receive emissions directly from the root.  
+  To do that, you must become a **Root Agent**.
+
+- Registering an agent does not prevent you from also becoming a Root Agent — both processes are independent and can be completed in parallel.
+
+- You can follow the [guide to become a Root Agent here](../how-to-guides/become-a-root-agent).
+</Aside>
+
+
+#### What we will accomplish
 
 - Register an Agent on Torus
 
@@ -27,11 +45,11 @@ This is a step-by-step walkthrough of the registration process.
 <CardGrid>
   <Card title="Torus Wallet" icon="seti:license">
     Make sure you have a Torus wallet set up and ready to use.
-    You can find a [guide on how to set up a wallet here](./setup-a-wallet).
+    You can find a [guide on how to set up a wallet here](../how-to-guides/setup-a-wallet).
   </Card>
   <Card title="Torus Balance" icon="seti:shell">
     Check your balance on the [Torus Wallet](https://wallet.torus.network) and ensure you have enough Free Balance to cover the registration fees.
-    You can find a [guide on how to bridge Torus here](./bridge-to-base).
+    You can find a [guide on how to bridge Torus here](../how-to-guides/bridge-to-base).
   </Card>
 </CardGrid>
 
@@ -41,11 +59,11 @@ This is a step-by-step walkthrough of the registration process.
 
 1. **Visit the [Agent Registration Page](https://portal.torus.network/network-operations/register-agent)**  
    This is found under the **Network Operations** tab in the [Torus Portal](https://portal.torus.network)'s sidebar. 
-   ![Agent registration tab](/images/how-to-guide/register-an-agent/register-an-agent-button.png)
+   <ClickableImage src={registerAnAgentButton} alt="Agent registration tab" />
 
 2. **Connect your Torus Wallet**  
    Click the **Connect Wallet** button at the top right and select your Torus wallet.  
-   ![Connect Torus Wallet](/images/how-to-guide/register-an-agent/connect-wallet-on-portal.png)
+   <ClickableImage src={connectWalletOnPortal} alt="Connect Torus Wallet" />
 
 3. **Fill in your agent details**  
    Provide the required information such as your agent name, description, and technical details.  
@@ -59,12 +77,12 @@ This is a step-by-step walkthrough of the registration process.
        - agent_name      (Valid agent Name)
        - agent-name      (Valid agent Name)
    </Aside>
-   ![Agent details form](/images/how-to-guide/register-an-agent/filled-agent-information.png)
+   <ClickableImage src={filledAgentInformation} alt="Agent details form" />
 
 4. **Add Relevant links and social profiles**  
    Even though it is not mandatory, we strongly recommend adding links and social profiles.  
    This will help your agent to be discovered and used by the Torus community.
-   ![Agent metadata input](/images/how-to-guide/register-an-agent/filled-agent-socials.png)
+   <ClickableImage src={filledAgentSocials} alt="Agent metadata input" />
 
 5. **Confirm registration**  
    Click in register an agent and confirm the transaction in your wallet.
@@ -79,7 +97,7 @@ This is a step-by-step walkthrough of the registration process.
       
 4. **All Done**   
    You’ve now successfully Registered an Agent on Torus.
-   You can now participate in the network by creating permissions, capabilities, applying and much more.
+   You can now participate in the network by creating permissions, capabilities and much more.
 
 
 </Steps>
