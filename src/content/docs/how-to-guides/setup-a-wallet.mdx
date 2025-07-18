@@ -11,6 +11,14 @@ import {
   Card
 } from "@astrojs/starlight/components";
 
+import { Image } from 'astro:assets';
+import subwalletExtensionActivated from '/public/images/how-to-guide/setup-wallet/subwallet-extension-activated.png';
+import subwalletCreatedSuccessfully from '/public/images/how-to-guide/setup-wallet/subwallet-created-successfully.png';
+import subwalletOpenSetup from '/public/images/how-to-guide/setup-wallet/subwallet-open-setup.png';
+import subwalletSelectConfigToAddNetwork from '/public/images/how-to-guide/setup-wallet/subwallet-select-config-to-add-network.png';
+import subwalletSearchTorusNetwork from '/public/images/how-to-guide/setup-wallet/subwallet-search-torus-network.png';
+import subwalletDoneTorusSetup from '/public/images/how-to-guide/setup-wallet/subwallet-done-torus-setup.png';
+
 In this guide, we’ll walk through setting up a wallet with the **SubWallet** browser extension, a popular non-custodial wallet for managing assets across multiple blockchains.  
 If you prefer a different extension, scroll to the bottom for a list of other wallets that work with Torus.  
 For simplicity’s sake, though, we’ll focus on SubWallet.
@@ -46,13 +54,14 @@ For simplicity’s sake, though, we’ll focus on SubWallet.
 
     </span>
 
-    ![SubWallet extension activated in Brave browser](/images/how-to-guide/setup-wallet/subwallet-extension-activated.png)
+    <Image src={subwalletExtensionActivated} alt="SubWallet extension activated in Brave browser" width="1920" />
 
 </Steps>
 
+
 ### Creating a New Account
 
-<Steps>
+ <Steps>
 
 1.  **Open the SubWallet extension in you browser**:   
      Click on the SubWallet icon in your browser’s extension area to open the wallet.
@@ -91,43 +100,43 @@ For simplicity’s sake, though, we’ll focus on SubWallet.
 
         </span>
 
-    ![SubWallet account succesfully created](/images/how-to-guide/setup-wallet/subwallet-created-successfully.png)
+    <Image src={subwalletCreatedSuccessfully} alt="SubWallet account successfully created" width="1920" />
 
 </Steps>
 
-### Adding Torus to the Subwallet
+ ### Adding Torus to the Subwallet
 
 <Steps>
-1. **Open the Subwallet Setup**:  
-  Click in the three bars(**☰**) on the top left corner of the subwallet extension.
-  ![SubWallet setup button](/images/how-to-guide/setup-wallet/subwallet-open-setup.png)
 
-2. **Select Manage Networks**:  
-   Under the **Assets & Addresses** tab, click on **Manage Networks**.
-   ![SubWallet manage networks button](/images/how-to-guide/setup-wallet/subwallet-select-config-to-add-network.png)
+  1. **Open the Subwallet Setup**  
+    Click in the three bars(**☰**) on the top left corner of the subwallet extension.    
+     <Image src={subwalletOpenSetup} alt="SubWallet setup button" width="1920" />
 
-3. **Search for Torus and activate it**:  
+  2. **Select Manage Networks**   
+  Under the **Assets & Addresses** tab, click on **Manage Networks**.   
+     <Image src={subwalletSelectConfigToAddNetwork} alt="SubWallet manage networks button" width="1920" />
+
+
+ 3. **Search for Torus and activate it**    
     Click on the search bar, type Torus, and select it from the list. Make sure to enable it so it appears in your list of active tokens.
-   ![SubWallet search for Torus button](/images/how-to-guide/setup-wallet/subwallet-search-torus-network.png)
+    <Image src={subwalletSearchTorusNetwork} alt="SubWallet search for Torus button" width="1920" /> 
 
-4. **Confirm Torus is active**:  
-    Once enabled, **Torus** will appear in your list of active networks.  
-    You might have to scroll down to find Torus in the list.
-   ![SubWallet network list with torus](/images/how-to-guide/setup-wallet/subwallet-done-torus-setup.png)
+4. **Confirm Torus is active**   
+    Once enabled, **Torus** will appear in your list of active networks.    
+    You might have to scroll down to find Torus in the list.  
+    <Image src={subwalletDoneTorusSetup} alt="SubWallet network list with torus" width="1920" /> 
+
 
      <Aside>
     If you don't see **Torus** in the list, you might need to add it manually.  
     Follow the steps in this [video tutorial by Omni Labs](https://www.youtube.com/watch?v=3JDQFYg0u_A&t=172s).
 
    **RPC URL:** `wss://api.torus.network`
-
-
-     </Aside>
+    </Aside>
 
 5. **All Done**  
    Torus is now connected to your SubWallet.  
    You’re ready to explore the Torus ecosystem and manage your assets securely.
-
 
 </Steps>
 

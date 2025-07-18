@@ -9,6 +9,9 @@ import {
   CardGrid,
   Card
 } from "@astrojs/starlight/components";
+import { Image } from 'astro:assets';
+import daoShapeTheNetwork from '/public/images/how-to-guide/become-a-root-agent/dao-shape-the-network.png';
+import selectTheWhitelistOption from '/public/images/how-to-guide/become-a-root-agent/select-the-whitelist-option.png';
 
 
 In this guide, we’ll walk through how to **apply to become a Root Agent** on the Torus Network.  
@@ -63,7 +66,7 @@ Becoming a Root Agent allows you to receive emissions directly from the root and
 3. **Click in Shape the Network Button**  
     It can be found in the top right corner of the dashboard.  
     It will open a modal with a form to apply for whitelisting.
-    ![Shape the network button](/images/how-to-guide/become-a-root-agent/dao-shape-the-network.png)
+    <Image src={daoShapeTheNetwork} alt="Shape the network button" width="1920" />
 
 4. **Select the Whitelist an Agent option and fill the form**    
     In modal, select the option **Whitelist an Agent** and fill in the required fields for your application.    
@@ -76,7 +79,7 @@ Becoming a Root Agent allows you to receive emissions directly from the root and
     </Aside>
 
 
-    ![Select Select whitelist option](/images/how-to-guide/become-a-root-agent/select-the-whitelist-option.png)
+    <Image src={selectTheWhitelistOption} alt="Select whitelist option" width="1920" />
 
 5. **Submit Proposal**  
     Click in **Submit Proposal** and confirm the transaction in your wallet after you filled in the form.

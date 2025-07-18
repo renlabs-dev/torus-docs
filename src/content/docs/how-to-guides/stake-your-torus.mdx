@@ -10,6 +10,17 @@ import {
   LinkCard,
   Card
 } from "@astrojs/starlight/components";
+import { Image } from 'astro:assets';
+import walletStakingTab from '/public/images/how-to-guide/stake-your-torus/wallet-staking-tab.png';
+import connectToWallet from '/public/images/how-to-guide/stake-your-torus/connect-to-wallet.png';
+import fillInInformation from '/public/images/how-to-guide/stake-your-torus/fill-in-information.png';
+import openSubwalletAndSign from '/public/images/how-to-guide/stake-your-torus/open-subwallet-and-sign.png';
+import stakedBalanceSuccessfully from '/public/images/how-to-guide/stake-your-torus/staked-balance-successfully.png';
+import allocatorAppCardExplanation from '/public/images/how-to-guide/stake-your-torus/allocator-app-card-explanation.png';
+import allocatorChooseWhoToAllocateTo from '/public/images/how-to-guide/stake-your-torus/allocator-choose-who-to-allocate-to.png';
+import allocatorConfirmAllocationAndSubmit from '/public/images/how-to-guide/stake-your-torus/allocator-confirm-allocation-and-submit.png';
+import allocatorConfirmAndSignTransaction from '/public/images/how-to-guide/stake-your-torus/allocator-confirm-and-sign-transaction.png';
+import allocatorDoneAllocated from '/public/images/how-to-guide/stake-your-torus/allocator-done-allocated.png';
 
 In this guide, we’ll walk through the process of **staking and allocating your Torus** with the Torus Allocator.  
 Staking allows you to earn rewards while contributing to the security and stability of the network.  
@@ -17,7 +28,7 @@ By allocating to an Agent, you directly support their operations.
 
 
 <Aside>
-⏱️ **Estimated time to complete this guide: 8 minutes**
+⏱️ **Estimated time to complete this guide: 5 minutes**
 </Aside>
 
 #### What we will accomplish
@@ -45,11 +56,11 @@ By allocating to an Agent, you directly support their operations.
 
 1. **Go to the [Staking tab in the Torus Wallet App](https://wallet.torus.network/staking)**   
    In the Torus Wallet App, click on the **Staking** tab. Then click in **Stake**.
-   ![Staking tab in the Torus Wallet App](/images/how-to-guide/stake-your-torus/wallet-staking-tab.png)
+   <Image src={walletStakingTab} alt="Staking tab in the Torus Wallet App" width="1920" />
 
 2. **Connect your Torus Wallet**  
    Click the **Connect Wallet** button at the top right and select your Torus wallet.  
-   ![Connect your Torus Wallet](/images/how-to-guide/stake-your-torus/connect-to-wallet.png)
+   <Image src={connectToWallet} alt="Connect your Torus Wallet" width="1920" />
 
 3. **Select the Allocator Address**  
    Click in the Select an Allocator, it will drop a Modal with all the Allocators.  
@@ -70,20 +81,20 @@ By allocating to an Agent, you directly support their operations.
    All staking fees are **burned permanently** and cannot be recovered.
    </Aside>
 
-   ![Stake your Torus](/images/how-to-guide/stake-your-torus/fill-in-information.png)
+   <Image src={fillInInformation} alt="Stake your Torus" width="1920" />
 
 
 5. **Open SubWallet and Sign the Transaction**    
     Click in the Subwallet icon at the top right navigation bar of your browser.  
     It will open a modal with the confirmation to sign the transaction.
-    ![SubWallet sign transaction](/images/how-to-guide/stake-your-torus/open-subwallet-and-sign.png)
+    <Image src={openSubwalletAndSign} alt="SubWallet sign transaction" width="1920" />
 
 
 6. **Your Torus is now staked, but you must allocate to an Agent**
     After signing your Torus should show as **Staked Balance** in the Wallet App.  
     This process can take a few minutes to complete, make sure to reload the page to see the updated balance.
     When you see your staked balance, you can now allocate to an Agent.
-   ![Staked Balance](/images/how-to-guide/stake-your-torus/staked-balance-successfully.png)
+   <Image src={stakedBalanceSuccessfully} alt="Staked Balance" width="1920" />
 </Steps>
 
 ### Allocating to an Agent
@@ -102,7 +113,9 @@ By allocating to an Agent, you directly support their operations.
    - **Orange** → A short summary of the agent’s purpose or work  
    - **Blue** → An interactive slider of how much **you** have allocated to this agent
 
-   ![Torus Allocator App](/images/how-to-guide/stake-your-torus/allocator-app-card-explanation.png)
+   You can hover the mouse through the components to see the details.  
+
+   <Image src={allocatorAppCardExplanation} alt="Torus Allocator App" width="1920" />
 
 2. **Choose the agents to allocate**  
    Use the slider on each agent card to reserve the amount you want to allocate.
@@ -113,19 +126,19 @@ By allocating to an Agent, you directly support their operations.
    </Aside>
 
    In this step, you’re only **reserving** the amount — no tokens are staked yet, as it is highlighted in light blue.
-   ![Allocator-choose-who-to-allocate-to](/images/how-to-guide/stake-your-torus/allocator-choose-who-to-allocate-to.png)
+   <Image src={allocatorChooseWhoToAllocateTo} alt="Allocator-choose-who-to-allocate-to" width="1920" />
 
 3. **Open the Allocation Menu and Confirm**    
    When you open the Allocation Menu, you will see the list of the agents you’ve chosen to allocate to.  
    If you are sure that you want to allocate to these agents, click in **Submit Agents**.
 
-   ![Allocator-confirm-allocation-and-submit](/images/how-to-guide/stake-your-torus/allocator-confirm-allocation-and-submit.png)
+   <Image src={allocatorConfirmAllocationAndSubmit} alt="Allocator-confirm-allocation-and-submit" width="1920" />
 
 4. **Sign the Transaction in the SubWallet**    
    After confirming the allocation, you will be prompted to sign the transaction in your wallet.  
    Click in the SubWallet icon at the top right navigation bar of your browser.   
    It will open a modal with the confirmation to sign the transaction.  
-   ![SubWallet sign transaction](/images/how-to-guide/stake-your-torus/allocator-confirm-and-sign-transaction.png)
+   <Image src={allocatorConfirmAndSignTransaction} alt="SubWallet sign transaction" width="1920" />
 
 5. **All done!**
    You should see ** All Allocations saved!** in the bottom bar.  
@@ -133,7 +146,7 @@ By allocating to an Agent, you directly support their operations.
    <Aside>
    You can update your stake at any time through the **Allocation Menu** — just adjust the sliders and sign the new transaction.
    </Aside>
-   ![allocator-done-allocated](/images/how-to-guide/stake-your-torus/allocator-done-allocated.png)
+   <Image src={allocatorDoneAllocated} alt="allocator-done-allocated" width="1920" />
 </Steps>
    <Aside>
    You can view your **APY Forecast** by visiting the [Staking section of the Torus Wallet App](https://wallet.torus.network/staking), under the **APY Forecast** tab.
