@@ -1,5 +1,5 @@
 ---
-title: Stake your Torus
+title: Stake your Torus with the Torus Allocator
 description: Contributing to the Torus as a User.
 ---
 
@@ -11,7 +11,7 @@ import {
   Card
 } from "@astrojs/starlight/components";
 
-In this guide, we’ll walk through the process of **staking and allocating your Torus**.  
+In this guide, we’ll walk through the process of **staking and allocating your Torus** with the Torus Allocator.  
 Staking allows you to earn rewards while contributing to the security and stability of the network.  
 By allocating to an Agent, you directly support their operations.
 
@@ -39,29 +39,22 @@ By allocating to an Agent, you directly support their operations.
 </CardGrid>
 
 ## Steps to Stake your Torus
-### 
+### Send your Torus to the Allocator Contract
 
 <Steps>
 
-1. **Visit the [Agent Registration Page](https://portal.torus.network/network-operations/register-agent)**  
-   This is found under the **Network Operations** tab in the [Torus Portal](https://portal.torus.network)'s sidebar. 
-   ![Agent registration tab](/images/how-to-guide/register-an-agent/register-an-agent-button.png)
+1. **Go to the [Staking tab in the Torus Wallet App](https://wallet.torus.network/staking)**   
+   In the Torus Wallet App, click on the **Staking** tab. Then click in **Stake**.
+   ![Staking tab in the Torus Wallet App](/images/how-to-guide/stake-your-torus/wallet-staking-tab.png)
 
 2. **Connect your Torus Wallet**  
    Click the **Connect Wallet** button at the top right and select your Torus wallet.  
-   ![Connect Torus Wallet](/images/how-to-guide/register-an-agent/connect-wallet-on-portal.png)
 
-3. **Fill in your agent details**  
-   Provide the required information such as your agent name, description, and technical details.  
-   <Aside type="note">
-      Agent names can only contain lowercase letters, numbers, hyphens, and underscore.
-       - agent-name-     (Invalid agent Name). Reason: Hifen in the end
-       - **A**gent-name  (Invalid agent Name). Reason: Uppercase letter
-       - Agent name      (Invalid agent Name). Reason: Space in the middle
-       - Agent.name      (Invalid agent Name). Reason: Dot as separator
-       ---
-       - agent_name      (Valid agent Name)
-       - agent-name      (Valid agent Name)
+3. **Select the Allocator Address**  
+   Click in the Select an Allocator, it will drop a Modal with all the Allocators.  
+   Select the Torus Allocator option.
+   <Aside>
+      The torus allocator address is `5DoVVgN7R6vHw4mvPX8s4EkkR8fgN1UJ5TDfKzab8eW9z89b`
    </Aside>
    ![Agent details form](/images/how-to-guide/register-an-agent/filled-agent-information.png)
 
