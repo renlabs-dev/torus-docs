@@ -23,8 +23,8 @@ const MODAL_WIDTH = 2000; // 40% bigger than thumbnail (1080 * 1.4)
   />
 </div>
 
-<div class="image-modal fixed inset-0 bg-black bg-opacity-95 items-center justify-center p-8 modal-hidden" style="z-index: 99999999;">
-  <div class="relative w-full h-full flex items-center justify-center">
+<div class="image-modal fixed inset-0 bg-black bg-opacity-95 items-center justify-center modal-hidden" style="z-index: 99999999;">
+  <div class="relative w-full h-full flex items-center justify-center" style="min-height: 100vh;">
     <div class="flex flex-col items-center justify-center">
       <img 
         src={src.src} 
@@ -152,6 +152,12 @@ const MODAL_WIDTH = 2000; // 40% bigger than thumbnail (1080 * 1.4)
   .image-modal {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   
   .modal-hidden {
