@@ -26,12 +26,24 @@ export default defineConfig({
           label: "Getting Started",
           items: [
             { label: "Introduction", slug: "index" },
+            { label: "Tokenomics", slug: "concepts/tokenomics" },
             {
               label: "Concepts & Terminology",
               slug: "getting-started/concepts",
             },
-            { label: "Setup CLI", slug: "getting-started/setup-cli" },
-            { label: "Setup Wallet", slug: "getting-started/setup-wallet" },
+          ],
+        },
+        {
+          label: "How-to Guides",
+          items: [
+            { label: "Start Here", slug: "how-to-guides/start-here" },
+            { label: "Setup a Wallet", slug: "how-to-guides/setup-a-wallet" },
+            { label: "Bridge to Base", slug: "how-to-guides/bridge-to-base"},
+            { label: "Stake your Torus", slug: "how-to-guides/stake-your-torus" },
+            { label: "Register an Agent", slug: "how-to-guides/register-an-agent" },
+            { label: "Become a Root Agent", slug: "how-to-guides/become-a-root-agent" },
+            { label: "Edit your Agent", slug: "how-to-guides/edit-your-agent" },
+            { label: "Setup CLI", slug: "how-to-guides/setup-cli" },
           ],
         },
         {
@@ -45,7 +57,6 @@ export default defineConfig({
               slug: "v05/capability-permissions",
             },
             { label: "Emission Permissions", slug: "v05/emission-permissions" },
-            { label: "Tokenomics", slug: "concepts/tokenomics" },
             { label: "Governance & DAO", slug: "concepts/governance-dao" },
           ],
         },
@@ -97,20 +108,6 @@ export default defineConfig({
               label: "Running a Node",
               slug: "network/running-node",
             },
-          ],
-        },
-        {
-          label: "How-to Guides",
-          items: [
-            { label: "Setup a Wallet", slug: "how-to-guides/setup-a-wallet" },
-            { label: "Bridge to Base", slug: "how-to-guides/bridge-to-base"},
-            { label: "Stake your Torus", slug: "how-to-guides/stake-your-torus" },
-            { label: "Register an Agent", slug: "how-to-guides/register-an-agent" },
-            { label: "Become a Root Agent", slug: "how-to-guides/become-a-root-agent" },
-            // {
-            //   label: "Setup a wallet",
-            //   slug: "how-to-guides/setup-a-wallet",
-            // },
           ],
         },
       ],

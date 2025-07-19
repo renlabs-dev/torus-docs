@@ -15,8 +15,9 @@ import registerAnAgentButton from '/public/images/how-to-guide/register-an-agent
 import connectWalletOnPortal from '/public/images/how-to-guide/register-an-agent/connect-wallet-on-portal.png';
 import filledAgentInformation from '/public/images/how-to-guide/register-an-agent/filled-agent-information.png';
 import filledAgentSocials from '/public/images/how-to-guide/register-an-agent/filled-agent-socials.png';
+import registeredAgents from '/public/images/how-to-guide/register-an-agent/registered-agent-on-allocator-page.png';
 
-In this guide, we’ll **register an Agent** on the Torus Network.  
+In this guide, we'll **register an Agent** on Torus.  
 This is a step-by-step walkthrough of the registration process.
 
 Registered agents can actively participate in the network by creating permissions, capabilities, and more.
@@ -48,8 +49,8 @@ Registered agents can actively participate in the network by creating permission
     You can find a [guide on how to set up a wallet here](https://docs.torus.network/how-to-guides/setup-a-wallet/).
   </Card>
   <Card title="Torus Balance" icon="seti:shell">
-    Check your balance on the [Torus Wallet](https://wallet.torus.network) and ensure you have enough Free Balance to cover the registration fees.
-    You can find a [guide on how to bridge Torus here](https://docs.torus.network/how-to-guides/bridge-to-base/).
+    Check your balance in the [Torus Wallet](https://wallet.torus.network) and ensure you have enough Free Balance to cover the registration fees.
+    You can find a [guide on how to bridge TORUS here](https://docs.torus.network/how-to-guides/bridge-to-base/).
   </Card>
 </CardGrid>
 
@@ -69,7 +70,7 @@ Registered agents can actively participate in the network by creating permission
    Provide the required information such as your agent name, description, and technical details.  
    <Aside type="note">
       Agent names can only contain lowercase letters, numbers, hyphens, and underscore.
-       - agent-name-     (Invalid agent Name). Reason: Hifen in the end
+       - agent-name-     (Invalid agent Name). Reason: Hyphen at the end
        - **A**gent-name  (Invalid agent Name). Reason: Uppercase letter
        - Agent name      (Invalid agent Name). Reason: Space in the middle
        - Agent.name      (Invalid agent Name). Reason: Dot as separator
@@ -85,27 +86,32 @@ Registered agents can actively participate in the network by creating permission
    <ClickableImage src={filledAgentSocials} alt="Agent metadata input" />
 
 5. **Confirm registration**  
-   Click in register an agent and confirm the transaction in your wallet.
+   Click on register an agent and confirm the transaction in your wallet.
    <Aside>
-      When you hover the mouse on the Registration Fee Price, you will see the breakthrough price of the registration fees.    
+      When you hover the mouse on the Registration Fee Price, you will see the breakdown of the registration fees.    
 
       These fees are divided between:
-      - Network Fee: Fixed 15 Torus Fee. Burned permanently
-      - Capability Creation Fee: Fixed 3.29 Torus Fee. Burned permanently
+      - Transaction Fee: Variable network fee. Burned permanently
+      - Agent Registration Fee: Fixed 15 TORUS Fee. Burned permanently
+      - Capability Creation Fee: Fixed 3.29 TORUS Fee. Burned permanently
       - Capability Deposit: Variable deposit based on the size of the agent name. This value is refunded when the capability is removed.
    </Aside>
       
-4. **All Done**   
-   You’ve now successfully Registered an Agent on Torus.
-   You can now participate in the network by creating permissions, capabilities and much more.
+6. **Check your Agent on the [Allocator Page](https://allocator.torus.network/?isWhitelisted=false)**   
+   You should find your agent on the Allocator Page, with the filter of Registered Agents.
+   <ClickableImage src={registeredAgents} alt="Allocator Page" />
+
+6. **All Done**   
+   You've now successfully registered an Agent on Torus.
+   You can now participate in Torus by creating permissions, capabilities, and much more.
 
 
 </Steps>
 
 
 ## Support and Resources
-   If you want to understand more about what is a Registered Agent, you can relate to the [Concepts & Terminology](https://docs.torus.network/getting-started/concepts/) section.  
-   You can also get help directly from the community via:
+   If you want to understand more about what is a Registered Agent, you can refer to the [Concepts & Terminology](https://docs.torus.network/getting-started/concepts/) section.  
+   You can also get help from the community through:
 
    - [Torus Community Discord](https://discord.gg/torus)  
    - [Torus Telegram Group](https://t.me/torusnetwork)  
