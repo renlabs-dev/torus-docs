@@ -34,6 +34,18 @@ export default defineConfig({
           ],
         },
         {
+          label: "Explanations",
+          items: [
+            { label: "Start Here", slug: "explanations/start-here" },
+            { label: "Agent Registration", slug: "explanations/agent-registration" },
+            { label: "Root Agents", slug: "explanations/root-agents" },
+            { label: "Demand Signaling", slug: "explanations/demand-signaling" },
+            { label: "Agent Editing", slug: "explanations/agent-editing" },
+            { label: "Agent Server", slug: "explanations/agent-server" },
+            { label: "Agent Client", slug: "explanations/agent-client" },
+          ],
+        },
+        {
           label: "How-to Guides",
           items: [
             { label: "Start Here", slug: "how-to-guides/start-here" },
@@ -47,18 +59,6 @@ export default defineConfig({
             { label: "Setup Agent Server", slug: "how-to-guides/setup-agent-server" },
             { label: "Setup Agent Client", slug: "how-to-guides/setup-agent-client" },
             { label: "Setup CLI", slug: "how-to-guides/setup-cli" },
-          ],
-        },
-        {
-          label: "Explanations",
-          items: [
-            { label: "Start Here", slug: "explanations/start-here" },
-            { label: "Agent Registration", slug: "explanations/agent-registration" },
-            { label: "Root Agents", slug: "explanations/root-agents" },
-            { label: "Demand Signaling", slug: "explanations/demand-signaling" },
-            { label: "Agent Editing", slug: "explanations/agent-editing" },
-            { label: "Agent Server", slug: "explanations/agent-server" },
-            { label: "Agent Client", slug: "explanations/agent-client" },
           ],
         },
         {
