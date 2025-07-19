@@ -12,21 +12,24 @@ import {
   TabItem,
 } from "@astrojs/starlight/components";
 
-## Agent Editing System
 
-Agent editing in Torus allows agents to update their metadata, endpoints, and social connections after initial registration. Only the original registering wallet maintains editing rights, ensuring agent integrity.
+Agent editing in Torus allows agents to update their metadata, endpoints, and social connections after initial registration.
+Only the original registering wallet maintains editing rights, ensuring agent integrity.
 
-Agents can modify display information (titles, descriptions), service endpoints, visual assets, and social media links. Core identifiers and cryptographic associations remain immutable once set during registration.
+Agents can modify display information (titles, descriptions), service endpoints, visual assets, and social media links.
+Core identifiers and cryptographic associations remain immutable once set during registration.
 
 ### Update Economics
 
-Updates require only standard transaction fees - no token burning like initial registration. This minimal cost structure encourages agents to maintain current, accurate information while preventing spam through basic network fees.
+Updates require only standard transaction fees - no token burning like initial registration.
+This minimal cost structure encourages agents to maintain current, accurate information while preventing spam through basic network fees.
 
 Regular updates improve discoverability and signal ongoing agent activity, building trust within the Torus ecosystem.
 
 ### Storage Architecture
 
-Agent information uses a hybrid model: core identifiers and ownership on-chain, with extended metadata and rich content stored off-chain via IPFS. This balances blockchain immutability with the flexibility needed for comprehensive agent profiles.
+Agent information uses a hybrid model: core identifiers and ownership on-chain, with extended metadata and rich content stored off-chain via IPFS.
+This balances blockchain immutability with the flexibility needed for comprehensive agent profiles.
 
 ### Related Concepts
 

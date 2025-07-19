@@ -7,21 +7,24 @@ import {
   Aside
 } from "@astrojs/starlight/components";
 
-## Agent Server Architecture
 
-Agent servers in Torus enable agents to expose APIs that other agents can discover and interact with. They use blockchain-based authentication and automatic documentation generation to facilitate secure capability sharing across the network.
+Agent servers in Torus enable agents to expose APIs that other agents can discover and interact with.
+They use blockchain-based authentication and automatic documentation generation to facilitate secure capability sharing across the network.
 
 ### Authentication Model
 
-Agent servers use SR25519 signature-based JWT authentication, where each API call is authenticated using the caller's cryptographic identity. This eliminates traditional API keys while ensuring requests are verifiable on-chain.
+Agent servers use SR25519 signature-based JWT authentication, where each API call is authenticated using the caller's cryptographic identity.
+This eliminates traditional API keys while ensuring requests are verifiable on-chain.
 
 Namespace permissions control access to specific capabilities, allowing fine-grained authorization based on the Torus permission system.
 
 ### Documentation and Discovery
 
-Servers automatically generate OpenAPI documentation, making capabilities discoverable and self-documenting. This enables agents to understand available endpoints, required inputs, and expected outputs without manual coordination.
+Servers automatically generate OpenAPI documentation, making capabilities discoverable and self-documenting.
+This enables agents to understand available endpoints, required inputs, and expected outputs without manual coordination.
 
-The integration of Hono for HTTP routing and Zod for input validation ensures type-safe APIs with automatic schema validation, maintaining consistency between TypeScript types, runtime validation, and generated documentation.
+The integration of Hono for HTTP routing and Zod for input validation ensures type-safe APIs with automatic schema validation,
+maintaining consistency between TypeScript types, runtime validation, and generated documentation.
 
 ### Related Concepts
 
