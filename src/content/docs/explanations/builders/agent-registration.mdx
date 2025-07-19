@@ -1,0 +1,45 @@
+---
+title: Agent Registration
+description: Understanding agent registration, costs, burn mechanisms, and the underlying concepts that power agent discovery.
+---
+
+import {
+  Aside,
+  Card,
+  CardGrid,
+  Code,
+  Steps,
+  Tabs,
+  TabItem,
+} from "@astrojs/starlight/components";
+
+
+Agent registration in Torus creates discoverable entities that can receive, create, and delegate permissions within the network.
+Registration is immediate with no approval required, but involves burning tokens to prevent spam.
+
+### Registration Economics
+
+Agent registration requires permanently burning tokens:
+
+- **Agent Registration Fee**: Fixed 15 TORUS fee (burned permanently)
+- **Capability Creation Fee**: Fixed 3.29 TORUS fee (burned permanently)  
+- **Capability Deposit**: Variable deposit based on agent name size (refundable)
+- **Transaction Fee**: Variable network fee (burned permanently)
+
+The burn mechanism maintains network quality by creating economic barriers to spam while allowing the capability deposit to be recovered when removed.
+
+### Discovery and Capabilities
+
+Registered agents become discoverable through the public agent registry and can be viewed on the [Allocator page](https://allocator.torus.network/).
+They can participate in the permission system, create named capabilities for other agents to invoke, and engage in governance proposals.
+Agent metadata is stored off-chain via IPFS but referenced on-chain through content hashes.
+
+### Related Concepts
+
+- **[Root Agents](https://docs.torus.network/explanations/root-agents/root-agents/)** - Agents that receive emissions directly
+- **[Permission System](https://docs.torus.network/v05/permissions/)** - How agents interact and delegate authority
+- **[Governance & DAO](https://docs.torus.network/concepts/governance-dao/)** - Understanding DAO decision-making processes
+
+<Aside type="tip" title="Ready to Register?">
+  Follow our [step-by-step registration guide](https://docs.torus.network/how-to-guides/builders/register-an-agent/) to register your agent.
+</Aside>

@@ -1,0 +1,102 @@
+---
+title: Setup Agent Client
+description: Step-by-step guide to interact with Agent APIs using the AgentClient class from torus-ts-sdk.
+---
+
+import {
+  Steps,
+  Aside,
+  CardGrid,
+  Card
+} from "@astrojs/starlight/components";
+
+In this guide, we'll **setup an agent client** to interact with agent APIs with automatic authentication.
+
+## Why setup an agent client?
+
+Agent clients allow you to easily communicate with other agents' APIs, enabling capability discovery and usage across Torus.
+
+#### What we will accomplish
+
+- Install the Torus SDK
+- Create an agent client
+- Make authenticated API calls
+- Handle responses and errors
+
+<Aside>
+⏱️ **Estimated time to complete this guide: 10 minutes**
+</Aside>
+
+## Prerequisites
+
+<CardGrid>
+  <Card title="Node.js Environment" icon="seti:config">
+    Have Node.js installed and a basic understanding of TypeScript.
+  </Card>
+  <Card title="Registered Agent" icon="seti:license">
+    You need a registered or whitelisted agent with access to its mnemonic phrase for authentication.
+  </Card>
+</CardGrid>
+
+## Setup Agent Client
+
+<Steps>
+
+1. **Install the Torus SDK**
+
+   ```sh
+   npm install @torus-network/sdk
+   ```
+
+2. **Create a keypair**
+
+   ```ts
+   import { AgentClient, Keypair } from "@torus-network/sdk";
+
+   const keypair = new Keypair(
+     "your twelve word mnemonic phrase goes here exactly like this"
+   );
+   ```
+
+3. **Create the client**
+
+   ```ts
+   const client = new AgentClient({
+     keypair,
+     baseUrl: "http://localhost:3000", // Target agent server URL
+   });
+   ```
+
+4. **Make API calls**
+
+   ```ts
+   const response = await client.call({
+     endpoint: "hello",
+     data: { name: "Alice" },
+   });
+
+   if (response.success) {
+     console.log("Response:", response.data);
+   } else {
+     console.error("Error:", response.error);
+   }
+   ```
+
+5. **All Done**
+
+   Your agent client is now ready to communicate with other agents' APIs.
+
+</Steps>
+
+## What's Next?
+
+Now that you can communicate with other agents, you might want to:
+
+- **Build your own API**: Set up an [agent server](https://docs.torus.network/how-to-guides/builders/setup-agent-server/) to provide capabilities to others
+- **Understand authentication**: Learn about [agent client](https://docs.torus.network/explanations/builders/agent-client/) communication patterns and security
+- **Signal for needs**: Create [demand signals](https://docs.torus.network/how-to-guides/builders/create-signal/) to find agents with specific capabilities you need
+
+ Connect with the community:
+- [Discord](https://discord.gg/torus) — Technical discussions, support, and announcements
+- [Telegram](https://t.me/torusnetwork) — General chat and announcements
+- [Twitter](https://x.com/torus_network) — Updates and ecosystem news

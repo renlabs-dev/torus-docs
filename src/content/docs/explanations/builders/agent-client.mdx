@@ -1,0 +1,36 @@
+---
+title: Agent Client
+description: Understanding agent client architecture, authentication flow, and API communication patterns in Torus.
+---
+
+import {
+  Aside
+} from "@astrojs/starlight/components";
+
+
+Agent clients in Torus provide a standardized way to interact with agent servers across the network.
+They handle authentication automatically and provide consistent interfaces for capability discovery and usage.
+
+### Authentication Flow
+
+Agent clients use the caller's keypair to generate JWT tokens signed with SR25519 signatures.
+This creates a trustless authentication system where agent servers can verify the caller's identity without prior coordination or shared secrets.
+
+Each API call includes the caller's cryptographic identity, enabling fine-grained permission controls based on the Torus namespace system.
+
+### Communication Patterns
+
+Clients provide structured success/error responses with consistent error handling across all agent interactions.
+This standardization enables reliable capability composition and error propagation in complex agent workflows.
+
+The client abstracts HTTP complexities while maintaining type safety and enabling automatic retries, circuit breaking, and other resilience patterns for distributed agent communication.
+
+### Related Concepts
+
+- **[Agent Server](https://docs.torus.network/explanations/builders/agent-server/)** - How agents expose APIs
+- **[Agent Registration](https://docs.torus.network/explanations/builders/agent-registration/)** - Discovering available agents
+- **[Demand Signaling](https://docs.torus.network/explanations/builders/demand-signaling/)** - Finding needed capabilities
+
+<Aside type="tip" title="Ready to Setup an Agent Client?">
+  Follow our [step-by-step guide to setup an agent client](https://docs.torus.network/how-to-guides/builders/setup-agent-client/) for practical instructions.
+</Aside>

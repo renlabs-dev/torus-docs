@@ -34,16 +34,61 @@ export default defineConfig({
           ],
         },
         {
+          label: "Explanations",
+          items: [
+            { label: "Start Here", slug: "explanations/start-here" },
+            {
+              label: "Builders",
+              collapsed: false,
+              items: [
+                { label: "Agent Registration", slug: "explanations/builders/agent-registration" },
+                { label: "Agent Server", slug: "explanations/builders/agent-server" },
+                { label: "Agent Client", slug: "explanations/builders/agent-client" },
+                { label: "Agent Editing", slug: "explanations/builders/agent-editing" },
+                { label: "Demand Signaling", slug: "explanations/builders/demand-signaling" },
+              ],
+            },
+            {
+              label: "Leaders",
+              collapsed: false,
+              items: [
+                { label: "Root Agents", slug: "explanations/root-agents/root-agents" },
+              ],
+            },
+          ],
+        },
+        {
           label: "How-to Guides",
           items: [
             { label: "Start Here", slug: "how-to-guides/start-here" },
-            { label: "Setup a Wallet", slug: "how-to-guides/setup-a-wallet" },
-            { label: "Bridge to Base", slug: "how-to-guides/bridge-to-base"},
-            { label: "Stake your Torus", slug: "how-to-guides/stake-your-torus" },
-            { label: "Register an Agent", slug: "how-to-guides/register-an-agent" },
-            { label: "Become a Root Agent", slug: "how-to-guides/become-a-root-agent" },
-            { label: "Edit your Agent", slug: "how-to-guides/edit-your-agent" },
-            { label: "Setup CLI", slug: "how-to-guides/setup-cli" },
+            {
+              label: "Participants",
+              collapsed: false,
+              items: [
+                { label: "Setup a Wallet", slug: "how-to-guides/participants/setup-a-wallet" },
+                { label: "Bridge from Base", slug: "how-to-guides/participants/bridge-from-base" },
+                { label: "Stake your Torus", slug: "how-to-guides/participants/stake-your-torus" },
+              ],
+            },
+            {
+              label: "Builders",
+              collapsed: false,
+              items: [
+                { label: "Setup CLI", slug: "how-to-guides/builders/setup-cli" },
+                { label: "Register an Agent", slug: "how-to-guides/builders/register-an-agent" },
+                { label: "Edit your Agent", slug: "how-to-guides/builders/edit-your-agent" },
+                { label: "Create a Signal", slug: "how-to-guides/builders/create-signal" },
+                { label: "Setup Agent Server", slug: "how-to-guides/builders/setup-agent-server" },
+                { label: "Setup Agent Client", slug: "how-to-guides/builders/setup-agent-client" },
+              ],
+            },
+            {
+              label: "Leaders",
+              collapsed: false,
+              items: [
+                { label: "Become a Root Agent", slug: "how-to-guides/root-agents/become-a-root-agent" },
+              ],
+            },
           ],
         },
         {
@@ -61,32 +106,21 @@ export default defineConfig({
           ],
         },
         {
-          label: "Working with Agents",
-          items: [
-            { label: "Register an Agent", slug: "agents/register-agent" },
-            { label: "Become a Root Agent", slug: "agents/apply-root-agent" },
-            { label: "Agent Server", slug: "agents/server-setup" },
-            { label: "Agent Client", slug: "agents/client" },
-            { label: "Demand Signaling", slug: "agents/demand-signaling" },
-            { label: "Managing Your Agent", slug: "agents/management" },
-          ],
-        },
-        {
           label: "CLI & Tools",
           items: [
             { label: "Key Management", slug: "cli/key-management" },
             { label: "Balance Operations", slug: "cli/balance-operations" },
           ],
         },
-        {
-          label: "Web Apps",
-          items: [
-            { label: "Torus Portal", slug: "web-apps/torus-portal" },
-            { label: "Torus Allocator", slug: "web-apps/torus-allocator" },
-            { label: "Torus Wallet", slug: "web-apps/torus-wallet" },
-            { label: "Torus DAO", slug: "web-apps/torus-dao" },
-          ],
-        },
+        // {
+        //   label: "Web Apps",
+        //   items: [
+        //     { label: "Torus Portal", slug: "web-apps/torus-portal" },
+        //     { label: "Torus Allocator", slug: "web-apps/torus-allocator" },
+        //     { label: "Torus Wallet", slug: "web-apps/torus-wallet" },
+        //     { label: "Torus DAO", slug: "web-apps/torus-dao" },
+        //   ],
+        // },
         {
           label: "Development",
           items: [
