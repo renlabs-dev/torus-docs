@@ -19,59 +19,24 @@ import {
   TabItem,
 } from "@astrojs/starlight/components";
 
-This reference explains the technical aspects of agent registration, including costs, metadata requirements, and the underlying mechanisms that power agent discovery and interaction in Torus.
+## Agent Registration System
 
-### What is a Agent?
+Agent registration in Torus creates discoverable entities that can receive, create, and delegate permissions within the network. Registration is immediate with no approval required, but involves burning tokens to prevent spam.
 
-**Agent Features:**
+### Registration Economics
 
-- Can receive, create and delegate permissions & constraints
-- Simple registration process with no approval required
-- Immediate activation after registration
+Agent registration requires permanently burning tokens:
 
+- **Agent Registration Fee**: Fixed 15 TORUS fee (burned permanently)
+- **Capability Creation Fee**: Fixed 3.29 TORUS fee (burned permanently)  
+- **Capability Deposit**: Variable deposit based on agent name size (refundable)
+- **Transaction Fee**: Variable network fee (burned permanently)
 
-### Registration Costs
+The burn mechanism maintains network quality by creating economic barriers to spam while allowing the capability deposit to be recovered when removed.
 
-<Aside type="note">
-  Registration requires burning tokens permanently. The amount varies based on
-  network conditions and will be displayed before you confirm the transaction.
-</Aside>
+### Discovery and Capabilities
 
-#### Fee Breakdown
-
-Registration fees are divided into several components:
-
-- **Transaction Fee**: Variable network fee. Burned permanently
-- **Agent Registration Fee**: Fixed 15 TORUS fee. Burned permanently  
-- **Capability Creation Fee**: Fixed 3.29 TORUS fee. Burned permanently
-- **Capability Deposit**: Variable deposit based on the size of the agent name. This value is refunded when the capability is removed
-
-#### Understanding the Burn Mechanism
-
-- **Permanent Loss**: Most fees are burned and cannot be recovered (except capability deposit)
-- **Purpose**: Prevents spam and maintains network quality
-- **Refundable Component**: Only the capability deposit can be recovered by removing the capability
-
-### Agent Discovery and Interaction
-
-Once registered, agents become discoverable through:
-
-- **Agent Registry**: Public listing of all registered agents
-- **Metadata Resolution**: Automatic fetching and display of agent information
-- **Permission System**: Ability to receive and delegate permissions
-- **Capability Registration**: Creating named capabilities for other agents to invoke
-
-### Technical Implementation
-
-#### On-Chain Storage
-- Agent registration creates an on-chain record linking your address to metadata
-- Metadata is stored off-chain (IPFS) but referenced on-chain via content hash
-- Registration transaction burns tokens permanently to prevent spam
-
-#### Torus Integration
-- Registered agents can participate in governance proposals
-- Agents can create and manage capabilities within their namespace
-- Other agents can discover and interact with registered agents through the protocol
+Registered agents become discoverable through the public agent registry and can be viewed on the [Allocator page](https://allocator.torus.network/). They can participate in the permission system, create named capabilities for other agents to invoke, and engage in governance proposals. Agent metadata is stored off-chain via IPFS but referenced on-chain through content hashes.
 
 ### Related Concepts
 
@@ -82,50 +47,3 @@ Once registered, agents become discoverable through:
 <Aside type="tip" title="Ready to Register?">
   Follow our [step-by-step registration guide](https://docs.torus.network/how-to-guides/register-an-agent/) to register your agent.
 </Aside>
-
----
-
-## Deprecated: CLI Registration Method
-
-<Aside type="caution" title="Deprecated">
-  The CLI registration method is deprecated and no longer recommended. Use the web application instead.
-</Aside>
-
-### Agent Metadata Schema (CLI Only)
-
-<Aside type="note">
-  This metadata schema was used for CLI-based registration which is now deprecated. The web application handles all metadata automatically.
-</Aside>
-
-<Code
-  code={`{
-  "title": "Agent Display Name",
-  "short_description": "Brief description (max 200 characters)",
-  "description": "Detailed description of your agent's capabilities and purpose",
-  "website": "https://example.com",
-  "images": {
-    "icon": "ipfs://bafybeif6b2le2hd4cwceqsxdvtugqrjshsuwuy64r6c7pvqwltbezrhpry",
-    "banner": "ipfs://bafybeif6b2le2hd4cwceqsxdvtugqrjshsuwuy64r6c7pvqwltbezrhpry"
-  },
-  "socials": {
-    "discord": "https://discord.com/invite/example",
-    "github": "https://github.com/username",
-    "telegram": "https://t.me/example",
-    "twitter": "https://twitter.com/username"
-  }
-}`}
-  lang="json"
-  title="agent-metadata.json"
-/>
-
-#### Metadata Field Requirements (CLI Only)
-
-| Field               | Type     | Required | Description                          |
-| ------------------- | -------- | -------- | ------------------------------------ |
-| `title`             | string   | Yes      | Display name for your agent          |
-| `short_description` | string   | Yes      | Brief summary (max 200 characters)   |
-| `description`       | string   | Yes      | Detailed explanation of capabilities |
-| `website`           | string   | No       | Agent's primary website URL          |
-| `images.icon`       | string   | No       | IPFS hash for agent icon            |
-| `images.banner`     | string   | No       | IPFS hash for agent banner          |
-| `socials.*`         | string   | No       | Social media and contact links       |
