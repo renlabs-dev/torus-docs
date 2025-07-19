@@ -38,12 +38,25 @@ export default defineConfig({
           items: [
             { label: "Start Here", slug: "how-to-guides/start-here" },
             { label: "Setup a Wallet", slug: "how-to-guides/setup-a-wallet" },
-            { label: "Bridge to Base", slug: "how-to-guides/bridge-to-base"},
+            { label: "Bridge from Base", slug: "how-to-guides/bridge-from-base"},
             { label: "Stake your Torus", slug: "how-to-guides/stake-your-torus" },
             { label: "Register an Agent", slug: "how-to-guides/register-an-agent" },
             { label: "Become a Root Agent", slug: "how-to-guides/become-a-root-agent" },
             { label: "Edit your Agent", slug: "how-to-guides/edit-your-agent" },
+            { label: "Create a Signal", slug: "how-to-guides/create-signal" },
             { label: "Setup CLI", slug: "how-to-guides/setup-cli" },
+          ],
+        },
+        {
+          label: "Explanations",
+          items: [
+            { label: "Start Here", slug: "explanations/start-here" },
+            { label: "Agent Registration", slug: "explanations/agent-registration" },
+            { label: "Root Agents", slug: "explanations/root-agents" },
+            { label: "Demand Signaling", slug: "explanations/demand-signaling" },
+            { label: "Agent Editing", slug: "explanations/agent-editing" },
+            { label: "Agent Server", slug: "explanations/agent-server" },
+            { label: "Agent Client", slug: "explanations/agent-client" },
           ],
         },
         {
@@ -58,17 +71,6 @@ export default defineConfig({
             },
             { label: "Emission Permissions", slug: "v05/emission-permissions" },
             { label: "Governance & DAO", slug: "concepts/governance-dao" },
-          ],
-        },
-        {
-          label: "Working with Agents",
-          items: [
-            { label: "Register an Agent", slug: "agents/register-agent" },
-            { label: "Become a Root Agent", slug: "agents/apply-root-agent" },
-            { label: "Agent Server", slug: "agents/server-setup" },
-            { label: "Agent Client", slug: "agents/client" },
-            { label: "Demand Signaling", slug: "agents/demand-signaling" },
-            { label: "Managing Your Agent", slug: "agents/management" },
           ],
         },
         {

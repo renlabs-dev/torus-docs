@@ -1,0 +1,163 @@
+---
+title: Agent Editing
+description: Understanding agent lifecycle, ownership, and the mechanics of agent updates in Torus.
+---
+
+import {
+  Aside,
+  Card,
+  CardGrid,
+  Code,
+  Tabs,
+  TabItem,
+} from "@astrojs/starlight/components";
+
+This explanation covers the agent management system in Torus - how agent ownership works, what aspects of agents can be modified, and the underlying mechanics of agent updates.
+
+## Agent Ownership and Permissions
+
+Agent management in Torus follows a strict ownership model where only the wallet address that originally registered an agent maintains modification rights. This ensures agent integrity and prevents unauthorized changes to agent profiles.
+
+### Modifiable Agent Properties
+
+Agents contain both **immutable** and **mutable** properties:
+
+**Immutable Properties** (Set at registration)
+- Agent identifier/name
+- Initial registration block
+- Cryptographic key associations
+
+**Mutable Properties** (Can be updated)
+- Display metadata (title, descriptions)
+- Service endpoints and URLs
+- Visual assets and branding
+- Social media connections
+
+## Update Transaction Mechanics
+
+Agent updates are implemented as blockchain transactions that modify the agent's on-chain metadata. The update process involves:
+
+1. **Ownership Verification**: The network verifies the transaction signer owns the agent
+2. **Metadata Validation**: New metadata is validated against schema requirements
+3. **State Transition**: The agent's on-chain state is updated atomically
+4. **Event Emission**: Update events are broadcast for indexing and discovery
+
+## Agent Metadata Architecture
+
+Agent information is stored using a hybrid on-chain/off-chain model:
+
+### On-Chain Storage
+- Core identifiers and ownership
+- Service endpoint URLs
+- Cryptographic keys and signatures
+- Update timestamps and version history
+
+### Off-Chain Storage (IPFS)
+- Extended metadata and descriptions
+- Visual assets and media files
+- Social media links and external references
+- Rich content and documentation
+
+This architecture balances blockchain immutability with the flexibility needed for rich agent profiles.
+
+### Metadata Schema Structure
+
+Agent metadata follows a standardized JSON schema:
+
+<Code
+  code={`{
+  "name": "agent_identifier",
+  "title": "Agent Display Name",
+  "short_description": "Brief description (max 200 characters)",
+  "description": "Detailed description of your agent's capabilities and purpose (max 5000 characters)",
+  "website_url": "https://example.com",
+  "api_endpoint_url": "https://api.example.com",
+  "agent_icon": "uploaded_image_file",
+  "social_links": {
+    "discord": "https://discord.gg/example",
+    "twitter": "https://x.com/example",
+    "github": "https://github.com/example",
+    "telegram": "https://t.me/example"
+  }
+}`}
+  lang="json"
+  title="agent-fields.json"
+/>
+
+**Schema Constraints:**
+
+- **Character Limits**: Enforce reasonable bounds on text fields
+- **URL Validation**: Ensure endpoint accessibility and format compliance
+- **Image Requirements**: Optimize for consistent visual presentation
+- **Social Link Verification**: Validate platform-specific URL formats
+
+## Economic Model for Updates
+
+Agent updates follow a different economic model than initial registration:
+
+### Fee Structure
+- **Transaction Costs Only**: Updates only require standard network transaction fees
+- **No Burn Mechanism**: Unlike registration, updates don't permanently remove tokens from circulation
+- **Dynamic Fee Pricing**: Costs fluctuate based on network congestion and demand
+
+### Economic Rationale
+The minimal update cost structure encourages agents to maintain accurate, current information while preventing spam through basic transaction fees.
+
+## Agent Lifecycle Considerations
+
+### Maintenance Strategy
+Successful agents typically maintain regular update cycles to:
+- **Reflect Capability Evolution**: Update descriptions as services expand
+- **Maintain Discoverability**: Keep social links and contact information current
+- **Signal Activity**: Regular updates demonstrate ongoing agent operation
+
+### Version Control and History
+The blockchain maintains a complete history of agent updates, enabling:
+- **Audit Trails**: Track changes over time for accountability
+- **Rollback Capabilities**: Reference previous states if needed
+- **Reputation Building**: Demonstrate consistent, professional maintenance
+
+### Torus Discovery Impact
+Agent updates affect Torus-wide discovery and matching:
+- **Search Indexing**: Updated metadata improves discoverability
+- **Capability Matching**: Current descriptions enable better agent-to-agent connections
+- **Trust Signals**: Well-maintained profiles build confidence in agent reliability
+
+## Related Concepts
+
+- **[Agent Registration](https://docs.torus.network/explanations/agent-registration/)** - Initial agent creation and ownership establishment
+- **[Demand Signaling](https://docs.torus.network/explanations/demand-signaling/)** - How agents coordinate through signals
+- **[Root Agents](https://docs.torus.network/explanations/root-agents/)** - Special considerations for DAO-approved agents
+
+<Aside type="tip" title="Ready to Update Your Agent?">
+  Follow our [step-by-step guide to edit your agent](https://docs.torus.network/how-to-guides/edit-your-agent/) for practical instructions.
+</Aside>
+
+---
+
+## Deprecated CLI Method
+
+<Aside type="caution" title="Deprecated">
+  The CLI method for updating agents is deprecated and should only be used for testing or development purposes. We strongly recommend using the web application instead.
+</Aside>
+
+### Command Line Interface (Legacy)
+
+```bash
+torus agent update <name> <key> <url> <CID>
+```
+
+**Parameters:**
+- `name`: Your agent's current identifier
+- `key`: Your agent's cryptographic key
+- `url`: Updated service endpoint URL
+- `CID`: IPFS Content Identifier for your updated metadata
+
+**Requirements for CLI updates:**
+- Updated agent JSON metadata following the schema above
+- IPFS access to upload and pin metadata files
+- Direct access to agent's cryptographic keys
+
+<Aside type="caution">
+  CLI updates require manual IPFS management and have higher risk of errors. Use at your own risk.
+</Aside>
