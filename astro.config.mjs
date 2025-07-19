@@ -44,6 +44,8 @@ export default defineConfig({
             { label: "Become a Root Agent", slug: "how-to-guides/become-a-root-agent" },
             { label: "Edit your Agent", slug: "how-to-guides/edit-your-agent" },
             { label: "Create a Signal", slug: "how-to-guides/create-signal" },
+            { label: "Setup Agent Server", slug: "how-to-guides/setup-agent-server" },
+            { label: "Setup Agent Client", slug: "how-to-guides/setup-agent-client" },
             { label: "Setup CLI", slug: "how-to-guides/setup-cli" },
           ],
         },

@@ -1,0 +1,110 @@
+---
+title: Setup Agent Server
+description: Step-by-step guide to build APIs with the Agent class from torus-ts-sdk.
+---
+
+import {
+  Steps,
+  Aside,
+  CardGrid,
+  Card
+} from "@astrojs/starlight/components";
+
+In this guide, we'll **setup an agent server** to build authenticated APIs with automatic OpenAPI documentation.
+
+## Why setup an agent server?
+
+Agent servers allow you to create APIs that other agents can discover and interact with, enabling capability sharing and network coordination.
+
+#### What we will accomplish
+
+- Install the Torus SDK
+- Create a basic agent server
+- Add authenticated endpoints
+- Generate automatic API documentation
+
+<Aside>
+⏱️ **Estimated time to complete this guide: 15 minutes**
+</Aside>
+
+## Prerequisites
+
+<CardGrid>
+  <Card title="Node.js Environment" icon="seti:config">
+    Have Node.js installed and a basic understanding of TypeScript.
+  </Card>
+  <Card title="Registered Agent" icon="seti:license">
+    You need a registered agent to create server APIs.
+    You can find a [guide on how to register an agent here](https://docs.torus.network/how-to-guides/register-an-agent/).
+  </Card>
+</CardGrid>
+
+## Setup Agent Server
+
+<Steps>
+
+1. **Install the Torus SDK**
+
+   ```sh
+   npm install @torus-network/sdk
+   ```
+
+2. **Create a basic server**
+
+   ```ts
+   import { Agent } from "@torus-network/sdk";
+   import { z } from "zod";
+
+   const agent = new AgentServer({
+     agentKey: "your-agent-wallet-address", // Your registered agent's wallet address
+     port: 3000,
+     docs: {
+       info: {
+         title: "My Agent API",
+         version: "1.0.0",
+       },
+     },
+   });
+   ```
+
+3. **Add an endpoint**
+
+   ```ts
+   agent.endpoint({
+     endpoint: "hello",
+     schema: {
+       input: z.object({
+         name: z.string(),
+       }),
+       output: z.object({
+         message: z.string(),
+       }),
+     },
+     handler: async ({ input }) => {
+       return {
+         message: `Hello, ${input.name}!`,
+       };
+     },
+   });
+   ```
+
+4. **Start the server**
+
+   ```ts
+   agent.start();
+   console.log("Agent server running on http://localhost:3000");
+   ```
+
+5. **All Done**
+
+   Your agent server is now running and available at `http://localhost:3000/docs` for API documentation.
+
+</Steps>
+
+## Support and Resources
+
+If you want to understand more about how agent servers work conceptually, you can refer to the [Agent Server explanation](https://docs.torus.network/explanations/agent-server/).
+
+You can also get help from the community through:
+- [Torus Community Discord](https://discord.gg/torus)  
+- [Torus Telegram Group](https://t.me/torusnetwork)
