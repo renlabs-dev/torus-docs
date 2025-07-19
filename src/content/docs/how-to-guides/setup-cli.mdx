@@ -1,0 +1,152 @@
+---
+title: Setup Torus CLI
+description: Install and configure the Torus CLI for managing your keys, tokens, and agents.
+---
+
+import {
+  Steps,
+  Aside,
+  CardGrid,
+  Card,
+  Tabs,
+  TabItem
+} from "@astrojs/starlight/components";
+
+In this guide, we'll walk through **installing and setting up the Torus CLI** on your system.  
+The CLI provides command-line access to manage keys, tokens, agents, and network operations.
+
+#### What we will accomplish
+
+- Install the Torus CLI on your system
+- Verify the installation works correctly
+- Set up shell completions for better usability
+
+<Aside>
+⏱️ **Estimated time to complete this guide: 5 minutes**
+</Aside>
+
+## Prerequisites
+
+<CardGrid>
+  <Card title="System Requirements" icon="seti:config">
+    Choose your installation method based on your system setup:
+    - **Python users**: [Python 3.10+](https://www.python.org/) and [pip](https://pip.pypa.io/en/stable/installation/)
+    - **Nix users**: [Nix package manager](https://github.com/NixOS/nix)
+  </Card>
+</CardGrid>
+
+## Install Torus CLI
+<Steps>
+
+  1. **Choose your installation method**  
+    Select the method that matches your system setup.   
+
+     <Tabs>
+       <TabItem label="Using PIP (Recommended)">
+
+        Install the Torus CLI using pip:
+
+        ```sh
+        pip install torusdk
+        ```
+
+        **For Poetry users**, add to your project:
+
+        ```sh
+        poetry add torusdk
+        ```
+      </TabItem>
+      <TabItem label="Using Nix">
+        Clone and install using Nix:
+
+        ```sh
+        git clone https://github.com/renlabs-dev/torus-cli
+        cd torus-cli
+        nix profile install .
+        ```
+       </TabItem>
+     </Tabs>
+
+
+2. **Verify the installation**  
+   Check that the CLI is installed correctly:
+
+   ```sh
+   torus --version
+   ```
+
+   You should see the version number displayed.
+
+3. **Test basic functionality**  
+   Run a simple command to ensure everything works:
+
+   ```sh
+   torus network params
+   ```
+
+   This will display the current network parameters, confirming your CLI can connect to Torus.
+
+4. **Set up shell completions (optional)**  
+   Enable tab completion for better usability:
+
+   ```sh
+   # For bash users
+   torus --install-completion bash
+
+   # For zsh users  
+   torus --install-completion zsh
+   ```
+
+   <Aside type="tip">
+   Restart your terminal or run `source ~/.bashrc` (or `source ~/.zshrc`) to activate completions.
+   </Aside>
+
+5. **All Done**  
+   Your Torus CLI is now ready to use! You can manage keys, check balances, and interact with agents.
+
+</Steps>
+
+{/* 
+
+## Basic CLI Usage
+
+Now that you have the CLI installed, here are the main command categories:
+
+**Key Management:**
+```sh
+torus key create my-key          # Create a new key
+torus key list                   # List all keys
+torus key balances              # Show key balances
+```
+
+**Balance Operations:**
+```sh
+torus balance show <address>     # Check balance
+torus balance transfer <key> <amount> <recipient>  # Send tokens
+```
+
+**Network Information:**
+```sh
+torus network params            # Network parameters
+torus misc circulating-supply   # Total supply info
+```
+
+## Support and Resources
+
+For detailed command reference and advanced usage, see the CLI documentation sections.  
+If you encounter installation issues, you can get help from:
+
+- [Torus CLI GitHub Issues](https://github.com/renlabs-dev/torus-cli/issues/new/choose)
+- [Torus Community Discord](https://discord.gg/torus)
+- [Torus CLI Discord Channel](https://discord.com/channels/1306654856286699590/1306654857046003716)
+
+#### Related Topics
+
+<CardGrid>
+  <Card title="Key Management" icon="seti:key">
+    <a href="/cli/key-management">Learn to create and manage your keys</a>
+  </Card>
+  <Card title="Balance Operations" icon="seti:shell">
+    <a href="/cli/balance-operations">Transfer tokens and manage staking</a>
+  </Card>
+</CardGrid> */}

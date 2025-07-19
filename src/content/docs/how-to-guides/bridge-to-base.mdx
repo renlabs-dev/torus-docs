@@ -1,6 +1,6 @@
 ---
 title: Bridge Torus from Base to Torus
-description: Bridging from Torus Base all the way to Native Torus on the Torus Network.
+description: Bridging from Torus Base all the way to Native TORUS on the Network.
 ---
 
 import {
@@ -19,10 +19,10 @@ import fillInFormToConvertTorusEvmNativeTorus from '/public/images/how-to-guide/
 import confirmTransactionInMetamaskTorusEvmToTorus from '/public/images/how-to-guide/bridge-to-base/confirm-transaction-in-metamask-torus-evm-to-torus.png';
 import torusEvmConvertSuccessfully from '/public/images/how-to-guide/bridge-to-base/torus-evm-convert-successfully.png';
 
-In this guide, we’ll **bridge Torus between the Torus Network and Base**.  
-This process is necessary in order to obtain **Native Torus**, which is required to interact with the Torus Network directly.
+In this guide, we'll **bridge TORUS between Torus and Base**.  
+This process is necessary in order to obtain **Native TORUS**, which is required to interact with Torus directly.
 
-**Native Torus** is used for essential on-chain actions, such as:
+**Native TORUS** is used for essential on-chain actions, such as:
 
 - Registering an Agent
 - Becoming a Root Agent  
@@ -30,12 +30,12 @@ This process is necessary in order to obtain **Native Torus**, which is required
 - Creating a signal  
 - And more...
 
-For the sake of simplicity, we are going to refer to the **Native Torus** as **Torus**.
+For the sake of simplicity, we are going to refer to the **Native TORUS** as **TORUS**.
 
 #### What we will accomplish
 
-- Bridge Torus on Base to Torus EVM
-- Bridge from Torus EVM to Torus
+- Bridge TORUS on Base to Torus EVM
+- Bridge from Torus EVM to TORUS
 
 <Aside>
 ⏱️ **Estimated time to complete this guide: 20 minutes**
@@ -51,17 +51,17 @@ For the sake of simplicity, we are going to refer to the **Native Torus** as **T
     If you don't have one, you can follow the [setup guide here](https://docs.torus.network/how-to-guides/setup-a-wallet/).
   </Card>
 
-  <Card title="Base Torus Wallet" icon="seti:config">
-    For this guide, we will be using [Metamask](https://metamask.io/) as our wallet of choice.  
+  <Card title="Base TORUS Wallet" icon="seti:config">
+    For this guide, we will be using [MetaMask](https://metamask.io/) as our wallet of choice.  
     You must have enough funds to cover the bridge fees.  
-    {/* If you don't have Base Torus or funds to cover the fees, you can follow the steps in this video tutorial by Omni Labs. */}
+    {/* If you don't have Base TORUS or funds to cover the fees, you can follow the steps in this video tutorial by Omni Labs. */}
   </Card>
 </CardGrid>
 
 ---
 
 <Aside type="danger">
-  Avoid using SubWallet to have BASE Torus on it, as it will cause issues with the bridge that could result in loss of funds.
+  Avoid storing BASE TORUS in SubWallet, as it will cause issues with the bridge that could result in loss of funds.
 </Aside> 
 
 ## Steps for the Bridge Process
@@ -70,14 +70,14 @@ For the sake of simplicity, we are going to refer to the **Native Torus** as **T
 
 <Steps>
 
-1. **Connect both the Torus and Metamask wallets in the [Base Bridge Web App](https://bridge.torus.network/?tab=base&from=base&to=torus)**.   
+1. **Connect both the Torus and MetaMask wallets in the [Base Bridge Web App](https://bridge.torus.network/?tab=base&from=base&to=torus)**.   
    At the top right corner of the app, connect both your **Torus Wallet** and **MetaMask**.
-   <ClickableImage src={metamaskSubwalletConnect} alt="SubWallet and Metamask connect screen" />
+   <ClickableImage src={metamaskSubwalletConnect} alt="SubWallet and MetaMask connect screen" />
 
-2. **Swap from Base Torus to Torus EVM**  
-    - Make sure you are **connected** in **Both Wallets**
-    - Make sure you are in the **correct Tab**, **TORUS EVM - Base**
-    - Make sure it is **FROM** Base Torus **TO** Torus EVM
+2. **Swap from Base TORUS to Torus EVM**  
+    - Make sure you are **connected** to **both wallets**
+    - Make sure you are on the **correct tab**, **TORUS EVM - Base**
+    - Make sure it is **FROM** Base TORUS **TO** Torus EVM
    
    Fill in the form with the amount you want to convert and the Recipient Address, by clicking on the Self button, it will automatically fill the address for you with your connected base wallet.
    With all the information filled in, click **Continue**.
@@ -87,15 +87,15 @@ For the sake of simplicity, we are going to refer to the **Native Torus** as **T
 3. **Confirm the transaction**   
    After filling in the form, you will be prompted to confirm the transaction in Metamask.
    <Aside type="caution">
-      Always verify the transaction in Metamask before signing it, it is of your responsibility to verify the transaction details.  
-      You also must have enough funds in your Metamask wallet to cover the transaction fees.
+      Always verify the transaction in MetaMask before signing it, as it is your responsibility to verify the transaction details.  
+      You also must have enough funds in your MetaMask wallet to cover the transaction fees.
    </Aside>
-   <ClickableImage src={confirmTransactionInMetamask} alt="Confirm the transaction in Metamask" />
+   <ClickableImage src={confirmTransactionInMetamask} alt="Confirm the transaction in MetaMask" />
 
 4. **Confirmation of the swap**  
-   After the transaction succeeds, your Base Torus should now be displayed as Torus EVM as it was successfully swapped.  
-   This process can take a while to happen in the chain side,
-   so please, wait a few minutes and refresh the [Base Bridge Web App](https://bridge.torus.network/?tab=base&from=base&to=torus).   
+   After the transaction succeeds, your Base TORUS should now be displayed as Torus EVM as it was successfully swapped.  
+   This process can take a while to complete on the blockchain,
+   so please wait a few minutes and refresh the [Base Bridge Web App](https://bridge.torus.network/?tab=base&from=base&to=torus).   
    If you have any issues, reach out to our support on the [Official Torus Discord](https://discord.gg/torus).  
    <ClickableImage src={baseTorusSwappedSuccessfully} alt="Confirmation of the swap" />
 
@@ -107,9 +107,9 @@ For the sake of simplicity, we are going to refer to the **Native Torus** as **T
 ### Bridge Torus EVM to Torus
 
 <Steps>
-1. **Connect both the Torus and Metamask wallets in the [Base Bridge Web App](https://bridge.torus.network/?tab=base&from=base&to=torus)**.   
+1. **Connect both the Torus and MetaMask wallets in the [Base Bridge Web App](https://bridge.torus.network/?tab=base&from=base&to=torus)**.   
    At the top right corner of the app, connect both your **Torus Wallet** and **MetaMask**.
-   <ClickableImage src={metamaskConnectEvm} alt="SubWallet and Metamask connect screen" />
+   <ClickableImage src={metamaskConnectEvm} alt="SubWallet and MetaMask connect screen" />
 
 
 1. **Swap from Torus EVM to Torus**
@@ -118,32 +118,32 @@ For the sake of simplicity, we are going to refer to the **Native Torus** as **T
    - Make sure it is **FROM** Torus EVM **TO** Torus
 
    Fill in the form with the amount you want to convert, after confirmation, you will be prompted to sign the transaction in Torus.
-   <ClickableImage src={fillInFormToConvertTorusEvmNativeTorus} alt="Convert Torus EVM to Native Torus" />
+   <ClickableImage src={fillInFormToConvertTorusEvmNativeTorus} alt="Convert Torus EVM to Native TORUS" />
 
 2. **Confirm the transaction**  
    After filling in the form, you will be prompted to confirm the transaction in Metamask.
    <Aside type="caution">
-      Always verify the transaction in Metamask before signing it, it is of your responsibility to verify the transaction details.  
-      You also must have enough funds in your Metamask wallet to cover the transaction fees.
+      Always verify the transaction in MetaMask before signing it, as it is your responsibility to verify the transaction details.  
+      You also must have enough funds in your MetaMask wallet to cover the transaction fees.
    </Aside>
    
-   <ClickableImage src={confirmTransactionInMetamaskTorusEvmToTorus} alt="Confirm the transaction in Metamask" />
+   <ClickableImage src={confirmTransactionInMetamaskTorusEvmToTorus} alt="Confirm the transaction in MetaMask" />
 
 3. **Confirmation of the swap**  
-   After the transaction succeeds, your Torus EVM should now be displayed as Torus as it was successfully swapped.
-   This process can take a while to happen in the chain side,
-   so please, wait a few minutes and refresh the [Base Bridge Web App](https://bridge.torus.network/?tab=base&from=base&to=torus).   
+   After the transaction succeeds, your Torus EVM should now be displayed as TORUS as it was successfully swapped.
+   This process can take a while to complete on the blockchain,
+   so please wait a few minutes and refresh the [Base Bridge Web App](https://bridge.torus.network/?tab=base&from=base&to=torus).   
    <ClickableImage src={torusEvmConvertSuccessfully} alt="Confirmation of the swap" />
 
 4. **All Done**   
-   You’ve now successfully bridged Torus tokens between **Torus**, **Torus EVM**, and **Base**.  
+   You've now successfully bridged TORUS tokens between **Torus**, **Torus EVM**, and **Base**.  
    You can view your updated balances directly in the [Torus Web App](https://wallet.torus.network) or SubWallet.
 </Steps>
 
 
 ## Support and Resources
    By following these steps, you can successfully bridge your tokens between Torus, Torus EVM, and Base.
-   Holding native Torus is required to interact with the Torus Network, and currently, this is the only supported method for bridging.  
+   Holding native TORUS is required to interact with Torus, and currently, this is the only supported method for bridging.  
    If you need help or have questions, you can reach out through the official community channels:
 
    - [Torus Community Telegram](https://t.me/torusnetwork)
