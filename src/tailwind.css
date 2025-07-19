@@ -6,3 +6,24 @@
 Add additional Tailwind styles to this file, for example with @layer:
 https://tailwindcss.com/docs/adding-custom-styles#using-css-and-layer
 */
+
+/* Make child folders 20% smaller than parent folders */
+
+/* The Parent Folder */
+.large {
+  font-size: 1.1em !important; /* 10% bigger than default */
+  color: inherit !important;
+}
+
+/* Then target ONLY nested .large elements (child folders) - 20% bigger from current size */
+li li .large,
+ul ul .large {
+  font-size: 0.96em !important; /* 20% bigger from 0.8em (0.8 * 1.2 = 0.96) */
+  color: inherit !important; /* Remove test color */
+}
+
+/* Alternative approach - target elements that are deeper in the nesting */
+details details .large {
+  font-size: 0.96em !important; /* 20% bigger from 0.8em */
+  color: inherit !important; /* Remove test color */
+}
