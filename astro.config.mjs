@@ -38,6 +38,19 @@ export default defineConfig({
           items: [
             { label: "Start Here", slug: "explanations/start-here" },
             {
+              label: "v0.5",
+              items: [
+                { label: "Control Space", slug: "v05/control-space" },
+                { label: "Permission System", slug: "v05/permissions" },
+                {
+                  label: "Capability Permissions",
+                  slug: "v05/capability-permissions",
+                },
+                { label: "Emission Permissions", slug: "v05/emission-permissions" },
+                { label: "Governance & DAO", slug: "concepts/governance-dao" },
+              ],
+            },
+            {
               label: "Builders",
               collapsed: false,
               items: [
@@ -62,7 +75,7 @@ export default defineConfig({
           items: [
             { label: "Start Here", slug: "how-to-guides/start-here" },
             {
-              label: "Participants",
+              label: "Holders",
               collapsed: false,
               items: [
                 { label: "Setup a Wallet", slug: "how-to-guides/participants/setup-a-wallet" },
@@ -83,26 +96,12 @@ export default defineConfig({
               ],
             },
             {
-              label: "Leaders",
+              label: "Goal Leaders",
               collapsed: false,
               items: [
                 { label: "Become a Root Agent", slug: "how-to-guides/root-agents/become-a-root-agent" },
               ],
             },
-          ],
-        },
-        {
-          label: "v0.5",
-          items: [
-            //  { label: "Network Overview", slug: "concepts/network-overview" },
-            { label: "Control Space", slug: "v05/control-space" },
-            { label: "Permission System", slug: "v05/permissions" },
-            {
-              label: "Capability Permissions",
-              slug: "v05/capability-permissions",
-            },
-            { label: "Emission Permissions", slug: "v05/emission-permissions" },
-            { label: "Governance & DAO", slug: "concepts/governance-dao" },
           ],
         },
         {
@@ -112,15 +111,6 @@ export default defineConfig({
             { label: "Balance Operations", slug: "cli/balance-operations" },
           ],
         },
-        // {
-        //   label: "Web Apps",
-        //   items: [
-        //     { label: "Torus Portal", slug: "web-apps/torus-portal" },
-        //     { label: "Torus Allocator", slug: "web-apps/torus-allocator" },
-        //     { label: "Torus Wallet", slug: "web-apps/torus-wallet" },
-        //     { label: "Torus DAO", slug: "web-apps/torus-dao" },
-        //   ],
-        // },
         {
           label: "Development",
           items: [
