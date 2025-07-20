@@ -62,7 +62,7 @@ export default defineConfig({
               ],
             },
             {
-              label: "Leaders",
+              label: "Goal Leaders",
               collapsed: false,
               items: [
                 { label: "Root Agents", slug: "explanations/root-agents/root-agents" },
@@ -89,10 +89,10 @@ export default defineConfig({
               items: [
                 { label: "Setup CLI", slug: "how-to-guides/builders/setup-cli" },
                 { label: "Register an Agent", slug: "how-to-guides/builders/register-an-agent" },
-                { label: "Edit your Agent", slug: "how-to-guides/builders/edit-your-agent" },
-                { label: "Create a Signal", slug: "how-to-guides/builders/create-signal" },
                 { label: "Setup Agent Server", slug: "how-to-guides/builders/setup-agent-server" },
                 { label: "Setup Agent Client", slug: "how-to-guides/builders/setup-agent-client" },
+                { label: "Edit your Agent", slug: "how-to-guides/builders/edit-your-agent" },
+                { label: "Create a Signal", slug: "how-to-guides/builders/create-signal" },
               ],
             },
             {
