@@ -123,11 +123,11 @@ export default defineConfig({
               items: [
                 {
                   label: "Overview and Setup",
-                  slug: "development/web-apps-overview-and-setup",
+                  slug: "development/web/overview-and-setup",
                 },
                 {
                   label: "Querying Data",
-                  slug: "development/querying-data",
+                  slug: "development/web/querying-data",
                 },
               ],
             },
