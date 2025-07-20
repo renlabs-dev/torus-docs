@@ -26,7 +26,7 @@ export default defineConfig({
           label: "Getting Started",
           items: [
             { label: "Introduction", slug: "index" },
-            { label: "Tokenomics", slug: "concepts/tokenomics" },
+            { label: "Tokenomics", slug: "getting-started/tokenomics" },
             {
               label: "Concepts & Terminology",
               slug: "getting-started/concepts",
@@ -40,14 +40,14 @@ export default defineConfig({
             {
               label: "v0.5",
               items: [
-                { label: "Control Space", slug: "v05/control-space" },
-                { label: "Permission System", slug: "v05/permissions" },
+                { label: "Control Space", slug: "explanations/v05/control-space" },
+                { label: "Permission System", slug: "explanations/v05/permissions" },
                 {
                   label: "Capability Permissions",
-                  slug: "v05/capability-permissions",
+                  slug: "explanations/v05/capability-permissions",
                 },
-                { label: "Emission Permissions", slug: "v05/emission-permissions" },
-                { label: "Governance & DAO", slug: "concepts/governance-dao" },
+                { label: "Emission Permissions", slug: "explanations/v05/emission-permissions" },
+                { label: "Governance & DAO", slug: "explanations/v05/governance-dao" },
               ],
             },
             {
@@ -104,33 +104,48 @@ export default defineConfig({
             },
           ],
         },
-        {
-          label: "CLI & Tools",
-          items: [
-            { label: "Key Management", slug: "cli/key-management" },
-            { label: "Balance Operations", slug: "cli/balance-operations" },
-          ],
-        },
+        // {
+        //   label: "Web Apps",
+        //   items: [
+        //     { label: "Torus Portal", slug: "web-apps/torus-portal" },
+        //     { label: "Torus Allocator", slug: "web-apps/torus-allocator" },
+        //     { label: "Torus Wallet", slug: "web-apps/torus-wallet" },
+        //     { label: "Torus DAO", slug: "web-apps/torus-dao" },
+        //   ],
+        // },
         {
           label: "Development",
           items: [
+            { label: "Start Here", slug: "development/start-here" },
             {
-              label: "Web Apps Overview and Setup",
-              slug: "development/web-apps-overview-and-setup",
+              label: "Web Apps",
+              collapsed: false,
+              items: [
+                {
+                  label: "Overview and Setup",
+                  slug: "development/web-apps-overview-and-setup",
+                },
+                {
+                  label: "Querying Data",
+                  slug: "development/querying-data",
+                },
+              ],
             },
             {
-              label: "Querying Data",
-              slug: "development/querying-data",
+              label: "CLI Reference",
+              collapsed: false,
+              items: [
+                { label: "Key Management", slug: "development/cli/key-management" },
+                { label: "Balance Operations", slug: "development/cli/balance-operations" },
+              ],
             },
-          ],
-        },
-        {
-          label: "Network Operations",
-          items: [
-            { label: "Global Parameters", slug: "network/global-parameters" },
             {
-              label: "Running a Node",
-              slug: "network/running-node",
+              label: "Network Operations",
+              collapsed: false,
+              items: [
+                { label: "Global Parameters", slug: "development/network/global-parameters" },
+                { label: "Running a Node", slug: "development/network/running-node" },
+              ],
             },
           ],
         },

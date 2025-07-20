@@ -17,6 +17,14 @@ import {
 Agent registration in Torus creates discoverable entities that can receive, create, and delegate permissions within the network.
 Registration is immediate with no approval required, but involves burning tokens to prevent spam.
 
+<Aside type="caution">
+**Agent Names are Immutable**
+
+Once an agent is registered, its name becomes a permanent identifier that cannot be modified.
+This design ensures consistency in the permission system and prevents identity confusion in capability delegation.
+ Choose agent names thoughtfully.
+</Aside>
+
 ### Registration Economics
 
 Agent registration requires permanently burning tokens:
