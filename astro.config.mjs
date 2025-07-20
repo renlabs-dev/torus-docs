@@ -75,7 +75,7 @@ export default defineConfig({
           items: [
             { label: "Start Here", slug: "how-to-guides/start-here" },
             {
-              label: "Participants",
+              label: "Holders",
               collapsed: false,
               items: [
                 { label: "Setup a Wallet", slug: "how-to-guides/participants/setup-a-wallet" },
@@ -96,7 +96,7 @@ export default defineConfig({
               ],
             },
             {
-              label: "Leaders",
+              label: "Goal Leaders",
               collapsed: false,
               items: [
                 { label: "Become a Root Agent", slug: "how-to-guides/root-agents/become-a-root-agent" },
