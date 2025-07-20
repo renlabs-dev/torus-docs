@@ -1,0 +1,88 @@
+---
+title: Running the chain
+description: Subspace allows you to run a private chain for your organization or project. This guide will walk you through the process of setting up a private chain.
+---
+
+import { Aside, Steps } from "@astrojs/starlight/components";
+
+This guide explains how to set up and run a local Torus Substrate node, noting that its storage may differ slightly from the mainnet.
+
+<Aside title="Must Have">
+
+    - Git
+    - Rust and Cargo (latest stable version)
+
+</Aside>
+
+## Building from source
+
+### Dependencies
+
+The recommended way to install dependencies is [using Nix](https://github.com/renlabs-dev/torus-substrate/blob/main/docs/nix.md).
+
+If you don't want to use Nix, you should have the following dependencies:
+
+- [Rust](https://www.rust-lang.org/)
+- [protoc](https://github.com/protocolbuffers/protobuf)
+
+You can install Rust using [Rustup]:
+
+```sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+Then install `protoc`:
+
+```sh
+# on Ubuntu
+sudo apt install protobuf-compiler
+```
+
+{/*
+# on Arch
+sudo pacman -S protobuf
+# on macOS
+brew install protobuf
+*/}
+
+[Rustup]: https://rustup.rs/
+
+## Building and running the node
+
+```sh
+cargo build -p torus-node --release
+```
+
+To run a node connected to the Torus testnet:
+
+```sh
+cargo run --bin torus-node --release -- --chain data/testnet/spec.json
+```
+
+## Docker
+
+TODO
+
+## Development
+
+Check your code with:
+
+```sh
+cargo clippy
+```
+
+Run all tests with:
+
+```sh
+cargo test
+```
+
+Running a local dev node:
+
+```sh
+cargo xtask run local --alice
+```
+
+## Additional Information
+
+- You can customize your node's configuration by modifying the appropriate files in the project.

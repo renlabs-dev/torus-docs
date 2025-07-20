@@ -1,0 +1,46 @@
+---
+title: Balance Operations
+description: Learn how to perform balance operations in Torus.
+---
+
+## Transferring Balance
+
+You can transfer balance from one key to another:
+
+```bash
+torus balance transfer <key-name> <amount> <receiver-ss58address>
+```
+
+Or, if the receivers key is located on your disk:
+
+```bash
+torus balance transfer <key-name> <amount> <key-name>
+```
+
+## Staking Balance
+
+When staking a balance, you first have to choose an allocator.
+
+The staking command is defined as follows:
+
+```bash
+torus balance stake <key-name> <amount> <allocator-ss58address>
+```
+
+Similar to transferring if the allocator key is already located on your disk you can use:
+
+```bash
+torus balance stake <key-name> <amount> <allocator-name>
+```
+
+## Unstaking Balance
+
+When unstaking a balance, you need to specify the allocator and the amount you wish to unstake.
+
+The unstaking command is defined as follows:
+
+```bash
+torus balance unstake <key-name> <amount> <allocator-ss58address>
+```
+
+You can also specify the name of the key, if it's located on your disk. Same as in transferring or staking.
