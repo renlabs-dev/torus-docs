@@ -76,15 +76,21 @@ Registering an agent makes you discoverable in Torus and enables you to receive 
       Choose your agent name carefully as it serves as a persistent identifier that will remain with your agent forever. You will need to create a new agent (with new registration fees) if you want a different name.
    </Aside>
    
-   <Aside type="note">
-      Agent names can only contain lowercase letters, numbers, hyphens, and underscore.
-       - agent-name-     (Invalid agent Name). Reason: Hyphen at the end
-       - **A**gent-name  (Invalid agent Name). Reason: Uppercase letter
-       - Agent name      (Invalid agent Name). Reason: Space in the middle
-       - Agent.name      (Invalid agent Name). Reason: Dot as separator
-       ---
-       - agent_name      (Valid agent Name)
-       - agent-name      (Valid agent Name)
+      <Aside type="note">
+         Agent names can only contain **lowercase letters**, **numbers**, **hyphens**, and **underscores**.  
+         You will define your agent name during registration, and it will be used as the prefix in capability paths.
+
+         **Examples:**
+
+         - `agent_name` ✅  
+         - `agent-name` ✅  
+
+         ---
+
+         - `agent-name-` ❌ _(Invalid. **Hyphen** at the end)_  
+         - `Agent-name` ❌ _(Invalid. **Uppercase letter**)_  
+         - `Agent name` ❌ _(Invalid. **Space** in name)_  
+         - `Agent.name` ❌ _(Invalid. **Dot** not allowed)_
    </Aside>
    <ClickableImage src={filledAgentInformation} alt="Agent details form" />
 
