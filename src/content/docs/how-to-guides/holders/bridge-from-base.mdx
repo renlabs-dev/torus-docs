@@ -10,6 +10,7 @@ import {
   Card
 } from "@astrojs/starlight/components";
 import ClickableImage from '/src/components/ClickableImage.astro';
+import RedText from '/src/components/RedText.astro';
 import metamaskSubwalletConnect from '/public/images/how-to-guide/bridge-to-base/metamask-subwallet-connect.png';
 import fillInFormToConvert from '/public/images/how-to-guide/bridge-to-base/fill-in-form-to-convert.png';
 import confirmTransactionInMetamask from '/public/images/how-to-guide/bridge-to-base/confirm-transaction-in-metamask.png';
@@ -44,7 +45,7 @@ To keep things clear and concise, **Native TORUS** will be referred to as **TORU
 <CardGrid>
   <Card title="Torus Wallet" icon="seti:license">
     A Torus wallet connected.  
-    If you don't have one, you can follow the [setup guide here](https://docs.torus.network/how-to-guides/participants/setup-a-wallet/).
+    If you don't have one, you can follow the [setup guide here](https://docs.torus.network/how-to-guides/holders/setup-a-wallet/).
   </Card>
 
   <Card title="Base TORUS Wallet" icon="seti:config">
@@ -72,10 +73,10 @@ To keep things clear and concise, **Native TORUS** will be referred to as **TORU
 
 2. **Swap from Base TORUS to Torus EVM**  
     - Make sure you are **connected** to **both wallets**
-    - Make sure you are on the **correct tab**, **TORUS EVM - Base**
-    - Make sure it is **FROM** Base TORUS **TO** Torus EVM
+    - Make sure you are on the <RedText variant="light">**correct tab**</RedText>, <RedText variant="light">**TORUS EVM - Base**</RedText>
+    - Make sure it is <RedText variant="light">FROM</RedText> **Base TORUS** <RedText variant="light">TO</RedText> **Torus EVM**
    
-   Fill in the form with the amount you want to convert and the Recipient Address, by clicking on the Self button, it will automatically fill the address for you with your connected base wallet.
+   Fill in the form with the amount you want to convert and the Recipient Address, by clicking on the <RedText variant="light">Self button</RedText>, it will automatically fill the address for you with your connected base wallet.
    With all the information filled in, click **Continue**.
 
    <ClickableImage src={fillInFormToConvert} alt="Convert Base TORUS with Torus EVM" />
@@ -91,8 +92,7 @@ To keep things clear and concise, **Native TORUS** will be referred to as **TORU
 4. **Confirmation of the swap**  
    After the transaction succeeds, your Base TORUS should now be displayed as Torus EVM as it was successfully swapped.  
    This process can take a while to complete on the blockchain,
-   so please wait a few minutes and refresh the [Base Bridge Web App](https://bridge.torus.network/?tab=base&from=base&to=torus).   
-   If you have any issues, reach out to our support on the [Official Torus Discord](https://discord.gg/torus).  
+   so <RedText variant="light">please wait a few minutes and refresh the page.</RedText>   
    <ClickableImage src={baseTorusSwappedSuccessfully} alt="Confirmation of the swap" />
 
 
@@ -110,8 +110,8 @@ To keep things clear and concise, **Native TORUS** will be referred to as **TORU
 
 1. **Swap from Torus EVM to Torus**
    - Make sure you are **connected** in **Both Wallets**
-   - Make sure you are in the **correct Tab**, **TORUS EVM - Base**
-   - Make sure it is **FROM** Torus EVM **TO** Torus
+   - Make sure you are in the <RedText variant="light">**correct Tab**</RedText>, <RedText variant="light">**TORUS EVM - Base**</RedText>
+   - Make sure it is <RedText variant="light">FROM</RedText>**Torus EVM** <RedText variant="light">TO</RedText> **Torus**
 
    Fill in the form with the amount you want to convert, after confirmation, you will be prompted to sign the transaction in Torus.
    <ClickableImage src={fillInFormToConvertTorusEvmNativeTorus} alt="Convert Torus EVM to Native TORUS" />
@@ -128,7 +128,7 @@ To keep things clear and concise, **Native TORUS** will be referred to as **TORU
 3. **Confirmation of the swap**  
    After the transaction succeeds, your Torus EVM should now be displayed as TORUS as it was successfully swapped.
    This process can take a while to complete on the blockchain,
-   so please wait a few minutes and refresh the [Base Bridge Web App](https://bridge.torus.network/?tab=base&from=base&to=torus).   
+   so <RedText variant="light">please wait a few minutes and refresh the page.</RedText>   
    <ClickableImage src={torusEvmConvertSuccessfully} alt="Confirmation of the swap" />
 
 4. **All Done**   
@@ -141,7 +141,7 @@ To keep things clear and concise, **Native TORUS** will be referred to as **TORU
 
 Now that you have TORUS tokens, you can:
 
-- **Start earning rewards**: [Stake your TORUS](https://docs.torus.network/how-to-guides/participants/stake-your-torus/) to support agents and earn emissions
+- **Start earning rewards**: [Stake your TORUS](https://docs.torus.network/how-to-guides/holders/stake-your-torus/) to support agents and earn emissions
 - **Become an agent**: [Register an agent](https://docs.torus.network/how-to-guides/builders/register-an-agent/) to provide services and earn directly
 - **Explore the ecosystem**: Browse agents and allocators on the [Torus Portal](https://portal.torus.network/)
 - **Understand tokenomics**: Learn about [TORUS economics](https://docs.torus.network/getting-started/tokenomics/) and emission mechanisms

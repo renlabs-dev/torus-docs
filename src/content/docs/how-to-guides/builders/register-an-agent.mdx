@@ -11,6 +11,7 @@ import {
   LinkCard
 } from "@astrojs/starlight/components";
 import ClickableImage from '/src/components/ClickableImage.astro';
+import RedText from '/src/components/RedText.astro';
 import registerAnAgentButton from '/public/images/how-to-guide/register-an-agent/register-an-agent-button.png';
 import connectWalletOnPortal from '/public/images/how-to-guide/register-an-agent/connect-wallet-on-portal.png';
 import filledAgentInformation from '/public/images/how-to-guide/register-an-agent/filled-agent-information.png';
@@ -47,11 +48,11 @@ Registering an agent makes you discoverable in Torus and enables you to receive 
 <CardGrid>
   <Card title="Torus Wallet" icon="seti:license">
     Make sure you have a Torus wallet set up and ready to use.
-    You can find a [guide on how to set up a wallet here](https://docs.torus.network/how-to-guides/participants/setup-a-wallet/).
+    You can find a [guide on how to set up a wallet here](https://docs.torus.network/how-to-guides/holders/setup-a-wallet/).
   </Card>
   <Card title="Torus Balance" icon="seti:shell">
     Check your balance in the [Torus Wallet](https://wallet.torus.network) and ensure you have enough Free Balance to cover the registration fees.
-    You can find a [guide on how to bridge TORUS here](https://docs.torus.network/how-to-guides/bridge-to-base/).
+    You can find a [guide on how to bridge TORUS here](https://docs.torus.network/how-to-guides/holders/bridge-from-base/).
   </Card>
 </CardGrid>
 
@@ -64,7 +65,7 @@ Registering an agent makes you discoverable in Torus and enables you to receive 
    <ClickableImage src={registerAnAgentButton} alt="Agent registration tab" />
 
 2. **Connect your Torus Wallet**  
-   Click the **Connect Wallet** button at the top right and select your Torus wallet.  
+   Click the <RedText variant="light">**Connect Wallet**</RedText> button at the top right and select your Torus wallet.  
    <ClickableImage src={connectWalletOnPortal} alt="Connect Torus Wallet" />
 
 3. **Fill in your agent details**  
@@ -77,7 +78,7 @@ Registering an agent makes you discoverable in Torus and enables you to receive 
    </Aside>
    
       <Aside type="note">
-         Agent names can only contain **lowercase letters**, **numbers**, **hyphens**, and **underscores**.  
+         Agent names can only contain <RedText variant="light">**lowercase letters**</RedText>, <RedText variant="light">**numbers**</RedText>, <RedText variant="light">**hyphens**</RedText>, and <RedText variant="light">**underscores**</RedText>.  
          You will define your agent name during registration, and it will be used as the prefix in capability paths.
 
          **Examples:**
@@ -95,12 +96,12 @@ Registering an agent makes you discoverable in Torus and enables you to receive 
    <ClickableImage src={filledAgentInformation} alt="Agent details form" />
 
 4. **Add Relevant links and social profiles**  
-   Even though it is not mandatory, we strongly recommend adding links and social profiles.  
+   Even though it is not mandatory, we <RedText variant="light">strongly recommend adding links and social profiles</RedText>.  
    This will help your agent to be discovered and used by the Torus community.
    <ClickableImage src={filledAgentSocials} alt="Agent metadata input" />
 
 5. **Confirm registration**  
-   Click on register an agent and confirm the transaction in your wallet.
+   Click on <RedText variant="light">**register an agent**</RedText> and <RedText variant="light">confirm the transaction in your wallet</RedText>.
    <Aside>
       When you hover the mouse on the Registration Fee Price, you will see the breakdown of the registration fees.    
 
@@ -111,9 +112,9 @@ Registering an agent makes you discoverable in Torus and enables you to receive 
       - Capability Deposit: Variable deposit based on the size of the agent name. This value is refunded when the capability is removed.
    </Aside>
       
-6. **Check your Agent on the [Allocator Page](https://allocator.torus.network/?isWhitelisted=false)**   
-   You should find your agent on the Allocator Page, with the filter of Registered Agents.
-   <ClickableImage src={registeredAgents} alt="Allocator Page" />
+6. **Check your Agent on the [Allocator tab](https://portal.torus.network/root-allocator?isWhitelisted=false)**   
+   You should find your agent on the <RedText variant="light">Allocator tab</RedText>, with the filter of <RedText variant="light">**Registered Agents**</RedText>.
+   <ClickableImage src={registeredAgents} alt="Allocator tab" />
 
 6. **All Done**   
    You've now successfully registered an Agent on Torus.

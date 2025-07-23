@@ -11,6 +11,7 @@ import {
 } from "@astrojs/starlight/components";
 
 import ClickableImage from '/src/components/ClickableImage.astro';
+import RedText from '/src/components/RedText.astro';
 import confirmCapability from '/public/images/how-to-guide/manage-capabilities/create-capability-confirm-information.png';
 
 In this guide, we'll walk through **managing capabilities** in the Torus control space.  
@@ -37,7 +38,7 @@ By removing outdated or unused capabilities, you reduce the attack surface and k
 <CardGrid>
   <Card title="Registered Agent" icon="seti:license">
     You must have a registered agent on Torus.
-    Follow the [agent registration guide](register-an-agent) if needed.
+    Follow the [agent registration guide](https://docs.torus.network/how-to-guides/builders/register-an-agent/) if needed.
   </Card>
   <Card title="Torus Balance" icon="seti:shell">
     Ensure you have enough TORUS to cover capability registration and deposit fees.
@@ -62,7 +63,7 @@ By removing outdated or unused capabilities, you reduce the attack surface and k
    - The `capability-path` is the custom route you define (e.g. `tokens`, `profile_data`, etc.).
  
     <Aside type="note">
-      Capability paths can only contain **lowercase letters**, **numbers**, **hyphens**, and **underscores**.  
+      Capability paths can only contain <RedText variant="light">**lowercase letters**</RedText>, <RedText variant="light">**numbers**</RedText>, <RedText variant="light">**hyphens**</RedText>, and <RedText variant="light">**underscores**</RedText>.  
       You **do not** need to type the agent name or method — they are handled by the UI.
 
       **Examples:**
@@ -94,13 +95,13 @@ By removing outdated or unused capabilities, you reduce the attack surface and k
 
 5. **Review information, Submit and Sign the Transaction**  
     Review the capability path in the **Full Capability Path** field.   
-    If everything is correct, click **Create Capability**.   
-    Open the SubWallet extension and sign the transaction.   
+    If everything is correct, click <RedText variant="light">**Create Capability**</RedText>.   
+    Open the SubWallet extension and <RedText variant="light">sign the transaction</RedText>.   
     <ClickableImage src={confirmCapability} alt="Confirm Capability" />
 
 6. **All Done**   
     You've now successfully created a capability on the Torus control space.
-    Now you can delegatepermissions to it.
+    Now you can delegate permissions to it.
 </Steps>
 
 ### Delete a Capability path

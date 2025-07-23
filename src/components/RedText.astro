@@ -1,0 +1,18 @@
+---
+export interface Props {
+  variant?: 'attention' | 'light' | 'soft';
+  class?: string;
+}
+
+const { variant = 'light', class: className = '' } = Astro.props;
+
+const variantClasses = {
+  attention: 'text-red-attention',
+  light: 'text-red-light', 
+  soft: 'text-red-soft'
+};
+
+const redClass = variantClasses[variant];
+---
+
+<span class={`${redClass} ${className}`} style="display: inline;"><slot /></span>

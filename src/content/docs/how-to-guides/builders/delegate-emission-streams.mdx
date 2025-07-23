@@ -11,6 +11,7 @@ import {
   Tabs,
   TabItem
 } from "@astrojs/starlight/components";
+import RedText from '/src/components/RedText.astro';
 
 In this guide, we'll set up **emission permissions** to delegate portions of your token streams to other agents.  
 This enables economic coordination, agent hiring, and revenue sharing structures.
@@ -102,7 +103,7 @@ Emission permissions work with **stream identity preservation**:
    Verify all details before submitting.
 
 7. **Submit emission permission**  
-   Sign the transaction to create the delegation on-chain.
+   <RedText variant="light">Sign the transaction</RedText> to create the delegation on-chain.
 
 8. **Monitor delegation**  
    Track delegation status in the Portal dashboard.
@@ -117,15 +118,15 @@ Emission permissions work with **stream identity preservation**:
 ### Stream-Based Delegation
 
 **Select Streams**: Choose which emission streams to delegate
-- View all your active streams with their StreamIds
-- See current flow rates and sources
-- Select specific streams for delegation
+- View all your <RedText variant="light">active streams with their StreamIds</RedText>
+- See <RedText variant="light">current flow rates and sources</RedText>
+- Select <RedText variant="light">specific streams for delegation</RedText>
 
 **Set Percentages**: Define allocation per stream
 ```
-Stream A (Staking): 25% → Agent Bob
-Stream B (Fees): 50% → Agent Charlie
-Stream C (Root): 10% → Agent Dave
+Stream A (Staking): <RedText variant="light">25%</RedText> → Agent Bob
+Stream B (Fees): <RedText variant="light">50%</RedText> → Agent Charlie
+Stream C (Root): <RedText variant="light">10%</RedText> → Agent Dave
 ```
 
 **Safety Validation**: System ensures totals don't exceed 100% per stream
@@ -136,9 +137,9 @@ Stream C (Root): 10% → Agent Dave
 ### Fixed Amount Delegation
 
 **Amount**: Specify TORUS amount per period
-- Daily allocation: `100 TORUS/day`
-- Weekly allocation: `700 TORUS/week`
-- Monthly allocation: `3000 TORUS/month`
+- Daily allocation: <RedText variant="light">`100 TORUS/day`</RedText>
+- Weekly allocation: <RedText variant="light">`700 TORUS/week`</RedText>
+- Monthly allocation: <RedText variant="light">`3000 TORUS/month`</RedText>
 
 **Payment Schedule**: Define distribution frequency
 - Real-time (continuous)
@@ -147,9 +148,9 @@ Stream C (Root): 10% → Agent Dave
 - Monthly distributions
 
 **Source Priority**: Order which streams fund fixed payments
-1. Staking rewards (priority 1)
-2. Delegation fees (priority 2)
-3. Other streams (priority 3)
+1. <RedText variant="light">Staking rewards</RedText> (priority 1)
+2. <RedText variant="light">Delegation fees</RedText> (priority 2)
+3. <RedText variant="light">Other streams</RedText> (priority 3)
 
 </TabItem>
 </Tabs>

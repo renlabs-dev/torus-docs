@@ -78,9 +78,9 @@ export default defineConfig({
               label: "Holders",
               collapsed: false,
               items: [
-                { label: "Setup a Wallet", slug: "how-to-guides/participants/setup-a-wallet" },
-                { label: "Bridge from Base", slug: "how-to-guides/participants/bridge-from-base" },
-                { label: "Stake your Torus", slug: "how-to-guides/participants/stake-your-torus" },
+                { label: "Setup a Wallet", slug: "how-to-guides/holders/setup-a-wallet" },
+                { label: "Bridge from Base", slug: "how-to-guides/holders/bridge-from-base" },
+                { label: "Stake your Torus", slug: "how-to-guides/holders/stake-your-torus" },
               ],
             },
             {
