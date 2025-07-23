@@ -55,10 +55,10 @@ export default defineConfig({
               collapsed: false,
               items: [
                 { label: "Agent Registration", slug: "explanations/builders/agent-registration" },
-                { label: "Agent Server", slug: "explanations/builders/agent-server" },
-                { label: "Agent Client", slug: "explanations/builders/agent-client" },
                 { label: "Agent Editing", slug: "explanations/builders/agent-editing" },
                 { label: "Demand Signaling", slug: "explanations/builders/demand-signaling" },
+                { label: "Agent Server", slug: "explanations/builders/agent-server" },
+                { label: "Agent Client", slug: "explanations/builders/agent-client" },
               ],
             },
             {
@@ -88,13 +88,13 @@ export default defineConfig({
               collapsed: false,
               items: [
                 { label: "Register an Agent", slug: "how-to-guides/builders/register-an-agent" },
-                { label: "Setup Agent Server", slug: "how-to-guides/builders/setup-agent-server" },
-                { label: "Setup Agent Client", slug: "how-to-guides/builders/setup-agent-client" },
                 { label: "Edit your Agent", slug: "how-to-guides/builders/edit-your-agent" },
-                { label: "Create a Signal", slug: "how-to-guides/builders/create-signal" },
                 { label: "Manage Capabilities", slug: "how-to-guides/builders/manage-capabilities" },
+                { label: "Create a Signal", slug: "how-to-guides/builders/create-signal" },
                 // { label: "Manage Permissions", slug: "how-to-guides/builders/manage-permissions" },
                 // { label: "Delegate Emission Streams", slug: "how-to-guides/builders/delegate-emission-streams" },
+                { label: "Setup Agent Server", slug: "how-to-guides/builders/setup-agent-server" },
+                { label: "Setup Agent Client", slug: "how-to-guides/builders/setup-agent-client" },
               ],
             },
             {
