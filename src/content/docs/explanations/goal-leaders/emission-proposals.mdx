@@ -13,9 +13,9 @@ import {
   TabItem,
 } from "@astrojs/starlight/components";
 
-Emission proposals are a critical governance mechanism that allows TORUS stakeholders to adjust how network fees and emissions are distributed across different components of the ecosystem.
+Emission proposals can adapt the token emission rate and distribution across different coponents of the protocol.
 
-These proposals enable the community to fine-tune economic incentives, adapt to changing network conditions, and optimize the distribution of resources between recycling mechanisms, treasury operations, and various incentive programs.
+These proposals allow the community to adapt the macro-economics of the network based on the network's context and external conditions. They can shift both the rate of emissions, and how those emissions are distributed between agents, allocator dividends and the protocol treasury. 
 
 <Aside type="tip">
 **Emission proposals require community consensus** through the governance voting process, ensuring that changes to network economics reflect the collective will of TORUS stakeholders.
@@ -23,60 +23,28 @@ These proposals enable the community to fine-tune economic incentives, adapt to 
 
 ## How Emission Proposals Work
 
-Emission proposals allow TORUS stakeholders to configure three key percentage parameters that determine how network fees and emissions are allocated:
+Emission proposals allow TORUS stakeholders to configure 3 key percentage parameters:
 
 ### Core Parameters
 
 The three parameters control two separate distribution pools:
 
 **Burn Distribution (up to 100% total):**
-- **Recycling Percentage**: Portion of fees that get burned through recycling mechanisms
-- **Treasury Percentage**: Portion allocated to the network treasury for operations and development
+- **Recycling Percentage**: Portion of emissions that is recycled 
+- **Treasury Percentage**: Portion allocated to the protocol treasury
+
+The remaining % of emissions is distributed to the network. 
 
 *Note: Recycling Percentage + Treasury Percentage can be up to 100% total (e.g., 60% combined is valid)*
 
-**Reward Distribution (up to 100% total):**
-- **Incentives Ratio**: Portion dedicated to various incentive programs and rewards (independent allocation)
+**Incentive Distribution (up to 100% total):**
+- **Incentives Ratio**: The incentive distribution ratio between agents and stake allocator dividends
 
-This dual-pool system allows independent control over how much gets burned versus rewarded, with fine-grained control over burn distribution between recycling and treasury.
-
-<Aside type="note">
-The dual-pool system provides flexibility in economic tuning. You can independently adjust burn distribution (recycling vs. treasury) and reward allocation (incentives) to optimize network economics based on current conditions.
-</Aside>
-
-## Economic Impact
-
-Emission proposals directly affect:
-
-**Network Sustainability**
-- Treasury funding for development and operations
-- Long-term protocol maintenance and upgrades
-
-**Participant Incentives**
-- Rewards for agents, root agents, and other network participants
-- Economic motivations for different types of network activity
-
-**Token Economics**
-- Supply dynamics through recycling mechanisms
-- Distribution patterns across the ecosystem
-
-## Proposal Lifecycle
-
-### 1. Proposal Creation
-Community members can submit emission proposals through the DAO interface, specifying the desired percentage allocations for each parameter.
-
-### 2. Community Discussion
-Proposals undergo community review and discussion period where stakeholders can analyze the economic implications and provide feedback.
-
-### 3. Voting Period
-Any stakeholder with TORUS staked to root agents can vote on the proposal. Voters must become "power voters" by clicking "become a power user" on the proposal screen. Your staked amount becomes your vote weight - if you have 1,000 TORUS staked, your vote weight is 1,000; if you have 10,000 TORUS staked, your vote weight is 10,000.
+### Proposal conditions
 
 For a proposal to pass, it must meet two requirements:
 - **Majority Support**: More than 50% of votes must be positive
-- **Participation Threshold**: Total votes must exceed 10% of all TORUS staked in the network
-
-### 4. Implementation
-Approved proposals are automatically implemented on-chain, updating the network's emission distribution parameters.
+- **Participation Threshold**: Total votes must exceed 10% of all TORUS staked in the network + it must be at least 2 days old 
 
 
 ## Related Concepts
