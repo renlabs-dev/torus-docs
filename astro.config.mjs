@@ -63,7 +63,8 @@ export default defineConfig({
               label: "Goal Leaders",
               collapsed: false,
               items: [
-                { label: "Root Agents", slug: "explanations/root-agents/root-agents" },
+                { label: "Root Agents", slug: "explanations/goal-leaders/root-agents" },
+                { label: "Emission Proposals", slug: "explanations/goal-leaders/emission-proposals" },
               ],
             },
           ],
@@ -99,7 +100,8 @@ export default defineConfig({
               label: "Goal Leaders",
               collapsed: false,
               items: [
-                { label: "Become a Root Agent", slug: "how-to-guides/root-agents/become-a-root-agent" },
+                { label: "Become a Root Agent", slug: "how-to-guides/goal-leaders/become-a-root-agent" },
+                { label: "Create Emission Proposal", slug: "how-to-guides/goal-leaders/create-emission-proposal" },
               ],
             },
           ],

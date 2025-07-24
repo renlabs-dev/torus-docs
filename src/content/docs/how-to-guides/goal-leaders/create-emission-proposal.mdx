@@ -1,0 +1,105 @@
+---
+title: Create an Emission Proposal
+description: Step-by-step guide to creating and submitting emission proposals through the Torus DAO.
+---
+
+import {
+  Steps,
+  Aside,
+  CardGrid,
+  Card,
+  LinkCard
+} from "@astrojs/starlight/components";
+import ClickableImage from '/src/components/ClickableImage.astro';
+import RedText from '/src/components/RedText.astro';
+
+In this guide, we’ll walk through **submitting an emission proposal** via the Torus DAO.
+
+## Prerequisites
+
+<CardGrid>
+  <Card title="TORUS Balance" icon="seti:license">
+    You need at least 10 000 TORUS in your wallet to create proposals.  
+    See [how to get TORUS](https://docs.torus.network/how-to-guides/holders/bridge-from-base/).
+  </Card>
+  <Card title="Economic Rationale" icon="seti:shell">
+    Understand how your changes will affect network economics and incentives.  
+    Review the [emission proposals explanation](https://docs.torus.network/explanations/goal-leaders/emission-proposals/).
+  </Card>
+</CardGrid>
+
+
+## Create an Emission Proposal
+
+<Steps>
+
+1. **Visit the [Torus DAO Proposals tab](https://dao.torus.network/proposals)**  
+   Navigate to the DAO proposals page where you can view existing proposals and create new ones.
+
+2. **Connect your Wallet**  
+   Click the <RedText variant="light">**Connect Wallet**</RedText> button and ensure you're connected with a wallet that has at least 10,000 TORUS.
+
+3. **Click on Shape the Network**  
+   Look for the <RedText variant="light">"Shape the Network" button</RedText>, it is at the top right corner of the dashboard.
+
+4. **Select "Create Emission Proposal" Type**  
+   In the modal, choose <RedText variant="light">**"Create emission proposal"**</RedText> from the available options.  
+   This is similar to the whitelisting process but focuses on network economics.
+
+5. **Configure Emission Parameters**  
+   Set the three key percentage parameters across two distribution pools:
+   
+   **Burn Distribution (up to 100% total):**
+   - **Recycling Percentage**: <RedText variant="light">Portion of fees burned through recycling</RedText>
+   - **Treasury Percentage**: <RedText variant="light">Portion allocated to network treasury</RedText>
+   
+   **Reward Distribution (up to 100% total):**
+   - **Incentives Ratio**: <RedText variant="light">Portion for incentive programs and rewards</RedText>
+   
+   <Aside type="caution">
+      **Parameter Requirements**
+      
+      - Recycling + Treasury percentages can be up to 100% total (e.g., 30% + 40% = 70% is valid)
+      - Incentives Ratio is a separate allocation up to 100% for rewards
+      - This dual-pool system controls burn vs. reward distribution independently
+   </Aside>
+
+6. **Add Proposal Details**  
+   Provide comprehensive information about your proposal:
+   
+   - **Title**: Clear, descriptive name for the proposal
+   - **Description**: Detailed explanation of the economic rationale, why these specific percentages benefit the network...
+   
+7. **Review and Submit**  
+   Double-check all parameters and details before submission. Click <RedText variant="light">**"Submit Proposal"**</RedText> and <RedText variant="light">confirm the transaction in your wallet</RedText>.
+
+8. **Share with the community**  
+   After submitting, post your proposal in Discord, Telegram, or other channels to spark discussion and encourage voting.  
+   <Aside type="note">
+     A proposal isn’t final until voting ends and it’s executed on‑chain (or rejected).  
+     Each proposal remains open for 7 days; if it doesn’t meet the approval criteria within that window, it closes automatically.  
+     To try again, you must repeat the process (including the 10,000 TORUS fee).
+   </Aside>
+
+9. **All done when either**    
+   - The 7‑day voting window ends.  
+   - ≥ 50 % support & > 10 % participation: proposal executes on‑chain.  
+   - ≤ 50 % support & > 10 % participation: proposal get denied.   
+
+   Therefore, make sure to follow the voting process closely.
+
+
+
+
+</Steps>
+
+## What's Next?
+
+After submitting your emission proposal:
+- **Community Discussion**: Engage with feedback and questions from other community members
+
+Connect with the community during the process:
+
+- **[Discord](https://discord.gg/torus)** — Discuss proposal details and economic implications
+- **[Telegram](https://t.me/torusnetwork)** — Share updates and gather community sentiment  
+- **[Twitter](https://x.com/torus_network)** — Announce your proposal to the broader ecosystem
