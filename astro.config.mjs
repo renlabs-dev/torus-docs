@@ -27,6 +27,7 @@ export default defineConfig({
           items: [
             { label: "Welcome", slug: "index" },
             { label: "Tokenomics", slug: "getting-started/tokenomics" },
+            { label: "Concepts & Terminology", slug: "getting-started/concepts-terminology" },
             { label: "Understanding Torus", slug: "getting-started/concepts" },
           ],
         },
