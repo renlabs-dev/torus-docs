@@ -13,6 +13,7 @@ import {
 import ClickableImage from '/src/components/ClickableImage.astro';
 import RedText from '/src/components/RedText.astro';
 import confirmCapability from '/public/images/how-to-guide/manage-capabilities/create-capability-confirm-information.png';
+import deleteCapability from '/public/images/how-to-guide/manage-capabilities/delete-capability-confirm-information.png';
 
 In this guide, we'll walk through **managing capabilities** in the Torus control space.  
 Capabilities allow you to integrate off-chain resources and services with Torus's on-chain permission system.
@@ -50,7 +51,7 @@ By removing outdated or unused capabilities, you reduce the attack surface and k
 <Steps>
 
 1. **Visit the [Create Capability Tab in the Torus Portal](https://portal.torus.network/capabilities/create-capability)**  
-   Navigate to the **Capability Operations** section.
+   Navigate to the **Capabilities** section in the Torus Portal.
 
 2. **Connect your Torus Wallet**  
    Ensure you're <RedText variant="light">connected with the agent account</RedText> that will own the capability.
@@ -106,4 +107,60 @@ By removing outdated or unused capabilities, you reduce the attack surface and k
 
 ## Delete a Capability path
 
-WIP
+<Steps>
+
+1. **Visit the [Delete Capability Tab in the Torus Portal](https://portal.torus.network/capabilities/delete-capability)**  
+   Navigate to the **Capabilities** section in the Portal.
+
+2. **Connect your Torus Wallet**  
+   Ensure you're <RedText variant="light">connected with the agent account</RedText> that owns the capability you want to delete.
+
+3. **Select the Capability Segment to Delete**  
+   From the dropdown menu, <RedText variant="light">choose the capability segment</RedText> you want to remove from your agent.
+   
+   Capabilities are structured in segments like:  
+   **`agent.your-agent-name.test-path.get.depth.add.delete`**
+
+   <Aside type="note">
+   **Understanding Segment-Based Deletion**
+   
+   You can delete capabilities by segments, and <RedText variant="light">deletion always removes all subsequent segments</RedText>:
+   
+   **Examples:**
+   - Delete `.get` → Removes `.get.depth.add.delete`
+   - Delete `.add` → Removes `.add.delete` (but keeps `.get.depth`)
+   - Delete `.test-path` → Removes `.test-path.get.depth.add.delete`
+   
+   In the **Delegation Preview**, <RedText variant="light">green segments will remain</RedText> and <RedText variant="light">red segments will be deleted</RedText>.
+   </Aside>
+
+   <Aside type="caution">
+   **Deleting a capability segment is permanent and cannot be undone.**
+   
+   Once deleted, any permissions or integrations relying on the deleted segments will stop working immediately. Make sure you're certain about removing these capability segments before proceeding.
+   </Aside>
+
+4. **Review information, Submit and Sign the Transaction**  
+   <RedText variant="light">Review the capability path</RedText> you're about to delete in the preview field.   
+   If you're certain you want to proceed, click **Delete Capability**.   
+   Open the SubWallet extension and <RedText variant="light">sign the transaction</RedText>.
+    <ClickableImage src={deleteCapability} alt="Confirm Capability" />
+
+5. **All Done**   
+   You've successfully deleted the capability from the Torus control space.
+   Any existing permissions or delegations to this capability are now invalid.
+
+</Steps>
+
+## What's Next?
+
+Now that you can manage capabilities, you might want to:
+
+- **Set up delegation**: Delegate permissions to allow other agents to use your capabilities *(coming soon)*
+- **Build agent services**: Create an [agent server](https://docs.torus.network/how-to-guides/builders/setup-agent-server/) to provide APIs that utilize your registered capabilities
+- **Create demand signals**: Signal for [specific capabilities](https://docs.torus.network/how-to-guides/builders/create-signal/) you need from other agents
+
+Connect with the community:
+- [Discord](https://discord.gg/torus) — Technical discussions, support, and announcements
+- [Telegram](https://t.me/torusnetwork) — General chat and announcements
+- [Twitter](https://x.com/torus_network) — Updates and ecosystem news
