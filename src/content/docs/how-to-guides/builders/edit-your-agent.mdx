@@ -12,13 +12,14 @@ import {
 
 
 import ClickableImage from '/src/components/ClickableImage.astro';
+import RedText from '/src/components/RedText.astro';
 import registeredAgents from '/public/images/how-to-guide/register-an-agent/registered-agent-on-allocator-page.png';
 import editAgent from '/public/images/how-to-guide/edit-your-agent/allocator-card-edit-agent.png';
 import toastExample from '/public/images/how-to-guide/edit-your-agent/allocator-success-toast.png';
 
 
 In this guide, we'll walk through the process of **editing your Agent information** with the Torus Allocator.
-Both the **Registered Agent** and **Root Agent** can edit their information. Just make sure to use the proper filter on the Allocator Page.  
+Both the **Registered Agent** and **Root Agent** can edit their information. <RedText variant="light">Just make sure to use the proper filter on the Allocator tab</RedText>.  
 In this guide we will be editing the information of a **Registered Agent**.
 
 #### Why edit your agent?
@@ -41,11 +42,11 @@ and ensures your agent represents your current capabilities and offerings.
 <CardGrid>
   <Card title="Torus Wallet" icon="seti:license">
     Make sure you have a Torus wallet set up and ready to use.
-    You can find a [guide on how to set up a wallet here](https://docs.torus.network/how-to-guides/participants/setup-a-wallet/).
+    You can find a [guide on how to set up a wallet here](https://docs.torus.network/how-to-guides/holders/setup-a-wallet/).
   </Card>
   <Card title="Torus Balance" icon="seti:shell">
-    Check your balance in the [Torus Wallet](https://wallet.torus.network) and ensure you have enough Free Balance to cover the registration fees.
-    You can find a [guide on how to bridge TORUS here](https://docs.torus.network/how-to-guides/bridge-to-base/).
+    Check your balance in the [Torus Wallet](https://wallet.torus.network) and ensure you have enough **Free Balance** to cover the registration fees.
+    You can find a [guide on how to bridge TORUS here](https://docs.torus.network/how-to-guides/holders/bridge-from-base/).
   </Card>
   <Card title="Registered or Root Agent" icon="seti:license">
     You must have a Registered or Root Agent to edit your information.
@@ -56,13 +57,13 @@ and ensures your agent represents your current capabilities and offerings.
   ## Edit your Agent Information
 
 <Steps>
-1. **Find your Agent in the [Allocator App](https://allocator.torus.network/)**   
+1. **Find your Agent in the [Allocator Tab](https://portal.torus.network/root-allocator)**   
     You can either search for your Agent by name or by the address.  
 
-   <ClickableImage src={registeredAgents} alt="Allocator Page" />
+   <ClickableImage src={registeredAgents} alt="Allocator tab" />
 
 2. **Click on the card of your Agent**    
-    The edit is in the Detailed View of the Agent.
+    The edit is in the **Detailed View** of the Agent.
    <ClickableImage src={editAgent} alt="Edit Agent" />
 
 3. **Edit the information and Submit**  
@@ -81,12 +82,12 @@ and ensures your agent represents your current capabilities and offerings.
         - Telegram
     ```
 4. **Sign the Transaction in the SubWallet and Wait for the Confirmation**   
-  You will be prompted by SubWallet to sign the on-chain transaction.
-  Once confirmed, a toast notification will appear to indicate that your allocation was successful.
+  You will be prompted by <RedText variant="light">SubWallet to sign the on-chain transaction</RedText>.
+  Once confirmed, a notification will appear to indicate that your allocation was successful.
     <ClickableImage src={toastExample} alt="Allocator Success Toast" />
 
 5. **All Done**  
-  You can now see your updated information in the Allocator App.
+  You can now see your updated information in the [Allocator Tab](https://portal.torus.network/root-allocator).
 
   
 </Steps>
@@ -95,7 +96,7 @@ and ensures your agent represents your current capabilities and offerings.
 
 After updating your agent information:
 
-- **Monitor your presence**: Check how your agent appears on the [Allocator page](https://allocator.torus.network/)
+- **Monitor your presence**: Check how your agent appears on the [Allocator tab](https://portal.torus.network/root-allocator)
 - **Stay up to date**: Keep your information updated to match the latest changes
 - **Build capabilities**: Set up an [agent server](https://docs.torus.network/how-to-guides/builders/setup-agent-server/) to provide services
 

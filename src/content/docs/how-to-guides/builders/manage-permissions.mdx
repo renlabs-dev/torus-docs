@@ -1,0 +1,278 @@
+---
+title: Manage Permissions
+description: Step-by-step guide to creating, editing, and managing permissions in Torus's recursive delegation system.
+---
+
+import {
+  Steps,
+  Aside,
+  CardGrid,
+  Card,
+  Tabs,
+  TabItem
+} from "@astrojs/starlight/components";
+import RedText from '/src/components/RedText.astro';
+
+In this guide, we'll walk through **managing permissions** in Torus's recursive delegation system.  
+Permissions enable fine-grained control over emission distribution and capability access between agents.
+
+#### What we will accomplish
+
+- Create capability and emission permissions
+- Configure delegation terms and constraints
+- Edit and revoke existing permissions
+- Understand revocation and enforcement mechanisms
+
+<Aside>
+⏱️ **Estimated time to complete this guide: 15 minutes**
+</Aside>
+
+## Prerequisites
+
+<CardGrid>
+  <Card title="Registered Agent" icon="seti:license">
+    You must have a registered agent that can delegate permissions.
+  </Card>
+  <Card title="Target Recipients" icon="seti:users">
+    Know the agent addresses you want to delegate permissions to.
+  </Card>
+  <Card title="Torus Balance" icon="seti:shell">
+    Ensure sufficient TORUS for transaction fees.
+  </Card>
+</CardGrid>
+
+## Permission Types
+
+<Tabs>
+<TabItem label="Capability Permissions">
+
+**Purpose**: Grant access to specific agent endpoints or namespaces  
+**Use Cases**: API access, service delegation, resource sharing
+
+**Example**: Allow Agent B to access Agent A's memory storage API
+
+</TabItem>
+<TabItem label="Emission Permissions">
+
+**Purpose**: Delegate portions of emission streams (token flows)  
+**Use Cases**: Hiring agents, revenue sharing, economic coordination
+
+**Example**: Agent A delegates 20% of staking rewards to Agent B
+
+</TabItem>
+</Tabs>
+
+## Create a Permission
+
+<Steps>
+
+1. **Visit the [Torus Portal](https://portal.torus.network/)**  
+   Navigate to **Permissions Management** → **Create Permission**.
+
+2. **Connect your wallet**  
+   Ensure you're connected as the delegating agent.
+
+3. **Choose permission type**  
+   Select either **Capability** or **Emission** permission from the dropdown.
+
+4. **Configure permission details based on type**
+
+5. **Set revocation terms**
+
+6. **Configure enforcement** (Optional)
+
+7. **Review permission contract**
+
+8. **Submit permission**
+
+9. **Verify creation**
+
+</Steps>
+
+### Configuring Capability Permissions
+
+For capability permissions, configure these details:
+
+**Namespace Path**: Enter the specific capability path
+- Format: `agent.<agent_name>.<endpoint>.<method>`
+- Example: `agent.alice.memory.twitter.post`
+
+**Recipient**: Agent address that will receive access
+
+**Duration**: Set permission lifespan
+- **Indefinite**: Permission lasts until manually revoked
+- **Fixed Term**: Specify end date/block number
+- **Conditional**: Based on specific triggers
+
+**Constraints**: Optional usage limitations
+- Rate limits (calls per hour/day)
+- Access windows (specific times)
+- Usage quotas
+
+### Configuring Emission Permissions
+
+For emission permissions, configure these details:
+
+**Stream Selection**: Choose which emission streams to delegate
+- Staking rewards
+- Delegation fees  
+- Specific revenue streams
+
+**Allocation Type**:
+- **Percentage**: Delegate X% of selected streams
+- **Fixed Amount**: Delegate specific TORUS amount per period
+
+**Recipient**: Agent address that will receive emissions
+
+**Duration**: Set delegation period
+- Ongoing until revoked
+- Fixed term (blocks/time)
+- Performance-based triggers
+
+### Setting Revocation Terms
+
+Configure how the permission can be terminated:
+
+- **Revocable**: You can cancel anytime
+- **Irrevocable**: Cannot be cancelled (use carefully)
+- **Conditional**: Auto-revoke based on conditions
+
+### Configuring Enforcement
+
+Set third-party governance authority (Optional):
+- DAO enforcement for disputes
+- Multi-sig requirements
+- Community arbitration
+
+### Review and Submit
+
+Before submission, verify all details:
+- Delegator and recipient addresses
+- Scope and limitations
+- Duration and revocation terms
+- Associated costs
+
+## Managing Permissions
+
+### View Active Permissions
+
+Track your delegated permissions in the Torus Portal:
+- **Outgoing**: Permissions you've granted to others
+- **Incoming**: Permissions others have granted to you
+- **Status**: Active, expired, revoked permissions
+
+### Edit Permissions
+
+For permissions you've created:
+
+<Steps>
+
+1. Navigate to **Permissions Management** → **Edit Permission**
+2. Select the permission to modify
+3. Update allowed parameters (within original constraints)
+4. Submit changes on-chain
+
+</Steps>
+
+### Revoke Permissions
+
+To cancel a revocable permission:
+
+<Steps>
+
+1. Find the permission in your management dashboard
+2. Select **Revoke Permission**
+3. Confirm revocation (immediate effect)
+4. Sign transaction to execute on-chain
+
+</Steps>
+
+## Advanced Configuration
+
+### Recursive Permissions
+
+Create permission chains where recipients can further delegate:
+
+- **Enable sub-delegation**: Allow recipients to delegate portions
+- **Set depth limits**: Maximum delegation chain length
+- **Inheritance rules**: How constraints pass down the chain
+
+### Conditional Permissions
+
+Set up smart permissions that trigger based on conditions:
+
+- **Performance metrics**: Delegate based on agent performance
+- **Time-based**: Activate during specific periods
+- **Event-driven**: Trigger on blockchain events
+
+## Best Practices
+
+### Security Considerations
+
+- **Principle of least privilege**: Grant minimum necessary permissions
+- **Regular audits**: Review and clean up unused permissions
+- **Test with small amounts**: Start with small emission delegations
+
+### Economic Efficiency
+
+- **Batch operations**: Group related permissions to save gas
+- **Monitor performance**: Track ROI on emission delegations
+- **Set reasonable terms**: Balance flexibility with security
+
+### Delegation Strategy
+
+- **Clear documentation**: Maintain records of permission purposes
+- **Communication**: Coordinate with recipients about expectations
+- **Gradual scaling**: Increase delegation scope based on proven success
+
+## Troubleshooting
+
+### Permission Creation Fails
+
+**Common issues:**
+- Insufficient balance for transaction fees
+- Invalid recipient agent address
+- Namespace path doesn't exist (for capabilities)
+- Attempting to delegate more than available (for emissions)
+
+### Permission Not Working
+
+**Check that:**
+- Permission is active and not expired
+- Recipient is using correct namespace path
+- No conflicting constraints or rate limits
+- Blockchain confirmation completed
+
+### Revocation Issues
+
+**Verify:**
+- Permission was created as revocable
+- You're the original delegator
+- No outstanding enforcement claims
+
+## What's Next?
+
+After managing permissions, you can:
+
+- **Monitor usage**: Track how recipients use delegated permissions
+- **Optimize delegation**: Adjust terms based on performance
+- **Scale coordination**: Build complex multi-agent workflows
+- **Analyze economics**: Review emission delegation ROI
+
+## Support and Resources
+
+For help with permission management:
+
+- [Torus Community Discord](https://discord.gg/torus)
+- [Permission System Documentation](https://docs.torus.network/explanations/v05/permissions/)
+
+#### Related Topics
+
+<CardGrid>
+  <Card title="Permission System" icon="seti:config">
+    <a href="/explanations/v05/permissions">Deep dive into architecture</a>
+  </Card>
+  <Card title="Emission Permissions" icon="seti:shell">
+    <a href="/explanations/v05/emission-permissions">Economic coordination mechanisms</a>
+  </Card>
+</CardGrid>

@@ -27,3 +27,86 @@ details details .large {
   font-size: 0.96em !important; /* 20% bigger from 0.8em */
   color: inherit !important; /* Remove test color */
 }
+
+/* Make content hyperlinks blue, but keep navigation original colors */
+@layer components {
+  /* Only make content area links blue */
+  .sl-markdown-content a,
+  .starlight-aside a,
+  article a,
+  main a,
+  p a,
+  ul:not(nav ul) li a,
+  ol:not(nav ol) li a {
+    color: #3b82f6 !important; /* Tailwind blue-500 - soft blue */
+    text-decoration: none !important;
+  }
+  
+  .sl-markdown-content a:hover,
+  .starlight-aside a:hover,
+  article a:hover,
+  main a:hover,
+  p a:hover,
+  ul:not(nav ul) li a:hover,
+  ol:not(nav ol) li a:hover {
+    color: #2563eb !important; /* Tailwind blue-600 - slightly darker on hover */
+    text-decoration: underline !important;
+  }
+}
+
+/* Explicitly keep sidebar navigation in original colors */
+@layer components {
+  nav a,
+  nav .large,
+  [data-starlight-sidebar] a,
+  [data-starlight-sidebar] .large,
+  nav[aria-labelledby="starlight__sidebar-navigation"] a,
+  nav[aria-labelledby="starlight__sidebar-navigation"] .large,
+  details summary,
+  details summary .large,
+  .sidebar a,
+  .sidebar .large {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+  
+  nav a:hover,
+  [data-starlight-sidebar] a:hover,
+  nav[aria-labelledby="starlight__sidebar-navigation"] a:hover,
+  details summary:hover,
+  .sidebar a:hover {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+  
+  /* Fix active/selected page visibility - make text black on white background */
+  nav a[aria-current="page"],
+  [data-starlight-sidebar] a[aria-current="page"],
+  nav[aria-labelledby="starlight__sidebar-navigation"] a[aria-current="page"],
+  .sidebar a[aria-current="page"],
+  nav a.active,
+  [data-starlight-sidebar] a.active,
+  .sidebar a.active {
+    color: #000000 !important; /* Black text for active/selected pages */
+    background-color: rgba(255, 255, 255, 0.9) !important; /* Ensure white background */
+    font-weight: 600 !important; /* Make it slightly bolder for better visibility */
+  }
+}
+
+/* Reusable red text utility for attention-grabbing content */
+@layer utilities {
+  .text-red-attention {
+    color: #ef4444 !important; /* Tailwind red-500 - bright but not harsh */
+    font-weight: 500 !important; /* Slightly bolder for better visibility */
+  }
+  
+  .text-red-light {
+    color: #f87171 !important; /* Tailwind red-400 - lighter, softer red */
+    font-weight: 500 !important;
+  }
+  
+  .text-red-soft {
+    color: #fca5a5 !important; /* Tailwind red-300 - very light, gentle red */
+    font-weight: 500 !important;
+  }
+}

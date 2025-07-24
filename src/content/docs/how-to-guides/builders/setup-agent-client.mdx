@@ -9,6 +9,7 @@ import {
   CardGrid,
   Card
 } from "@astrojs/starlight/components";
+import RedText from '/src/components/RedText.astro';
 
 In this guide, we'll **setup an agent client** to interact with agent APIs with automatic authentication.
 
@@ -42,49 +43,115 @@ Agent clients allow you to easily communicate with other agents' APIs, enabling 
 
 <Steps>
 
-1. **Install the Torus SDK**
+1. **Install the required dependencies**
 
    ```sh
-   npm install @torus-network/sdk
+   npm install @torus-network/sdk dotenv
+   npm install -D @types/node
    ```
 
-2. **Create a keypair**
+2. **Create environment configuration**
 
-   ```ts
-   import { AgentClient, Keypair } from "@torus-network/sdk";
+   Create a `.env` file in your project root:
 
-   const keypair = new Keypair(
-     "your twelve word mnemonic phrase goes here exactly like this"
-   );
+   ```env
+   AGENT_MNEMONIC=your twelve word mnemonic phrase goes here exactly like this
+   TARGET_AGENT_URL=http://localhost:3000
+   NODE_ENV=development
    ```
 
-3. **Create the client**
+3. **Create the client with proper error handling**
 
    ```ts
-   const client = new AgentClient({
-     keypair,
-     baseUrl: "http://localhost:3000", // Target agent server URL
-   });
-   ```
+   import { AgentClient, Keypair } from "@torus-network/sdk/agent-client";
+   import dotenv from "dotenv";
 
-4. **Make API calls**
+   // Load environment variables
+   dotenv.config();
 
-   ```ts
-   const response = await client.call({
-     endpoint: "hello",
-     data: { name: "Alice" },
-   });
+   async function createClient() {
+     try {
+       if (!process.env.AGENT_MNEMONIC) {
+         throw new Error("AGENT_MNEMONIC environment variable is required");
+       }
 
-   if (response.success) {
-     console.log("Response:", response.data);
-   } else {
-     console.error("Error:", response.error);
+       const keypair = new Keypair(process.env.AGENT_MNEMONIC);
+       
+       const client = new AgentClient({
+         keypair,
+         baseUrl: process.env.TARGET_AGENT_URL || "http://localhost:3000",
+       });
+
+       console.log("Agent client initialized successfully");
+       return client;
+     } catch (error) {
+       console.error("Failed to create agent client:", error);
+       throw error;
+     }
    }
    ```
 
-5. **All Done**
+4. **Make API calls with comprehensive error handling**
 
-   Your agent client is now ready to communicate with other agents' APIs.
+   ```ts
+   async function callAgent(client: AgentClient, endpoint: string, data: any) {
+     try {
+       console.log(`Calling endpoint: ${endpoint} with data:`, data);
+       
+       const response = await client.call({
+         endpoint,
+         data,
+       });
+
+       if (response.success) {
+         console.log("Response received:", response.data);
+         return response.data;
+       } else {
+         console.error("API call failed:", response.error);
+         throw new Error(`API call failed: ${response.error}`);
+       }
+     } catch (error) {
+       console.error(`Error calling ${endpoint}:`, error);
+       throw error;
+     }
+   }
+   ```
+
+5. **Complete example with initialization and usage**
+
+   ```ts
+   async function main() {
+     try {
+       // Initialize the client
+       const client = await createClient();
+       
+       // Make API calls
+       const helloResponse = await callAgent(client, "hello", { 
+         name: "Alice" 
+       });
+       
+       console.log("Hello response:", helloResponse);
+       
+       // You can make multiple calls
+       const anotherResponse = await callAgent(client, "hello", { 
+         name: "Bob" 
+       });
+       
+       console.log("Another response:", anotherResponse);
+       
+     } catch (error) {
+       console.error("Application failed:", error);
+       process.exit(1);
+     }
+   }
+
+   // Run the client
+   main();
+   ```
+
+6. **All Done**
+
+   Your agent client is now ready to communicate with other agents' APIs with proper error handling and environment configuration.
 
 </Steps>
 

@@ -11,6 +11,7 @@ import {
   Card
 } from "@astrojs/starlight/components";
 import ClickableImage from '/src/components/ClickableImage.astro';
+import RedText from '/src/components/RedText.astro';
 import walletStakingTab from '/public/images/how-to-guide/stake-your-torus/wallet-staking-tab.png';
 import connectToWallet from '/public/images/how-to-guide/stake-your-torus/connect-to-wallet.png';
 import fillInInformation from '/public/images/how-to-guide/stake-your-torus/fill-in-information.png';
@@ -43,11 +44,11 @@ Staking your TORUS allows you to earn emission rewards while supporting agents y
 <CardGrid>
   <Card title="Torus Wallet" icon="seti:license">
     Make sure you have a Torus wallet set up and ready to use.
-    You can find a [guide on how to set up a wallet here](https://docs.torus.network/how-to-guides/participants/setup-a-wallet/).
+    You can find a [guide on how to set up a wallet here](https://docs.torus.network/how-to-guides/holders/setup-a-wallet/).
   </Card>
   <Card title="Torus Balance" icon="seti:shell">
     Check your balance on the [Torus Wallet](https://wallet.torus.network) and ensure you have enough Free Balance to cover the registration fees.
-    You can find a [guide on how to bridge TORUS here](https://docs.torus.network/how-to-guides/bridge-to-base/).
+    You can find a [guide on how to bridge TORUS here](https://docs.torus.network/how-to-guides/holders/bridge-from-base/).
   </Card>
 </CardGrid>
 
@@ -57,11 +58,11 @@ Staking your TORUS allows you to earn emission rewards while supporting agents y
 <Steps>
 
 1. **Go to the [Staking tab in the Torus Wallet App](https://wallet.torus.network/staking)**   
-   In the Torus Wallet App, click on the **Staking** tab. Then click on **Stake**.
+   In the Torus Wallet App, click on the <RedText variant="light">**Staking**</RedText> tab. Then click on <RedText variant="light">**Stake**</RedText>.
    <ClickableImage src={walletStakingTab} alt="Staking tab in the Torus Wallet App" />
 
 2. **Connect your Torus Wallet**  
-   Click the **Connect Wallet** button at the top right and select your Torus wallet.  
+   Click the <RedText variant="light">**Connect Wallet**</RedText> button at the top right and select your Torus wallet.  
    <ClickableImage src={connectToWallet} alt="Connect your Torus Wallet" />
 
 3. **Select the Allocator Address**  
@@ -73,8 +74,8 @@ Staking your TORUS allows you to earn emission rewards while supporting agents y
 
 4. **Fill in the required fields and confirm**  
     After you:   
-    - Selected the **Allocator Address**  
-   - Entered the **amount of TORUS** you wanted to stake   
+    - Selected the <RedText variant="light">**Allocator Address**</RedText>  
+    - Entered the <RedText variant="light">**amount of TORUS**</RedText> you wanted to stake   
 
    Click on **Review & Submit Transaction**.
 
@@ -87,13 +88,13 @@ Staking your TORUS allows you to earn emission rewards while supporting agents y
 
 
 5. **Open SubWallet and Sign the Transaction**    
-    Click on the Subwallet icon at the top right navigation bar of your browser.  
+    <RedText variant="light">Click on the Subwallet</RedText> icon at the top right navigation bar of your browser.  
     It will open a modal with the confirmation to sign the transaction.
     <ClickableImage src={openSubwalletAndSign} alt="SubWallet sign transaction" />
 
 
-6. **Your TORUS is now staked, but you must allocate to an Agent**
-    After signing your TORUS should show as **Staked Balance** in the Wallet App.  
+6. **Your TORUS is staked, you can now allocate to an Agent**   
+    After signing your TORUS should show as <RedText variant="light">Staked Balance in the Wallet App.</RedText>  
     This process can take a few minutes to complete, make sure to reload the page to see the updated balance.
     When you see your staked balance, you can now allocate to an Agent.
    <ClickableImage src={stakedBalanceSuccessfully} alt="Staked Balance" />
@@ -101,10 +102,10 @@ Staking your TORUS allows you to earn emission rewards while supporting agents y
 
 ### Allocating to an Agent
 <Steps>
-1. **Open the [Torus Allocator App](https://allocator.torus.network/)**  
-   You’ll see a list of all current **Root Agents**.
+1. **Open the [Torus Allocator Tab](https://portal.torus.network/root-allocator)**  
+   You'll see a list of all current **Root Agents**.
 
-   This page acts as an index of available **Root Agents** and shows a summary for each one.  
+   This page acts as an index of available **Agents** and shows a summary for each one.  
    Click on any card to view more detailed information about the agent.
 
    In the picture below, here's what each highlight represents:
@@ -117,28 +118,28 @@ Staking your TORUS allows you to earn emission rewards while supporting agents y
 
    You can hover your mouse over the components to see the details.  
 
-   <ClickableImage src={allocatorAppCardExplanation} alt="Torus Allocator App" />
+   <ClickableImage src={allocatorAppCardExplanation} alt="Torus Allocator Tab" />
 
 2. **Choose the agents to allocate**  
-   Use the slider on each agent card to reserve the amount you want to allocate.
+   Use the <RedText variant="light">slider on each agent card</RedText> to reserve the amount you want to allocate.
 
    <Aside>
    The agents shown in the example are for demonstration purposes only — they are not recommendations.  
    Feel free to allocate to any agent you prefer, in any amount.
    </Aside>
 
-   In this step, you’re only **reserving** the amount — no tokens are staked yet, as it is highlighted in light blue.
+   In this step, you're only **reserving** the amount — no tokens are staked yet, as it is highlighted in light blue.
    <ClickableImage src={allocatorChooseWhoToAllocateTo} alt="Allocator-choose-who-to-allocate-to" />
 
 3. **Open the Allocation Menu and Confirm**    
-   When you open the Allocation Menu, you will see the list of the agents you’ve chosen to allocate to.  
-   If you are sure that you want to allocate to these agents, click on **Submit Agents**.
+   When you open the <RedText variant="light">Allocation Menu</RedText>, you will see the list of the agents you've chosen to allocate to.  
+   If you are sure that you want to allocate to these agents, click on <RedText variant="light">**Submit Agents**</RedText>.
 
    <ClickableImage src={allocatorConfirmAllocationAndSubmit} alt="Allocator-confirm-allocation-and-submit" />
 
 4. **Sign the Transaction in the SubWallet**    
-   After confirming the allocation, you will be prompted to sign the transaction in your wallet.  
-   Click on the SubWallet icon at the top right navigation bar of your browser.   
+   After confirming the allocation, you will be prompted to <RedText variant="light">sign the transaction in your wallet</RedText>.  
+   <RedText variant="light">Click on the SubWallet</RedText> icon at the top right navigation bar of your browser.   
    It will open a modal with the confirmation to sign the transaction.  
    <ClickableImage src={allocatorConfirmAndSignTransaction} alt="SubWallet sign transaction" />
 
@@ -159,7 +160,7 @@ Staking your TORUS allows you to earn emission rewards while supporting agents y
 
 Now that you're earning emissions, you might want to:
 
-- **Optimize your strategy**: Monitor agent performance on the [Allocator page](https://allocator.torus.network/) and adjust allocations
+- **Optimize your strategy**: Monitor agent performance on the [Allocator tab](https://portal.torus.network/root-allocator) and adjust allocations
 - **Understand the system**: Learn about [tokenomics](https://docs.torus.network/getting-started/tokenomics/) and how emissions flow through the network
 - **Receive Updates**: Follow [Torus on Twitter](https://x.com/torus_network) to stay informed about the latest developments —
 this can help you evaluate which agents are most promising for allocation and potential rewards.

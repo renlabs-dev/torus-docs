@@ -25,12 +25,9 @@ export default defineConfig({
         {
           label: "Getting Started",
           items: [
-            { label: "Introduction", slug: "index" },
+            { label: "Welcome", slug: "index" },
             { label: "Tokenomics", slug: "getting-started/tokenomics" },
-            {
-              label: "Concepts & Terminology",
-              slug: "getting-started/concepts",
-            },
+            { label: "Understanding Torus", slug: "getting-started/concepts" },
           ],
         },
         {
@@ -55,10 +52,10 @@ export default defineConfig({
               collapsed: false,
               items: [
                 { label: "Agent Registration", slug: "explanations/builders/agent-registration" },
-                { label: "Agent Server", slug: "explanations/builders/agent-server" },
-                { label: "Agent Client", slug: "explanations/builders/agent-client" },
                 { label: "Agent Editing", slug: "explanations/builders/agent-editing" },
                 { label: "Demand Signaling", slug: "explanations/builders/demand-signaling" },
+                { label: "Agent Server", slug: "explanations/builders/agent-server" },
+                { label: "Agent Client", slug: "explanations/builders/agent-client" },
               ],
             },
             {
@@ -78,21 +75,23 @@ export default defineConfig({
               label: "Holders",
               collapsed: false,
               items: [
-                { label: "Setup a Wallet", slug: "how-to-guides/participants/setup-a-wallet" },
-                { label: "Bridge from Base", slug: "how-to-guides/participants/bridge-from-base" },
-                { label: "Stake your Torus", slug: "how-to-guides/participants/stake-your-torus" },
+                { label: "Setup a Wallet", slug: "how-to-guides/holders/setup-a-wallet" },
+                { label: "Bridge from Base", slug: "how-to-guides/holders/bridge-from-base" },
+                { label: "Stake your Torus", slug: "how-to-guides/holders/stake-your-torus" },
               ],
             },
             {
               label: "Builders",
               collapsed: false,
               items: [
-                { label: "Setup CLI", slug: "how-to-guides/builders/setup-cli" },
                 { label: "Register an Agent", slug: "how-to-guides/builders/register-an-agent" },
+                { label: "Edit your Agent", slug: "how-to-guides/builders/edit-your-agent" },
+                { label: "Manage Capabilities", slug: "how-to-guides/builders/manage-capabilities" },
+                { label: "Create a Signal", slug: "how-to-guides/builders/create-signal" },
+                // { label: "Manage Permissions", slug: "how-to-guides/builders/manage-permissions" },
+                // { label: "Delegate Emission Streams", slug: "how-to-guides/builders/delegate-emission-streams" },
                 { label: "Setup Agent Server", slug: "how-to-guides/builders/setup-agent-server" },
                 { label: "Setup Agent Client", slug: "how-to-guides/builders/setup-agent-client" },
-                { label: "Edit your Agent", slug: "how-to-guides/builders/edit-your-agent" },
-                { label: "Create a Signal", slug: "how-to-guides/builders/create-signal" },
               ],
             },
             {
@@ -104,15 +103,6 @@ export default defineConfig({
             },
           ],
         },
-        // {
-        //   label: "Web Apps",
-        //   items: [
-        //     { label: "Torus Portal", slug: "web-apps/torus-portal" },
-        //     { label: "Torus Allocator", slug: "web-apps/torus-allocator" },
-        //     { label: "Torus Wallet", slug: "web-apps/torus-wallet" },
-        //     { label: "Torus DAO", slug: "web-apps/torus-dao" },
-        //   ],
-        // },
         {
           label: "Development",
           items: [
@@ -135,6 +125,7 @@ export default defineConfig({
               label: "CLI Reference",
               collapsed: false,
               items: [
+                { label: "Setup CLI", slug: "development/cli/setup-cli" },
                 { label: "Key Management", slug: "development/cli/key-management" },
                 { label: "Balance Operations", slug: "development/cli/balance-operations" },
               ],

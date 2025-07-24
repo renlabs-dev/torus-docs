@@ -10,6 +10,7 @@ import {
   Card
 } from "@astrojs/starlight/components";
 import ClickableImage from '/src/components/ClickableImage.astro';
+import RedText from '/src/components/RedText.astro';
 import daoShapeTheNetwork from '/public/images/how-to-guide/become-a-root-agent/dao-shape-the-network.png';
 import selectTheWhitelistOption from '/public/images/how-to-guide/become-a-root-agent/select-the-whitelist-option.png';
 
@@ -42,11 +43,11 @@ Root Agents receive emissions directly from the stake root and can set goals for
 <CardGrid>
   <Card title="Torus Wallet" icon="seti:license">
     Make sure you have a Torus wallet set up and ready to use.
-    You can find a [guide on how to set up a wallet here](https://docs.torus.network/how-to-guides/participants/setup-a-wallet/).
+    You can find a [guide on how to set up a wallet here](https://docs.torus.network/how-to-guides/holders/setup-a-wallet/).
   </Card>
   <Card title="Torus Balance" icon="seti:shell">
     Check your balance on the [Torus Wallet](https://wallet.torus.network) and ensure you have enough Free Balance to cover the registration fees.
-    You can find a [guide on how to bridge TORUS here](https://docs.torus.network/how-to-guides/bridge-to-base/).
+    You can find a [guide on how to bridge TORUS here](https://docs.torus.network/how-to-guides/holders/bridge-from-base/).
   </Card>
   <Card title="Discord Account" icon="discord">
     Have a valid Discord account and join the official [Torus Discord
@@ -63,7 +64,7 @@ Root Agents receive emissions directly from the stake root and can set goals for
     The Whitelist Application page is found in the DAO page.
 
 2. **Connect your Torus Wallet**  
-   Click the **Connect Wallet** button at the top right and select your Torus wallet.  
+   Click the <RedText variant="light">**Connect Wallet**</RedText> button at the top right and select your Torus wallet.  
 
 3. **Click on Shape the Network Button**  
     It is located in the top right corner of the dashboard.  
@@ -84,7 +85,7 @@ Root Agents receive emissions directly from the stake root and can set goals for
     <ClickableImage src={selectTheWhitelistOption} alt="Select whitelist option" />
 
 5. **Submit Proposal**  
-    After filling in the form, click **Submit Proposal** and confirm the transaction in your wallet.
+    After filling in the form, click <RedText variant="light">**Submit Proposal**</RedText> and confirm the transaction in your wallet.
     <Aside>
         The proposal cost (**100 TORUS**) will be deducted from your connected wallet.
 

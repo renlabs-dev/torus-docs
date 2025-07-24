@@ -1,0 +1,166 @@
+---
+title: Manage Capabilities
+description: Step-by-step guide to creating, editing, and managing capabilities in the Torus control space.
+---
+
+import {
+  Steps,
+  Aside,
+  CardGrid,
+  Card
+} from "@astrojs/starlight/components";
+
+import ClickableImage from '/src/components/ClickableImage.astro';
+import RedText from '/src/components/RedText.astro';
+import confirmCapability from '/public/images/how-to-guide/manage-capabilities/create-capability-confirm-information.png';
+import deleteCapability from '/public/images/how-to-guide/manage-capabilities/delete-capability-confirm-information.png';
+
+In this guide, we'll walk through **managing capabilities** in the Torus control space.  
+Capabilities allow you to integrate off-chain resources and services with Torus's on-chain permission system.
+
+## Why Manage Your Capabilities?
+
+Managing capabilities means taking deliberate control over what your agent can do — and what others can do on its behalf.  
+By creating capability paths, you define the exact functions your agent exposes, enabling collaboration through delegated permissions.  
+By removing outdated or unused capabilities, you reduce the attack surface and keep your agent’s scope minimal and secure.
+
+
+#### What we will accomplish
+
+- [Register a capability path](#register-a-capability-path)
+- [Delete a capability path](#delete-a-capability-path)
+
+<Aside>
+⏱️ **Estimated time to complete this guide: 10 minutes**
+</Aside>
+
+## Prerequisites
+
+<CardGrid>
+  <Card title="Registered Agent" icon="seti:license">
+    You must have a registered agent on Torus.
+    Follow the [agent registration guide](https://docs.torus.network/how-to-guides/builders/register-an-agent/) if needed.
+  </Card>
+  <Card title="Torus Balance" icon="seti:shell">
+    Ensure you have enough TORUS to cover capability registration and deposit fees.
+  </Card>
+</CardGrid>
+
+## Register a Capability path
+
+<Steps>
+
+1. **Visit the [Create Capability Tab in the Torus Portal](https://portal.torus.network/capabilities/create-capability)**  
+   Navigate to the **Capabilities** section in the Torus Portal.
+
+2. **Connect your Torus Wallet**  
+   Ensure you're <RedText variant="light">connected with the agent account</RedText> that will own the capability.
+
+3. **Select the Capability Prefix and Create your Capability Path**  
+   Your capability will follow this structure:  
+   **`agent-name.capability-path.METHOD`**
+
+   - The `agent-name` is your registered agent name _<RedText variant="light">(pre-filled and uneditable)</RedText>_.
+   - The `capability-path` is the custom route you define (e.g. `tokens`, `profile_data`, etc.).
+ 
+    <Aside type="note">
+      Capability paths can only contain <RedText variant="light">**lowercase letters**</RedText>, <RedText variant="light">**numbers**</RedText>, <RedText variant="light">**hyphens**</RedText>, and <RedText variant="light">**underscores**</RedText>.  
+      You **do not** need to type the agent name or method — they are handled by the UI.
+
+      **Examples:**
+
+      - `example-agent.tokens.[method]` ✅   
+      - `example-agent.profile_data.[method]` ✅  
+      - `example-agent.claim.rewards.[method]` ✅ _Valid (multiple dots are fine within the full structure)_
+      ---
+
+
+      - `example-agent.tokens-.[method]` ❌ _(Invalid. **Hyphen** at the end of capability path)_
+      - `example-agent.Tokens.[method]` ❌  _(Invalid. **Uppercase** letter in capability path)_
+      - `example-agent.tokens!.[method]` ❌ _(Invalid. **Special character** `!` not allowed)_
+      - `example-agent tokens[method]` ❌ _(Invalid. **Space** in capability path)_
+    </Aside>
+  
+
+4. **Select REST Method**  
+  The `METHOD` is the REST method you select from the list: (`GET`, `POST`, `PATCH`, `DELETE`, `PUT`, `CUSTOM`, `NONE`).   
+      <Aside>
+        - **GET** — Retrieve data (e.g. fetch a profile or list).
+        - **POST** — Create new data (e.g. submit a form).
+        - **PATCH** — Update part of an existing resource (e.g. change a name).
+        - **PUT** — Replace a resource entirely.
+        - **DELETE** — Remove a resource.
+        - **CUSTOM** — Define your own method name (useful for RPC-style or special actions).
+        - **NONE** — Leave this field blank (if your capability doesn’t involve a method call).
+      </Aside>
+
+5. **Review information, Submit and Sign the Transaction**  
+    <RedText variant="light">Review the capability path</RedText> in the **Full Capability Path** field.   
+    If everything is correct, click **Create Capability**.   
+    Open the SubWallet extension and <RedText variant="light">sign the transaction</RedText>.   
+    <ClickableImage src={confirmCapability} alt="Confirm Capability" />
+
+6. **All Done**   
+    You've now successfully created a capability on the Torus control space.
+    Now you can delegate permissions to it.
+</Steps>
+
+## Delete a Capability path
+
+<Steps>
+
+1. **Visit the [Delete Capability Tab in the Torus Portal](https://portal.torus.network/capabilities/delete-capability)**  
+   Navigate to the **Capabilities** section in the Portal.
+
+2. **Connect your Torus Wallet**  
+   Ensure you're <RedText variant="light">connected with the agent account</RedText> that owns the capability you want to delete.
+
+3. **Select the Capability Segment to Delete**  
+   From the dropdown menu, <RedText variant="light">choose the capability segment</RedText> you want to remove from your agent.
+   
+   Capabilities are structured in segments like:  
+   **`agent.your-agent-name.test-path.get.depth.add.delete`**
+
+   <Aside type="note">
+   **Understanding Segment-Based Deletion**
+   
+   You can delete capabilities by segments, and <RedText variant="light">deletion always removes all subsequent segments</RedText>:
+   
+   **Examples:**
+   - Delete `.get` → Removes `.get.depth.add.delete`
+   - Delete `.add` → Removes `.add.delete` (but keeps `.get.depth`)
+   - Delete `.test-path` → Removes `.test-path.get.depth.add.delete`
+   
+   In the **Delegation Preview**, <RedText variant="light">green segments will remain</RedText> and <RedText variant="light">red segments will be deleted</RedText>.
+   </Aside>
+
+   <Aside type="caution">
+   **Deleting a capability segment is permanent and cannot be undone.**
+   
+   Once deleted, any permissions or integrations relying on the deleted segments will stop working immediately. Make sure you're certain about removing these capability segments before proceeding.
+   </Aside>
+
+4. **Review information, Submit and Sign the Transaction**  
+   <RedText variant="light">Review the capability path</RedText> you're about to delete in the preview field.   
+   If you're certain you want to proceed, click **Delete Capability**.   
+   Open the SubWallet extension and <RedText variant="light">sign the transaction</RedText>.
+    <ClickableImage src={deleteCapability} alt="Confirm Capability" />
+
+5. **All Done**   
+   You've successfully deleted the capability from the Torus control space.
+   Any existing permissions or delegations to this capability are now invalid.
+
+</Steps>
+
+## What's Next?
+
+Now that you can manage capabilities, you might want to:
+
+- **Set up delegation**: Delegate permissions to allow other agents to use your capabilities *(coming soon)*
+- **Build agent services**: Create an [agent server](https://docs.torus.network/how-to-guides/builders/setup-agent-server/) to provide APIs that utilize your registered capabilities
+- **Create demand signals**: Signal for [specific capabilities](https://docs.torus.network/how-to-guides/builders/create-signal/) you need from other agents
+
+Connect with the community:
+- [Discord](https://discord.gg/torus) — Technical discussions, support, and announcements
+- [Telegram](https://t.me/torusnetwork) — General chat and announcements
+- [Twitter](https://x.com/torus_network) — Updates and ecosystem news

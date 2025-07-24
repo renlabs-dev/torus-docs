@@ -1,6 +1,6 @@
 ---
 title: Setup Agent Server
-description: Step-by-step guide to build APIs with the Agent class from torus-ts-sdk.
+description: Step-by-step guide to build APIs with the Agent class from @torus-network/sdk.
 ---
 
 import {
@@ -9,6 +9,7 @@ import {
   CardGrid,
   Card
 } from "@astrojs/starlight/components";
+import RedText from '/src/components/RedText.astro';
 
 In this guide, we'll **setup an agent server** to build authenticated APIs with automatic OpenAPI documentation.
 
@@ -43,61 +44,123 @@ Agent servers allow you to create APIs that other agents can discover and intera
 
 <Steps>
 
-1. **Install the Torus SDK**
+1. **Install the required dependencies**
 
    ```sh
-   npm install @torus-network/sdk
+   npm install @torus-network/sdk dotenv zod
+   npm install -D @types/node
    ```
 
-2. **Create a basic server**
+2. **Create environment configuration**
+
+   Create a `.env` file in your project root:
+
+   ```env
+   AGENT_KEY=your-agent-wallet-address
+   AGENT_MNEMONIC=your twelve word mnemonic phrase goes here exactly like this
+   PORT=3000
+   NODE_ENV=development
+   ```
+
+3. **Create the server with proper error handling**
 
    ```ts
-   import { Agent } from "@torus-network/sdk";
+   import { Agent } from "@torus-network/sdk/agent";
    import { z } from "zod";
+   import dotenv from "dotenv";
 
-   const agent = new AgentServer({
-     agentKey: "your-agent-wallet-address", // Your registered agent's wallet address
-     port: 3000,
-     docs: {
-       info: {
-         title: "My Agent API",
-         version: "1.0.0",
-       },
-     },
-   });
+   // Load environment variables
+   dotenv.config();
+
+   async function createAgent() {
+     try {
+       const agent = new Agent({
+         agentKey: process.env.AGENT_KEY!,
+         port: parseInt(process.env.PORT || "3000"),
+         docs: {
+           info: {
+             title: "My Agent API",
+             version: "1.0.0",
+           },
+         },
+       });
+
+       return agent;
+     } catch (error) {
+       console.error("Failed to create agent:", error);
+       process.exit(1);
+     }
+   }
    ```
 
-3. **Add an endpoint**
+4. **Add endpoints with comprehensive error handling**
 
    ```ts
-   agent.endpoint({
-     endpoint: "hello",
-     schema: {
-       input: z.object({
-         name: z.string(),
-       }),
-       output: z.object({
-         message: z.string(),
-       }),
-     },
-     handler: async ({ input }) => {
-       return {
-         message: `Hello, ${input.name}!`,
-       };
-     },
-   });
+   async function setupEndpoints(agent: Agent) {
+     try {
+       agent.method({
+         endpoint: "hello",
+         schema: {
+           input: z.object({
+             name: z.string(),
+           }),
+           output: z.object({
+             message: z.string(),
+           }),
+         },
+         handler: async ({ input }) => {
+           try {
+             return {
+               message: `Hello, ${input.name}!`,
+             };
+           } catch (error) {
+             console.error("Error in hello endpoint:", error);
+             throw error;
+           }
+         },
+       });
+
+       console.log("Endpoints configured successfully");
+     } catch (error) {
+       console.error("Failed to setup endpoints:", error);
+       throw error;
+     }
+   }
    ```
 
-4. **Start the server**
+5. **Start the server with proper initialization**
 
    ```ts
-   agent.start();
-   console.log("Agent server running on http://localhost:3000");
+   async function startServer() {
+     try {
+       const agent = await createAgent();
+       await setupEndpoints(agent);
+       
+       agent.run();
+       
+       const port = process.env.PORT || 3000;
+       console.log(`Agent server running on http://localhost:${port}`);
+       console.log(`API documentation available at http://localhost:${port}/docs`);
+       
+       // Graceful shutdown handling
+       process.on('SIGTERM', () => {
+         console.log('Received SIGTERM, shutting down gracefully');
+         process.exit(0);
+       });
+       
+     } catch (error) {
+       console.error("Failed to start server:", error);
+       process.exit(1);
+     }
+   }
+
+   // Start the server
+   startServer();
    ```
 
-5. **All Done**
+6. **All Done**
 
-   Your agent server is now running and available at `http://localhost:3000/docs` for API documentation.
+   Your agent server is now running with proper error handling and environment configuration. The API documentation is available at `http://localhost:3000/docs`.
 
 </Steps>
 
