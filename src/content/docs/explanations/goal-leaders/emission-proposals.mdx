@@ -1,0 +1,90 @@
+---
+title: Emission Proposals
+description: Understanding emission proposals, how they work, and their role in managing Torus network incentives and economics.
+---
+
+import {
+  Aside,
+  Card,
+  CardGrid,
+  Code,
+  Steps,
+  Tabs,
+  TabItem,
+} from "@astrojs/starlight/components";
+
+Emission proposals are a critical governance mechanism that allows TORUS stakeholders to adjust how network fees and emissions are distributed across different components of the ecosystem.
+
+These proposals enable the community to fine-tune economic incentives, adapt to changing network conditions, and optimize the distribution of resources between recycling mechanisms, treasury operations, and various incentive programs.
+
+<Aside type="tip">
+**Emission proposals require community consensus** through the governance voting process, ensuring that changes to network economics reflect the collective will of TORUS stakeholders.
+</Aside>
+
+## How Emission Proposals Work
+
+Emission proposals allow TORUS stakeholders to configure three key percentage parameters that determine how network fees and emissions are allocated:
+
+### Core Parameters
+
+The three parameters control two separate distribution pools:
+
+**Burn Distribution (up to 100% total):**
+- **Recycling Percentage**: Portion of fees that get burned through recycling mechanisms
+- **Treasury Percentage**: Portion allocated to the network treasury for operations and development
+
+*Note: Recycling Percentage + Treasury Percentage can be up to 100% total (e.g., 60% combined is valid)*
+
+**Reward Distribution (up to 100% total):**
+- **Incentives Ratio**: Portion dedicated to various incentive programs and rewards (independent allocation)
+
+This dual-pool system allows independent control over how much gets burned versus rewarded, with fine-grained control over burn distribution between recycling and treasury.
+
+<Aside type="note">
+The dual-pool system provides flexibility in economic tuning. You can independently adjust burn distribution (recycling vs. treasury) and reward allocation (incentives) to optimize network economics based on current conditions.
+</Aside>
+
+## Economic Impact
+
+Emission proposals directly affect:
+
+**Network Sustainability**
+- Treasury funding for development and operations
+- Long-term protocol maintenance and upgrades
+
+**Participant Incentives**
+- Rewards for agents, root agents, and other network participants
+- Economic motivations for different types of network activity
+
+**Token Economics**
+- Supply dynamics through recycling mechanisms
+- Distribution patterns across the ecosystem
+
+## Proposal Lifecycle
+
+### 1. Proposal Creation
+Community members can submit emission proposals through the DAO interface, specifying the desired percentage allocations for each parameter.
+
+### 2. Community Discussion
+Proposals undergo community review and discussion period where stakeholders can analyze the economic implications and provide feedback.
+
+### 3. Voting Period
+Any stakeholder with TORUS staked to root agents can vote on the proposal. Voters must become "power voters" by clicking "become a power user" on the proposal screen. Your staked amount becomes your vote weight - if you have 1,000 TORUS staked, your vote weight is 1,000; if you have 10,000 TORUS staked, your vote weight is 10,000.
+
+For a proposal to pass, it must meet two requirements:
+- **Majority Support**: More than 50% of votes must be positive
+- **Participation Threshold**: Total votes must exceed 10% of all TORUS staked in the network
+
+### 4. Implementation
+Approved proposals are automatically implemented on-chain, updating the network's emission distribution parameters.
+
+
+## Related Concepts
+
+- **[Governance & DAO](https://docs.torus.network/explanations/v05/governance-dao/)** - Understanding the broader DAO framework
+- **[Tokenomics](https://docs.torus.network/getting-started/tokenomics/)** - How TORUS token economics work
+- **[Permission System](https://docs.torus.network/explanations/v05/permissions/)** - How governance permissions enable proposal creation
+
+<Aside type="tip" title="Ready to Create a Proposal?">
+  Follow our [emission proposal guide](https://docs.torus.network/how-to-guides/goal-leaders/create-emission-proposal/) to learn the step-by-step process.
+</Aside>
