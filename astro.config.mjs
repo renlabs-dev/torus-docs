@@ -34,7 +34,7 @@ export default defineConfig({
         {
           label: "Explanations",
           items: [
-            { label: "Start Here", slug: "explanations/start-here" },
+            { label: "Table of Contents", slug: "explanations/table-of-contents" },
             {
               label: "v0.5",
               items: [
@@ -72,7 +72,7 @@ export default defineConfig({
         {
           label: "How-to Guides",
           items: [
-            { label: "Start Here", slug: "how-to-guides/start-here" },
+            { label: "Table of Contents", slug: "how-to-guides/table-of-contents" },
             {
               label: "Holders",
               collapsed: false,
@@ -109,7 +109,7 @@ export default defineConfig({
         {
           label: "Development",
           items: [
-            { label: "Start Here", slug: "development/start-here" },
+            { label: "Table of Contents", slug: "development/table-of-contents" },
             {
               label: "Web Apps",
               collapsed: false,
