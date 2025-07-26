@@ -26,9 +26,7 @@ export default defineConfig({
           label: "Getting Started",
           items: [
             { label: "Welcome", slug: "index" },
-            { label: "Tokenomics", slug: "getting-started/tokenomics" },
-            { label: "Concepts & Terminology", slug: "getting-started/concepts-terminology" },
-            { label: "Understanding Torus", slug: "getting-started/concepts" },
+            { label: "Understanding Torus", slug: "getting-started/understanding-torus" },
           ],
         },
         {
@@ -53,6 +51,7 @@ export default defineConfig({
               label: "Holders",
               collapsed: true,
               items: [
+                { label: "Tokenomics", slug: "explanations/holders/tokenomics" },
                 { label: "Staking", slug: "explanations/holders/staking" },
               ],
             },
@@ -75,6 +74,7 @@ export default defineConfig({
                 { label: "Emission Proposals", slug: "explanations/goal-leaders/emission-proposals" },
               ],
             },
+            { label: "Concepts & Terminology", slug: "explanations/concepts-terminology" },
           ],
         },
         {
@@ -151,6 +151,9 @@ export default defineConfig({
           ],
         },
       ],
+      components: {
+        Head: './src/components/Head.astro',
+      },
       customCss: ["./src/tailwind.css"],
     }),
     tailwind({ applyBaseStyles: false }),

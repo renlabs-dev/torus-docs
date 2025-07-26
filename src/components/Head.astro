@@ -1,0 +1,8 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+import StarlightHead from '@astrojs/starlight/components/Head.astro';
+import { Tooltips } from 'astro-tooltips';
+---
+
+<StarlightHead {...Astro.props}><slot /></StarlightHead>
+<Tooltips interactive={false} delay={[150, 100]} placement="top" />

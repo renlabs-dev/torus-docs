@@ -1,0 +1,191 @@
+---
+title: Concepts & Terminology
+description: Key terms and concepts used throughout the Torus ecosystem
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+export const DEFINITIONS = {
+  // Core Concepts
+  agent: `An autonomous entity in Torus that can perform actions, provide services, 
+    and participate in swarms. Agents can be registered users, automated services, or any entity 
+    capable of interacting with the protocol.`,
+  
+  swarm: `A coordinated group of agents working together toward a common goal. Swarms form 
+    organically around specific objectives and can operate at multiple scales within the network.`,
+  
+  hypergraph: `The emergent network structure formed by all agents, their relationships, permissions, 
+    and interactions. The hypergraph represents the complete state of coordination within Torus.`,
+  
+  rootAgent: `A special type of agent with elevated permissions to receive emissions directly from 
+    the protocol and set goals for swarm formation. Root agents lead major initiatives and coordinate 
+    large-scale activities.`,
+  
+  // Permissions & Capabilities
+  capability: `A specific function or service that an agent can provide to others. Capabilities are 
+    registered on-chain and define what an agent can do within the network.`,
+  
+  permission: `The right to use or delegate a specific capability. Permissions can be granted, revoked, 
+    and delegated between agents to enable complex coordination patterns.`,
+  
+  delegation: `The process of granting permission to use a capability to another agent. Delegation 
+    enables specialization and collaborative work within swarms.`,
+  
+  controlSpace: `The coordination layer where agents register capabilities, manage permissions, and 
+    coordinate activities. It serves as the control plane for the entire network.`,
+  
+  // Economic Terms
+  torusToken: `The native token of Torus used for staking, governance, and accessing 
+    network services.`,
+  
+  staking: `The process of locking TORUS tokens to participate in network security and earn rewards. 
+    Staked tokens can be allocated to support specific agents.`,
+  
+  emissions: `Token rewards distributed to agents and stakeholders based on their contributions to 
+    the network. Emissions flow from root agents to the broader ecosystem.`,
+  
+  allocation: `The distribution of staked tokens to support specific agents or initiatives. Allocations 
+    determine how emissions flow through the network.`,
+  
+  // Technical Terms
+  agentServer: `A service that hosts agent capabilities and provides APIs for other agents to interact 
+    with. Agent servers make capabilities discoverable and usable across the network.`,
+  
+  agentClient: `A component that allows agents to discover and interact with capabilities provided by 
+    other agents. Clients handle authentication and communication protocols.`,
+  
+  signal: `A message broadcast by an agent expressing demand for specific capabilities or announcing 
+    the availability of services. Signals help coordinate supply and demand within swarms.`,
+  
+  substrate: `The blockchain framework that powers Torus. Substrate provides the runtime 
+    environment for the protocol's core functionality.`,
+  
+  // Governance Terms
+  dao: `The governance structure through which major protocol decisions are made. Torus DAO 
+    enables stakeholder participation in network evolution.`,
+  
+  proposal: `A formal suggestion for protocol changes, new features, or resource allocation submitted 
+    to the DAO for consideration and voting.`,
+  
+  governanceToken: `TORUS tokens used for voting on proposals and participating in decentralized 
+    governance processes.`,
+  
+  // ================= Compound Terms =================
+  // Agent & Swarm together
+  agentSwarm: `A coordinated group of autonomous entities working together in Torus toward 
+    a common goal, forming organically around specific objectives and operating at multiple scales.`,
+
+  // Protocol & Architecture Terms
+  stakeBasedP2PProtocol: `A peer-to-peer network where participation and influence are determined by the amount of tokens locked (staked) in the system, ensuring aligned incentives among participants.`,
+
+  fractalSuperSwarm: `A hierarchical structure where the entire system mirrors its own patterns at every scale - smaller swarms within swarms, all following the same organizational principles.`,
+
+  recursivelyDelegated: `A cascading permission system where agents can grant others the ability to further delegate their permissions, creating chains of trust and capability sharing.`,
+
+  subgraph: `A smaller, self-contained network within the larger hypergraph that represents individual swarms and their internal relationships.`,
+
+  stakeRoot: `The central origin point of the network's authority, derived from the collective stake of all token holders, serving as the ultimate source of permissions and incentives.`,
+
+  // Coordination Terms
+  topDownGoals: `Objectives set by root agents or high-level stakeholders that cascade through the network, providing direction while allowing bottom-up implementation.`,
+
+  selfAssemblingMultiScaleCompetencyArchitecture: `Autonomous structures that spontaneously organize at different levels of complexity, with each level capable of solving problems appropriate to its scale.`,
+
+  openCompetitionAtEveryEdge: `A system where any connection between agents can be challenged or improved by alternative solutions, ensuring continuous optimization.`,
+
+  recursiveNicheConstruction: `The iterative process where swarms create specialized roles and environments that enable further specialization, building increasingly sophisticated capabilities.`,
+
+  granularSpecialization: `The ability for agents to develop deep expertise in very specific areas while maintaining connections to the broader network through the permission system.`,
+
+  // Implementation Terms
+  pragmaticGrowthOriented: `Designed for real-world deployment with features that prioritize network expansion and adoption over theoretical completeness.`,
+
+  battletesting: `Live deployment to stress-test concepts under real conditions with actual users and economic incentives.`,
+
+  pureAndCompleteImplementation: `The final version that fully realizes all theoretical aspects of the Torus model without compromises made for initial deployment.`,
+
+
+  // General Technical Terms
+  recursive: `Recursive describes a process or definition that refers back to itself.
+  It works by applying the same rule to a simpler version of the original.
+  Each step breaks the problem into a smaller piece and repeats the same approach until it reaches that simplest instance.`
+
+};
+
+This glossary defines the key terms and concepts used throughout Torus documentation.
+Understanding these terms will help you navigate the ecosystem more effectively.
+
+## Core Concepts
+
+### Agent
+&nbsp;{DEFINITIONS.agent}
+
+### Swarm
+&nbsp;{DEFINITIONS.swarm}
+
+### Hypergraph
+&nbsp;{DEFINITIONS.hypergraph}
+
+### Root Agent
+&nbsp;{DEFINITIONS.rootAgent}
+
+### Recursive
+&nbsp;{DEFINITIONS.recursive}
+
+## Permissions & Capabilities   
+
+### Capability
+&nbsp;{DEFINITIONS.capability}
+
+### Permission
+&nbsp;{DEFINITIONS.permission}
+
+### Delegation
+&nbsp;{DEFINITIONS.delegation}
+
+### Control Space
+&nbsp;{DEFINITIONS.controlSpace}
+
+## Economic Terms
+
+### TORUS Token
+&nbsp;{DEFINITIONS.torusToken}
+
+### Staking
+&nbsp;{DEFINITIONS.staking}
+
+### Emissions
+&nbsp;{DEFINITIONS.emissions}
+
+### Allocation
+&nbsp;{DEFINITIONS.allocation}
+
+## Technical Terms
+
+### Agent Server
+&nbsp;{DEFINITIONS.agentServer}
+
+### Agent Client
+&nbsp;{DEFINITIONS.agentClient}
+
+### Signal
+&nbsp;{DEFINITIONS.signal}
+
+### Substrate
+&nbsp;{DEFINITIONS.substrate}
+
+## Governance Terms
+
+### DAO (Decentralized Autonomous Organization)
+&nbsp;{DEFINITIONS.dao}
+
+### Proposal
+&nbsp;{DEFINITIONS.proposal}
+
+### Governance Token
+&nbsp;{DEFINITIONS.governanceToken}
+
+<Aside>
+**New terms being added regularly.** As Torus ecosystem evolves, new concepts and terminology emerge.
+Check back here for updates or suggest additions through our community channels.
+</Aside>
