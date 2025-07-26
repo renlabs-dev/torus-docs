@@ -99,7 +99,6 @@ export default defineConfig({
                 { label: "Manage Capabilities", slug: "how-to-guides/builders/manage-capabilities" },
                 { label: "Manage Permissions", slug: "how-to-guides/builders/manage-permissions" },
                 { label: "Create a Signal", slug: "how-to-guides/builders/create-signal" },
-                // { label: "Delegate Emission Streams", slug: "how-to-guides/builders/delegate-emission-streams" },
                 { label: "Setup Agent Server", slug: "how-to-guides/builders/setup-agent-server" },
                 { label: "Setup Agent Client", slug: "how-to-guides/builders/setup-agent-client" },
               ],
