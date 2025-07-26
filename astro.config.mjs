@@ -34,9 +34,10 @@ export default defineConfig({
         {
           label: "Explanations",
           items: [
-            { label: "Start Here", slug: "explanations/start-here" },
+            { label: "Table of Contents", slug: "explanations/table-of-contents" },
             {
               label: "v0.5",
+              collapsed: true,
               items: [
                 { label: "Control Space", slug: "explanations/v05/control-space" },
                 { label: "Permission System", slug: "explanations/v05/permissions" },
@@ -49,8 +50,15 @@ export default defineConfig({
               ],
             },
             {
+              label: "Holders",
+              collapsed: true,
+              items: [
+                { label: "Staking", slug: "explanations/holders/staking" },
+              ],
+            },
+            {
               label: "Builders",
-              collapsed: false,
+              collapsed: true,
               items: [
                 { label: "Agent Registration", slug: "explanations/builders/agent-registration" },
                 { label: "Agent Editing", slug: "explanations/builders/agent-editing" },
@@ -61,7 +69,7 @@ export default defineConfig({
             },
             {
               label: "Goal Leaders",
-              collapsed: false,
+              collapsed: true,
               items: [
                 { label: "Root Agents", slug: "explanations/goal-leaders/root-agents" },
                 { label: "Emission Proposals", slug: "explanations/goal-leaders/emission-proposals" },
@@ -72,10 +80,10 @@ export default defineConfig({
         {
           label: "How-to Guides",
           items: [
-            { label: "Start Here", slug: "how-to-guides/start-here" },
+            { label: "Table of Contents", slug: "how-to-guides/table-of-contents" },
             {
               label: "Holders",
-              collapsed: false,
+              collapsed: true,
               items: [
                 { label: "Setup a Wallet", slug: "how-to-guides/holders/setup-a-wallet" },
                 { label: "Bridge from Base", slug: "how-to-guides/holders/bridge-from-base" },
@@ -84,21 +92,20 @@ export default defineConfig({
             },
             {
               label: "Builders",
-              collapsed: false,
+              collapsed: true,
               items: [
                 { label: "Register an Agent", slug: "how-to-guides/builders/register-an-agent" },
                 { label: "Edit your Agent", slug: "how-to-guides/builders/edit-your-agent" },
                 { label: "Manage Capabilities", slug: "how-to-guides/builders/manage-capabilities" },
+                { label: "Manage Permissions", slug: "how-to-guides/builders/manage-permissions" },
                 { label: "Create a Signal", slug: "how-to-guides/builders/create-signal" },
-                // { label: "Manage Permissions", slug: "how-to-guides/builders/manage-permissions" },
-                // { label: "Delegate Emission Streams", slug: "how-to-guides/builders/delegate-emission-streams" },
                 { label: "Setup Agent Server", slug: "how-to-guides/builders/setup-agent-server" },
                 { label: "Setup Agent Client", slug: "how-to-guides/builders/setup-agent-client" },
               ],
             },
             {
               label: "Goal Leaders",
-              collapsed: false,
+              collapsed: true,
               items: [
                 { label: "Become a Root Agent", slug: "how-to-guides/goal-leaders/become-a-root-agent" },
                 { label: "Create Emission Proposal", slug: "how-to-guides/goal-leaders/create-emission-proposal" },
@@ -109,10 +116,10 @@ export default defineConfig({
         {
           label: "Development",
           items: [
-            { label: "Start Here", slug: "development/start-here" },
+            { label: "Table of Contents", slug: "development/table-of-contents" },
             {
               label: "Web Apps",
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: "Overview and Setup",
@@ -126,7 +133,7 @@ export default defineConfig({
             },
             {
               label: "CLI Reference",
-              collapsed: false,
+              collapsed: true,
               items: [
                 { label: "Setup CLI", slug: "development/cli/setup-cli" },
                 { label: "Key Management", slug: "development/cli/key-management" },
@@ -135,7 +142,7 @@ export default defineConfig({
             },
             {
               label: "Network Operations",
-              collapsed: false,
+              collapsed: true,
               items: [
                 { label: "Global Parameters", slug: "development/network/global-parameters" },
                 { label: "Running a Node", slug: "development/network/running-node" },
