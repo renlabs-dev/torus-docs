@@ -57,7 +57,7 @@ Capability permissions control access to specific agent endpoints and APIs.
 
 <Steps>
 
-1. **Navigate to [Create Permissions tab in the Torus Portal](https://portal.torus.network/permissions/create-permission/capability)**    
+1. **Visit the [Create Permissions tab in the Torus Portal](https://portal.torus.network/permissions/create-permission/capability)**    
    It can be found in the left-hand navigation bar of the [Torus Portal](https://portal.torus.network).
    
 2. **Connect your Wallet**   
@@ -69,51 +69,32 @@ Capability permissions control access to specific agent endpoints and APIs.
    The agent that will receive the permission.
 
    # Capability Path  
-   The path to the agent endpoint or API.
+   Select from dropdown of all capability paths available to you for delegation.
 
    # Duration  
-   - **Indefinite**: Permission remains valid indefinitely.  
-   - **Until Block**: Permission expires at a specific block.
+   - **Indefinite**: Permission remains valid indefinitely
+   - **Until Block**: Permission expires at a specific block
+
+   # Block Number  
+   Specific block number when permission expires 
+   (only shown for Until Block duration)
+
+   # Maximum Instances  
+   The maximum number of instances that can be created under this permission.
 
    # Revocation Terms  
-   - **Irrevocable**: Cannot be revoked.  
-   - **Revocable by Delegator**: Only the delegator can revoke.  
-   - **Revocable by Arbiters**: Can be revoked by arbiters after
-   a vote threshold set by the delegator.  
-   - **After Block**: Can only be revoked after a specific block.
+   - **Irrevocable**: Cannot be revoked
+   - **Revocable by Delegator**: Only the delegator can revoke
+   - **Revocable by Arbiters**: Can be revoked by arbiters after a vote threshold set by the delegator
+   - **After Block**: Can only be revoked after a specific block
    ```
 
+4. **Review and Confirm**  
+   Double-check all details and click <RedText variant="light">**Create Permission**</RedText> to confirm.   
+   Sign the transaction in your Wallet to finish the creation.
 
-4. **Select Create Permission**  
-   Click on the <RedText variant="light">**Create Permission**</RedText> tab or button.
-
-5. **Choose Capability Permission Type**  
-   Select <RedText variant="light">**Capability Permission**</RedText> from the permission type options.
-
-6. **Configure Capability Access**  
-   Fill in the capability permission details:
-   - **Target Agent**: Specify which agent will receive access
-   - **Capability Path**: Define the specific capability path (e.g., `agent.alice.store.post`)
-   - **Access Level**: Set the level of access granted
-   - **Duration**: Set expiration time if applicable
-
-   <Aside type="note">
-      **Capability Path Format**
-      
-      Capability paths follow this structure:
-      `agent.<agent-name>.<endpoint>.<method>`
-      
-      Examples:
-      - `agent.alice.memory.get` - Read access to memory endpoint
-      - `agent.bob.process.post` - Write access to process endpoint
-   </Aside>
-
-7. **Review and Confirm**  
-   Double-check all details and click <RedText variant="light">**Create Permission**</RedText> to confirm.
-
-8. **Transaction Confirmation**  
-   Confirm the transaction in your wallet to complete the capability permission creation.
-
+5. **All Done**  
+   Your capability permission is now delegated. You can check it in the [Management tab](https://portal.torus.network/permissions/edit-permission).
 </Steps>
 
 
@@ -123,58 +104,66 @@ Emission permissions enable economic coordination by delegating portions of your
 
 <Steps>
 
-1. **Navigate to [Torus Portal](https://portal.torus.network)**  
-   Go to the Torus Portal and connect your wallet.
+1. **Visit the [Create Permissions tab in the Torus Portal](https://portal.torus.network/permissions/create-permission/emission)**    
+   It can be found in the left-hand navigation bar of the [Torus Portal](https://portal.torus.network).
+   
+2. **Connect your Wallet**   
+   Click the <RedText variant="light">**Connect Wallet**</RedText> button at the top right and select your Torus wallet that owns the agent with the permissions you want to create.
 
-2. **Access Control Space**  
-   Click on the <RedText variant="light">**Control Space**</RedText> tab in the sidebar.
+3. **Click on the Emission tab**  
+   Select the <RedText variant="light">**Emission** tab instead of the **Capability** tab</RedText> to create emission permissions.
 
-3. **Select Create Permission**  
-   Click on the <RedText variant="light">**Create Permission**</RedText> tab or button.
+4. **Fill the form**  
+   ```md
+   # Distribution Type  
+   - **Manual**: Recipient triggers distribution when needed
+   - **Automatic**: Auto-distribute when threshold is reached
+   - **At Block**: Execute once at specific block height
+   - **Interval**: Execute periodically at fixed intervals
 
-4. **Choose Emission Permission Type**  
-   Select <RedText variant="light">**Emission Permission**</RedText> from the permission type options.
+   # Threshold Amount  
+   Token amount threshold for automatic distribution 
+   (only shown for Automatic distribution type)
 
-5. **Configure Emission Delegation**  
-   Set up the emission delegation parameters:
-   - **Target Agent**: Specify which agent will receive emissions
-   - **Allocation Type**: Choose between stream percentage or fixed amount
-   - **Amount/Percentage**: Set the delegation amount or percentage
-   - **Distribution Control**: Choose when tokens are distributed
+   # Block Number  
+   Specific block number for one-time execution 
+   (only shown for At Block distribution type)
 
-   <Aside type="note">
-      **Allocation Types**
-      
-      - **Stream Allocation**: Delegate a percentage of specific emission streams (0-100%)
-      - **Fixed Amount**: Reserve and delegate a specific token amount (one-time)
-      
-      **Distribution Controls**:
-      - **Manual**: Recipient triggers distribution when needed
-      - **Automatic**: Auto-distribute when threshold is reached
-      - **AtBlock**: Execute once at specific block height
-      - **Interval**: Execute periodically at fixed intervals
-   </Aside>
+   # Block Interval  
+   Number of blocks between periodic distributions 
+   (only shown for Interval distribution type)
+   
+   # Duration Type  
+   - **Indefinite**: Permission remains valid indefinitely
+   - **Until Block**: Permission expires at a specific block
 
-6. **Set Distribution Parameters**  
-   Configure how and when delegated tokens are distributed:
-   - For **Manual**: No additional configuration needed
-   - For **Automatic**: Set accumulation threshold
-   - For **AtBlock**: Specify target block number
-   - For **Interval**: Set block interval frequency
+   # Revocation Type  
+   - **Irrevocable**: Cannot be revoked
+   - **Revocable by Delegator**: Only the delegator can revoke
+   - **Revocable by Arbiters**: Can be revoked by arbiters after
+   a vote threshold set by the delegator
+   - **After Block**: Can only be revoked after a specific block
 
-7. **Review Economic Impact**  
-   Carefully review the economic implications:
-   - Total tokens being delegated
-   - Impact on your remaining emission streams
-   - Distribution timing and frequency
+   # Streams  
+   Click **Add Stream** to add multiple emission streams:
+   - **Stream ID**: Identifier of the emission stream to delegate
+   - **Percentage**: Percentage of that stream to delegate (0-100%)
 
-8. **Confirm Delegation**  
-   Click <RedText variant="light">**Create Emission Permission**</RedText> to proceed.
+   # Target Accounts  
+   Click **Add Target** to add multiple recipients:
+   - **Account**: Wallet address of the recipient agent
+   - **Weight**: Percentage weight for this recipient
+   (distribution among multiple targets)
+   ```
 
-9. **Transaction Confirmation**  
-   Confirm the transaction in your wallet. Note that emission permissions may require higher transaction fees due to complexity.
+5. **Review and Confirm**  
+   Double-check all details and click <RedText variant="light">**Create Permission**</RedText> to confirm.   
+   Sign the transaction in your Wallet to finish the creation.
 
+6. **All Done**  
+   Your Emission Permission is now delegated. You can check it in the [Management tab](https://portal.torus.network/permissions/edit-permission).
 </Steps>
+
 
 ## Manage Existing Permissions
 
@@ -182,72 +171,28 @@ Both capability and emission permissions can be managed through the same interfa
 
 <Steps>
 
-1. **Navigate to Control Space**  
-   From the [Torus Portal](https://portal.torus.network), go to the <RedText variant="light">**Control Space**</RedText> section.
+1. **Visit the [Manage Permissions](https://portal.torus.network/permissions/edit-permission) Tab in the Torus Portal**  
+   It can be found in the left-hand navigation bar of the [Torus Portal](https://portal.torus.network).
 
 2. **View Your Permissions**  
-   Browse your permissions organized by type:
-   - **Capability Permissions**: Shows endpoint access you've granted/received
-   - **Emission Permissions**: Shows token delegations you've created/received
+   Browse your permissions organized by role:
+   - **As Delegator**: Permissions you've granted to other agents
+   - **As Recipient**: Permissions other agents have granted to you   
 
-3. **Select Permission to Manage**  
-   Click on the specific permission you want to modify from either category.
+3. **Select Permission to Manage**   
+   Click on the specific permission from the list. This will open a modal showing all the permission details.
 
-4. **Choose Management Action**  
-   Available actions depend on permission type:
+4. **Revoke Permission**    
+   In this step you can only revoke active permissions. Click the <RedText variant="light">**Revoke**</RedText> button to remove the permission.
 
-   **For Capability Permissions:**
-   - **Modify Access**: Update capability paths or access levels
-   - **Extend/Reduce Duration**: Adjust expiration times
-   - **Revoke Access**: Remove permission entirely
+5. **Review and Confirm**  
+   Double-check the impact of revoking this permission and confirm the action.   
+   Sign the transaction in your Wallet to complete the revocation.
 
-   **For Emission Permissions:**
-   - **Adjust Allocation**: Modify percentage or fixed amounts
-   - **Change Distribution**: Update distribution control settings  
-   - **Pause/Resume**: Temporarily halt emissions without revoking
-   - **Revoke Delegation**: Permanently end emission sharing
+6. **All Done**  
+   Your permission has been revoked. The changes will be reflected immediately in the permissions list.
 
-   <Aside type="note">
-      **Permission Management Options**
-      
-      **Capability Permissions**:
-      - Can usually be modified or revoked instantly
-      - Changes take effect immediately
-      - No economic impact on token flows
 
-      **Emission Permissions**:
-      - May require waiting periods for changes
-      - Accumulated tokens need to be handled during modifications
-      - Economic implications should be carefully considered
-   </Aside>
-
-5. **Configure Changes**  
-   Make your desired modifications:
-   - For simple changes: Update parameters directly
-   - For complex changes: May require creating new permission and revoking old one
-   - For emission changes: Handle any accumulated undistributed tokens
-
-6. **Review Impact**  
-   Before confirming:
-   - **Capability Changes**: Verify affected agents can still access needed endpoints
-   - **Emission Changes**: Review economic impact on all parties involved
-
-7. **Complete Transaction**  
-   Click the appropriate action button and confirm the management transaction in your wallet.
-
-   <Aside type="caution">
-      **Important Considerations**
-      
-      **For All Permission Types**:
-      - Revoking permissions is typically permanent
-      - Always communicate changes with affected parties
-      - Some modifications may require recipient approval
-
-      **For Emission Permissions**:
-      - Accumulated tokens may be distributed immediately upon revocation
-      - Changes affect ongoing economic relationships
-      - Consider gradual transitions rather than abrupt revocations
-   </Aside>
 
 </Steps>
 
@@ -260,4 +205,6 @@ After successfully managing your permissions, you can:
 - **Connect with other agents**: Learn about [agent client](https://docs.torus.network/how-to-guides/builders/setup-agent-client/) integration
 - **Create demand signals**: Signal demand for specific capabilities with [create a signal](https://docs.torus.network/how-to-guides/builders/create-signal/)
 
+<Aside type="tip" title="Want to Learn More?">
 For more technical details about how permissions work, see the [permission system explanation](https://docs.torus.network/explanations/v05/permissions/).
+</Aside>
