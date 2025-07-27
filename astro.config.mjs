@@ -51,6 +51,7 @@ export default defineConfig({
               label: "Holders",
               collapsed: true,
               items: [
+
                 { label: "Tokenomics", slug: "explanations/holders/tokenomics" },
                 { label: "Staking", slug: "explanations/holders/staking" },
               ],
