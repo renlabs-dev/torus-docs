@@ -28,6 +28,24 @@ details details .large {
   color: inherit !important; /* Remove test color */
 }
 
+/*
+CONTENT LINK STYLING CUSTOMIZATION GUIDE:
+This section controls the blue color for content links while preserving 
+navigation elements in their original colors.
+
+To customize content link colors:
+- Change #3b82f6 (blue-500) for normal link color
+- Change #2563eb (blue-600) for hover link color
+- Add more selectors to include additional link types
+- Add more exclusions to prevent styling specific elements
+
+Navigation elements excluded:
+- Sidebar navigation
+- Page navigation (prev/next buttons)
+- Header navigation
+- Any nav-specific elements
+*/
+
 /* Make content hyperlinks blue, but keep navigation original colors */
 @layer components {
   /* Only make content area links blue */
@@ -54,8 +72,9 @@ details details .large {
   }
 }
 
-/* Explicitly keep sidebar navigation in original colors */
+/* Explicitly keep navigation elements in original colors */
 @layer components {
+  /* Sidebar navigation */
   nav a,
   nav .large,
   [data-starlight-sidebar] a,
@@ -65,16 +84,32 @@ details details .large {
   details summary,
   details summary .large,
   .sidebar a,
-  .sidebar .large {
+  .sidebar .large,
+  /* Page navigation (prev/next buttons) */
+  .pagination a,
+  [data-pagination] a,
+  .pagination-links a,
+  .sl-flex a[rel="prev"],
+  .sl-flex a[rel="next"],
+  footer a,
+  .starlight-aside .pagination a {
     color: inherit !important;
     text-decoration: none !important;
   }
   
+  /* Hover states for navigation elements */
   nav a:hover,
   [data-starlight-sidebar] a:hover,
   nav[aria-labelledby="starlight__sidebar-navigation"] a:hover,
   details summary:hover,
-  .sidebar a:hover {
+  .sidebar a:hover,
+  .pagination a:hover,
+  [data-pagination] a:hover,
+  .pagination-links a:hover,
+  .sl-flex a[rel="prev"]:hover,
+  .sl-flex a[rel="next"]:hover,
+  footer a:hover,
+  .starlight-aside .pagination a:hover {
     color: inherit !important;
     text-decoration: none !important;
   }
@@ -109,4 +144,58 @@ details details .large {
     color: #fca5a5 !important; /* Tailwind red-300 - very light, gentle red */
     font-weight: 500 !important;
   }
+}
+
+/* Make text with tooltips appear yellowish with underline */
+[title] {
+  color: #d97706 !important; /* Yellow-600 */
+  /* text-decoration: underline; */
+  /* text-decoration-style: dotted; */
+  cursor: help;
+}
+
+[title]:hover {
+  color: #b45309 !important; /* Yellow-700 - darker on hover */
+  text-decoration-style: solid;
+}
+
+/*
+TOOLTIP STYLING CUSTOMIZATION GUIDE:
+The astro-tooltips package uses Tippy.js under the hood.
+You can customize the tooltip appearance by targeting these CSS classes:
+
+1. .tippy-box - Main tooltip container
+2. .tippy-content - Content wrapper inside tooltip
+3. .tippy-arrow - Tooltip arrow/pointer
+
+Available properties to customize:
+- max-width: Controls tooltip width (forces line breaks)
+- background-color: Tooltip background
+- color: Text color
+- padding: Inner spacing
+- border-radius: Corner rounding
+- font-size: Text size
+- line-height: Line spacing
+- box-shadow: Drop shadow
+- border: Border styling
+*/
+
+/* Custom tooltip styling - square-ish with line breaks */
+.tippy-box {
+  max-width: 300px !important; /* Force line breaks at 300px */
+  background-color: #374151 !important; /* Gray-700 background */
+  border-radius: 6px !important; /* Slightly rounded corners for square-ish look */
+  box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.tippy-content {
+  padding: 12px 16px !important; /* More padding for better readability */
+  color: #f9fafb !important; /* Gray-50 text */
+  font-size: 14px !important;
+  line-height: 1.5 !important; /* Better line spacing */
+  text-align: left !important;
+}
+
+.tippy-arrow {
+  color: #374151 !important; /* Match background color */
 }
