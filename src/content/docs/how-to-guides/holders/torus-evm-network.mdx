@@ -1,0 +1,87 @@
+---
+title: Torus EVM Network
+sidebar:
+  label: Torus EVM Network
+  order: 40
+---
+
+import { Steps, Aside, CardGrid, Card } from "@astrojs/starlight/components";
+
+In this guide, you'll add the Torus EVM network to your wallet so dapps and the Bridge can connect reliably.
+
+<Aside type="note">
+We automatically prompt a network switch in the Bridge flow. If that fails or your wallet doesn’t switch networks, follow this guide to add Torus EVM manually.
+</Aside>
+
+## What you will do
+
+- Add the Torus EVM network to your wallet
+- Verify RPC/Explorer are reachable
+- (Optional) Enable Torus EVM on Coinbase Wallet via custom networks
+
+## Prerequisites
+
+<CardGrid>
+  <Card title="An EVM Wallet" icon="seti:config">
+    Any EVM-compatible wallet (Coinbase Wallet, MetaMask, Rabby, etc.)
+  </Card>
+  <Card title="Funds for gas" icon="seti:json">
+    You might need a small amount of TORUS to send transactions on Torus EVM.
+  </Card>
+</CardGrid>
+
+---
+
+## Network configuration
+
+- Network Name: Torus EVM
+- Chain ID: 21000
+- Currency Symbol: TORUS
+- Decimals: 18
+
+### RPC URLs
+- Primary RPC: https://api.torus.network
+- Alternate RPC: https://api-hyperlane.nodes.torus.network
+
+### Explorer
+- Block Explorer: https://blockscout.torus.network
+- Explorer API: https://api.blockscout.torus.network/api
+
+---
+
+## Add to Coinbase Wallet
+
+Reference: https://www.coinbase.com/learn/wallet/How-to-add-custom-networks-Coinbase-Wallet
+
+<Steps>
+1. Open Coinbase Wallet → Settings
+2. Tap Active dapp network → + (Add custom network)
+3. Fill:
+   - Name: Torus EVM
+   - RPC URL: https://api.torus.network
+   - Chain ID: 21000
+   - Symbol: TORUS
+   - Explorer: https://blockscout.torus.network
+4. Save → toggle it as Active network
+5. Send a small amount of TORUS to see your balance on Torus EVM
+</Steps>
+
+<Aside>
+Custom networks let Coinbase Wallet access more ecosystems and dapps. EVM-compatible networks share the same address format, so your Ethereum address is also valid on Torus EVM.
+</Aside>
+
+---
+
+## Add to other EVM wallets (generic)
+
+<Steps>
+1. Open your wallet → Settings
+2. Select Networks → Add Network
+3. Paste the configuration above
+4. Save, switch to Torus EVM, and retry your action (e.g., the Bridge)
+</Steps>
+
+### Troubleshooting
+- RPC errors: try the Alternate RPC URL
+- Stuck on wrong network: refresh the dapp and re-connect the wallet
+- Tokens not visible: import token by contract address on Torus EVM

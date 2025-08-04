@@ -8,17 +8,17 @@ import {
   Aside,
   CardGrid,
   LinkCard,
-  Card
+  Card,
 } from "@astrojs/starlight/components";
 
-import ClickableImage from '/src/components/ClickableImage.astro';
-import subwalletExtensionActivated from '/public/images/how-to-guide/setup-wallet/subwallet-extension-activated.png';
-import subwalletCreatedSuccessfully from '/public/images/how-to-guide/setup-wallet/subwallet-created-successfully.png';
-import subwalletOpenSetup from '/public/images/how-to-guide/setup-wallet/subwallet-open-setup.png';
-import subwalletSelectConfigToAddNetwork from '/public/images/how-to-guide/setup-wallet/subwallet-select-config-to-add-network.png';
-import subwalletSearchTorusNetwork from '/public/images/how-to-guide/setup-wallet/subwallet-search-torus-network.png';
-import subwalletDoneTorusSetup from '/public/images/how-to-guide/setup-wallet/subwallet-done-torus-setup.png';
-import RedText from '/src/components/RedText.astro';
+import ClickableImage from "/src/components/ClickableImage.astro";
+import subwalletExtensionActivated from "/public/images/how-to-guide/setup-wallet/subwallet-extension-activated.png";
+import subwalletCreatedSuccessfully from "/public/images/how-to-guide/setup-wallet/subwallet-created-successfully.png";
+import subwalletOpenSetup from "/public/images/how-to-guide/setup-wallet/subwallet-open-setup.png";
+import subwalletSelectConfigToAddNetwork from "/public/images/how-to-guide/setup-wallet/subwallet-select-config-to-add-network.png";
+import subwalletSearchTorusNetwork from "/public/images/how-to-guide/setup-wallet/subwallet-search-torus-network.png";
+import subwalletDoneTorusSetup from "/public/images/how-to-guide/setup-wallet/subwallet-done-torus-setup.png";
+import RedText from "/src/components/RedText.astro";
 
 In this guide, we'll walk through setting up a wallet with the <RedText variant="light">**SubWallet** browser extension</RedText>, a popular non-custodial wallet for managing assets across multiple blockchains.  
 If you prefer a different extension, scroll to the bottom for a list of other wallets that work with Torus.  
@@ -34,13 +34,11 @@ You need a wallet to hold TORUS and interact with Torus - it's required for stak
 - Create a new wallet (master password + seed phrase)
 - Connect SubWallet to Torus
 
-<Aside>
-⏱️ **Estimated time to complete this guide: 5 minutes**
-</Aside>
+<Aside>⏱️ **Estimated time to complete this guide: 5 minutes**</Aside>
 
 ## Steps to connect your SubWallet to Torus.
 
-###  Installing the SubWallet Extension
+### Installing the SubWallet Extension
 
 <Steps>
 
@@ -59,16 +57,18 @@ You need a wallet to hold TORUS and interact with Torus - it's required for stak
 
     </span>
 
-    <ClickableImage src={subwalletExtensionActivated} alt="SubWallet extension activated in Brave browser" />
+    <ClickableImage
+      src={subwalletExtensionActivated}
+      alt="SubWallet extension activated in Brave browser"
+    />
 
 </Steps>
-
 
 ### Creating a New Account
 
  <Steps>
 
-1.  **Open the SubWallet extension in your browser**   
+1.  **Open the SubWallet extension in your browser**  
      Click on the SubWallet icon in your browser’s extension area to open the wallet.
 
 2.  **Click Create a New Account**  
@@ -76,12 +76,12 @@ You need a wallet to hold TORUS and interact with Torus - it's required for stak
 
     - Create new account
     - Import account
-    - Connect existing account   
-        
+    - Connect existing account  
+
+
     Select the **"Create new account"** option.
 
-
-3.  **Create a Master Password**   
+3.  **Create a Master Password**  
     You will be prompted to create a master password. <RedText variant="light">This password is crucial as it encrypts your wallet data on your device for security.</RedText>
 
 4.  **Backup Your Seed Phrase**  
@@ -95,7 +95,7 @@ You need a wallet to hold TORUS and interact with Torus - it's required for stak
 
     </Aside>
 
-5.  **Create an account name**:   
+5.  **Create an account name**:  
     Choose an account name, this does not impact anything, so feel free to choose any name you like. If you want to change it later, you can do so from the account settings.
 
         <span style={{ fontSize: "0.9rem", fontStyle: "italic" }}>
@@ -105,39 +105,52 @@ You need a wallet to hold TORUS and interact with Torus - it's required for stak
 
         </span>
 
-    <ClickableImage src={subwalletCreatedSuccessfully} alt="SubWallet account successfully created" />
+    <ClickableImage
+      src={subwalletCreatedSuccessfully}
+      alt="SubWallet account successfully created"
+    />
 
 </Steps>
 
- ### Adding Torus to the Subwallet
+### Adding Torus to the Subwallet
 
 <Steps>
 
-  1. **Open the Subwallet Setup**  
-    Click on the three bars (**☰**) on the top left corner of the subwallet extension.    
-     <ClickableImage src={subwalletOpenSetup} alt="SubWallet setup button" />
+1. **Open the Subwallet Setup**  
+   Click on the three bars (**☰**) on the top left corner of the subwallet extension.
 
-  2. **Select Manage Networks**   
-  Under the **Assets & Addresses** tab, click on <RedText variant="light">**Manage Networks**</RedText>.
-     <ClickableImage src={subwalletSelectConfigToAddNetwork} alt="SubWallet manage networks button" />
+   {" "}
+   <ClickableImage src={subwalletOpenSetup} alt="SubWallet setup button" />
 
+2. **Select Manage Networks**  
+   Under the **Assets & Addresses** tab, click on <RedText variant="light">**Manage Networks**</RedText>.
 
- 3. **Search for Torus and activate it**    
-    Click on the search bar, type Torus, and select it from the list. <RedText variant="light">Make sure to enable it</RedText> so it appears in your list of active tokens.
-    <ClickableImage src={subwalletSearchTorusNetwork} alt="SubWallet search for Torus button" /> 
-     <Aside type="caution">
-      If you don't see **Torus** in the list, you might need to add it manually.  
-      Follow the steps in this [video tutorial by Omni Labs](https://www.youtube.com/watch?v=3JDQFYg0u_A&t=172s).
+   {" "}
+   <ClickableImage
+     src={subwalletSelectConfigToAddNetwork}
+     alt="SubWallet manage networks button"
+   />
 
-    **RPC URL:** `wss://api.torus.network`
-    </Aside>
+3. **Search for Torus and activate it**  
+   Click on the search bar, type Torus, and select it from the list. <RedText variant="light">Make sure to enable it</RedText> so it appears in your list of active tokens.
 
-4. **Confirm Torus is active**   
-    Once enabled, **Torus** will appear in your list of active networks.    
-    You might have to scroll down to find Torus in the list.  
-    <ClickableImage src={subwalletDoneTorusSetup} alt="SubWallet network list with torus" /> 
+   <ClickableImage src={subwalletSearchTorusNetwork} alt="SubWallet search for Torus button" /> 
+ <Aside type="caution">
+  If you don't see **Torus** in the list, you might need to add it manually.  
+  Follow the steps in this [video tutorial by Omni Labs](https://www.youtube.com/watch?v=3JDQFYg0u_A&t=172s).
 
+   **RPC URL:** `wss://api.torus.network`
 
+   </Aside>
+
+4. **Confirm Torus is active**  
+   Once enabled, **Torus** will appear in your list of active networks.  
+   You might have to scroll down to find Torus in the list.
+
+   <ClickableImage
+     src={subwalletDoneTorusSetup}
+     alt="SubWallet network list with torus"
+   />{" "}
 
 5. **All Done**  
    Torus is now connected to your SubWallet.  
@@ -145,16 +158,17 @@ You need a wallet to hold TORUS and interact with Torus - it's required for stak
 
 </Steps>
 
-
 ## What's Next?
 
 Now that you have a wallet set up, you can:
 
 - **Get TORUS**: [Bridge from Base](https://docs.torus.network/how-to-guides/holders/bridge-from-base/) to get TORUS into your wallet
+- **Torus EVM Network**: If your wallet doesn’t auto-switch during bridging, [add Torus EVM manually](https://docs.torus.network/how-to-guides/holders/add-torus-evm-network/)
 
 For SubWallet-specific help, check the [SubWallet Documentation](https://docs.subwallet.app/main).
 
- Connect with the community:
+Connect with the community:
+
 - [Discord](https://discord.gg/torus) — Technical discussions, support, and announcements
 - [Telegram](https://t.me/torusnetwork) — General chat and announcements
 - [Twitter](https://x.com/torus_network) — Updates and ecosystem news

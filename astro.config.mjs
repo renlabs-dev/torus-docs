@@ -88,6 +88,7 @@ export default defineConfig({
               items: [
                 { label: "Setup a Wallet", slug: "how-to-guides/holders/setup-a-wallet" },
                 { label: "Bridge from Base", slug: "how-to-guides/holders/bridge-from-base" },
+                { label: "Torus EVM Network", slug: "how-to-guides/holders/torus-evm-network" },
                 { label: "Stake your Torus", slug: "how-to-guides/holders/stake-your-torus" },
               ],
             },
