@@ -19,6 +19,7 @@ import metamaskConnectEvm from '/public/images/how-to-guide/bridge-to-base/metam
 import fillInFormToConvertTorusEvmNativeTorus from '/public/images/how-to-guide/bridge-to-base/fill-in-form-to-convert-torus-evm-native-torus.png';
 import confirmTransactionInMetamaskTorusEvmToTorus from '/public/images/how-to-guide/bridge-to-base/confirm-transaction-in-metamask-torus-evm-to-torus.png';
 import torusEvmConvertSuccessfully from '/public/images/how-to-guide/bridge-to-base/torus-evm-convert-successfully.png';
+import connectedToTorusEvm from '/public/images/how-to-guide/bridge-to-base/connected-to-torus-evm.png';
 
 In this guide, we'll **bridge TORUS between Torus and Base**.  
 This process is necessary in order to obtain **Native TORUS**, which is required to interact with Torus directly.
@@ -59,7 +60,9 @@ To keep things clear and concise, **Native TORUS** will be referred to as **TORU
 
 <Aside type="danger">
   Avoid storing BASE TORUS in SubWallet, as it will cause issues with the bridge that could result in loss of funds.
-</Aside> 
+</Aside>
+
+ 
 
 ## Steps for the Bridge Process
 
@@ -108,7 +111,28 @@ To keep things clear and concise, **Native TORUS** will be referred to as **TORU
    <ClickableImage src={metamaskConnectEvm} alt="SubWallet and MetaMask connect screen" />
 
 
-1. **Swap from Torus EVM to Torus**
+2. **Verify you're connected to Torus EVM**  
+   Make sure MetaMask is connected to the Torus EVM network. You should see "Torus EVM" in your MetaMask network dropdown.
+   
+   <ClickableImage src={connectedToTorusEvm} alt="MetaMask connected to Torus EVM" />
+   
+   <Aside type="note" title="Do not see Torus EVM?">
+   **If MetaMask shows a different network or the Bridge doesn't automatically switch to Torus EVM**, you may need to manually add the network to your MetaMask wallet first.
+
+   **Torus EVM Network Configuration:**
+   - **Network Name**: Torus EVM
+   - **Default RPC URL**: https://api.torus.network   
+     *(Alternate: https://api-hyperlane.nodes.torus.network)*
+   - **Chain ID**: 21000
+   - **Currency Symbol**: TORUS
+   - **Block Explorer**: https://blockscout.torus.network
+
+   **MetaMask Setup:** Follow [MetaMask's guide to add custom networks](https://support.metamask.io/networks-and-sidechains/managing-networks/how-to-add-a-custom-network-rpc/) using the configuration above, then return to the Bridge and retry your transaction.
+
+   The Bridge will attempt to add this network automatically, but manual setup ensures a smooth experience if the auto-switch fails.
+   </Aside>
+
+3. **Swap from Torus EVM to Torus**
    - Make sure you are **connected** in **Both Wallets**
    - Make sure you are in the <RedText variant="light">**correct Tab**</RedText>, <RedText variant="light">**TORUS EVM - Base**</RedText>
    - Make sure it is <RedText variant="light">FROM</RedText>**Torus EVM** <RedText variant="light">TO</RedText> **Torus**
@@ -116,7 +140,7 @@ To keep things clear and concise, **Native TORUS** will be referred to as **TORU
    Fill in the form with the amount you want to convert, after confirmation, you will be prompted to sign the transaction in Torus.
    <ClickableImage src={fillInFormToConvertTorusEvmNativeTorus} alt="Convert Torus EVM to Native TORUS" />
 
-2. **Confirm the transaction**  
+4. **Confirm the transaction**  
    After filling in the form, you will be prompted to confirm the transaction in Metamask.
    <Aside type="caution">
       Always verify the transaction in MetaMask before signing it, as it is your responsibility to verify the transaction details.  
@@ -125,7 +149,7 @@ To keep things clear and concise, **Native TORUS** will be referred to as **TORU
    
    <ClickableImage src={confirmTransactionInMetamaskTorusEvmToTorus} alt="Confirm the transaction in MetaMask" />
 
-3. **Confirmation of the swap**  
+5. **Confirmation of the swap**  
    After the transaction succeeds, your Torus EVM should now be displayed as TORUS as it was successfully swapped.
    This process can take a while to complete on the blockchain,
    so <RedText variant="light">please wait a few minutes and refresh the page.</RedText>   
@@ -144,7 +168,7 @@ Now that you have TORUS tokens, you can:
 - **Start earning rewards**: [Stake your TORUS](https://docs.torus.network/how-to-guides/holders/stake-your-torus/) to support agents and earn emissions
 - **Become an agent**: [Register an agent](https://docs.torus.network/how-to-guides/builders/register-an-agent/) to provide services and earn directly
 - **Explore the ecosystem**: Browse agents and allocators on the [Torus Portal](https://portal.torus.network/)
-- **Understand tokenomics**: Learn about [TORUS economics](https://docs.torus.network/getting-started/tokenomics/) and emission mechanisms
+- **Understand tokenomics**: Learn about [TORUS economics](https://docs.torus.network/explanations/holders/tokenomics/) and emission mechanisms
 
  Connect with the community:
 - [Discord](https://discord.gg/torus) — Technical discussions, support, and announcements

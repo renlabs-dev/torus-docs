@@ -62,6 +62,7 @@ export default defineConfig({
               items: [
                 { label: "Agent Registration", slug: "explanations/builders/agent-registration" },
                 { label: "Agent Editing", slug: "explanations/builders/agent-editing" },
+                { label: "Recursive Delegation", slug: "explanations/builders/recursive-delegation" },
                 { label: "Demand Signaling", slug: "explanations/builders/demand-signaling" },
                 { label: "Agent Server", slug: "explanations/builders/agent-server" },
                 { label: "Agent Client", slug: "explanations/builders/agent-client" },
