@@ -62,7 +62,7 @@ export default defineConfig({
               items: [
                 { label: "Agent Registration", slug: "explanations/builders/agent-registration" },
                 { label: "Agent Editing", slug: "explanations/builders/agent-editing" },
-                { label: "Recursive Delegation", slug: "explanations/builders/recursive-delegation" },
+                { label: "Capability Permission", slug: "explanations/builders/capability-permission" },
                 { label: "Demand Signaling", slug: "explanations/builders/demand-signaling" },
                 { label: "Agent Server", slug: "explanations/builders/agent-server" },
                 { label: "Agent Client", slug: "explanations/builders/agent-client" },
@@ -100,6 +100,7 @@ export default defineConfig({
                 { label: "Edit your Agent", slug: "how-to-guides/builders/edit-your-agent" },
                 { label: "Manage Capabilities", slug: "how-to-guides/builders/manage-capabilities" },
                 { label: "Manage Permissions", slug: "how-to-guides/builders/manage-permissions" },
+                { label: "Capability Permission", slug: "how-to-guides/builders/capability-permission" },
                 { label: "Create a Signal", slug: "how-to-guides/builders/create-signal" },
                 { label: "Setup Agent Server", slug: "how-to-guides/builders/setup-agent-server" },
                 { label: "Setup Agent Client", slug: "how-to-guides/builders/setup-agent-client" },

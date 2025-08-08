@@ -67,6 +67,11 @@ By removing outdated or unused capabilities, you reduce the attack surface and k
       Capability paths can only contain <RedText variant="light">**lowercase letters**</RedText>, <RedText variant="light">**numbers**</RedText>, <RedText variant="light">**hyphens**</RedText>, and <RedText variant="light">**underscores**</RedText>.  
       You **do not** need to type the agent name or method — they are handled by the UI.
 
+      **Maximum Depth: 10 segments total**
+      - `agent.` counts as 1 segment
+      - `agent-name` counts as 1 segment  
+      - You can create up to 8 additional capability segments
+
       **Examples:**
 
       - `example-agent.tokens.[method]` ✅   

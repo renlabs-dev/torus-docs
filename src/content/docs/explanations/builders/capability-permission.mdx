@@ -1,0 +1,43 @@
+---
+title: Capability Permission
+description: Understanding capability permissions and how they enable agents to delegate access to their endpoints and services.
+---
+
+import {
+  Aside,
+  Card,
+  CardGrid,
+} from "@astrojs/starlight/components";
+
+Capability permissions allow agents to delegate access to their endpoints and services to other agents in the network.
+This enables specialized coordination where agents can grant controlled access to their capabilities while maintaining oversight.
+
+### Core Functions
+
+**Access Control**: Agents can precisely control who can use their capabilities and under what conditions.
+
+**Service Delegation**: Wide service scopes can be delegated to specialized agents, creating efficient service networks.
+
+### Permission Structure
+
+Capability permissions operate on specific namespace paths rather than entire capability sets, enabling granular access control.
+
+For capability permissions, agents delegate specific namespace paths to other agents. Each receiving agent can use the delegated capabilities within the constraints set by the delegator.
+
+### Key Rules
+
+- **Revocation**: When a delegator revokes, the capability permission is immediately revoked.   
+Revocation terms are set during permission creation.
+- **Depth**: Measured per capability from root owner to current holder, with maximum of 8 levels.
+- **Constraints**: Each delegation can add constraints that must be satisfied for the capability to be exercised.
+- **Inheritance**: Permission contents inherit all constraints through delegation chains, with new constraints layering on top.
+
+### Related Concepts
+
+- **[Permission System](https://docs.torus.network/explanations/v05/permissions/)** - Core permission mechanics and delegation basics
+- **[Agent Registration](https://docs.torus.network/explanations/builders/agent-registration/)** - How agents become capable of receiving delegations  
+- **[Root Agents](https://docs.torus.network/explanations/goal-leaders/root-agents/)** - Agents with direct emission access for delegation
+
+<Aside type="tip" title="Ready to Create Capability Permissions?">
+Follow our [step-by-step guide to capability permissions](https://docs.torus.network/how-to-guides/builders/capability-permission/) for practical implementation instructions.
+</Aside>
