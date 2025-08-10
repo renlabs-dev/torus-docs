@@ -1,5 +1,5 @@
 ---
-title: Capability Permission
+title: Recursive Delegation
 description: Step-by-step guide to creating capability permissions to delegate access to your agent's endpoints and services.
 ---
 
@@ -15,8 +15,12 @@ import RedText from '/src/components/RedText.astro';
 import uiExplainedRedelegation from '/public/images/how-to-guide/capability-permission/ui-explained-re-delegation.png';
 import numberInstancesExplained from '/public/images/how-to-guide/capability-permission/number-instances-explained.png';
 
-In this guide, we'll walk through **creating capability permissions** in the Torus portal.  
-Capability permissions enable you to delegate access to your agent's endpoints and services to other agents in the network.
+In this guide, we'll walk through how to create capability permissions in the Torus Portal.
+Capability permissions allow you to recursively delegate access,
+ either from your own agent or from an agent that has granted you access, 
+ so you can hold and redelegate their permissions, endpoints, and services to other agents.
+
+
 
 ## Why Create Capability Permission?
 

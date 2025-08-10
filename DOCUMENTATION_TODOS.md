@@ -706,7 +706,7 @@ Focus on guides that address common confusion or unlock significant value:
 
 **Total: 14 digestible files instead of 5 overwhelming documents**
 
-**Note:** Namespace system is already well-covered in `/explanations/v05/capability-permissions.mdx` and `/explanations/v05/control-space.mdx`
+**Note:** Namespace system is already well-covered in `/explanations/v06/recursive-delegation.mdx` and `/explanations/v05/control-space.mdx`
 
 ### Resource Requirements
 - Technical writer familiar with blockchain economics
