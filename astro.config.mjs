@@ -34,7 +34,7 @@ export default defineConfig({
           items: [
             { label: "Table of Contents", slug: "explanations/table-of-contents" },
             {
-              label: "v0.5",
+              label: "v0.6",
               collapsed: true,
               items: [
                 { label: "Control Space", slug: "explanations/v05/control-space" },
