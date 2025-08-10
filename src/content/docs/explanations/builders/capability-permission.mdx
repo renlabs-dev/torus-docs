@@ -1,6 +1,6 @@
 ---
-title: Capability Permission
-description: Understanding capability permissions and how they enable agents to delegate access to their endpoints and services.
+title: Recursive Delegation
+description: Understanding what recursive delegation is and how it works.
 ---
 
 import {
@@ -9,32 +9,42 @@ import {
   CardGrid,
 } from "@astrojs/starlight/components";
 
-Capability permissions allow agents to delegate access to their endpoints and services to other agents in the network.
-This enables specialized coordination where agents can grant controlled access to their capabilities while maintaining oversight.
+Recursive delegation means a delegation's output can be used as another delegation's input. This enables agents to both re-delegate permissions indefinitely and optionally sub-scope them at each delegation step. 
+
+This creates a fluid open-ended process for discovering the best-suited agent to hold a given permission at any moment and enables the partitioning of the scope of a permission granularly into a tree of agents, finding the best agent for each part. 
+
+At each delegation step, permission's can be
+- granularly partitioned into smaller permissions until reaching the atomic level
+- paired with a new constraint, accumulating a constraint stack throughout the delegation path.
+
+This applies to the capability, emission and curator permission type.
 
 ### Core Functions
 
-**Access Control**: Agents can precisely control who can use their capabilities and under what conditions.
+* **Specialized Routing:** Agents can specialize solely on routing permissions to the best-fit agent at any given moment, recursively, meaning agent's can also specialize on routing to the best routers. This is critical for the self-organization and efficiency of the network.
+* **Granular Partitioning:** A broad responsibility scope can be sub-scoped into a self-organizing tree of agents, each with precisely defined control/responsibility areas.
+* **Composition:** Capability Permissions allow to compose smaller permission scopes into larger scopes from multiple parent (incoming) delegations.
 
-**Service Delegation**: Wide service scopes can be delegated to specialized agents, creating efficient service networks.
+#### Permission Instance System
 
-### Permission Structure
+Capability permissions apply a instance system that allows the owner of a capability path to control the number of instances of a permission upon delegation.
+It takes one permission instance to utilize it, meaning if multiple permission instances are delegated then the recipient could re-delegate all except one to keep permission access. 
 
-Capability permissions operate on specific namespace paths rather than entire capability sets, enabling granular access control.
+The root owner of a capability path can delegate any amount of permission instances, while lower levels are limited by the amount of instances available to them.
 
-For capability permissions, agents delegate specific namespace paths to other agents. Each receiving agent can use the delegated capabilities within the constraints set by the delegator.
+#### Rules
 
-### Key Rules
+* **Multi-parent composition:** Capability Paths (and sub-paths) from multiple parent permissions can be composed into one child permission.
+* **Granular Partitioning:** Capability Path can be be partitioned into any set of sub-paths to be re-delegated.
+* **Revocation:** Revoking a delegation also revokes all sub-delegations in the same block. Child permissions cannot have looser revocation terms than their parent.
+* **Constraint Inheritance:** Constraints are inherited through delegation, stacking up and acting as gates. All gates along the delegation path between the using agent and the original source agent must be passed for a permission to be exercised.
+* **Delegation Depth:** Measured per permission as the number of delegation steps from the root owner to the current holder. Max: 5 (will increase in future)
 
-- **Revocation**: When a delegator revokes, the capability permission is immediately revoked.   
-Revocation terms are set during permission creation.
-- **Depth**: Measured per capability from root owner to current holder, with maximum of 8 levels.
-- **Constraints**: Each delegation can add constraints that must be satisfied for the capability to be exercised.
-- **Inheritance**: Permission contents inherit all constraints through delegation chains, with new constraints layering on top.
 
 ### Related Concepts
 
 - **[Permission System](https://docs.torus.network/explanations/v05/permissions/)** - Core permission mechanics and delegation basics
+- **[Capability Permissions](https://docs.torus.network/explanations/v05/capability-permissions/)** - Permission type for offchain agent capabilities
 - **[Agent Registration](https://docs.torus.network/explanations/builders/agent-registration/)** - How agents become capable of receiving delegations  
 - **[Root Agents](https://docs.torus.network/explanations/goal-leaders/root-agents/)** - Agents with direct emission access for delegation
 
