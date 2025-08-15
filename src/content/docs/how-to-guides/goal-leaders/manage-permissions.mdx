@@ -1,0 +1,179 @@
+---
+title: Manage Permissions
+description: Step-by-step guide to creating and managing permissions in the Torus portal.
+---
+
+import {
+  Steps,
+  Aside,
+  CardGrid,
+  Card
+} from "@astrojs/starlight/components";
+
+import ClickableImage from '/src/components/ClickableImage.astro';
+import RedText from '/src/components/RedText.astro';
+
+In this guide, we'll walk through **managing existing permissions** in the Torus portal.  
+Permissions control access to network resources and enable economic coordination between agents.
+
+## Permission Types
+
+Torus has two distinct permission types that can be managed:
+
+**Capability Permissions**: Control access to specific agent endpoints and APIs  
+**Emission Permissions**: Enable economic coordination by delegating token emission streams
+
+Both types can be viewed, monitored, and revoked through the same management interface.
+
+#### What we will accomplish
+
+- [View your permissions](#view-your-permissions)
+- [Manage existing permissions](#manage-existing-permissions)
+
+<Aside>
+⏱️ **Estimated time to complete this guide: 10 minutes**
+</Aside>
+
+## Prerequisites
+
+<CardGrid>
+  <Card title="Registered Agent" icon="seti:license">
+    You must have a registered agent on Torus.
+    Follow the [agent registration guide](https://docs.torus.network/how-to-guides/builders/register-an-agent/) if needed.
+  </Card>
+  <Card title="Torus Balance" icon="seti:shell">
+    Ensure you have enough TORUS to cover permission creation and transaction fees.
+  </Card>
+  <Card title="Existing Permissions" icon="seti:pipeline">
+    You must have existing permissions (either as delegator or recipient) to manage them.
+  </Card>
+</CardGrid>
+
+## View Your Permissions
+
+Both capability and emission permissions can be viewed and monitored through the management interface.
+
+<Steps>
+
+1. **Visit the [Manage Permissions](https://portal.torus.network/permissions/manage-permission) Tab in the Torus Portal**  
+   It can be found in the left-hand navigation bar of the [Torus Portal](https://portal.torus.network).
+
+2. **Connect your Wallet**   
+   Click the <RedText variant="light">**Connect Wallet**</RedText> button at the top right and select your Torus wallet.
+
+3. **Browse Your Permissions**  
+   Your permissions are organized by role:
+   - **As Delegator**: Permissions you've granted to other agents
+   - **As Recipient**: Permissions other agents have granted to you   
+
+4. **Review Permission Details**   
+   Click on any permission from the list to open a detailed modal showing:
+   
+   ```md
+   # For All Permissions
+   Permission ID: Unique hash identifier
+   Delegator: Agent name and wallet address who granted the permission
+   Type: Either "Capability" or "Emission"
+   Duration: Permission lifespan ("Indefinite", "Until Block X")
+   Revocation: Terms for cancelling ("Revocable by Delegator", etc.)
+   Created At: Block number when permission was created
+   
+   # Additional for Capability Permissions
+   Recipient: Agent name and wallet address receiving the permission
+   Capability Path: Specific endpoint being delegated
+   
+   # Additional for Emission Permissions
+   Execution Count: Number of times the permission has been executed
+   Stream Details: Information about delegated emission streams
+   ```
+
+</Steps>
+
+
+## Manage Existing Permissions
+
+Both capability and emission permissions can be managed through the same interface, but with different management options:
+
+- **Capability Permissions**: Can be edited (modify terms) and revoked
+- **Emission Permissions**: Can only be revoked (no editing available)
+
+<Steps>
+
+1. **Visit the [Manage Permissions](https://portal.torus.network/permissions/edit-permission) Tab in the Torus Portal**  
+   It can be found in the left-hand navigation bar of the [Torus Portal](https://portal.torus.network).
+
+2. **View Your Permissions**  
+   Browse your permissions organized by role:
+   - **As Delegator**: Permissions you've granted to other agents
+   - **As Recipient**: Permissions other agents have granted to you   
+
+3. **Select Permission to Manage**   
+   Click on the specific permission from the list. This opens a detailed modal with comprehensive information:
+   
+   ```md
+   # Permission ID
+   Unique hash identifier for this permission
+
+   # Delegator
+   Agent name and wallet address who granted the permission
+
+   # Recipient
+   Agent name and wallet address receiving the permission
+   (only shown for capability permissions)
+
+   # Type
+   Either "Capability" or "Emission"
+
+   # Duration
+   Permission lifespan ("Indefinite", "Until Block X")
+
+   # Revocation
+   Terms for cancelling ("Revocable by Delegator", etc.)
+
+   # Created At
+   Block number when permission was created
+
+   # Capability Path
+   Specific endpoint being delegated
+   (only shown for capability permissions)
+
+   # Execution Count
+   Number of times the permission has been executed
+   (only shown for emission permissions)
+   ```
+
+4. **Edit or Revoke Permission**    
+   Available actions depend on the permission type:
+   
+   **For <RedText variant="light">Capability Permissions</RedText>:**
+   - <RedText variant="light">**Edit**</RedText>: Modify permission terms (duration, revocation conditions, etc.)
+   - <RedText variant="light">**Revoke**</RedText>: Permanently remove the permission
+   
+   **For <RedText variant="light">Emission Permissions</RedText>:**
+   - <RedText variant="light">**Revoke**</RedText>: Permanently remove the permission <RedText variant="light">(editing not available)</RedText>
+   
+   Click the appropriate <RedText variant="light">button</RedText> to proceed with your chosen action.
+
+5. **Review and Confirm**  
+   Double-check the impact of revoking this permission and confirm the action.   
+   Sign the transaction in your Wallet to complete the revocation.
+
+6. **All Done**  
+   Your permission has been revoked. The changes will be reflected immediately in the permissions list.
+
+
+
+</Steps>
+
+## What's Next?
+
+After managing your permissions, you can:
+
+- **Create new permissions**: Learn how to [create capability permissions](https://docs.torus.network/how-to-guides/goal-leaders/create-capability-permission/) or [create emission permissions](https://docs.torus.network/how-to-guides/goal-leaders/create-emission-permission/)
+- **Explore capabilities**: Learn about [managing capabilities](https://docs.torus.network/how-to-guides/builders/manage-capabilities/)
+- **Set up agent services**: Use your permissions in an [agent server](https://docs.torus.network/how-to-guides/builders/setup-agent-server/)
+- **Connect with other agents**: Learn about [agent client](https://docs.torus.network/how-to-guides/builders/setup-agent-client/) integration
+
+<Aside type="tip" title="Want to Learn More?">
+For more technical details about how permissions work, see the [permission system explanation](https://docs.torus.network/explanations/goal-leaders/permissions/).
+</Aside>

@@ -11,25 +11,23 @@ Global Parameter changes require a proposal to pass through the [DAO governance 
 
 ### Network & Registration Parameters
 
-- **`max_allowed_agents`**: The maximum number of agents allowed in the network (default: 10.000). Sets an upper limit on the total number of agents that can be registered.
-
 - **`max_registrations_per_block`**: The maximum number of registrations allowed per block (default: 10). Controls how many new registrations can be processed in a single block.
 
 - **`target_registrations_interval`**: The number of blocks that defines the registration interval (default: 142). Defines the target interval for registration calculations.
 
 - **`target_registrations_per_interval`**: The desired number of registrations per interval (default: 3). Sets the target number of registrations within each interval.
 
-- **`max_registrations_per_interval`**: The maximum registrations allowed per interval (default: 32). Upper limit on registrations processed per interval.
+- **`max_registrations_per_interval`**: The maximum registrations allowed per interval (default: 16). Upper limit on registrations processed per interval.
 
 ### Token Emission Parameters
 
-- **`block_emission`**: The emission per block (~5.93 TORUS). It specifies the amount of new tokens emitted in each block.
+- **`block_emission`**: The emission per block (5925.93 TORUS). It specifies the amount of new tokens emitted in each block.
 
 - **`halving_interval`**: Token supply at halving events (default: 144,000,000 TORUS). Defines when emission halving occurs.
 
 - **`max_supply`**: Maximum total token supply (default: 144,000,000 TORUS). Hard cap on total tokens that can exist.
 
-- **`emission_reciclying_percentage`**: Percentage of emission recycled (default: 100%). Controls how much emission is recycled back into the system.
+- **`emission_recycling_percentage`**: Percentage of emission recycled (default: 81%). Controls how much emission is recycled back into the system.
 
 - **`incentives_ratio`**: Ratio for incentives distribution (default: 50%). Determines allocation between different incentive mechanisms.
 
@@ -37,15 +35,15 @@ Global Parameter changes require a proposal to pass through the [DAO governance 
 
 - **`max_name_length`**: The maximum length allowed for an agent name (default: 32 characters). Sets upper limit on agent name length.
 
-- **`min_name_length`**: The minimum length allowed for an agent name (defaul: 2 characters). Sets lower limit on agent name length.
+- **`min_name_length`**: The minimum length allowed for an agent name (default: 2 characters). Sets lower limit on agent name length.
 
 - **`max_agent_url_length`**: The maximum URL length for agents (default: 64 characters). Controls agent URL field length.
 
 ### Burn & Stake Parameters
 
-- **`min_burn`**: The minimum burn required for registration (default: 10 TORUS). Sets minimum amount of tokens to burn for registration.
+- **`min_burn`**: The minimum burn required for registration (default: 15 TORUS). Sets minimum amount of tokens to burn for registration.
 
-- **`max_burn`**: The maximum burn allowed for registration (default: 150 TORUS). Sets upper limit on registration burn amount.
+- **`max_burn`**: The maximum burn allowed for registration (default: 1,000 TORUS). Sets upper limit on registration burn amount.
 
 - **`min_allowed_stake`**: The minimum stake allowed (default: 0.5 TORUS). Specifies minimum amount that can be staked on an agent.
 
@@ -55,7 +53,7 @@ Global Parameter changes require a proposal to pass through the [DAO governance 
 
 - **`min_weight_control_fee`**: The minimum weight control fee (default: 4%). Sets minimum fee for weight control operations.
 
-- **`treasure_emission_fee`**: Treasury fee on emissions (default: 20%). Percentage of emissions allocated to the treasury.
+- **`treasure_emission_fee`**: Treasury fee on emissions (default: 5%). Percentage of emissions allocated to the treasury.
 
 ### Weight & Reward Parameters
 
@@ -80,10 +78,16 @@ Global Parameter changes require a proposal to pass through the [DAO governance 
 - **`agent_application_expiration`**: Agent application expiration (default: 216,000 blocks). Duration before agent applications expire.
 
 
-## Listing parameters through CLI
+## Querying Parameters
+
+### Using CLI
 
 You can query all of these global parameters using CLI:
 
 ```bash
 torus network params
 ```
+
+### Using Polkadot.js Apps
+
+You can also query current parameter values directly using [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fapi.torus.network#/chainstate). Simply select the correct pallet (e.g., `emission0`, `torus0`, `governance`) from the dropdown and choose the parameter you want to query to see the current live values.

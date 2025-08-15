@@ -9,6 +9,10 @@ import {
   CardGrid,
 } from "@astrojs/starlight/components";
 
+<Aside type="note" title="Version notice">
+This version is based on the Torus v0.6 and is expected to change with the Torus v1.
+</Aside>
+
 Recursive delegation means a delegation's output can be used as another delegation's input. This enables agents to both re-delegate permissions indefinitely and optionally sub-scope them at each delegation step. 
 
 This creates a fluid open-ended process for discovering the best-suited agent to hold a given permission at any moment and enables the partitioning of the scope of a permission granularly into a tree of agents, finding the best agent for each part. 
@@ -43,11 +47,11 @@ The root owner of a capability path can delegate any amount of permission instan
 
 ### Related Concepts
 
-- **[Permission System](https://docs.torus.network/explanations/v06/permissions/)** - Core permission mechanics and delegation basics
-- **[Recursive Delegation](https://docs.torus.network/explanations/v06/recursive-delegation/)** - Permission type for offchain agent capabilities
+- **[Permission System](https://docs.torus.network/explanations/goal-leaders/permissions/)** - Core permission mechanics and delegation basics
+- **[Permission System](https://docs.torus.network/explanations/goal-leaders/permissions/)** - Permission system architecture and delegation basics
 - **[Agent Registration](https://docs.torus.network/explanations/builders/agent-registration/)** - How agents become capable of receiving delegations  
 - **[Root Agents](https://docs.torus.network/explanations/goal-leaders/root-agents/)** - Agents with direct emission access for delegation
 
 <Aside type="tip" title="Ready to Create Recursive Delegation?">
-Follow our [step-by-step guide to recursive delegation](https://docs.torus.network/how-to-guides/builders/recursive-delegation/) for practical implementation instructions.
+Follow our [step-by-step guide to create capability permissions](https://docs.torus.network/how-to-guides/goal-leaders/create-capability-permission/) for practical implementation instructions.
 </Aside>
