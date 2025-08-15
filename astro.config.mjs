@@ -34,20 +34,6 @@ export default defineConfig({
           items: [
             { label: "Table of Contents", slug: "explanations/table-of-contents" },
             {
-              label: "v0.6",
-              collapsed: true,
-              items: [
-                { label: "Control Space", slug: "explanations/v06/control-space" },
-                { label: "Permission System", slug: "explanations/v06/permissions" },
-                {
-                  label: "Recursive Delegation",
-                  slug: "explanations/v06/recursive-delegation",
-                },
-                { label: "Emission Permissions", slug: "explanations/v06/emission-permissions" },
-                { label: "Governance & DAO", slug: "explanations/v06/governance-dao" },
-              ],
-            },
-            {
               label: "Holders",
               collapsed: true,
               items: [
@@ -61,10 +47,12 @@ export default defineConfig({
               collapsed: true,
               items: [
                 { label: "Agent Registration", slug: "explanations/builders/agent-registration" },
-                { label: "Agent Editing", slug: "explanations/builders/agent-editing" },
+                { label: "Agent Managing", slug: "explanations/builders/agent-managing" },
                 { label: "Demand Signaling", slug: "explanations/builders/demand-signaling" },
                 { label: "Agent Server", slug: "explanations/builders/agent-server" },
                 { label: "Agent Client", slug: "explanations/builders/agent-client" },
+                { label: "Control Space", slug: "explanations/builders/control-space" },
+                { label: "Capability Permissions", slug: "explanations/builders/capability-permissions" },
               ],
             },
             {
@@ -73,6 +61,10 @@ export default defineConfig({
               items: [
                 { label: "Root Agents", slug: "explanations/goal-leaders/root-agents" },
                 { label: "Emission Proposals", slug: "explanations/goal-leaders/emission-proposals" },
+                { label: "Permission System", slug: "explanations/goal-leaders/permissions" },
+                { label: "Recursive Delegation", slug: "explanations/goal-leaders/recursive-delegation" },
+                { label: "Emission Permissions", slug: "explanations/goal-leaders/emission-permissions" },
+                { label: "Governance & DAO", slug: "explanations/goal-leaders/governance-dao" },
               ],
             },
             { label: "Concepts & Terminology", slug: "explanations/concepts-terminology" },
@@ -96,10 +88,8 @@ export default defineConfig({
               collapsed: true,
               items: [
                 { label: "Register an Agent", slug: "how-to-guides/builders/register-an-agent" },
-                { label: "Edit your Agent", slug: "how-to-guides/builders/edit-your-agent" },
+                { label: "Manage your Agent", slug: "how-to-guides/builders/manage-your-agent" },
                 { label: "Manage Capabilities", slug: "how-to-guides/builders/manage-capabilities" },
-                { label: "Manage Permissions", slug: "how-to-guides/builders/manage-permissions" },
-                { label: "Recursive Delegation", slug: "how-to-guides/builders/recursive-delegation" },
                 { label: "Create a Signal", slug: "how-to-guides/builders/create-signal" },
                 { label: "Setup Agent Server", slug: "how-to-guides/builders/setup-agent-server" },
                 { label: "Setup Agent Client", slug: "how-to-guides/builders/setup-agent-client" },
@@ -111,6 +101,9 @@ export default defineConfig({
               items: [
                 { label: "Become a Root Agent", slug: "how-to-guides/goal-leaders/become-a-root-agent" },
                 { label: "Create Emission Proposal", slug: "how-to-guides/goal-leaders/create-emission-proposal" },
+                { label: "Create Capability Permission", slug: "how-to-guides/goal-leaders/create-capability-permission" },
+                { label: "Create Emission Permission", slug: "how-to-guides/goal-leaders/create-emission-permission" },
+                { label: "Manage Permissions", slug: "how-to-guides/goal-leaders/manage-permissions" },
               ],
             },
           ],

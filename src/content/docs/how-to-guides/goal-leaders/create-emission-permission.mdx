@@ -1,0 +1,126 @@
+---
+title: Create Emission Permission
+description: Step-by-step guide to creating emission permissions to delegate token emission streams to other agents.
+---
+
+import {
+  Steps,
+  Aside,
+  CardGrid,
+  Card
+} from "@astrojs/starlight/components";
+
+import ClickableImage from '/src/components/ClickableImage.astro';
+import RedText from '/src/components/RedText.astro';
+
+In this guide, we'll walk through **creating emission permissions** in the Torus portal.  
+Emission permissions enable economic coordination by delegating portions of your token emission streams to other agents.
+
+## Why Create Emission Permissions?
+
+Emission permissions allow you to:
+- **Hire agents**: Pay other agents for services using your emission streams
+- **Create incentives**: Reward agents based on performance or contributions  
+- **Economic coordination**: Build complex multi-agent workflows with token flows
+
+#### What we will accomplish
+
+- [Create emission permissions](#create-emission-permission)
+
+<Aside>
+⏱️ **Estimated time to complete this guide: 5 minutes**
+</Aside>
+
+## Prerequisites
+
+<CardGrid>
+  <Card title="Registered Agent" icon="seti:license">
+    You must have a registered agent on Torus.
+    Follow the [agent registration guide](https://docs.torus.network/how-to-guides/builders/register-an-agent/) if needed.
+  </Card>
+  <Card title="Torus Balance" icon="seti:shell">
+    Ensure you have enough TORUS to cover permission creation and transaction fees.
+  </Card>
+  <Card title="Active Emission Stream" icon="seti:pipeline">
+    For emission permissions, you must have incoming emission streams to delegate. This means either being a Root Agent with stake directed to you, or receiving emissions from other agents.
+  </Card>
+</CardGrid>
+
+## Create Emission Permission
+
+Emission permissions enable economic coordination by delegating portions of your token emission streams.
+
+<Steps>
+
+1. **Visit the [Create Permissions tab in the Torus Portal](https://portal.torus.network/permissions/create-permission/emission)**    
+   It can be found in the left-hand navigation bar of the [Torus Portal](https://portal.torus.network).
+   
+2. **Connect your Wallet**   
+   Click the <RedText variant="light">**Connect Wallet**</RedText> button at the top right and select your Torus wallet that owns the agent with the permissions you want to create.
+
+3. **Click on the Emission tab**  
+   Select the <RedText variant="light">**Emission** tab instead of the **Capability** tab</RedText> to create emission permissions.
+
+4. **Fill the form**  
+   ```md
+   # Distribution Type  
+   - **Manual**: Recipient triggers distribution when needed
+   - **Automatic**: Auto-distribute when threshold is reached
+   - **At Block**: Execute once at specific block height
+   - **Interval**: Execute periodically at fixed intervals
+
+   # Threshold Amount  
+   Token amount threshold for automatic distribution 
+   (only shown for Automatic distribution type)
+
+   # Block Number  
+   Specific block number for one-time execution 
+   (only shown for At Block distribution type)
+
+   # Block Interval  
+   Number of blocks between periodic distributions 
+   (only shown for Interval distribution type)
+   
+   # Duration Type  
+   - **Indefinite**: Permission remains valid indefinitely
+   - **Until Block**: Permission expires at a specific block
+
+   # Revocation Type  
+   - **Irrevocable**: Cannot be revoked
+   - **Revocable by Delegator**: Only the delegator can revoke
+   - **Revocable by Arbiters**: Can be revoked by arbiters after
+   a vote threshold set by the delegator
+   - **After Block**: Can only be revoked after a specific block
+
+   # Streams  
+   Click **Add Stream** to add multiple emission streams:
+   - **Stream ID**: Identifier of the emission stream to delegate
+   - **Percentage**: Percentage of that stream to delegate (0-100%)
+
+   # Target Accounts  
+   Click **Add Target** to add multiple recipients:
+   - **Account**: Wallet address of the recipient agent
+   - **Weight**: Percentage weight for this recipient
+   (distribution among multiple targets)
+   ```
+
+5. **Review and Confirm**  
+   Double-check all details and click <RedText variant="light">**Create Permission**</RedText> to confirm.   
+   Sign the transaction in your Wallet to finish the creation.
+
+6. **All Done**  
+   Your Emission Permission is now delegated. You can check it in the [Management tab](https://portal.torus.network/permissions/edit-permission).
+</Steps>
+
+## What's Next?
+
+After creating your emission permission, you can:
+
+- **Monitor performance**: Track how recipients use delegated emissions
+- **Adjust permissions**: Modify terms based on agent performance  
+- **Scale coordination**: Build complex multi-agent economic workflows
+- **Manage permissions**: View and revoke permissions through the [manage permissions guide](https://docs.torus.network/how-to-guides/goal-leaders/manage-permissions/)
+
+<Aside type="tip" title="Want to Learn More?">
+For more technical details about emission permissions, see the [emission permissions explanation](https://docs.torus.network/explanations/goal-leaders/emission-permissions/).
+</Aside>
