@@ -1,0 +1,139 @@
+---
+title: Vote on Proposals
+description: Step-by-step guide to voting on DAO proposals and managing your voting power settings.
+---
+
+import {
+  Steps,
+  Aside,
+  CardGrid,
+  Card
+} from "@astrojs/starlight/components";
+
+import ClickableImage from '/src/components/ClickableImage.astro';
+import RedText from '/src/components/RedText.astro';
+import clickOnOpenProposal from '/public/images/how-to-guide/vote-on-proposals/click-on-an-open-proposal.png';
+import clickVotePowerSettings from '/public/images/how-to-guide/vote-on-proposals/click-on-vote-power-settings.png';
+import changeVoteStatus from '/public/images/how-to-guide/vote-on-proposals/change-vote-status.png';
+
+
+In this guide, we'll walk through the process of **voting on DAO proposals** and managing your voting power settings.
+
+#### Why vote on proposals?
+
+Your votes help determine which projects receive funding, how network economics evolve, and what direction the protocol takes.
+
+#### What we will accomplish
+
+- [Set up voting power (become a power user)](#toggle-voting-power-become-a-power-user-or-return-to-delegated-voting)
+- [Cast votes on active proposals](#vote-on-proposals)
+
+<Aside>
+⏱️ **Estimated time to complete this guide: 5 minutes**
+</Aside>
+
+## Prerequisites
+
+<CardGrid>
+  <Card title="Torus Wallet" icon="seti:license">
+    You must have a Torus wallet set up with TORUS tokens.
+    You can find a [guide on how to set up a wallet here](https://docs.torus.network/how-to-guides/holders/setup-a-wallet/).
+  </Card>
+  <Card title="TORUS Holdings" icon="seti:shell">
+    You need TORUS tokens in your wallet to have voting power.
+    You can find a [guide on how to bridge TORUS here](https://docs.torus.network/how-to-guides/holders/bridge-from-base/).
+  </Card>
+  <Card title="Be a Power User" icon="seti:yml">
+    You must be a power user to vote on proposals. You can find a guide on how to become a power user in this file.
+  </Card>
+</CardGrid>
+
+## Toggle Voting Power (Become a Power User or Return to Delegated Voting)
+
+<Steps>
+
+1. **Visit the [DAO Proposals Tab](https://dao.torus.network/proposals)**  
+   Navigate to the proposals page where you can view all active, approved, and rejected proposals.
+
+2. **Connect your Wallet**
+   <RedText variant="light">Ensure you're connected with your TORUS wallet</RedText> that contains the tokens you want to use for voting.
+
+3. **Click on Any Open Proposal**  
+   <RedText variant="light">Click on any active proposal</RedText> you want to view to access the voting interface and settings.
+   
+   <ClickableImage src={clickOnOpenProposal} alt="Click on an open proposal" />
+
+4. **Click on "Vote Power Settings"**  
+   Look for the <RedText variant="light">**"Vote Power Settings"**</RedText> button located below the voting options. This allows you to toggle between delegating your voting power and becoming a power user.
+   
+   <ClickableImage src={clickVotePowerSettings} alt="Click on Vote Power Settings" />
+
+5. **Check Your Current Voting Status**  
+   When you click on the vote power settings button, you'll see your current status:
+   
+   - **Delegating your voting power (Default)**: <RedText variant="light">Validators handle voting on your behalf</RedText>
+   - **Power user**: <RedText variant="light">You have direct control over your votes</RedText>
+
+6. **Toggle Your Voting Status**  
+   You can switch between voting modes anytime:
+   
+   - Click <RedText variant="light">**"Delegate Voting Power"**</RedText> to return control to validators
+   - Click <RedText variant="light">**"Become a power user"**</RedText> to gain direct voting control
+   
+   <ClickableImage src={changeVoteStatus} alt="Change vote status" />
+
+7. **Sign the Transaction**    
+   Open your subwallet extension and <RedText variant="light">sign the transaction</RedText> to confirm the change.
+
+8. **All Done**  
+   Your voting power status has been successfully updated. You can now proceed to vote (if power user) or let validators vote on your behalf (if delegated).
+
+</Steps>
+
+
+
+## Vote on Proposals
+
+<Steps>
+
+1. **Visit the [DAO Proposals Tab](https://dao.torus.network/proposals)**  
+   Navigate to the proposals page where you can view all active, approved, and rejected proposals.
+
+2. **Connect your Power User Wallet**  
+   <RedText variant="light">Ensure you're connected with your TORUS wallet</RedText> that contains the tokens you want to use for voting.    
+   <RedText variant="light">Ensure you're a power user first</RedText> ([follow the steps above](#toggle-voting-power-become-a-power-user-or-return-to-delegated-voting) if needed).  
+
+3. **Select a Proposal to Vote On**  
+   Click on any active proposal you want to vote on to view its details and voting options.
+
+4. **Cast Your Vote**  
+   Once you're ready to vote:
+   - Choose your position: <span style="color: #22c55e; font-weight: bold;">"Favorable"</span> (support) or <RedText variant="light">**"Against"**</RedText> (oppose)
+   - Click <RedText variant="light">**"Choose a Vote"**</RedText>
+
+5. **Sign the Transaction**   
+   Sign the transaction in your wallet to confirm your vote
+
+6. **All Done**  
+   Your vote has been successfully cast and will be counted towards the proposal's final outcome.
+   You can view the current voting results and track the proposal's progress.
+
+</Steps>
+
+
+## What's Next?
+
+After voting on proposals:
+
+- **[Monitor Results](https://dao.torus.network/proposals)**: Track voting progress and final outcomes on active and completed proposals
+- **[Learn About Governance](https://docs.torus.network/explanations/holders/governance-participation/)**: Understand voting mechanics and your role as a token holder
+- **[Explore Staking](https://docs.torus.network/how-to-guides/holders/stake-your-torus/)**: Consider staking your TORUS to support the network and earn rewards
+
+Connect with the community:
+- [Discord](https://discord.gg/torus) — Discuss proposals and governance
+- [Telegram](https://t.me/torusnetwork) — General chat and voting announcements  
+- [Twitter](https://x.com/torus_network) — Updates and proposal highlights
+
+<Aside type="tip" title="Want to Learn More?">
+Learn about [governance mechanisms](https://docs.torus.network/explanations/holders/governance-participation/) and your role as a token holder.
+</Aside>

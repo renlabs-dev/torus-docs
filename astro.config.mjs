@@ -40,6 +40,7 @@ export default defineConfig({
 
                 { label: "Tokenomics", slug: "explanations/holders/tokenomics" },
                 { label: "Staking", slug: "explanations/holders/staking" },
+                { label: "Governance Participation", slug: "explanations/holders/governance-participation" },
               ],
             },
             {
@@ -60,6 +61,7 @@ export default defineConfig({
               collapsed: true,
               items: [
                 { label: "Root Agents", slug: "explanations/goal-leaders/root-agents" },
+                { label: "DAO Treasury", slug: "explanations/goal-leaders/dao-treasury" },
                 { label: "Emission Proposals", slug: "explanations/goal-leaders/emission-proposals" },
                 { label: "Permission System", slug: "explanations/goal-leaders/permissions" },
                 { label: "Recursive Delegation", slug: "explanations/goal-leaders/recursive-delegation" },
@@ -81,6 +83,7 @@ export default defineConfig({
                 { label: "Setup a Wallet", slug: "how-to-guides/holders/setup-a-wallet" },
                 { label: "Bridge from Base", slug: "how-to-guides/holders/bridge-from-base" },
                 { label: "Stake your Torus", slug: "how-to-guides/holders/stake-your-torus" },
+                { label: "Vote on Proposals", slug: "how-to-guides/holders/vote-on-proposals" },
               ],
             },
             {
@@ -100,6 +103,7 @@ export default defineConfig({
               collapsed: true,
               items: [
                 { label: "Become a Root Agent", slug: "how-to-guides/goal-leaders/become-a-root-agent" },
+                { label: "Request DAO Treasury Transfer", slug: "how-to-guides/goal-leaders/request-dao-treasury-transfer" },
                 { label: "Create Emission Proposal", slug: "how-to-guides/goal-leaders/create-emission-proposal" },
                 { label: "Create Capability Permission", slug: "how-to-guides/goal-leaders/create-capability-permission" },
                 { label: "Create Emission Permission", slug: "how-to-guides/goal-leaders/create-emission-permission" },
