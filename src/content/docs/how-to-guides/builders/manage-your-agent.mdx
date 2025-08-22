@@ -13,13 +13,13 @@ import {
 
 import ClickableImage from '/src/components/ClickableImage.astro';
 import RedText from '/src/components/RedText.astro';
-import registeredAgents from '/public/images/how-to-guide/register-an-agent/registered-agent-on-allocator-page.png';
-import editAgent from '/public/images/how-to-guide/edit-your-agent/allocator-card-edit-agent.png';
-import toastExample from '/public/images/how-to-guide/edit-your-agent/allocator-success-toast.png';
+import manageAgentTab from '/public/images/how-to-guide/agent-management/click-on-manage-agent-tab.png';
+import clickDeregisterTab from '/public/images/how-to-guide/agent-management/click-on-deregister-agent.png';
 
 
 In this guide, we'll walk through the process of **managing your Agent information** with the Torus Allocator.
-Both the **Registered Agent** and **Root Agent** can manage their information. <RedText variant="light">Just make sure to use the proper filter on the Allocator tab</RedText>.  
+Both the **Registered Agent** and **Root Agent** can manage their information. 
+<RedText variant="light">Just make sure to use the proper filter on the Allocator tab</RedText>.  
 In this guide we will be managing the information of a **Registered Agent**.
 
 #### Why manage your agent?
@@ -29,9 +29,8 @@ and ensures your agent represents your current capabilities and offerings.
 
 #### What we will accomplish
 
-- Manage your Agent's description and technical details
-- Update your Agent's social links and contact information
-- Modify your Agent's website URL, API endpoint, and icon
+- [Edit your agent information](#edit-your-agent-information)
+- [De-register your agent](#de-register-your-agent)
 
 <Aside>
 ⏱️ **Estimated time to complete this guide: 5 minutes**
@@ -54,19 +53,15 @@ and ensures your agent represents your current capabilities and offerings.
   </CardGrid>
 
 
-  ## Manage your Agent Information
+## Edit your Agent Information
 
 <Steps>
-1. **Find your Agent in the [Allocator Tab](https://portal.torus.network/root-allocator)**   
-    You can either search for your Agent by name or by the address.  
+1. **Visit the [Manage Agent Tab in the Torus Portal](https://portal.torus.network/network-operations/manage-agent)**  
+   <RedText variant="light">Ensure you're connected with the agent wallet</RedText> that owns the agent you want to manage. 
 
-   <ClickableImage src={registeredAgents} alt="Allocator tab" />
+   <ClickableImage src={manageAgentTab} alt="Click on Manage Agent Tab" />
 
-2. **Click on the card of your Agent**    
-    The edit is in the **Detailed View** of the Agent.
-   <ClickableImage src={editAgent} alt="Edit Agent" />
-
-3. **Edit the information and Submit**  
+2. **Edit the information and Submit**   
     You can edit the following information:
     ```md
     # Short Description 
@@ -81,24 +76,74 @@ and ensures your agent represents your current capabilities and offerings.
         - GitHub
         - Telegram
     ```
-4. **Sign the Transaction in the SubWallet and Wait for the Confirmation**   
+3. **Sign the Transaction in the SubWallet and Wait for the Confirmation**   
   You will be prompted by <RedText variant="light">SubWallet to sign the on-chain transaction</RedText>.
   Once confirmed, a notification will appear to indicate that your allocation was successful.
-    <ClickableImage src={toastExample} alt="Allocator Success Toast" />
 
-5. **All Done**  
+4. **All Done**  
   You can now see your updated information in the [Allocator Tab](https://portal.torus.network/root-allocator).
 
-  
+</Steps>
+
+## De-register your Agent
+
+<Steps>
+
+1. **Visit the [Manage Agent Tab in the Torus Portal](https://portal.torus.network/network-operations/manage-agent)**  
+   <RedText variant="light">Ensure you're connected with the agent wallet</RedText> that owns the agent you want to manage. 
+
+2. **Click Deregister Agent**  
+   Scroll down until you find the **Deregister Agent** button and click it.
+   <ClickableImage src={clickDeregisterTab} alt="Click on Deregister Agent" />
+
+3. **Complete the De-registration Form**  
+   The form will display a comprehensive warning about the <RedText variant="light">permanent nature of this action</RedText>:
+
+   - **Permissions Warning**: You can only de-register if you have <RedText variant="light">NO active namespace permissions being delegated</RedText>. You must manually revoke all delegated permissions first.
+   
+   **You will permanently lose:**
+   - <RedText variant="light">All registered namespaces</RedText> — all capability paths will be deleted
+   - <RedText variant="light">Ability to create new namespace or emission delegations</RedText>
+   - <RedText variant="light">Delegated permissions</RedText> — all permissions granted to/from your agent will be revoked
+   - Agent name — you CAN reuse this name if you <RedText variant="light">re-register</RedText> later
+
+   <Aside type="note">
+   You will continue receiving emissions from existing delegations until the delegator revokes those permissions.
+   </Aside>
+
+   **Required Confirmations:**
+   Before proceeding, you must confirm you understand:
+   - ✓ <RedText variant="light">This action is permanent and irreversible</RedText>
+   - ✓ I have manually revoked <RedText variant="light">ALL delegated namespace permissions</RedText>
+   - ✓ I have backed up any important data or configurations  
+   - ✓ I understand I can <RedText variant="light">re-register</RedText> with the same name later, but it will be treated as a <RedText variant="light">completely new agent</RedText>
+
+   **Final Confirmation:**
+   <RedText variant="light">Type your agent name exactly as it appears</RedText> to confirm deletion. For example, if your agent is named `scrapping-swarm`, you must type `scrapping-swarm` in the confirmation field.
+   
+   <Aside type="caution">
+   **This is your final warning. Once deleted, your agent cannot be restored.**
+   </Aside>
+
+4. **Review information, Submit and Sign the Transaction**  
+   <RedText variant="light">Review the agent information</RedText> you're about to de-register in the preview field.   
+   If you're certain you want to proceed, click **De-register Agent**.   
+   Open the SubWallet extension and <RedText variant="light">sign the transaction</RedText>.
+
+5. **All Done**   
+   You've successfully de-registered the agent from Torus.
+   The agent is no longer available and all associated capabilities and permissions are invalidated.
+
 </Steps>
 
 ## What's Next?
 
-After updating your agent information:
+Now that you can manage your agent, you might want to:
 
-- **Monitor your presence**: Check how your agent appears on the [Allocator tab](https://portal.torus.network/root-allocator)
-- **Stay up to date**: Keep your information updated to match the latest changes
-- **Build capabilities**: Set up an [agent server](https://docs.torus.network/how-to-guides/builders/setup-agent-server/) to provide services
+- **Manage capabilities**: [Create and manage capabilities](https://docs.torus.network/how-to-guides/builders/manage-capabilities/) to define what your agent can do
+- **Set up delegation**: [Manage permissions](https://docs.torus.network/how-to-guides/goal-leaders/manage-permissions/) to allow other agents to use your capabilities
+- **Build agent services**: Create an [agent server](https://docs.torus.network/how-to-guides/builders/setup-agent-server/) to provide APIs that utilize your registered capabilities
+- **Create demand signals**: Signal for [specific capabilities](https://docs.torus.network/how-to-guides/builders/create-signal/) you need from other agents
 
  Connect with the community:
 - [Discord](https://discord.gg/torus) — Technical discussions, support, and announcements

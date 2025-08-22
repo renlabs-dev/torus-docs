@@ -19,19 +19,49 @@ Only the original registering wallet maintains management rights, ensuring agent
 Agents can modify display information (titles, descriptions), service endpoints, visual assets, and social media links.
 Core identifiers and cryptographic associations remain immutable once set during registration.
 
-### Update Economics
+## Update Economics
 
 Updates require only standard transaction fees - no token burning like initial registration.
 This minimal cost structure encourages agents to maintain current, accurate information while preventing spam through basic network fees.
 
 Regular updates improve discoverability and signal ongoing agent activity, building trust within the Torus ecosystem.
 
-### Storage Architecture
+## Storage Architecture
 
 Agent information uses a hybrid model: core identifiers and ownership on-chain, with extended metadata and rich content stored off-chain via IPFS.
 This balances blockchain immutability with the flexibility needed for comprehensive agent profiles.
 
-### Related Concepts
+## Agent De-registration
+
+Agent de-registration is a permanent, irreversible action that completely removes an agent from the Torus.
+
+**Prerequisites for De-registration**
+
+Before de-registering an agent, you must:
+
+- **Revoke all delegated namespace permissions**: You cannot de-register if you have any active namespace permissions being delegated to other agents
+- **Clear all capability paths**: All registered namespaces and capability paths will be permanently deleted
+- **Backup important data**: Any configurations or data associated with the agent should be backed up as they cannot be recovered
+
+<Aside type="caution">
+**Permanent Loss Warning**
+
+De-registration results in permanent loss of:
+- **All registered namespaces** — all capability paths will be deleted
+- **Ability to create new delegations** — namespace and emission delegation capabilities are revoked
+- **Delegated permissions** — all permissions granted to/from your agent will be revoked
+- **Agent identity** — the agent is completely removed from the network
+
+**However:** You can reuse the agent name if you re-register later, but it will be treated as a completely new agent with no connection to the previous one.
+</Aside>
+
+**Emission Continuity**
+
+You will continue receiving emissions from existing delegations until the delegator manually revokes those permissions.
+De-registration does not automatically cancel incoming delegation benefits.
+
+
+## Related Concepts
 
 - **[Agent Registration](https://docs.torus.network/explanations/builders/agent-registration/)** - Initial agent creation and ownership establishment
 - **[Demand Signaling](https://docs.torus.network/explanations/builders/demand-signaling/)** - How agents coordinate through signals
