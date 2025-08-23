@@ -10,67 +10,58 @@ This version is based on the Torus v0.5 and is expected to change with the Torus
 </Aside>
 
 The Torus DAO operates fully on-chain and is TORUS stake-based, managing the protocol through proposals.
+The DAO can change network parameters, propose custom changes and decide the emission rate and allocation
+between network and treasury dynamically to align with TORUS interests.
 
-The DAO can change network parameters, propose custom changes and decide the emission rate and allocation between network and treasury dynamically to align with TORUS interests.
+## Governance Participation
+
+Governance participation enables TORUS holders to shape the network's evolution through democratic decision-making processes. Every token holder has voting rights proportional to their holdings, creating a decentralized governance system where community consensus drives protocol changes.
+
+Voting power directly correlates to TORUS token holdings:
+- **1 TORUS = 1 vote**
 
 ## Proposals
 
-Proposals are the primary mechanism for implementing changes to the Torus protocol. Any agent with sufficient stake in the network can submit a proposal. Different types of Proposals address specific aspects of governance, each with its own parameters.
+Proposals are the primary mechanism for implementing changes to the Torus protocol. 
+Any holder with sufficient stake in the network can submit a proposal.
+Different types of Proposals address specific aspects of governance, each with its own parameters.
 
-### Proposal types
+**DAO Treasury Transfer:**
+- Community requests for funding from the DAO Treasury
+- Support ecosystem development, research, or community initiatives
+- Requires detailed project proposals and justification
 
-<Tabs>
-  <TabItem label="Global Params Proposals">
-    ##### Change Protocol and network parameters:
+**Emission Proposals:**  
+- Recycling percentage (portion of fees burned through recycling)
+- Treasury percentage (portion allocated to network treasury)
+- Incentives ratio (portion for incentive programs and rewards)
 
-    <ul>
-      <li>Change agent name length</li>
-      <li>Change minimum agent name length</li>
-      <li>Change maximum number of agents</li>
-      <li>Change maximum weights</li>
-      <li>Change weight control fee</li>
-      <li>Change staking fee</li>
-      <li>Change dividends participation weight</li>
-    </ul>
+**Global Params Proposals:**
+- Change agent name length requirements (minimum/maximum)
+- Modify maximum number of agents allowed
+- Adjust maximum weights permitted
 
-    <Aside type="tip">
-        If you want to propose a change to the network parameters, you can use the following CLI command:
+**Global Custom:**
+- Implement changes not covered by other proposal types
+- Technical modifications requiring custom code execution
 
-        ```bash
-        $ torus network propose-globally <key> <CID>
-            --max-name-length INTEGER [default: None]
-            --min-name-length INTEGER [default: None]
-            --max-allowed-agents INTEGER [default: None]
-            --max-allowed-weights INTEGER [default: None]
-            --min-weight-stake INTEGER [default: None]
-            --min-weight-control-fee INTEGER [default: None]
-            --min-staking-fee INTEGER [default: None]
-            --dividends-participation-weight INTEGER [default: None]
-        ```
-    </Aside>
+## Approval Criteria
 
-  </TabItem>
+**Standard Requirements:**
+- **Support Threshold**: At least 50% of votes must be favorable
+- **Participation Threshold**: More than 10% of total token supply must participate
+- **Time Limit**: Voting closes after 7 days regardless of participation
 
-  <TabItem label="Dao Treasury Transfer">
-     ##### Propose the Transfer of Treasury Funds.
+**Outcome Scenarios:**
+- **Approved**: 50%+ support + 10%+ participation → Automatic execution
+- **Rejected**: Less than 50% support + 10%+ participation → Proposal fails
+- **Insufficient Participation**: Less than 10% participation → Proposal expires
 
-     You can use the following CLI command to submit a treasury transfer proposal:
+## Vote Flexibility
 
-      ```bash
-      $ torus proposal propose-dao-transfer <proposer_key> <amount> <CID> <destination_key>
-      ```
+Votes can be changed anytime during the voting period, allowing voters to adjust their position as discussions evolve and new information emerges.
 
-  </TabItem>
-  <TabItem label="Global Custom">
-    ##### Propose Custom Change to the Protocol:
-    
-    <Aside type="tip">
-        For changes not covered by other proposal types, you can use the following CLI command:
+## Proposal Costs
 
-        ```bash
-        $ torus proposal propose-custom <key> <CID>
-        ```
-    </Aside>
-
-  </TabItem>
-</Tabs>
+- **Submission Fee**: 10,000 TORUS required to submit proposals
+- **Cost Recovery**: Fee refunded if proposal passes, retained by Treasury if rejected
