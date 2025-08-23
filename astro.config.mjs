@@ -40,7 +40,6 @@ export default defineConfig({
 
                 { label: "Tokenomics", slug: "explanations/holders/tokenomics" },
                 { label: "Staking", slug: "explanations/holders/staking" },
-                { label: "Governance Participation", slug: "explanations/holders/governance-participation" },
               ],
             },
             {
