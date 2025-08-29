@@ -51,8 +51,6 @@ export default defineConfig({
                 { label: "Demand Signaling", slug: "explanations/builders/demand-signaling" },
                 { label: "Agent Server", slug: "explanations/builders/agent-server" },
                 { label: "Agent Client", slug: "explanations/builders/agent-client" },
-                { label: "Control Space", slug: "explanations/builders/control-space" },
-                { label: "Capability Permissions", slug: "explanations/builders/capability-permissions" },
               ],
             },
             {
@@ -69,9 +67,11 @@ export default defineConfig({
               label: "System",
               collapsed: true,
               items: [
+                { label: "Control Space", slug: "explanations/system/control-space" },
                 { label: "Permission System", slug: "explanations/system/permission-system" },
-                { label: "Recursive Delegation", slug: "explanations/system/recursive-delegation" },
                 { label: "Emission Permissions", slug: "explanations/system/emission-permissions" },
+                { label: "Capability Permissions", slug: "explanations/system/capability-permissions" },
+                { label: "Recursive Delegation", slug: "explanations/system/recursive-delegation" },
               ],
             },
             { label: "Concepts & Terminology", slug: "explanations/concepts-terminology" },
@@ -116,6 +116,7 @@ export default defineConfig({
               label: "System",
               collapsed: true,
               items: [
+                { label: "Create Permission", slug: "how-to-guides/system/create-permission" },
                 { label: "Create Capability Permission", slug: "how-to-guides/system/create-capability-permission" },
                 { label: "Create Emission Permission", slug: "how-to-guides/system/create-emission-permission" },
                 { label: "Manage Permissions", slug: "how-to-guides/system/manage-permissions" },
