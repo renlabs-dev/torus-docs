@@ -34,6 +34,17 @@ export default defineConfig({
           items: [
             { label: "Table of Contents", slug: "explanations/table-of-contents" },
             {
+              label: "System",
+              collapsed: true,
+              items: [
+                { label: "Control Space", slug: "explanations/system/control-space" },
+                { label: "Permission System", slug: "explanations/system/permission-system" },
+                { label: "Recursive Delegation", slug: "explanations/system/recursive-delegation" },
+                { label: "Emission Permissions", slug: "explanations/system/emission-permissions" },
+                { label: "Capability Permissions", slug: "explanations/system/capability-permissions" },
+              ],
+            },
+            {
               label: "Holders",
               collapsed: true,
               items: [
@@ -51,8 +62,6 @@ export default defineConfig({
                 { label: "Demand Signaling", slug: "explanations/builders/demand-signaling" },
                 { label: "Agent Server", slug: "explanations/builders/agent-server" },
                 { label: "Agent Client", slug: "explanations/builders/agent-client" },
-                { label: "Control Space", slug: "explanations/builders/control-space" },
-                { label: "Capability Permissions", slug: "explanations/builders/capability-permissions" },
               ],
             },
             {
@@ -62,9 +71,6 @@ export default defineConfig({
                 { label: "Root Agents", slug: "explanations/goal-leaders/root-agents" },
                 { label: "DAO Treasury", slug: "explanations/goal-leaders/dao-treasury" },
                 { label: "Emission Proposals", slug: "explanations/goal-leaders/emission-proposals" },
-                { label: "Permission System", slug: "explanations/goal-leaders/permissions" },
-                { label: "Recursive Delegation", slug: "explanations/goal-leaders/recursive-delegation" },
-                { label: "Emission Permissions", slug: "explanations/goal-leaders/emission-permissions" },
                 { label: "Governance & DAO", slug: "explanations/goal-leaders/governance-dao" },
               ],
             },
@@ -75,6 +81,16 @@ export default defineConfig({
           label: "How-to Guides",
           items: [
             { label: "Table of Contents", slug: "how-to-guides/table-of-contents" },
+            {
+              label: "System",
+              collapsed: true,
+              items: [
+                { label: "Create Permission", slug: "how-to-guides/system/create-permission" },
+                { label: "Create Capability Permission", slug: "how-to-guides/system/create-capability-permission" },
+                { label: "Create Emission Permission", slug: "how-to-guides/system/create-emission-permission" },
+                { label: "Manage Permissions", slug: "how-to-guides/system/manage-permissions" },
+              ],
+            },
             {
               label: "Holders",
               collapsed: true,
@@ -104,9 +120,6 @@ export default defineConfig({
                 { label: "Become a Root Agent", slug: "how-to-guides/goal-leaders/become-a-root-agent" },
                 { label: "Request DAO Treasury Transfer", slug: "how-to-guides/goal-leaders/request-dao-treasury-transfer" },
                 { label: "Create Emission Proposal", slug: "how-to-guides/goal-leaders/create-emission-proposal" },
-                { label: "Create Capability Permission", slug: "how-to-guides/goal-leaders/create-capability-permission" },
-                { label: "Create Emission Permission", slug: "how-to-guides/goal-leaders/create-emission-permission" },
-                { label: "Manage Permissions", slug: "how-to-guides/goal-leaders/manage-permissions" },
               ],
             },
           ],
