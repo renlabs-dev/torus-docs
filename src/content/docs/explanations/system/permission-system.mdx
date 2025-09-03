@@ -1,6 +1,6 @@
 ---
 title: Permission System Architecture
-description: Comprehensive guide to Torus's recursive delegation system, emission permissions, and control distribution mechanisms.
+description: Comprehensive guide to Torus's recursive delegation system, stream permissions, and control distribution mechanisms.
 ---
 
 import { CardGrid, LinkCard, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
@@ -35,7 +35,7 @@ The system supports three fundamental permission types that enable comprehensive
 
 ```rust
 pub enum PermissionScope {
-    Emission(EmissionScope),    // Token delegation permissions
+    Emission(EmissionScope),    // Stream delegation permissions
     Curator(CuratorScope),      // Governance function delegation
     Capability(CapabilityScope),  // Off-chain service access control
 }

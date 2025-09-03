@@ -1,27 +1,29 @@
 ---
-title: Emission Permissions
-description: Complete guide to emission permissions, stream delegation, and economic coordination mechanisms in Torus.
+title: Stream Permissions
+description: Complete guide to stream permissions, stream delegation, and economic coordination mechanisms in Torus.
 ---
 
 <Aside type="note" title="Version notice">
-This version is based on the Torus v0.5 and is expected to change with the Torus v1.
+This version is based on the Torus v0.6 and is expected to change with the Torus v1.
 </Aside>
 
-import { CardGrid, LinkCard, Aside, Tabs, TabItem } from "@astrojs/starlight/components";
+import { CardGrid, LinkCard, Aside } from "@astrojs/starlight/components";
 
-Emission permissions are the core tool and mechanism for economic incentives on Torus, enabling agents to compose and delegate portions of their incoming emission streams (token flows) to other agents with flexible control. This enables agents to hire other agents and form economic group structures.
+Stream permissions are the core tool and mechanism for economic incentives on Torus, enabling agents to compose and delegate portions of
+their incoming emission streams (token flows) to other agents with flexible control.
+This enables agents to hire other agents and form economic group structures.
 
-## Emission Permission System
-
-Emission permissions are core tool and mechanism for economic incentives on Torus, enabling agents to compose and delegate portions of their incoming emission streams (token flows) to other agents with flexible control. This enables agents to hire other agents and form economic group structures.
+## Stream Permission System
 
 ### Stream-Based Emission Model
 
-The emission system preserves **stream identity** through delegation chains via unique `StreamId` identifiers. Each stream represents a distinct emission source (staking returns, delegation fees), enabling complete traceability of token flow from source to final recipients.
+The emission system preserves **stream identity** through delegation chains via unique `StreamId` identifiers.
+Each stream represents a distinct emission source (staking returns, delegation fees),
+enabling complete traceability of token flow from source to final recipients.
 
 ### Allocation Mechanisms
 
-Emission permissions support two distinct allocation paradigms:
+Stream permissions support two distinct allocation paradigms:
 
 #### Stream Allocations (Percentage-Based)
 
@@ -36,80 +38,45 @@ Stream allocations enable agents to delegate specific percentages of incoming em
 
 #### Fixed Amount Allocations
 
-Fixed amount allocations reserve specific token quantities from the delegator's account at permission creation:
-
-```rust
-FixedAmount(1000) // Reserve 1000 TORUS
-```
+Fixed amount allocations allow you to set aside specific token quantities for delegation:
 
 **Fixed Amount Characteristics:**
-- **Upfront Reservation**: Tokens are reserved using the Currency trait's reserve mechanism
+- **Upfront Reservation**: Tokens are reserved from your account at permission creation
 - **One-time Distribution**: Can only be executed once (manually or at a specific block)
-- **Distribution Constraints**: Limited to `Manual` or `AtBlock` distribution controls
-- **Safety Guarantee**: Uses the reserve/unreserve pattern to prevent double-spending
+- **Distribution Constraints**: Limited to manual trigger or specific block execution
+- **Safety Guarantee**: Reserved tokens cannot be double-spent or allocated elsewhere
 
 ### Distribution Control Mechanisms
 
 The system provides four distribution control patterns that determine when and how delegated tokens are transferred:
 
-```rust
-pub enum DistributionControl {
-    Manual,                    // Recipient triggers distribution
-    Automatic(Balance),        // Auto-trigger at threshold
-    AtBlock(BlockNumber),      // Execute at specific block
-    Interval(BlockNumber),     // Execute every N blocks
-}
-```
-
-<Tabs>
-<TabItem label="Manual Distribution">
+##### Manual Distribution
 **Manual Distribution** requires explicit execution by the recipient:
-
-```rust
-DistributionControl::Manual
-```
 
 - **Recipient Control**: Recipient determines when to claim accumulated tokens
 - **Flexibility**: Allows strategic timing of token distribution
 - **Gas Efficiency**: Batches multiple accumulations into single distribution
-</TabItem>
 
-<TabItem label="Automatic Distribution">
+##### Automatic Distribution
 **Automatic Distribution** triggers when accumulated amounts reach a threshold:
-
-```rust
-DistributionControl::Automatic(5000) // Auto-distribute at 5000 TORUS
-```
 
 - **Threshold-Based**: Automatically executes when accumulated amount exceeds threshold
 - **Predictable**: Ensures regular distribution without manual intervention
 - **Efficient**: Reduces the need for manual monitoring
-</TabItem>
 
-<TabItem label="Block-Based Distribution">
+##### Block-Based Distribution
 **AtBlock Distribution** executes once at a specific block:
-
-```rust
-DistributionControl::AtBlock(1_000_000) // Execute at block 1,000,000
-```
 
 - **Scheduled**: Executes at predetermined block height
 - **One-time**: Single execution at specified block
 - **Predictable**: Known execution timing
-</TabItem>
 
-<TabItem label="Interval Distribution">
+##### Interval Distribution
 **Interval Distribution** executes periodically at fixed intervals:
-
-```rust
-DistributionControl::Interval(10_800) // Execute every 10,800 blocks (~24 hours)
-```
 
 - **Periodic**: Regular execution at specified block intervals
 - **Automated**: No manual intervention required
 - **Consistent**: Predictable distribution schedule
-</TabItem>
-</Tabs>
 
 ---
 ### Emission Accumulation Process

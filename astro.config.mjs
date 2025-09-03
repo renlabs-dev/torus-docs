@@ -40,7 +40,7 @@ export default defineConfig({
                 { label: "Control Space", slug: "explanations/system/control-space" },
                 { label: "Permission System", slug: "explanations/system/permission-system" },
                 { label: "Recursive Delegation", slug: "explanations/system/recursive-delegation" },
-                { label: "Emission Permissions", slug: "explanations/system/emission-permissions" },
+                { label: "Stream Permissions", slug: "explanations/system/stream-permissions" },
                 { label: "Capability Permissions", slug: "explanations/system/capability-permissions" },
               ],
             },
@@ -87,7 +87,7 @@ export default defineConfig({
               items: [
                 { label: "Create Permission", slug: "how-to-guides/system/create-permission" },
                 { label: "Create Capability Permission", slug: "how-to-guides/system/create-capability-permission" },
-                { label: "Create Emission Permission", slug: "how-to-guides/system/create-emission-permission" },
+                { label: "Create Stream Permission", slug: "how-to-guides/system/create-stream-permission" },
                 { label: "Manage Permissions", slug: "how-to-guides/system/manage-permissions" },
               ],
             },

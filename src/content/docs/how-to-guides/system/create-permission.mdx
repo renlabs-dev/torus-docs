@@ -17,7 +17,7 @@ Permissions enable fine-grained control over emission distribution and capabilit
 
 #### What we will accomplish
 
-- Create capability and emission permissions
+- Create capability and stream permissions
 - Configure delegation terms and constraints
 - Understand revocation and enforcement mechanisms
 
@@ -50,7 +50,7 @@ Permissions enable fine-grained control over emission distribution and capabilit
 **Example**: Allow Agent B to access Agent A's memory storage API
 
 </TabItem>
-<TabItem label="Emission Permissions">
+<TabItem label="Stream Permissions">
 
 **Purpose**: Delegate portions of emission streams (token flows)  
 **Use Cases**: Hiring agents, revenue sharing, economic coordination
@@ -71,7 +71,7 @@ Permissions enable fine-grained control over emission distribution and capabilit
    Ensure you're connected as the delegating agent.
 
 3. **Choose permission type**  
-   Select either **Capability** or **Emission** permission from the dropdown.
+   Select either **Capability** or **Stream** permission from the dropdown.
 
 4. **Configure permission details based on type**
 
@@ -107,9 +107,9 @@ For capability permissions, configure these details:
 - Access windows (specific times)
 - Usage quotas
 
-### Configuring Emission Permissions
+### Configuring Stream Permissions
 
-For emission permissions, configure these details:
+For stream permissions, configure these details:
 
 **Stream Selection**: Choose which emission streams to delegate
 - Staking rewards
@@ -209,12 +209,12 @@ Set up smart permissions that trigger based on conditions:
 
 - **Principle of least privilege**: Grant minimum necessary permissions
 - **Regular audits**: Review and clean up unused permissions
-- **Test with small amounts**: Start with small emission delegations
+- **Test with small amounts**: Start with small stream delegations
 
 ### Economic Efficiency
 
 - **Batch operations**: Group related permissions to save gas
-- **Monitor performance**: Track ROI on emission delegations
+- **Monitor performance**: Track ROI on stream delegations
 - **Set reasonable terms**: Balance flexibility with security
 
 ### Delegation Strategy
@@ -255,7 +255,7 @@ After creating permissions, you can:
 - **Monitor usage**: Track how recipients use delegated permissions
 - **Optimize delegation**: Adjust terms based on performance
 - **Scale coordination**: Build complex multi-agent workflows
-- **Analyze economics**: Review emission delegation ROI
+- **Analyze economics**: Review stream delegation ROI
 
 ## Support and Resources
 
@@ -273,7 +273,7 @@ See the [Permission System Documentation](https://docs.torus.network/explanation
   <Card title="Permission System" icon="seti:config">
     <a href="/explanations/system/permission-system">Deep dive into architecture</a>
   </Card>
-  <Card title="Emission Permissions" icon="seti:shell">
-    <a href="/explanations/system/emission-permissions">Economic coordination mechanisms</a>
+  <Card title="Stream Permissions" icon="seti:shell">
+    <a href="/explanations/system/stream-permissions">Economic coordination mechanisms</a>
   </Card>
 </CardGrid>
