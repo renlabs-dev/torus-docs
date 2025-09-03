@@ -46,9 +46,9 @@ Navigation elements excluded:
 - Any nav-specific elements
 */
 
-/* Make content hyperlinks blue, but keep navigation original colors */
+/* D3-inspired orange content links */
 @layer components {
-  /* Only make content area links blue */
+  /* Only make content area links orange (D3 style) */
   .sl-markdown-content a,
   .starlight-aside a,
   article a,
@@ -56,8 +56,9 @@ Navigation elements excluded:
   p a,
   ul:not(nav ul) li a,
   ol:not(nav ol) li a {
-    color: #3b82f6 !important; /* Tailwind blue-500 - soft blue */
+    color: #e04600 !important; /* D3 primary orange */
     text-decoration: none !important;
+    transition: all 0.2s ease-in-out;
   }
   
   .sl-markdown-content a:hover,
@@ -67,8 +68,29 @@ Navigation elements excluded:
   p a:hover,
   ul:not(nav ul) li a:hover,
   ol:not(nav ol) li a:hover {
-    color: #2563eb !important; /* Tailwind blue-600 - slightly darker on hover */
-    text-decoration: underline !important;
+    color: #e85d14 !important; /* D3 secondary orange - lighter on hover */
+    text-decoration: none !important;
+  }
+
+  /* Dark mode adjustments for links */
+  :root[data-theme="dark"] .sl-markdown-content a,
+  :root[data-theme="dark"] .starlight-aside a,
+  :root[data-theme="dark"] article a,
+  :root[data-theme="dark"] main a,
+  :root[data-theme="dark"] p a,
+  :root[data-theme="dark"] ul:not(nav ul) li a,
+  :root[data-theme="dark"] ol:not(nav ol) li a {
+    color: #ff9852 !important; /* D3 dark mode orange */
+  }
+  
+  :root[data-theme="dark"] .sl-markdown-content a:hover,
+  :root[data-theme="dark"] .starlight-aside a:hover,
+  :root[data-theme="dark"] article a:hover,
+  :root[data-theme="dark"] main a:hover,
+  :root[data-theme="dark"] p a:hover,
+  :root[data-theme="dark"] ul:not(nav ul) li a:hover,
+  :root[data-theme="dark"] ol:not(nav ol) li a:hover {
+    color: #ff823e !important; /* Slightly darker orange for dark mode hover */
   }
 }
 
@@ -97,7 +119,7 @@ Navigation elements excluded:
     text-decoration: none !important;
   }
   
-  /* Hover states for navigation elements */
+  /* Orange hover states for navigation elements */
   nav a:hover,
   [data-starlight-sidebar] a:hover,
   nav[aria-labelledby="starlight__sidebar-navigation"] a:hover,
@@ -110,11 +132,21 @@ Navigation elements excluded:
   .sl-flex a[rel="next"]:hover,
   footer a:hover,
   .starlight-aside .pagination a:hover {
-    color: inherit !important;
+    color: #e04600 !important; /* Orange hover for navigation */
     text-decoration: none !important;
+    transition: all 0.2s ease-in-out !important;
   }
   
-  /* Fix active/selected page visibility - make text black on white background */
+  /* Dark mode orange hover for navigation */
+  :root[data-theme="dark"] nav a:hover,
+  :root[data-theme="dark"] [data-starlight-sidebar] a:hover,
+  :root[data-theme="dark"] nav[aria-labelledby="starlight__sidebar-navigation"] a:hover,
+  :root[data-theme="dark"] details summary:hover,
+  :root[data-theme="dark"] .sidebar a:hover {
+    color: #ff9852 !important; /* Dark mode orange hover */
+  }
+  
+  /* Orange active/selected page styling with left bar */
   nav a[aria-current="page"],
   [data-starlight-sidebar] a[aria-current="page"],
   nav[aria-labelledby="starlight__sidebar-navigation"] a[aria-current="page"],
@@ -122,26 +154,119 @@ Navigation elements excluded:
   nav a.active,
   [data-starlight-sidebar] a.active,
   .sidebar a.active {
-    color: #000000 !important; /* Black text for active/selected pages */
-    background-color: rgba(255, 255, 255, 0.9) !important; /* Ensure white background */
+    color: #e04600 !important; /* Orange text for active/selected pages */
+    background-color: transparent !important; /* No background */
     font-weight: 600 !important; /* Make it slightly bolder for better visibility */
+    border-left: 3px solid #e04600 !important; /* Orange left bar */
+    padding-left: calc(1rem - 3px) !important; /* Adjust padding to account for border */
+    transition: all 0.2s ease-in-out !important;
+  }
+  
+  /* Dark mode orange active states */
+  :root[data-theme="dark"] nav a[aria-current="page"],
+  :root[data-theme="dark"] [data-starlight-sidebar] a[aria-current="page"],
+  :root[data-theme="dark"] nav[aria-labelledby="starlight__sidebar-navigation"] a[aria-current="page"],
+  :root[data-theme="dark"] .sidebar a[aria-current="page"],
+  :root[data-theme="dark"] nav a.active,
+  :root[data-theme="dark"] [data-starlight-sidebar] a.active,
+  :root[data-theme="dark"] .sidebar a.active {
+    color: #ff9852 !important; /* Dark mode orange text */
+    border-left-color: #ff9852 !important; /* Dark mode orange left bar */
   }
 }
 
-/* Reusable red text utility for attention-grabbing content */
+/* D3-inspired utility classes and modern design elements */
 @layer utilities {
+  /* Typography utilities (D3 style) */
+  .f12 {
+    font-size: 12px !important;
+  }
+  
+  .f14 {
+    font-size: 14px !important;
+  }
+  
+  .fw6 {
+    font-weight: 600 !important;
+  }
+  
+  .lh-normal {
+    line-height: normal !important;
+  }
+  
+  .lh-1_5 {
+    line-height: 1.5 !important;
+  }
+
+  /* Layout utilities */
+  .flex-grow-1 {
+    flex-grow: 1 !important;
+  }
+  
+  .fb6 {
+    flex-basis: 10rem !important;
+  }
+
+  /* Spacing utilities */
+  .ma4 {
+    margin: 2rem !important;
+  }
+  
+  .ml1 {
+    margin-left: 1rem !important;
+  }
+  
+  .mb2 {
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* Glass morphism and backdrop blur */
+  .glass {
+    background: rgba(246, 246, 247, 0.5) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+  }
+  
+  .glass-dark {
+    background: rgba(37, 37, 41, 0.5) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+  }
+
+  /* Brand color utilities */
+  .text-brand {
+    color: #e04600 !important;
+  }
+  
+  .text-brand-light {
+    color: #ef7234 !important;
+  }
+  
+  .text-brand-dark {
+    color: #ff9852 !important;
+  }
+  
+  .bg-brand {
+    background-color: #e04600 !important;
+  }
+  
+  .bg-brand-soft {
+    background-color: rgba(239, 114, 52, 0.16) !important;
+  }
+  
+  /* Legacy red utilities */
   .text-red-attention {
-    color: #ef4444 !important; /* Tailwind red-500 - bright but not harsh */
-    font-weight: 500 !important; /* Slightly bolder for better visibility */
+    color: #ef4444 !important;
+    font-weight: 500 !important;
   }
   
   .text-red-light {
-    color: #f87171 !important; /* Tailwind red-400 - lighter, softer red */
+    color: #f87171 !important;
     font-weight: 500 !important;
   }
   
   .text-red-soft {
-    color: #fca5a5 !important; /* Tailwind red-300 - very light, gentle red */
+    color: #fca5a5 !important;
     font-weight: 500 !important;
   }
 }
@@ -198,4 +323,124 @@ Available properties to customize:
 
 .tippy-arrow {
   color: #374151 !important; /* Match background color */
+}
+
+/* D3-inspired modern enhancements */
+@layer components {
+  /* Code blocks with better styling */
+  .sl-markdown-content pre,
+  .sl-markdown-content code {
+    line-height: 1.5 !important;
+  }
+  
+  .sl-markdown-content :not(pre) > code {
+    background-color: var(--sl-color-gray-6) !important;
+    padding: 0.125rem 0.25rem !important;
+    border-radius: 0.25rem !important;
+    font-size: 0.875em !important;
+  }
+
+  /* Improved search styling (D3 inspired rounded search) */
+  .search-input,
+  input[type="search"] {
+    border-radius: 1000px !important;
+    transition: all 0.2s ease-in-out !important;
+  }
+  
+  /* Button and interactive element improvements */
+  button,
+  .sl-badge,
+  .starlight-aside {
+    transition: all 0.2s ease-in-out !important;
+  }
+  
+  /* Improved table styling */
+  .sl-markdown-content table {
+    border-collapse: collapse !important;
+  }
+  
+  .sl-markdown-content td,
+  .sl-markdown-content th {
+    white-space: nowrap !important;
+    padding: 0.5rem 0.75rem !important;
+  }
+  
+  /* Enhanced figure captions */
+  .sl-markdown-content figcaption {
+    line-height: 20px !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: var(--sl-color-text-accent) !important;
+    margin-top: 0.5rem !important;
+  }
+  
+  /* Improved aside/callout styling */
+  .starlight-aside {
+    border-left-color: #e04600 !important;
+  }
+  
+  .starlight-aside.starlight-aside--tip {
+    border-left-color: #e04600 !important;
+    background-color: rgba(239, 114, 52, 0.08) !important;
+  }
+  
+  .starlight-aside.starlight-aside--note {
+    border-left-color: #e85d14 !important;
+    background-color: rgba(232, 93, 20, 0.08) !important;
+  }
+
+  /* Header anchor improvements */
+  .sl-markdown-content h1:hover .header-anchor,
+  .sl-markdown-content h2:hover .header-anchor,
+  .sl-markdown-content h3:hover .header-anchor,
+  .sl-markdown-content h4:hover .header-anchor,
+  .sl-markdown-content h5:hover .header-anchor,
+  .sl-markdown-content h6:hover .header-anchor {
+    opacity: 1 !important;
+    color: #e04600 !important;
+  }
+
+  /* Modern scrollbar (webkit browsers) */
+  .sl-markdown-content *::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+  }
+  
+  .sl-markdown-content *::-webkit-scrollbar-track {
+    background: var(--sl-color-gray-6) !important;
+    border-radius: 3px !important;
+  }
+  
+  .sl-markdown-content *::-webkit-scrollbar-thumb {
+    background: var(--sl-color-accent) !important;
+    border-radius: 3px !important;
+  }
+  
+  .sl-markdown-content *::-webkit-scrollbar-thumb:hover {
+    background: var(--sl-color-accent-high) !important;
+  }
+
+  /* Responsive layout improvements */
+  @media (min-width: 768px) {
+    .search-input {
+      padding-right: 0.75rem !important;
+      height: 2rem !important;
+    }
+  }
+}
+
+/* Custom CSS variables for D3-inspired theming */
+:root {
+  --brand-orange-1: #e04600;
+  --brand-orange-2: #e85d14;
+  --brand-orange-3: #ef7234;
+  --brand-orange-soft: rgba(239, 114, 52, 0.16);
+  --brand-orange-dark: #ff9852;
+  --brand-font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir, helvetica, "helvetica neue", ubuntu, roboto, noto, "segoe ui", arial, sans-serif;
+}
+
+:root[data-theme="dark"] {
+  --brand-orange-1: #ff9852;
+  --brand-orange-2: #ff823e;
+  --brand-orange-3: #ef7234;
 }
