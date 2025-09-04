@@ -51,6 +51,7 @@ Both types can be viewed, monitored, and revoked through the same management int
 
 ## View Your Permissions
 
+
 Both capability and stream permissions can be viewed and monitored through the management interface.
 
 <Steps>
@@ -74,6 +75,7 @@ Both capability and stream permissions can be viewed and monitored through the m
    Permission ID: Unique hash identifier
    Delegator: Agent name and wallet address who granted the permission
    Type: Either "Capability" or "Stream"
+
    Duration: Permission lifespan ("Indefinite", "Until Block X")
    Revocation: Terms for cancelling ("Revocable by Delegator", etc.)
    Created At: Block number when permission was created
@@ -81,8 +83,9 @@ Both capability and stream permissions can be viewed and monitored through the m
    # Additional for Capability Permissions
    Recipient: Agent name and wallet address receiving the permission
    Capability Path: Specific endpoint being delegated
-   
+
    # Additional for Stream Permissions
+
    Execution Count: Number of times the permission has been executed
    Stream Details: Information about delegated emission streams
    ```
@@ -92,6 +95,7 @@ Both capability and stream permissions can be viewed and monitored through the m
 
 ## Manage Existing Permissions
 
+
 Both capability and stream permissions can be managed through the same interface, but with different management options:
 
 - **Capability Permissions**: Can be edited (modify terms) and revoked
@@ -100,6 +104,7 @@ Both capability and stream permissions can be managed through the same interface
 <Steps>
 
 1. **Visit the [Manage Permissions](https://portal.torus.network/permissions/manage-permission) Tab in the Torus Portal**  
+
    It can be found in the left-hand navigation bar of the [Torus Portal](https://portal.torus.network).
 
 2. **View Your Permissions**  
@@ -122,7 +127,9 @@ Both capability and stream permissions can be managed through the same interface
    (only shown for capability permissions)
 
    # Type
+
    Either "Capability" or "Stream"
+
 
    # Duration
    Permission lifespan ("Indefinite", "Until Block X")
@@ -139,7 +146,9 @@ Both capability and stream permissions can be managed through the same interface
 
    # Execution Count
    Number of times the permission has been executed
+
    (only shown for stream permissions)
+
    ```
 
 4. **Edit or Revoke Permission**    
@@ -149,7 +158,9 @@ Both capability and stream permissions can be managed through the same interface
    - <RedText variant="light">**Edit**</RedText>: Modify permission terms (duration, revocation conditions, etc.)
    - <RedText variant="light">**Revoke**</RedText>: Permanently remove the permission
    
+
    **For <RedText variant="light">Stream Permissions</RedText>:**
+
    - <RedText variant="light">**Revoke**</RedText>: Permanently remove the permission <RedText variant="light">(editing not available)</RedText>
    
    Click the appropriate <RedText variant="light">button</RedText> to proceed with your chosen action.
@@ -169,7 +180,9 @@ Both capability and stream permissions can be managed through the same interface
 
 After managing your permissions, you can:
 
+
 - **Create new permissions**: Learn how to [create capability permissions](https://docs.torus.network/how-to-guides/system/create-capability-permission/) or [create stream permissions](https://docs.torus.network/how-to-guides/system/create-stream-permission/)
+
 - **Explore capabilities**: Learn about [managing capabilities](https://docs.torus.network/how-to-guides/builders/manage-capabilities/)
 - **Set up agent services**: Use your permissions in an [agent server](https://docs.torus.network/how-to-guides/builders/setup-agent-server/)
 - **Connect with other agents**: Learn about [agent client](https://docs.torus.network/how-to-guides/builders/setup-agent-client/) integration

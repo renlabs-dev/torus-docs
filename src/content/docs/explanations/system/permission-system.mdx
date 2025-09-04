@@ -36,6 +36,7 @@ The system supports three fundamental permission types that enable comprehensive
 ```rust
 pub enum PermissionScope {
     Emission(EmissionScope),    // Stream delegation permissions
+
     Curator(CuratorScope),      // Governance function delegation
     Capability(CapabilityScope),  // Off-chain service access control
 }

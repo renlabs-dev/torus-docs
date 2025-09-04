@@ -85,6 +85,7 @@ export default defineConfig({
               label: "System",
               collapsed: true,
               items: [
+
                 { label: "Create Capability Permission", slug: "how-to-guides/system/create-capability-permission" },
                 { label: "Create Stream Permission", slug: "how-to-guides/system/create-stream-permission" },
                 { label: "Manage Permissions", slug: "how-to-guides/system/manage-permissions" },
