@@ -40,7 +40,7 @@ export default defineConfig({
                 { label: "Control Space", slug: "explanations/system/control-space" },
                 { label: "Permission System", slug: "explanations/system/permission-system" },
                 { label: "Recursive Delegation", slug: "explanations/system/recursive-delegation" },
-                { label: "Wallet Stake Permission", slug: "explanations/system/wallet-scope-delegation" },
+                { label: "Wallet Stake Permission", slug: "explanations/system/wallet-stake-permission" },
                 { label: "Stream Permissions", slug: "explanations/system/stream-permissions" },
                 { label: "Capability Permissions", slug: "explanations/system/capability-permissions" },
               ],
