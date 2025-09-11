@@ -1,0 +1,50 @@
+---
+title: Wallet Stake Permission
+description: Understanding secure wallet staking permissions and delegation.
+---
+
+import {
+  Aside,
+  Card,
+  CardGrid,
+} from "@astrojs/starlight/components";
+
+<Aside type="note" title="Version notice">
+This version is based on the Torus v0.69 and is expected to change with the Torus v1.
+</Aside>
+
+The Wallet scope enables cold-hot wallet behavior, where high-value accounts can delegate specific 
+operations to more accessible accounts without exposing private keys.    
+This significantly improves security by allowing cold storage accounts to remain offline while still participating in network staking activities.
+
+### Core Functions
+
+* **Cold-Hot Wallet Architecture:** High-value accounts can delegate operational permissions while keeping primary keys in cold storage, eliminating the security-convenience tradeoff.
+* **Granular Operation Control:** Specific wallet operations can be delegated independently, allowing precise control over what delegated accounts can perform.
+* **Non-Transferable Delegation:** Delegated operations cannot access or transfer the principal funds, maintaining asset security even if hot wallets are compromised.
+
+#### Rules
+
+* **Operation Scoping:** Each delegation specifies exactly which wallet operations are permitted, preventing scope creep.
+* **Principal Protection:** Delegated accounts cannot perform operations that would reduce the principal balance or transfer core assets.
+* **Revocation Terms:** Can be configured as revocable or irrevocable.
+* **Constraint Inheritance:** Security constraints from the cold wallet apply to all delegated operations, ensuring consistent security policies.
+* **Time-bound Delegation:** Delegations can include expiration times for automatic security cleanup.
+
+#### Active Delegation Behavior
+
+When a wallet permission delegation is active, the delegator can choose the level of operational control:
+
+* **Optional Exclusive Access:** The delegator can choose whether to retain direct control alongside the recipient through the exclusive access parameter
+* **Recipient Authority:** The designated recipient can perform the specific wallet operations covered by the permission
+* **Asset Constraints:** All operations are constrained to existing assets, meaning no new staking from available balance  
+
+### Related Concepts
+
+- **[Permission System](https://docs.torus.network/explanations/system/permission-system/)** - Core permission mechanics and delegation basics
+- **[Recursive Delegation](https://docs.torus.network/explanations/system/recursive-delegation/)** - Advanced delegation patterns and composition
+- **[Staking](https://docs.torus.network/explanations/holders/staking/)** - Understanding staking mechanics and rewards
+
+<Aside type="tip" title="Ready to Set Up Wallet Delegation?">
+Follow our [step-by-step guide to create wallet permissions](https://docs.torus.network/how-to-guides/system/create-wallet-permission/) for practical implementation instructions.
+</Aside>
