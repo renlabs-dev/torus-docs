@@ -1,0 +1,41 @@
+---
+title: Wallet Stake Permission
+description: Understanding secure wallet staking permissions and delegation.
+---
+
+import {
+  Aside,
+  Card,
+  CardGrid,
+} from "@astrojs/starlight/components";
+
+<Aside type="note" title="Version notice">
+This version is based on the Torus v0.69 and is expected to change with the Torus v1.
+</Aside>
+
+The Wallet Permission Scope will enable granular delegation of all wallet operations through the Torus Permission System. Currently, only Stake operations are implemented as low-hanging fruit for wallet security improvements. 
+
+**Cold-Hot Key Behavior**
+
+The Wallet Stake Permission enables cold-hot wallet behavior, where high-value secured keys can delegate stake operations to less secure keys utilized only for active protocol participation. 
+
+**Tool for Key Security**
+
+This feature also enables to create a highly secure offline cold-key that never interacts with any webapp and delegate Stake Permission as exclusive (delegator loses permission) & irrevocable to the new key. If your main key gets compromised the tokens cannot be unstaked and hence not transferred. 
+However, an attacker could attempt to immediately transfer as soon as you choose to unstake. But as long as staked, tokens are untouchable.
+
+It's not a perfect security feature and as standard practice it will eventually be replaced by Transfer Permissions, but it is a meaningful improvement and we recommend high-value keys to apply it.
+
+### Core Functions of Stake Permission
+* **Exclusive Delegation** The delegator key loses the wallet permission.
+* **Improved Key Security:** Enables cold-hotkey behavior.
+
+### Related Concepts
+
+- **[Permission System](https://docs.torus.network/explanations/system/permission-system/)** - Core permission mechanics and delegation basics
+- **[Recursive Delegation](https://docs.torus.network/explanations/system/recursive-delegation/)** - Advanced delegation patterns and composition
+- **[Staking](https://docs.torus.network/explanations/holders/staking/)** - Understanding staking mechanics and rewards
+
+<Aside type="tip" title="Ready to Set Up Wallet Delegation?">
+Follow our [step-by-step guide to create wallet stake permissions](https://docs.torus.network/how-to-guides/system/create-wallet-stake-permission/) for practical implementation instructions.
+</Aside>

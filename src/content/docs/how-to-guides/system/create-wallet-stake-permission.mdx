@@ -1,0 +1,112 @@
+---
+title: Create Wallet Stake Permission
+description: Step-by-step guide to creating wallet stake permissions to delegate staking operations while keeping your keys secure.
+---
+
+import {
+  Steps,
+  Aside,
+  CardGrid,
+  Card
+} from "@astrojs/starlight/components";
+
+import RedText from '/src/components/RedText.astro';
+
+In this guide, we'll walk through how to create wallet stake permissions in the Torus Portal.
+Wallet stake permissions enable cold-hot wallet behavior, allowing you to delegate staking operations
+to more accessible accounts while keeping your primary keys securely stored offline.
+
+## Why Create Wallet Stake Permission?
+
+You want to maintain high security for your primary wallet while still being able to manage staking operations efficiently.
+Wallet stake permissions let you delegate staking management to hot wallets without exposing your principal funds to transfer risks.
+
+#### What we will accomplish
+
+- [Create wallet stake permission](#create-wallet-stake-permission)
+
+<Aside>
+⏱️ **Estimated time to complete this guide: 3 minutes**
+</Aside>
+
+## Prerequisites
+
+<CardGrid>
+  <Card title="Wallet with Stake" icon="seti:license">
+    You must have an account with existing stake that you want to delegate management for.
+    Follow the [staking guide](https://docs.torus.network/how-to-guides/holders/stake-your-torus/) to understand staking basics.
+  </Card>
+  <Card title="Hot Wallet Account" icon="seti:pipeline">
+    Know the address of the hot wallet account that will manage your staking operations.
+  </Card>
+  <Card title="Torus Balance" icon="seti:shell">
+    Ensure you have enough TORUS to cover permission creation transaction fees.
+  </Card>
+</CardGrid>
+
+## Create Wallet Stake Permission
+
+<Steps>
+
+1. **Visit the [Wallet Permissions Tab in the Torus Portal](https://portal.torus.network/permissions/create-permission/wallet)**  
+   Click the <RedText variant="light">**Wallet Permission**</RedText> tab under Permissions in the Torus Portal.
+
+2. **Connect your Cold Wallet**  
+   Ensure you're <RedText variant="light">connected with the wallet account</RedText> that holds the stakes you want to delegate management for.
+
+3. **Fill the form**  
+   ```md
+   # Recipient Address  
+   Search agents by name or address that will receive the staking permission.
+   If your target is not an agent, you can enter the wallet address directly.
+
+   # Stake Permissions  
+   - **Exclusive Delegation**: Grant exclusive access to stake operations 
+   (prevents delegator from using stake directly)
+   - **Allow Stake Movement**: Delegate permission to unstake, 
+   exclusively granting it to the recipient
+
+   # Duration  
+   - **Indefinite**: Permission remains valid indefinitely
+   - **Until Block**: Permission expires at a specific block
+
+   # Revocation Terms  
+   - **Irrevocable**: Cannot be revoked
+   - **Revocable by Delegator**: Only you can revoke this permission
+   - **Revocable After**: Can be revoked after a specific condition is met
+   ```
+   
+   <Aside type="note">
+   **Operation Constraints**   
+   All delegated operations are limited to existing stakes only. The recipient cannot:
+   - Create new stakes from your available balance
+   - Transfer your principal funds
+   - Access non-staking wallet operations
+   </Aside>
+
+4. **Submit and Sign Transaction**  
+   Click <RedText variant="light">**Create Wallet Stake Permission**</RedText>.  
+   Open SubWallet and <RedText variant="light">sign the transaction</RedText>.
+
+5. **All Done**  
+   You've successfully created the wallet stake permission.  
+   The receiving account can now manage your staking operations within the limits you've set.
+
+</Steps>
+
+## What's Next?
+
+Now that you've created wallet stake permission, you might want to:
+
+- **Monitor your delegations**: Track delegation status in the [Manage Permissions tab](https://portal.torus.network/permissions/manage-permission)
+- **Optimize your stakes**: Work with your hot wallet to [manage staking positions](https://docs.torus.network/how-to-guides/holders/stake-your-torus/) efficiently
+- **Understand COLD vs HOT Wallet**: Watch [this Coingecko video](https://www.youtube.com/watch?v=kf28zqP_F2s)     
+
+Connect with the community:
+- [Discord](https://discord.gg/torus) — Technical discussions, support, and announcements
+- [Telegram](https://t.me/torusnetwork) — General chat and announcements  
+- [Twitter](https://x.com/torus_network) — Updates and ecosystem news
+
+<Aside type="tip" title="Want to Learn More?">
+Learn about [wallet stake permission concepts](https://docs.torus.network/explanations/system/wallet-stake-permission/) and the security benefits of cold-hot wallet architecture.
+</Aside>
