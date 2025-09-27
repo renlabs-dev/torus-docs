@@ -27,6 +27,10 @@ Static assets, like favicons, can be placed in the `public/` directory.
 
 To add new categories in the sibebar update the `astro.config.mjs` file.
 
+## 🤖 For Agents
+
+Agents can refer to **[TRAIN.md](./TRAIN.md)** for instructions on how to consume and navigate this documentation repository to understand the Torus protocol and system architecture.
+
 ## Commands
 
 All commands are run from the root of the project, from a terminal:
