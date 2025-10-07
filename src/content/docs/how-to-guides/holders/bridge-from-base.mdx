@@ -161,6 +161,39 @@ To keep things clear and concise, **Native TORUS** will be referred to as **TORU
 </Steps>
 
 
+## Troubleshooting SwitchChain Torus EVM Issues
+
+If you're experiencing issues with **WalletConnect** and your mobile wallet when trying to switch to the Torus EVM network on the Bridge, this is likely related to limited RPC method support.
+
+### The Issue
+
+The problem occurs when using **WalletConnect** with mobile wallets that don't fully support the `wallet_switchEthereumChain` RPC method (part of **[EIP-3326](https://eips.ethereum.org/EIPS/eip-3326)**). When the Bridge tries to automatically switch to the Torus EVM network, the call fails because:
+
+- Not all wallets implement this RPC method
+- WalletConnect intercepts calls and only supports basic methods like `eth_sendTransaction`, `eth_sign`, and `personal_sign`
+- This limitation prevents automatic network switching
+
+### Solutions
+
+<Steps>
+
+1. **Manual Network Setup**  
+   Check if your wallet allows you to manually add the **Torus EVM** network. You can follow our [manual setup guide](https://docs.torus.network/how-to-guides/holders/bridge-from-base/#:~:text=Do%20not%20see%20Torus%20EVM%3F) to add the network configuration.
+
+2. **Use MetaMask (Recommended)**  
+   For the smoothest Bridge experience, we recommend using [**MetaMask**](https://docs.torus.network/how-to-guides/holders/setup-a-wallet/), which has 100% support for all Bridge functions including automatic network switching.
+
+3. **Protocol Limitations**  
+   If your wallet has the network added but still doesn't work, this may be due to your wallet not supporting [EIP-3326](https://eips.ethereum.org/EIPS/eip-3326) (`wallet_switchEthereumChain`).
+
+</Steps>
+
+<Aside type="tip">
+This is not a wagmi bug or a Bridge issue, but rather a limitation of certain wallet implementations when used with WalletConnect.
+</Aside>
+
+---
+
 ## What's Next?
 
 Now that you have TORUS tokens, you can:
