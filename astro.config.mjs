@@ -100,9 +100,10 @@ export default defineConfig({
               collapsed: true,
               items: [
                 { label: "Setup a Wallet", slug: "how-to-guides/holders/setup-a-wallet" },
-                { label: "Bridge from Base", slug: "how-to-guides/holders/bridge-from-base" },
+                { label: "Fast Bridge", slug: "how-to-guides/holders/fast-bridge" },
                 { label: "Stake your Torus", slug: "how-to-guides/holders/stake-your-torus" },
                 { label: "Vote on Proposals", slug: "how-to-guides/holders/vote-on-proposals" },
+                { label: "Standard Bridge", slug: "how-to-guides/holders/standard-bridge" },
               ],
             },
             {
