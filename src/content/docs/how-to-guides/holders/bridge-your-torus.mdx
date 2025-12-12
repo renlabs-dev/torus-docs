@@ -1,5 +1,5 @@
 ---
-title: Fast Bridge 
+title: Bridge your tokens
 description: Bridging from TORUS Base all the way to Native TORUS on the Network.
 ---
 
@@ -11,14 +11,14 @@ import {
 } from "@astrojs/starlight/components";
 import ClickableImage from '/src/components/ClickableImage.astro';
 import RedText from '/src/components/RedText.astro';
-import connectBothWallets from '/public/images/how-to-guide/simple-bridge/connect-both-wallets.png';
-import bridgeMechanisms from '/public/images/how-to-guide/simple-bridge/bridge-mecannisms.png';
+import connectBothWallets from '/public/images/how-to-guide/simple-bridge/Login in both wallets.png';
+import bridgeMechanisms from '/public/images/how-to-guide/simple-bridge/Bridge interface explained.png';
 
-In this guide, we'll **bridge TORUS between Torus and Base** using the Fast Bridge method.
+In this guide, we'll **bridge TORUS between Torus and Base**.
 This process is necessary in order to obtain **Native TORUS**, which is required to interact with Torus directly.
 This process also works to bridge from **Native TORUS** to **Base TORUS**.
 
-The Fast Bridge streamlines the bridging process by automating the intermediate steps, completing in minutes rather than requiring manual multi-step transactions.
+The bridge automates the intermediate steps, completing the transfer in minutes.
 
 #### Why bridge TORUS tokens?
 
@@ -64,7 +64,7 @@ To keep things clear and concise, **Native TORUS** will be referred to as **TORU
 
 <Steps>
 
-1. **Connect both the Torus and MetaMask wallets in the [Fast Bridge Web App](https://bridge.torus.network/?tab=simple&from=base&to=torus)**.
+1. **Connect both the Torus and MetaMask wallets in the [Bridge Web App](https://bridge.torus.network/)**.
    At the top right corner of the app, connect both your **Torus Wallet** and **MetaMask**.
    <ClickableImage src={connectBothWallets} alt="Connect both wallets" />
 
@@ -109,11 +109,6 @@ To keep things clear and concise, **Native TORUS** will be referred to as **TORU
 
 </Steps>
 
-<Aside type="caution">
-**If the process fails mid-transaction:**
-
-If your funds get stuck in the TORUS EVM layer, you can complete the bridging process using the [Standard Bridge](https://docs.torus.network/how-to-guides/holders/standard-bridge/) to transfer from TORUS EVM to TORUS.
-</Aside>
 
 ---
 
@@ -125,6 +120,21 @@ The process to bridge from TORUS back to Base TORUS is nearly identical. Simply 
 - Click **Submit Torus to Base transaction** instead
 
 Everything else remains the same - you'll still need to approve adding the Torus EVM network (if not already added) and sign both transactions in MetaMask. The bridge handles the rest automatically.
+
+---
+
+## Bridging Funds from EVM Layer
+
+<Aside type="tip" title="EVM Layer">
+If a transaction fails or something goes wrong during the bridging process, your funds may be in the EVM Layer. Don't worry, your funds are safe and can still be bridged.
+
+**Your funds will appear in the same location as your other funds in the bridge interface.** You have two ways to complete the bridge:
+
+1. **Transaction History**: Go to the transaction history and complete the bridging process for your transaction
+2. **Direct Bridging**: Click the **"EVM RECOVER"** button to finish the bridging process
+
+The process will finish the bridging and transfer your funds to their intended destination.
+</Aside>
 
 ---
 
