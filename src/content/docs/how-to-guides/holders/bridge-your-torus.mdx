@@ -1,0 +1,155 @@
+---
+title: Bridge your tokens
+description: Bridging from TORUS Base all the way to Native TORUS on the Network.
+---
+
+import {
+  Steps,
+  Aside,
+  CardGrid,
+  Card
+} from "@astrojs/starlight/components";
+import ClickableImage from '/src/components/ClickableImage.astro';
+import RedText from '/src/components/RedText.astro';
+import connectBothWallets from '/public/images/how-to-guide/simple-bridge/Login in both wallets.png';
+import bridgeMechanisms from '/public/images/how-to-guide/simple-bridge/Bridge interface explained.png';
+
+In this guide, we'll **bridge TORUS between Torus and Base**.
+This process is necessary in order to obtain **Native TORUS**, which is required to interact with Torus directly.
+This process also works to bridge from **Native TORUS** to **Base TORUS**.
+
+The bridge automates the intermediate steps, completing the transfer in minutes.
+
+#### Why bridge TORUS tokens?
+
+You need Native TORUS to participate in Torus - it's required for registering agents, becoming a Root Agent, staking, governance voting, and all on-chain activities. Bridging converts your Base TORUS into the native format.
+
+To keep things clear and concise, **Native TORUS** will be referred to as **TORUS** from this point forward.
+
+#### What we will accomplish
+
+- Bridge TORUS from Base to TORUS in one streamlined process
+- Bridge TORUS from Torus back to Base (bidirectional support) 
+
+<Aside>
+⏱️ **Estimated time to complete this guide: 4 minutes**
+</Aside>
+
+---
+
+## Prerequisites
+
+<CardGrid>
+  <Card title="Torus Wallet" icon="seti:license">
+    A Torus wallet connected.
+    If you don't have one, you can follow the [setup guide here](https://docs.torus.network/how-to-guides/holders/setup-a-wallet/).
+  </Card>
+
+  <Card title="Base TORUS Wallet" icon="seti:config">
+    For this guide, we will be using [MetaMask](https://metamask.io/) as our wallet of choice.
+    You must have enough funds to cover the bridge fees.
+    {/* If you don't have Base TORUS or funds to cover the fees, you can follow the steps in this video tutorial by Omni Labs. */}
+  </Card>
+</CardGrid>
+
+---
+
+<Aside type="danger">
+  Avoid storing BASE TORUS in SubWallet, as it will cause issues with the bridge that could result in loss of funds.
+</Aside>
+
+
+
+## Steps for the Bridge Process
+
+<Steps>
+
+1. **Connect both the Torus and MetaMask wallets in the [Bridge Web App](https://bridge.torus.network/)**.
+   At the top right corner of the app, connect both your **Torus Wallet** and **MetaMask**.
+   <ClickableImage src={connectBothWallets} alt="Connect both wallets" />
+
+2. **Swap from Base TORUS to TORUS**
+    - Make sure you are **connected** to **both wallets**
+    - Make sure it is <RedText variant="light">FROM</RedText> **Base TORUS** <RedText variant="light">TO</RedText> **TORUS**
+
+   Fill in the amount you want to convert, then click **Submit Base to Torus transaction**.
+
+   <ClickableImage src={bridgeMechanisms} alt="Bridge mechanisms interface" />
+
+3. **Add Torus EVM network to MetaMask**   
+   The bridge will automatically prompt MetaMask to switch to the Torus EVM network for the second transaction. If this is your first time, you may need to approve adding this network.
+
+   <Aside type="note" title="Manual network setup">
+   If the automatic network switch fails, manually add Torus EVM to MetaMask:
+
+   **Torus EVM Network Configuration:**
+   - **Network Name**: Torus EVM
+   - **Default RPC URL**: https://api.torus.network
+     *(Alternate: https://api-hyperlane.nodes.torus.network)*
+   - **Chain ID**: 21000
+   - **Currency Symbol**: TORUS
+   - **Block Explorer**: https://blockscout.torus.network
+
+   Follow [MetaMask's guide to add custom networks](https://support.metamask.io/networks-and-sidechains/managing-networks/how-to-add-a-custom-network-rpc/) using the configuration above.
+   </Aside>
+
+4. **Sign both transactions in MetaMask**   
+   You will need to approve two transactions - one on Base and one on Torus EVM. The second step is automated by the bridge, but requires your signature to complete.
+
+   <Aside type="caution">
+      Always verify transaction details before signing. Ensure you have enough funds in your MetaMask wallet to cover both transaction fees.
+   </Aside>
+
+5. **Confirmation of the swap**
+   After the transactions succeed, your Base TORUS should now be displayed as TORUS.
+   This process can take a while to complete on the blockchain,
+   so <RedText variant="light">please wait a few minutes and **don't** refresh the page.</RedText>
+
+   You should now have TORUS on Torus.
+
+</Steps>
+
+
+---
+
+## Bridging from TORUS to Base TORUS
+
+The process to bridge from TORUS back to Base TORUS is nearly identical. Simply follow the same steps above, but swap the direction:
+
+- In **Step 2**, make sure it is <RedText variant="light">FROM</RedText> **TORUS** <RedText variant="light">TO</RedText> **Base TORUS**
+- Click **Submit Torus to Base transaction** instead
+
+Everything else remains the same - you'll still need to approve adding the Torus EVM network (if not already added) and sign both transactions in MetaMask. The bridge handles the rest automatically.
+
+---
+
+## Bridging Funds from EVM Layer
+
+<Aside type="tip" title="EVM Layer">
+If a transaction fails or something goes wrong during the bridging process, your funds may be in the EVM Layer. Don't worry, your funds are safe and can still be bridged.
+
+**Your funds will appear in the same location as your other funds in the bridge interface.** You have two ways to complete the bridge:
+
+1. **Transaction History**: Go to the transaction history and complete the bridging process for your transaction
+2. **Direct Bridging**: Click the **"EVM RECOVER"** button to finish the bridging process
+
+The process will finish the bridging and transfer your funds to their intended destination.
+</Aside>
+
+---
+
+
+
+## What's Next?
+
+Now that you have TORUS tokens, you can:
+
+- **Start earning rewards**: [Stake your TORUS](https://docs.torus.network/how-to-guides/holders/stake-your-torus/) to support agents and earn emissions
+- **Become an agent**: [Register an agent](https://docs.torus.network/how-to-guides/builders/register-an-agent/) to provide services and earn directly
+- **Explore the ecosystem**: Browse agents and allocators on the [Torus Portal](https://torus.network/portal)
+- **Understand tokenomics**: Learn about [TORUS economics](https://docs.torus.network/explanations/holders/tokenomics/) and emission mechanisms
+
+ Connect with the community:
+- [Discord](https://discord.gg/torus) — Technical discussions, support, and announcements
+- [Telegram](https://t.me/torusnetwork) — General chat and announcements
+- [Twitter](https://x.com/torus_network) — Updates and ecosystem news
