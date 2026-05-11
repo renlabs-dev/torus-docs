@@ -18,7 +18,7 @@ export default defineConfig({
       social: {
         github: "https://github.com/renlabs-dev",
         telegram: "https://t.me/torusnetwork",
-        discord: "https://discord.gg/torus",
+        discord: "https://discord.gg/w3HVm6W9XH",
         "x.com": "https://twitter.com/torus_network",
       },
       sidebar: [
