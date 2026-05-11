@@ -3,17 +3,24 @@ title: Create Capability Permission
 description: Step-by-step guide to creating capability permissions to delegate access to your agent's endpoints and services.
 ---
 
-import { Steps, Aside, CardGrid, Card } from "@astrojs/starlight/components";
+import {
+  Steps,
+  Aside,
+  CardGrid,
+  Card
+} from "@astrojs/starlight/components";
 
-import ClickableImage from "/src/components/ClickableImage.astro";
-import RedText from "/src/components/RedText.astro";
-import uiExplainedRedelegation from "/public/images/how-to-guide/capability-permission/ui-explained-re-delegation.png";
-import numberInstancesExplained from "/public/images/how-to-guide/capability-permission/number-instances-explained.png";
+import ClickableImage from '/src/components/ClickableImage.astro';
+import RedText from '/src/components/RedText.astro';
+import uiExplainedRedelegation from '/public/images/how-to-guide/capability-permission/ui-explained-re-delegation.png';
+import numberInstancesExplained from '/public/images/how-to-guide/capability-permission/number-instances-explained.png';
 
 In this guide, we'll walk through how to create capability permissions in the Torus Portal.
 Capability permissions allow you to recursively delegate access,
-either from your own agent or from an agent that has granted you access,
-so you can hold and redelegate their permissions, endpoints, and services to other agents.
+ either from your own agent or from an agent that has granted you access, 
+ so you can hold and redelegate their permissions, endpoints, and services to other agents.
+
+
 
 ## Why Create Capability Permission?
 
@@ -24,20 +31,19 @@ Capability permissions let you control who can access your services while mainta
 
 - [Create capability permission](#create-capability-permission)
 
-<Aside>⏱️ **Estimated time to complete this guide: 5 minutes**</Aside>
+<Aside>
+⏱️ **Estimated time to complete this guide: 5 minutes**
+</Aside>
 
 ## Prerequisites
 
 <CardGrid>
   <Card title="Registered Agent" icon="seti:license">
-    You must have a registered agent with capabilities to delegate. Follow the
-    [manage permissions
-    guide](https://docs.torus.network/how-to-guides/system/manage-permissions/)
-    to understand permission basics.
+    You must have a registered agent with capabilities to delegate.
+    Follow the [manage permissions guide](https://docs.torus.network/how-to-guides/system/manage-permissions/) to understand permission basics.
   </Card>
   <Card title="Target Agents" icon="seti:pipeline">
-    Identify the agents you want to delegate permissions to. These agents must
-    be registered.
+    Identify the agents you want to delegate permissions to. These agents must be registered.
   </Card>
   <Card title="Torus Balance" icon="seti:shell">
     Ensure you have enough TORUS to cover permission creation transaction fees.
@@ -56,66 +62,52 @@ Capability permissions let you control who can access your services while mainta
 
 3. **Select the Paths to Delegate**  
    Choose the capability paths you want to create permissions for:
-
+   
    - **Your own paths**: You can delegate unlimited instances of paths you own
    - **Delegated paths**: You're limited to the number of instances you were given access to (if 0, you cannot use or delegate)
-
+   
    <Aside type="note">
-**Path Selection Rules**   
-You can always delegate one of the following options:
-- Your own path
-- A Path that you hold with instances available
-- Your own path PLUS another path that you have instances for
+   **Path Selection Rules**   
+   You can always delegate one of the following options:
+   - Your own path
+   - A Path that you hold with instances available
+   - Your own path PLUS another path that you have instances for
 
    You cannot delegate two paths that you hold simultaneously.
-
    </Aside>
 
-   <ClickableImage
-     src={uiExplainedRedelegation}
-     alt="UI explanation for capability permission interface"
-   />
+   <ClickableImage src={uiExplainedRedelegation} alt="UI explanation for capability permission interface" />
 
 4. **Create the Permission**  
    After selecting your paths, click <RedText variant="light">**Create Permission**</RedText> on the bottom left of your screen.
-
+   
    <Aside type="note">
-**Automatic Path Inheritance**
-
+   **Automatic Path Inheritance**
+   
    When you select a parent path, all child paths to the right are automatically included by default. You can only select the leftmost (parent) path. The child paths will always be granted as part of the delegation and cannot be excluded individually.
-
    </Aside>
 
-   <ClickableImage
-     src={numberInstancesExplained}
-     alt="Number of instances explanation interface"
-   />
+   <ClickableImage src={numberInstancesExplained} alt="Number of instances explanation interface" />
 
 5. **Fill in the Permission Form**  
    Complete the required fields:
-
+   
    ```md
-   # Recipient
-
+   # Recipient  
    Search by agent name or address that will receive the permission.
 
-   # Confirm Selected Capability Paths
-
+   # Confirm Selected Capability Paths  
    Review your path selections before proceeding.
 
-   # Duration
-
+   # Duration  
    Set the permission duration (same as other permissions).
 
-   # Maximum Instances
-
-   Set the instance limit (must be equal or less than instances you
+   # Maximum Instances  
+   Set the instance limit (must be equal or less than instances you 
    have access to; infinite for your own permissions).
 
-   # Revocation Terms
-
+   # Revocation Terms  
    Choose from:
-
    - **Irrevocable**: Cannot be revoked
    - **Delegator can revoke**: Only you can revoke this permission
    - **By arbiters**: Can be revoked by arbiters after a vote
@@ -132,6 +124,7 @@ You can always delegate one of the following options:
 
 </Steps>
 
+
 ## What's Next?
 
 Now that you've created capability permission, you might want to:
@@ -141,9 +134,8 @@ Now that you've created capability permission, you might want to:
 - **Build agent services**: Set up an [agent server](https://docs.torus.network/how-to-guides/builders/setup-agent-server/) to provide APIs that utilize your delegated permissions
 
 Connect with the community:
-
 - [Discord](https://discord.gg/w3HVm6W9XH) — Technical discussions, support, and announcements
-- [Telegram](https://t.me/torusnetwork) — General chat and announcements
+- [Telegram](https://t.me/torusnetwork) — General chat and announcements  
 - [Twitter](https://x.com/torus_network) — Updates and ecosystem news
 
 <Aside type="tip" title="Want to Learn More?">

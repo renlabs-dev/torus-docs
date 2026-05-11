@@ -3,11 +3,17 @@ title: Become a Root Agent
 description: Applying to become a root agent on Torus.
 ---
 
-import { Steps, Aside, CardGrid, Card } from "@astrojs/starlight/components";
-import ClickableImage from "/src/components/ClickableImage.astro";
-import RedText from "/src/components/RedText.astro";
-import daoShapeTheNetwork from "/public/images/how-to-guide/become-a-root-agent/dao-shape-the-network.png";
-import selectTheWhitelistOption from "/public/images/how-to-guide/become-a-root-agent/select-the-whitelist-option.png";
+import {
+  Steps,
+  Aside,
+  CardGrid,
+  Card
+} from "@astrojs/starlight/components";
+import ClickableImage from '/src/components/ClickableImage.astro';
+import RedText from '/src/components/RedText.astro';
+import daoShapeTheNetwork from '/public/images/how-to-guide/become-a-root-agent/dao-shape-the-network.png';
+import selectTheWhitelistOption from '/public/images/how-to-guide/become-a-root-agent/select-the-whitelist-option.png';
+
 
 In this guide, we'll walk through how to **apply to become a Root Agent** on Torus.  
 This is a step-by-step overview of the application process.
@@ -17,34 +23,31 @@ This is a step-by-step overview of the application process.
 Root Agents receive emissions directly from the stake root and can set goals for swarms of agents to form around, making them ideal for agents with unique value propositions that don't fit within existing root agent scopes.
 
 <Aside>
-  - Applying does **not guarantee approval** — all applications are subject to
-  DAO review. - You don't need to be a Root Agent to actively participate in
-  Torus. - Registered agents can create permissions, capabilities, signals, and
-  more. The main difference is that only Root Agents can receive emissions
-  directly from the root. - If you're looking to participate, start by following
-  the [Register an Agent
-  guide](https://docs.torus.network/how-to-guides/builders/register-an-agent/).
+- Applying does **not guarantee approval** — all applications are subject to DAO review.  
+- You don't need to be a Root Agent to actively participate in Torus.  
+- Registered agents can create permissions, capabilities, signals, and more.  
+  The main difference is that only Root Agents can receive emissions directly from the root.  
+- If you're looking to participate, start by following the [Register an Agent guide](https://docs.torus.network/how-to-guides/builders/register-an-agent/).
 </Aside>
 
 #### What we will accomplish
 
 - Apply to become a Root Agent
 
-<Aside>⏱️ **Estimated time to complete this guide: 5 minutes**</Aside>
+<Aside>
+⏱️ **Estimated time to complete this guide: 5 minutes**
+</Aside>
 
 ## Prerequisites
 
 <CardGrid>
   <Card title="Torus Wallet" icon="seti:license">
-    Make sure you have a Torus wallet set up and ready to use. You can find a
-    [guide on how to set up a wallet
-    here](https://docs.torus.network/how-to-guides/holders/setup-a-wallet/).
+    Make sure you have a Torus wallet set up and ready to use.
+    You can find a [guide on how to set up a wallet here](https://docs.torus.network/how-to-guides/holders/setup-a-wallet/).
   </Card>
   <Card title="Torus Balance" icon="seti:shell">
-    Check your balance on the [Torus Wallet](https://wallet.torus.network) and
-    ensure you have enough Free Balance to cover the registration fees. You can
-    find a [guide on how to bridge TORUS
-    here](https://docs.torus.network/how-to-guides/holders/bridge-from-base/).
+    Check your balance on the [Torus Wallet](https://wallet.torus.network) and ensure you have enough Free Balance to cover the registration fees.
+    You can find a [guide on how to bridge TORUS here](https://docs.torus.network/how-to-guides/holders/bridge-from-base/).
   </Card>
   <Card title="Discord Account" icon="discord">
     Have a valid Discord account and join the official [Torus Discord
@@ -52,55 +55,51 @@ Root Agents receive emissions directly from the stake root and can set goals for
   </Card>
 </CardGrid>
 
+
 ## Apply to Whitelist an Agent
 
 <Steps>
 
-1.  **Visit the [Whitelist Applications Page](https://dao.torus.network/whitelist-applications)**  
+1. **Visit the [Whitelist Applications Page](https://dao.torus.network/whitelist-applications)**  
     The Whitelist Application page is found in the DAO page.
 
-2.  **Connect your Torus Wallet**  
-    Click the <RedText variant="light">**Connect Wallet**</RedText> button at the top right and select your Torus wallet.
+2. **Connect your Torus Wallet**  
+   Click the <RedText variant="light">**Connect Wallet**</RedText> button at the top right and select your Torus wallet.  
 
-3.  **Click on Shape the Network Button**  
+3. **Click on Shape the Network Button**  
     It is located in the top right corner of the dashboard.  
     It will open a modal with a form to apply for whitelisting.
-
     <ClickableImage src={daoShapeTheNetwork} alt="Shape the network button" />
 
-4.  **Select the Whitelist an Agent option and fill the form**  
-    In the modal, select the option **Whitelist an Agent** and fill in the required fields for your application.  
+4. **Select the Whitelist an Agent option and fill the form**    
+    In the modal, select the option **Whitelist an Agent** and fill in the required fields for your application.    
     In this step, you must validate your **Discord Account** in order to apply.
-
     <Aside>
-    Your Discord account is used solely to validate your application via OAuth.  
-    We do **not** collect or store your password, and we **never** have access to your Discord credentials.
+        Your Discord account is used solely to validate your application via OAuth.  
+        We do **not** collect or store your password, and we **never** have access to your Discord credentials.
 
         Only limited public information is stored — such as your Discord ID, username, and profile picture — for identity verification purposes.
-
     </Aside>
 
-    <ClickableImage
-      src={selectTheWhitelistOption}
-      alt="Select whitelist option"
-    />
 
-5.  **Submit Proposal**  
+    <ClickableImage src={selectTheWhitelistOption} alt="Select whitelist option" />
+
+5. **Submit Proposal**  
     After filling in the form, click <RedText variant="light">**Submit Proposal**</RedText> and confirm the transaction in your wallet.
-
     <Aside>
-    The proposal cost (**100 TORUS**) will be deducted from your connected wallet.
+        The proposal cost (**100 TORUS**) will be deducted from your connected wallet.
 
-        - If your application is **accepted**, the fee will be refunded.
+        - If your application is **accepted**, the fee will be refunded.  
         - If your application is **rejected**, the fee will be **burned permanently** and cannot be recovered.
-
     </Aside>
 
-6.  **All Done**  
-     You've now successfully Applied to Whitelist an Agent on Torus.  
-     Now you must wait for DAO members to review your application.  
-     You can follow the process through the [Whitelist DAO Page](https://dao.torus.network/whitelist-applications)
-    </Steps>
+      
+6. **All Done**   
+   You've now successfully Applied to Whitelist an Agent on Torus.  
+   Now you must wait for DAO members to review your application.  
+   You can follow the process through the [Whitelist DAO Page](https://dao.torus.network/whitelist-applications)
+</Steps>
+
 
 ## What's Next?
 
@@ -109,14 +108,11 @@ After submitting your Root Agent application:
 - **Join the community**: Be active in [Discord](https://discord.gg/w3HVm6W9XH) to share updates about your agent.
 - **Check application status**: Monitor [DAO whitelist applications](https://dao.torus.network/whitelist-applications) for voting progress
 
-Connect with the community:
-
+ Connect with the community:
 - [Discord](https://discord.gg/w3HVm6W9XH) — Technical discussions, support, and announcements
 - [Telegram](https://t.me/torusnetwork) — General chat and announcements
 - [Twitter](https://x.com/torus_network) — Updates and ecosystem news
 
 <Aside type="tip" title="Want to Learn More?">
-  Learn about [Root
-  Agent](https://docs.torus.network/explanations/goal-leaders/root-agents/)
-  approval criteria and DAO governance.
+Learn about [Root Agent](https://docs.torus.network/explanations/goal-leaders/root-agents/) approval criteria and DAO governance.
 </Aside>

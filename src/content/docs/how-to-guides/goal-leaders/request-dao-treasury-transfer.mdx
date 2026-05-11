@@ -3,10 +3,15 @@ title: Request DAO Treasury Transfer
 description: Step-by-step guide to requesting TORUS funding from the DAO Treasury for building projects and initiatives.
 ---
 
-import { Steps, Aside, CardGrid, Card } from "@astrojs/starlight/components";
+import {
+  Steps,
+  Aside,
+  CardGrid,
+  Card
+} from "@astrojs/starlight/components";
 
-import ClickableImage from "/src/components/ClickableImage.astro";
-import RedText from "/src/components/RedText.astro";
+import ClickableImage from '/src/components/ClickableImage.astro';
+import RedText from '/src/components/RedText.astro';
 
 In this guide, we'll walk through the process of **requesting a transfer from the DAO Treasury** to fund your building projects or initiatives.
 
@@ -20,20 +25,20 @@ DAO Treasury transfers provide essential funding for builders who need capital t
 
 - Submit a proposal to request TORUS from the DAO Treasury
 
-<Aside>⏱️ **Estimated time to complete this guide: 30 minutes**</Aside>
+<Aside>
+⏱️ **Estimated time to complete this guide: 30 minutes**
+</Aside>
 
 ## Prerequisites
 
 <CardGrid>
   <Card title="Torus Wallet" icon="seti:license">
-    You must have a Torus wallet set up with sufficient balance to cover the
-    proposal cost. You can find a [guide on how to set up a wallet
-    here](https://docs.torus.network/how-to-guides/holders/setup-a-wallet/).
+    You must have a Torus wallet set up with sufficient balance to cover the proposal cost.
+    You can find a [guide on how to set up a wallet here](https://docs.torus.network/how-to-guides/holders/setup-a-wallet/).
   </Card>
   <Card title="Proposal Cost Balance" icon="seti:shell">
-    Ensure you have at least **10,000 TORUS** in your wallet to cover the
-    proposal cost. You can find a [guide on how to bridge TORUS
-    here](https://docs.torus.network/how-to-guides/holders/bridge-from-base/).
+    Ensure you have at least **10,000 TORUS** in your wallet to cover the proposal cost.
+    You can find a [guide on how to bridge TORUS here](https://docs.torus.network/how-to-guides/holders/bridge-from-base/).
   </Card>
 </CardGrid>
 
@@ -44,12 +49,10 @@ DAO Treasury transfers provide essential funding for builders who need capital t
 1. **Visit the [Proposals Tab in the DAO Governance Portal](https://dao.torus.network/proposals)**  
    Navigate to the **Shape the Network** section in the Torus DAO Portal.
 
-2. **Connect your Wallet**
+2. **Connect your Wallet**  
+   <RedText variant="light">Ensure you're connected with a wallet</RedText> that has at least 10,000 TORUS for the proposal cost.
 
-   <RedText variant="light">Ensure you're connected with a wallet</RedText> that
-   has at least 10,000 TORUS for the proposal cost.
-
-3. **Click in Shape the Network**  
+3. **Click in Shape the Network**   
    It can be found in the top right corner of the page.
 
 4. **Select "Transfer DAO Treasury" Type**  
@@ -57,46 +60,43 @@ DAO Treasury transfers provide essential funding for builders who need capital t
 
 5. **Complete the Transfer Request Form**  
    Fill out the required information:
-
+   
    ```md
    # Destination
-
    [Enter the wallet address where funds should be sent]
-
-   # Value
-
+   
+   # Value 
    [Specify the amount in TORUS you're requesting]
-
+   
    # Application Title
-
    [Provide a clear, descriptive title for your project]
-
+   
    # Application Body
-
    [Write a detailed explanation including:
-
    - Project overview and objectives
-   - How it benefits the Torus ecosystem
+   - How it benefits the Torus ecosystem  
    - Timeline and milestones
    - Budget breakdown and justification
    - Your background and qualifications]
    ```
-
-6. **Submit and Sign the Transaction**  
+5. **Submit and Sign the Transaction**  
    The proposal cost is **10,000 TORUS** which will be <RedText variant="light">deducted from your connected wallet</RedText>.
    Review all information carefully, then click **Submit Proposal**.  
    Open the SubWallet extension and <RedText variant="light">sign the transaction</RedText> to pay the proposal cost.
 
    <Aside type="caution">
-     The proposal cost will be refunded if your proposal is approved, but will
-     go to the Treasury if rejected.
+   The proposal cost will be refunded if your proposal is approved, but will go to the Treasury if rejected.
    </Aside>
 
-7. **All Done**  
+6. **All Done**  
    You've successfully submitted a proposal to request TORUS from the DAO Treasury.
    Now you must wait for community feedback and voting.
 
+
+
 </Steps>
+
+
 
 ## What's Next?
 
@@ -107,13 +107,10 @@ After submitting your treasury request:
 - **Direct Treasury Address**: `5EYCAe5jXm8DLvvQ2YjbsmnoMpDHAfokKZfg12KzGSSAzM4D`
 
 Connect with the community:
-
 - [Discord](https://discord.gg/w3HVm6W9XH) — Technical discussions, support, and announcements
 - [Telegram](https://t.me/torusnetwork) — General chat and announcements
 - [Twitter](https://x.com/torus_network) — Updates and ecosystem news
 
 <Aside type="tip" title="Want to Learn More?">
-  Learn about [DAO Treasury
-  mechanisms](https://docs.torus.network/explanations/goal-leaders/dao-treasury/)
-  and governance processes.
+Learn about [DAO Treasury mechanisms](https://docs.torus.network/explanations/goal-leaders/dao-treasury/) and governance processes.
 </Aside>

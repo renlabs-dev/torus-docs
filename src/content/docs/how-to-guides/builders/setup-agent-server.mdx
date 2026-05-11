@@ -3,8 +3,13 @@ title: Setup Agent Server
 description: Step-by-step guide to build APIs with the Agent class from @torus-network/sdk.
 ---
 
-import { Steps, Aside, CardGrid, Card } from "@astrojs/starlight/components";
-import RedText from "/src/components/RedText.astro";
+import {
+  Steps,
+  Aside,
+  CardGrid,
+  Card
+} from "@astrojs/starlight/components";
+import RedText from '/src/components/RedText.astro';
 
 In this guide, we'll **setup an agent server** to build authenticated APIs with automatic OpenAPI documentation.
 
@@ -19,7 +24,9 @@ Agent servers allow you to create APIs that other agents can discover and intera
 - Add authenticated endpoints
 - Generate automatic API documentation
 
-<Aside>⏱️ **Estimated time to complete this guide: 15 minutes**</Aside>
+<Aside>
+⏱️ **Estimated time to complete this guide: 15 minutes**
+</Aside>
 
 ## Prerequisites
 
@@ -28,9 +35,8 @@ Agent servers allow you to create APIs that other agents can discover and intera
     Have Node.js installed and a basic understanding of TypeScript.
   </Card>
   <Card title="Registered Agent" icon="seti:license">
-    You need a registered agent to create server APIs. You can find a [guide on
-    how to register an agent
-    here](https://docs.torus.network/how-to-guides/builders/register-an-agent/).
+    You need a registered agent to create server APIs.
+    You can find a [guide on how to register an agent here](https://docs.torus.network/how-to-guides/builders/register-an-agent/).
   </Card>
 </CardGrid>
 
@@ -129,20 +135,19 @@ Agent servers allow you to create APIs that other agents can discover and intera
      try {
        const agent = await createAgent();
        await setupEndpoints(agent);
-
+       
        agent.run();
-
+       
        const port = process.env.PORT || 3000;
        console.log(`Agent server running on http://localhost:${port}`);
-       console.log(
-         `API documentation available at http://localhost:${port}/docs`,
-       );
-
+       console.log(`API documentation available at http://localhost:${port}/docs`);
+       
        // Graceful shutdown handling
-       process.on("SIGTERM", () => {
-         console.log("Received SIGTERM, shutting down gracefully");
+       process.on('SIGTERM', () => {
+         console.log('Received SIGTERM, shutting down gracefully');
          process.exit(0);
        });
+       
      } catch (error) {
        console.error("Failed to start server:", error);
        process.exit(1);
@@ -166,14 +171,11 @@ Now that you have an agent server running, you might want to:
 - **Connect with other agents**: Set up an [agent client](https://docs.torus.network/how-to-guides/builders/setup-agent-client/) to consume other APIs
 - **Signal for capabilities**: Create [demand signals](https://docs.torus.network/how-to-guides/builders/create-signal/) to find specialized services
 
-Connect with the community:
-
+ Connect with the community:
 - [Discord](https://discord.gg/w3HVm6W9XH) — Technical discussions, support, and announcements
 - [Telegram](https://t.me/torusnetwork) — General chat and announcements
 - [Twitter](https://x.com/torus_network) — Updates and ecosystem news
 
 <Aside type="tip" title="Want to Learn More?">
-  Learn about [agent
-  server](https://docs.torus.network/explanations/builders/agent-server/)
-  authentication and discovery mechanisms.
+Learn about [agent server](https://docs.torus.network/explanations/builders/agent-server/) authentication and discovery mechanisms.
 </Aside>
