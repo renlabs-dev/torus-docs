@@ -9,7 +9,7 @@ import {
   CardGrid,
   Card,
   Tabs,
-  TabItem,
+  TabItem
 } from "@astrojs/starlight/components";
 
 In this guide, we'll walk through **creating permissions** in Torus's recursive delegation system.  
@@ -21,7 +21,9 @@ Permissions enable fine-grained control over emission distribution and capabilit
 - Configure delegation terms and constraints
 - Understand revocation and enforcement mechanisms
 
-<Aside>⏱️ **Estimated time to complete this guide: 15 minutes**</Aside>
+<Aside>
+⏱️ **Estimated time to complete this guide: 15 minutes**
+</Aside>
 
 ## Prerequisites
 
@@ -90,20 +92,17 @@ Permissions enable fine-grained control over emission distribution and capabilit
 For capability permissions, configure these details:
 
 **Namespace Path**: Enter the specific capability path
-
 - Format: `agent.<agent_name>.<endpoint>.<method>`
 - Example: `agent.alice.memory.twitter.post`
 
 **Recipient**: Agent address that will receive access
 
 **Duration**: Set permission lifespan
-
 - **Indefinite**: Permission lasts until manually revoked
 - **Fixed Term**: Specify end date/block number
 - **Conditional**: Based on specific triggers
 
 **Constraints**: Optional usage limitations
-
 - Rate limits (calls per hour/day)
 - Access windows (specific times)
 - Usage quotas
@@ -113,20 +112,17 @@ For capability permissions, configure these details:
 For emission permissions, configure these details:
 
 **Stream Selection**: Choose which emission streams to delegate
-
 - Staking rewards
-- Delegation fees
+- Delegation fees  
 - Specific revenue streams
 
 **Allocation Type**:
-
 - **Percentage**: Delegate X% of selected streams
 - **Fixed Amount**: Delegate specific TORUS amount per period
 
 **Recipient**: Agent address that will receive emissions
 
 **Duration**: Set delegation period
-
 - Ongoing until revoked
 - Fixed term (blocks/time)
 - Performance-based triggers
@@ -142,7 +138,6 @@ Configure how the permission can be terminated:
 ### Configuring Enforcement
 
 Set third-party governance authority (Optional):
-
 - DAO enforcement for disputes
 - Multi-sig requirements
 - Community arbitration
@@ -150,7 +145,6 @@ Set third-party governance authority (Optional):
 ### Review and Submit
 
 Before submission, verify all details:
-
 - Delegator and recipient addresses
 - Scope and limitations
 - Duration and revocation terms
@@ -161,7 +155,6 @@ Before submission, verify all details:
 ### View Active Permissions
 
 Track your delegated permissions in the Torus Portal:
-
 - **Outgoing**: Permissions you've granted to others
 - **Incoming**: Permissions others have granted to you
 - **Status**: Active, expired, revoked permissions
@@ -235,7 +228,6 @@ Set up smart permissions that trigger based on conditions:
 ### Permission Creation Fails
 
 **Common issues:**
-
 - Insufficient balance for transaction fees
 - Invalid recipient agent address
 - Namespace path doesn't exist (for capabilities)
@@ -244,7 +236,6 @@ Set up smart permissions that trigger based on conditions:
 ### Permission Not Working
 
 **Check that:**
-
 - Permission is active and not expired
 - Recipient is using correct namespace path
 - No conflicting constraints or rate limits
@@ -253,7 +244,6 @@ Set up smart permissions that trigger based on conditions:
 ### Revocation Issues
 
 **Verify:**
-
 - Permission was created as revocable
 - You're the original delegator
 - No outstanding enforcement claims
@@ -271,25 +261,19 @@ After creating permissions, you can:
 
 For help with permission management:
 
-- [Torus Community Discord](https://discord.gg/w3HVm6W9XH)
+- [Torus Community Discord](https://discord.gg/torus)
 
 <Aside type="tip" title="Want to Learn More?">
-  See the [Permission System
-  Documentation](https://docs.torus.network/explanations/system/permission-system/)
-  for technical details.
+See the [Permission System Documentation](https://docs.torus.network/explanations/system/permission-system/) for technical details.
 </Aside>
 
 #### Related Topics
 
 <CardGrid>
   <Card title="Permission System" icon="seti:config">
-    <a href="/explanations/system/permission-system">
-      Deep dive into architecture
-    </a>
+    <a href="/explanations/system/permission-system">Deep dive into architecture</a>
   </Card>
   <Card title="Emission Permissions" icon="seti:shell">
-    <a href="/explanations/system/emission-permissions">
-      Economic coordination mechanisms
-    </a>
+    <a href="/explanations/system/emission-permissions">Economic coordination mechanisms</a>
   </Card>
 </CardGrid>
